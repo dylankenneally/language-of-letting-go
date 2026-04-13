@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% if title %}
+      <title>{{ title }} | {{ site.title }}</title>
+    {% else %}
+      <title>{{ site.title }} | {{ site.description }}</title>
+    {% endif %}
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f6f1e8;
+        --paper: #fffdf8;
+        --ink: #1f2933;
+        --muted: #6b7280;
+        --accent: #235347;
+        --border: #ded6c8;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: Georgia, "Times New Roman", serif;
+        color: var(--ink);
+        background:
+          radial-gradient(circle at top, rgba(255, 255, 255, 0.75), transparent 40%),
+          linear-gradient(180deg, #efe7d9 0%, var(--bg) 100%);
+      }
+
+      a {
+        color: var(--accent);
+      }
+
+      .shell {
+        width: min(100%, 72rem);
+        margin: 0 auto;
+        padding: 2rem 1rem 4rem;
+      }
+
+      .card {
+        background: var(--paper);
+        border: 1px solid var(--border);
+        border-radius: 1.25rem;
+        box-shadow: 0 1rem 3rem rgba(31, 41, 51, 0.08);
+      }
+
+      .site-header {
+        margin-bottom: 2rem;
+        padding: 1.5rem;
+      }
+
+      .site-header h1,
+      .site-header p {
+        margin: 0;
+      }
+
+      .site-header p {
+        margin-top: 0.75rem;
+        color: var(--muted);
+      }
+
+      .content {
+        padding: 1.5rem;
+      }
+
+      .date {
+        color: var(--muted);
+        font-size: 0.95rem;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+      }
+
+      .meditation-list {
+        list-style: none;
+        padding: 0;
+        margin: 1.5rem 0 0;
+        display: grid;
+        gap: 0.75rem;
+      }
+
+      .meditation-list a {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 1rem 1.1rem;
+        text-decoration: none;
+        border: 1px solid var(--border);
+        border-radius: 0.9rem;
+        background: rgba(255, 255, 255, 0.72);
+      }
+
+      .meditation-list a:hover {
+        background: #fff;
+      }
+
+      .meditation-list a.is-current {
+        border-color: var(--accent);
+        background: #f0f6f2;
+      }
+
+      .featured-meditation {
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        border: 1px solid var(--border);
+        border-radius: 1rem;
+        background: linear-gradient(180deg, #fffefb 0%, #f8f4ec 100%);
+      }
+
+      .featured-title {
+        margin: 0.25rem 0 0.5rem;
+      }
+
+      .featured-link {
+        display: inline-block;
+        margin-top: 1rem;
+      }
+
+      .quote,
+      .focal-point {
+        display: block;
+        padding: 1rem 1.1rem;
+        margin: 1.5rem 0;
+        border-left: 4px solid var(--accent);
+        background: #f5f8f2;
+      }
+
+      .quote-attribution {
+        display: block;
+        margin-top: 0.75rem;
+        color: var(--muted);
+        font-style: italic;
+      }
+
+      .prose {
+        line-height: 1.75;
+        font-size: 1.1rem;
+      }
+
+      .back-link {
+        display: inline-block;
+        margin-bottom: 1rem;
+      }
+
+      .meditation-nav {
+        margin-top: 2rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid var(--border);
+        display: grid;
+        gap: 1rem;
+      }
+
+      .meditation-nav-group {
+        display: grid;
+        gap: 0.5rem;
+      }
+
+      .meditation-nav-label {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.85rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .meditation-nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+      }
+
+      .meditation-nav-link {
+        display: inline-flex;
+        align-items: center;
+        min-height: 2.75rem;
+        padding: 0.75rem 1rem;
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.8);
+        text-decoration: none;
+      }
+
+      .meditation-nav-link:hover {
+        background: #fff;
+      }
+
+      .meditation-nav-link.secondary {
+        color: var(--muted);
+        border-style: dashed;
+        background: transparent;
+        opacity: 0.8;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="shell">
+      <header class="site-header card">
+        <h1><a href="/" style="text-decoration: none; color: inherit;">{{ site.title }}</a></h1>
+        <p>{{ site.description }}</p>
+      </header>
+      <section class="content card">
+        {{ content | safe }}
+      </section>
+    </main>
+  </body>
+</html>

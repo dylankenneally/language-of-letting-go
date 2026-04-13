@@ -1,0 +1,27 @@
+{
+  "name": "language-of-letting-go",
+  "version": "1.0.0",
+  "private": true,
+  "description": "The Language of Letting Go. Daily Meditations on Codependency.",
+  "keywords": [
+    "language of letting go",
+    "meditation",
+    "codependency",
+    "recovery"
+  ],
+  "scripts": {
+    "build": "eleventy",
+    "start": "eleventy --serve --quiet"
+  },
+  "homepage": "https://dylankenneally.github.io/language-of-letting-go",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dylankenneally/language-of-letting-go"
+  },
+  "license": "MIT",
+  "author": "Dylan Kenneally",
+  "type": "module",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.5"
+  }
+}

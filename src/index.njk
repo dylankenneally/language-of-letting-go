@@ -1,0 +1,65 @@
+---
+layout: base.njk
+---
+<p>This site currently includes {{ collections.meditations | length }} daily meditations.</p>
+
+{% set firstMeditation = collections.meditations[0] %}
+<article class="featured-meditation" id="today-meditation">
+  <p class="date" id="today-meditation-date">{{ firstMeditation.data.displayDate }}</p>
+  <h2 class="featured-title" id="today-meditation-title">{{ firstMeditation.data.title }}</h2>
+  <div class="prose" id="today-meditation-content">
+    {{ firstMeditation.content | safe }}
+  </div>
+  <p><a class="featured-link" id="today-meditation-link" href="{{ firstMeditation.url }}">{{ firstMeditation.data.displayDate }}</a></p>
+</article>
+
+<ul class="meditation-list">
+  {% for meditation in collections.meditations %}
+    <li>
+      <a href="{{ meditation.url }}" data-meditation-id="{{ meditation.fileSlug }}">
+        <strong>{{ meditation.data.title }}</strong>
+        <span>{{ meditation.data.displayDate }}</span>
+      </a>
+    </li>
+  {% endfor %}
+</ul>
+
+<script id="meditations-data" type="application/json">
+[
+  {% for meditation in collections.meditations %}
+    {
+      "id": {{ meditation.fileSlug | dump | safe }},
+      "title": {{ meditation.data.title | dump | safe }},
+      "displayDate": {{ meditation.data.displayDate | dump | safe }},
+      "url": {{ meditation.url | dump | safe }},
+      "content": {{ meditation.content | dump | safe }}
+    }{% if not loop.last %},{% endif %}
+  {% endfor %}
+]
+</script>
+
+<script>
+  const meditationDataNode = document.getElementById("meditations-data");
+
+  if (meditationDataNode) {
+    const meditations = JSON.parse(meditationDataNode.textContent);
+    const now = new Date();
+    const month = String(now.getMonth() + 1).padStart(2, "0");
+    const day = String(now.getDate()).padStart(2, "0");
+    const todayId = `${month}.${day}`;
+    const todaysMeditation = meditations.find((meditation) => meditation.id === todayId);
+
+    if (todaysMeditation) {
+      document.getElementById("today-meditation-date").textContent = todaysMeditation.displayDate;
+      document.getElementById("today-meditation-title").textContent = todaysMeditation.title;
+      document.getElementById("today-meditation-content").innerHTML = todaysMeditation.content;
+      document.getElementById("today-meditation-link").href = todaysMeditation.url;
+      document.getElementById("today-meditation-link").textContent = todaysMeditation.displayDate;
+
+      const currentLink = document.querySelector(`[data-meditation-id="${todaysMeditation.id}"]`);
+      if (currentLink) {
+        currentLink.classList.add("is-current");
+      }
+    }
+  }
+</script>

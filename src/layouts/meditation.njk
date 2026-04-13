@@ -1,0 +1,96 @@
+---
+layout: base.njk
+---
+<p class="date">{{ displayDate }}</p>
+<h2>{{ title }}</h2>
+<div class="prose">
+  {{ content | safe }}
+</div>
+
+<nav class="meditation-nav" aria-label="Adjacent meditations" data-current-meditation="{{ page.fileSlug }}">
+  <div class="meditation-nav-group">
+    <p class="meditation-nav-label">Previous</p>
+    <div class="meditation-nav-links" id="previous-meditation-links"></div>
+  </div>
+  <div class="meditation-nav-group">
+    <p class="meditation-nav-label">Next</p>
+    <div class="meditation-nav-links" id="next-meditation-links"></div>
+  </div>
+</nav>
+
+<script id="meditation-nav-data" type="application/json">
+[
+  {% for meditation in collections.meditations %}
+    {
+      "id": {{ meditation.fileSlug | dump | safe }},
+      "displayDate": {{ meditation.data.displayDate | dump | safe }},
+      "url": {{ meditation.url | dump | safe }}
+    }{% if not loop.last %},{% endif %}
+  {% endfor %}
+]
+</script>
+
+<script>
+  function updatePrevNextLinks() {
+    const navRoot = document.querySelector("[data-current-meditation]");
+    console.assert(navRoot);
+    if (!navRoot) {
+      return;
+    }
+
+    const navDataNode = document.getElementById("meditation-nav-data");
+    console.assert(navDataNode);
+    if (!navDataNode) {
+      return;
+    }
+
+    const meditations = JSON.parse(navDataNode.textContent);
+    const currentId = navRoot.dataset.currentMeditation;
+    const currentIndex = meditations.findIndex((meditation) => meditation.id === currentId);
+    if (currentIndex === -1) {
+      return;
+    }
+
+    const byId = new Map(meditations.map((meditation) => [meditation.id, meditation]));
+    const year = new Date().getFullYear();
+    const isLeapYear = (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
+
+    const previousMeditations = [];
+    const nextMeditations = [];
+    const defaultPrevious = meditations[(currentIndex - 1 + meditations.length) % meditations.length];
+    const defaultNext = meditations[(currentIndex + 1) % meditations.length];
+
+    // deal with leap years
+    if (currentId === "03.01") {
+      previousMeditations.push(byId.get(isLeapYear ? "02.29" : "02.28"));
+    } else {
+      previousMeditations.push(defaultPrevious);
+    }
+
+    if (currentId === "02.28") {
+      nextMeditations.push(byId.get(isLeapYear ? "02.29" : "03.01"));
+    } else {
+      nextMeditations.push(defaultNext);
+    }
+
+    const renderLinks = (containerId, items) => {
+      const container = document.getElementById(containerId);
+      if (!container) {
+        return;
+      }
+
+      items.filter(Boolean).forEach((meditation, index) => {
+        const link = document.createElement("a");
+        link.href = meditation.url;
+        link.textContent = meditation.displayDate;
+        link.className = `meditation-nav-link${index > 0 ? " secondary" : ""}`;
+        container.appendChild(link);
+      });
+    };
+
+    renderLinks("previous-meditation-links", previousMeditations);
+    renderLinks("next-meditation-links", nextMeditations);
+  }
+
+  updatePrevNextLinks();
+</script>
