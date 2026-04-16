@@ -95,8 +95,10 @@ Please place all 366 markdown files in to a single compressed zip file for me to
   - [ ] aria-label
 - [ ] github stuff
   - [ ] readme
-  - [ ] licence
-  - [ ] ci/cd
+  - [ ] landing page details
+  - [x] licence
+    - [ ] beattie
+  - [x] ci/cd
   - [ ] minify etc
 - [ ] ux
   - [ ] review html semantics, main, article, aside
