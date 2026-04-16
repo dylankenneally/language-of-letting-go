@@ -10,13 +10,13 @@ layout: base.njk
   <div class="prose" id="today-meditation-content">
     {{ firstMeditation.content | safe }}
   </div>
-  <p><a class="featured-link" id="today-meditation-link" href="{{ firstMeditation.url }}">{{ firstMeditation.data.displayDate }}</a></p>
+  <p><a class="featured-link" id="today-meditation-link" href="{{ firstMeditation.url | url }}">{{ firstMeditation.data.displayDate }}</a></p>
 </article>
 
 <ul class="meditation-list">
   {% for meditation in collections.meditations %}
     <li>
-      <a href="{{ meditation.url }}" data-meditation-id="{{ meditation.fileSlug }}">
+      <a href="{{ meditation.url | url }}" data-meditation-id="{{ meditation.fileSlug }}">
         <strong>{{ meditation.data.title }}</strong>
         <span>{{ meditation.data.displayDate }}</span>
       </a>
@@ -31,7 +31,7 @@ layout: base.njk
       "id": {{ meditation.fileSlug | dump | safe }},
       "title": {{ meditation.data.title | dump | safe }},
       "displayDate": {{ meditation.data.displayDate | dump | safe }},
-      "url": {{ meditation.url | dump | safe }},
+      "url": {{ (meditation.url | url) | dump | safe }},
       "content": {{ meditation.content | dump | safe }}
     }{% if not loop.last %},{% endif %}
   {% endfor %}

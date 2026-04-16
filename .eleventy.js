@@ -1,3 +1,26 @@
+import { readFileSync } from "node:fs";
+import "dotenv/config";
+
+function getPathPrefix() {
+  const configuredPrefix = process.env.ELEVENTY_PATH_PREFIX;
+  if (configuredPrefix) {
+    return configuredPrefix;
+  }
+
+  try {
+    const packageJson = JSON.parse(readFileSync(new URL("./package.json", import.meta.url), "utf8"));
+    const homepage = packageJson.homepage;
+    if (!homepage) {
+      return "/";
+    }
+
+    const pathname = new URL(homepage).pathname.replace(/\/+$/, "");
+    return pathname || "/";
+  } catch {
+    return "/";
+  }
+}
+
 export default function(eleventyConfig) {
   // eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
   // eleventyConfig.addPassthroughCopy("CNAME");
@@ -9,6 +32,7 @@ export default function(eleventyConfig) {
   });
 
   return {
+    pathPrefix: getPathPrefix(),
     dir: {
       input: "src",
       output: "build",

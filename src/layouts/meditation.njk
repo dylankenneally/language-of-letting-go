@@ -24,7 +24,7 @@ layout: base.njk
     {
       "id": {{ meditation.fileSlug | dump | safe }},
       "displayDate": {{ meditation.data.displayDate | dump | safe }},
-      "url": {{ meditation.url | dump | safe }}
+      "url": {{ (meditation.url | url) | dump | safe }}
     }{% if not loop.last %},{% endif %}
   {% endfor %}
 ]
