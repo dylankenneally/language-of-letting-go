@@ -47,8 +47,8 @@ Please place all 366 markdown files in to a single compressed zip file for me to
 ## todo: listed here
 
 - [ ] go through each md file - line breaks, formatting
-  - [ ] jan
-  - [ ] feb
+  - [x] jan
+  - [x] feb
   - [ ] mar
   - [ ] apr
   - [ ] may
@@ -59,8 +59,18 @@ Please place all 366 markdown files in to a single compressed zip file for me to
   - [ ] oct
   - [ ] nov
   - [ ] dec
-- [ ] search 'Page '
+  - [x] search 'Page '
+  - [ ] search `''` - replace with `"`
+  - [ ] search `*` - the ai's way of italics
+  - [ ] `. . .` ?
+  - [ ] `AlAnon` to `Al-Anon` - ai removed
+- [ ] markdown formatting is not being respected in nested elements
+  - [ ] spans for focal point and quote
+  - [ ] is using spans the write approach here?
+  - [ ] nb: when resolved, watch out for ux style below - may want to invert italics/non italics, example 0202.md
 - [x] next/prev navigation
+- [ ] 404 page - with gh pages? - surely it has that feature?
+- [ ] sitemap
 - [ ] calendar widget
 - [x] auto show today
 - [ ] slugs are shit
@@ -78,6 +88,7 @@ Please place all 366 markdown files in to a single compressed zip file for me to
 - [ ] like/share etc?
 - [ ] search
 - [ ] index, like the book, but also with dates
+  - [ ] bibliography - quotes
 - [ ] i18n/l10n
   - [ ] see also: src/meditations/meditations.11tydata.js
   - [ ] translations
@@ -86,6 +97,17 @@ Please place all 366 markdown files in to a single compressed zip file for me to
   - [ ] readme
   - [ ] licence
   - [ ] ci/cd
+  - [ ] minify etc
 - [ ] ux
+  - [ ] review html semantics, main, article, aside
   - [ ] images etc
+  - [ ] font - bbc app font?
+  - [ ] paragraphs - leading gap, not first para
+    - [ ] line spacing between them
+  - [ ] focal point
+    - [ ]  looks like an admonition block, make look like book (italics)
+  - [ ] quote
+    - [ ] indent sides, italics, quote it caps, right aligned
+    - [ ] starting dash
+  - [ ] prev/next nav styling
 - [ ] arial/a11y stuff
