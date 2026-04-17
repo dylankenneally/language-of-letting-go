@@ -51,6 +51,10 @@ Please place all 366 markdown files in to a single compressed zip file for me to
   - [x] feb
   - [ ] mar
   - [ ] apr
+    - [x] 01-07
+    - [ ] 08-17
+    - [x] 18-21
+    - [ ] 22-31
   - [ ] may
   - [ ] jun
   - [ ] jul
@@ -116,3 +120,5 @@ Please place all 366 markdown files in to a single compressed zip file for me to
     - [ ] starting dash
   - [ ] prev/next nav styling
 - [ ] arial/a11y stuff
+- [ ] feats
+  - [ ] text size up/down - from na app video from natalia
