@@ -7,6 +7,46 @@
       <title>Considering Commitment | The Language of Letting Go</title>
     
     <style>
+      @font-face {
+        font-family: "BBC Reith Sans";
+        src: url("/language-of-letting-go/fonts/BBCReithSans400.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Sans";
+        src: url("/language-of-letting-go/fonts/BBCReithSans700.woff2") format("woff2");
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif400.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif400Italic.woff2") format("woff2");
+        font-weight: 400;
+        font-style: italic;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif700.woff2") format("woff2");
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
       :root {
         color-scheme: light;
         --bg: #f6f1e8;
@@ -15,6 +55,8 @@
         --muted: #6b7280;
         --accent: #235347;
         --border: #ded6c8;
+        --font-sans: "BBC Reith Sans", system-ui, sans-serif;
+        --font-serif: "BBC Reith Serif", Georgia, "Times New Roman", serif;
       }
 
       * {
@@ -23,11 +65,8 @@
 
       body {
         margin: 0;
-        font-family: Georgia, "Times New Roman", serif;
+        font-family: var(--font-sans);
         color: var(--ink);
-        background:
-          radial-gradient(circle at top, rgba(255, 255, 255, 0.75), transparent 40%),
-          linear-gradient(180deg, #efe7d9 0%, var(--bg) 100%);
       }
 
       a {
@@ -57,20 +96,19 @@
         margin: 0;
       }
 
+      .site-header h1 {
+        font-family: var(--font-serif);
+        font-weight: 700;
+      }
+
       .site-header p {
         margin-top: 0.75rem;
         color: var(--muted);
+        font-family: var(--font-sans);
       }
 
       .content {
         padding: 1.5rem;
-      }
-
-      .date {
-        color: var(--muted);
-        font-size: 0.95rem;
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
       }
 
       .meditation-list {
@@ -101,42 +139,73 @@
         background: #f0f6f2;
       }
 
-      .featured-meditation {
-        padding: 1.5rem;
-        margin-bottom: 2rem;
-        border: 1px solid var(--border);
-        border-radius: 1rem;
-        background: linear-gradient(180deg, #fffefb 0%, #f8f4ec 100%);
-      }
-
-      .featured-title {
-        margin: 0.25rem 0 0.5rem;
-      }
-
-      .featured-link {
-        display: inline-block;
-        margin-top: 1rem;
-      }
-
       .quote,
       .focal-point {
         display: block;
-        padding: 1rem 1.1rem;
-        margin: 1.5rem 0;
-        border-left: 4px solid var(--accent);
-        background: #f5f8f2;
+        font-family: var(--font-serif);
+        font-style: italic;
+      }
+
+      .quote {
+        padding: 1rem 2.5rem;
+      }
+
+      .focal-point {
+        margin-top: 1rem;
       }
 
       .quote-attribution {
         display: block;
         margin-top: 0.75rem;
         color: var(--muted);
-        font-style: italic;
+        font-family: var(--font-serif);
+        text-transform: uppercase;
+        font-style: normal;
+        font-size: .9rem;
+        text-align: right;
+      }
+
+      .quote-attribution::before {
+        
+        content: "\2014";
       }
 
       .prose {
-        line-height: 1.75;
+        line-height: 1.625;
         font-size: 1.1rem;
+        font-family: var(--font-serif);
+      }
+
+      .meditation-header {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        font-size: 1.1em;
+        font-family: var(--font-serif);
+        font-weight: 700;
+      }
+
+      .meditation-header .date {
+        font-style: italic;
+      }
+
+      @media screen and (max-width: 599px) {
+        .prose {
+          font-size: 1rem;
+        }
+
+        .meditation-header {
+          font-size: 1em;
+        }
+      }
+
+      .prose p {
+        margin-bottom: 0.125rem;
+        margin-top: 0rem;
+      }
+
+      .prose p + p {
+        text-indent: 2rem;
       }
 
       .back-link {
@@ -202,15 +271,24 @@
         <p>Daily Meditations on Codependency</p>
       </header>
       <section class="content card">
-        <p class="date">March 21</p>
-<h2>Considering Commitment</h2>
-<div class="prose">
-  <p>Pay attention to your commitments. While many of us fear committing, it's good to weigh the cost of any commitment we are considering. We need to feel consistently positive that it's an appropriate commitment for us. Many of us have a history of jumping—leaping headfirst—into commitments without weighing the cost and the possible consequences of that particular commitment. When we get in, we find that we do not really want to commit, and feel trapped. Some of us may become afraid of losing out on a particular opportunity if we don't commit. It is true that we will lose out on certain opportunities if we are unwilling to commit. We still need to weigh the commitment. We still need to become clear about whether that commitment seems right for us. If it isn't, we need to be direct and honest with others and ourselves. Be patient. Do some soul searching. Wait for a clear answer. We need to make our commitments not in urgency or panic but in quiet confidence that what we are committing to is right for us. If something within says no, find the courage to trust that voice. This is not our last chance. It is not the only opportunity well ever have. Don't panic. We don't have to commit to what isn't right for us, even if we try to tell ourselves it should be right for us and we should commit. Often, we can trust our intuitive sense more than we can trust our intellect about commitments. In the excitement of making a commitment and beginning, we may overlook the realities of the middle. That is what we need to consider. We don't have to commit out of urgency, impulsivity, or fear. We are entitled to ask, Will this be good for me? We are entitled to ask if this commitment feels right.</p>
+        
+
+
+<article >
+  <header class="meditation-header">
+    <h2>Considering Commitment</h2>
+    <p class="date">March 21</p>
+  </header>
+
+  <div class="prose">
+    <p>Pay attention to your commitments. While many of us fear committing, it's good to weigh the cost of any commitment we are considering. We need to feel consistently positive that it's an appropriate commitment for us. Many of us have a history of jumping—leaping headfirst—into commitments without weighing the cost and the possible consequences of that particular commitment. When we get in, we find that we do not really want to commit, and feel trapped. Some of us may become afraid of losing out on a particular opportunity if we don't commit. It is true that we will lose out on certain opportunities if we are unwilling to commit. We still need to weigh the commitment. We still need to become clear about whether that commitment seems right for us. If it isn't, we need to be direct and honest with others and ourselves. Be patient. Do some soul searching. Wait for a clear answer. We need to make our commitments not in urgency or panic but in quiet confidence that what we are committing to is right for us. If something within says no, find the courage to trust that voice. This is not our last chance. It is not the only opportunity well ever have. Don't panic. We don't have to commit to what isn't right for us, even if we try to tell ourselves it should be right for us and we should commit. Often, we can trust our intuitive sense more than we can trust our intellect about commitments. In the excitement of making a commitment and beginning, we may overlook the realities of the middle. That is what we need to consider. We don't have to commit out of urgency, impulsivity, or fear. We are entitled to ask, Will this be good for me? We are entitled to ask if this commitment feels right.</p>
 <span class="focal-point">
 Today, God, guide me in making my commitments. Help me say yes to what is in my highest good, and no to what isn't. I will give serious consideration before I commit myself to any activity or person. I will take the time to consider if the commitment is really what I want.
 </span>
 
-</div>
+  </div>
+</article>
+
 
 <nav class="meditation-nav" aria-label="Adjacent meditations" data-current-meditation="03.21">
   <div class="meditation-nav-group">

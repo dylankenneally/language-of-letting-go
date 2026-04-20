@@ -7,6 +7,46 @@
       <title>Love, in Words and Actions | The Language of Letting Go</title>
     
     <style>
+      @font-face {
+        font-family: "BBC Reith Sans";
+        src: url("/language-of-letting-go/fonts/BBCReithSans400.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Sans";
+        src: url("/language-of-letting-go/fonts/BBCReithSans700.woff2") format("woff2");
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif400.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif400Italic.woff2") format("woff2");
+        font-weight: 400;
+        font-style: italic;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif700.woff2") format("woff2");
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
       :root {
         color-scheme: light;
         --bg: #f6f1e8;
@@ -15,6 +55,8 @@
         --muted: #6b7280;
         --accent: #235347;
         --border: #ded6c8;
+        --font-sans: "BBC Reith Sans", system-ui, sans-serif;
+        --font-serif: "BBC Reith Serif", Georgia, "Times New Roman", serif;
       }
 
       * {
@@ -23,11 +65,8 @@
 
       body {
         margin: 0;
-        font-family: Georgia, "Times New Roman", serif;
+        font-family: var(--font-sans);
         color: var(--ink);
-        background:
-          radial-gradient(circle at top, rgba(255, 255, 255, 0.75), transparent 40%),
-          linear-gradient(180deg, #efe7d9 0%, var(--bg) 100%);
       }
 
       a {
@@ -57,20 +96,19 @@
         margin: 0;
       }
 
+      .site-header h1 {
+        font-family: var(--font-serif);
+        font-weight: 700;
+      }
+
       .site-header p {
         margin-top: 0.75rem;
         color: var(--muted);
+        font-family: var(--font-sans);
       }
 
       .content {
         padding: 1.5rem;
-      }
-
-      .date {
-        color: var(--muted);
-        font-size: 0.95rem;
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
       }
 
       .meditation-list {
@@ -101,42 +139,73 @@
         background: #f0f6f2;
       }
 
-      .featured-meditation {
-        padding: 1.5rem;
-        margin-bottom: 2rem;
-        border: 1px solid var(--border);
-        border-radius: 1rem;
-        background: linear-gradient(180deg, #fffefb 0%, #f8f4ec 100%);
-      }
-
-      .featured-title {
-        margin: 0.25rem 0 0.5rem;
-      }
-
-      .featured-link {
-        display: inline-block;
-        margin-top: 1rem;
-      }
-
       .quote,
       .focal-point {
         display: block;
-        padding: 1rem 1.1rem;
-        margin: 1.5rem 0;
-        border-left: 4px solid var(--accent);
-        background: #f5f8f2;
+        font-family: var(--font-serif);
+        font-style: italic;
+      }
+
+      .quote {
+        padding: 1rem 2.5rem;
+      }
+
+      .focal-point {
+        margin-top: 1rem;
       }
 
       .quote-attribution {
         display: block;
         margin-top: 0.75rem;
         color: var(--muted);
-        font-style: italic;
+        font-family: var(--font-serif);
+        text-transform: uppercase;
+        font-style: normal;
+        font-size: .9rem;
+        text-align: right;
+      }
+
+      .quote-attribution::before {
+        
+        content: "\2014";
       }
 
       .prose {
-        line-height: 1.75;
+        line-height: 1.625;
         font-size: 1.1rem;
+        font-family: var(--font-serif);
+      }
+
+      .meditation-header {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        font-size: 1.1em;
+        font-family: var(--font-serif);
+        font-weight: 700;
+      }
+
+      .meditation-header .date {
+        font-style: italic;
+      }
+
+      @media screen and (max-width: 599px) {
+        .prose {
+          font-size: 1rem;
+        }
+
+        .meditation-header {
+          font-size: 1em;
+        }
+      }
+
+      .prose p {
+        margin-bottom: 0.125rem;
+        margin-top: 0rem;
+      }
+
+      .prose p + p {
+        text-indent: 2rem;
       }
 
       .back-link {
@@ -202,15 +271,24 @@
         <p>Daily Meditations on Codependency</p>
       </header>
       <section class="content card">
-        <p class="date">July 17</p>
-<h2>Love, in Words and Actions</h2>
-<div class="prose">
-  <p>Many of us have confused notions about what it means to be loved and cared about. Many of us were loved and cared for by people who had discrepancies between what they said and did. We may have had a mother or father who said, &quot;I love you&quot; to us, and then abandoned or neglected us, giving us confused ideas about love. Thus that pattern feels like love the only love we knew. Some of us may have been cared for by people who pro vided for our needs and said they loved us, but simultaneously abused or mistreated us. That, then, becomes our idea of love. Some of us may have lived in emotionally sterile environments, where people said they loved us, but no feelings or nurturing were available. That may have become our idea of love. We may learn to love others or ourselves the way we have been loved, or we may let others love us the way we have been loved, whether or not that feels good. It's time to let our needs be met in ways that actually work. Unhealthy love may meet some surface needs, but not our need to be loved. We can come to expect congruency in behavior from others. We can diminish the impact of words alone and insist that behavior and words match. We can find the courage, when appropriate, to confront discrepancies in words and actions—not to shame, blame, or find fault, but to help us stay in touch with reality and with our needs. We can give and receive love where behavior matches one's words. We deserve to receive and give the best that love has to offer.</p>
+        
+
+
+<article >
+  <header class="meditation-header">
+    <h2>Love, in Words and Actions</h2>
+    <p class="date">July 17</p>
+  </header>
+
+  <div class="prose">
+    <p>Many of us have confused notions about what it means to be loved and cared about. Many of us were loved and cared for by people who had discrepancies between what they said and did. We may have had a mother or father who said, &quot;I love you&quot; to us, and then abandoned or neglected us, giving us confused ideas about love. Thus that pattern feels like love the only love we knew. Some of us may have been cared for by people who pro vided for our needs and said they loved us, but simultaneously abused or mistreated us. That, then, becomes our idea of love. Some of us may have lived in emotionally sterile environments, where people said they loved us, but no feelings or nurturing were available. That may have become our idea of love. We may learn to love others or ourselves the way we have been loved, or we may let others love us the way we have been loved, whether or not that feels good. It's time to let our needs be met in ways that actually work. Unhealthy love may meet some surface needs, but not our need to be loved. We can come to expect congruency in behavior from others. We can diminish the impact of words alone and insist that behavior and words match. We can find the courage, when appropriate, to confront discrepancies in words and actions—not to shame, blame, or find fault, but to help us stay in touch with reality and with our needs. We can give and receive love where behavior matches one's words. We deserve to receive and give the best that love has to offer.</p>
 <span class="focal-point">
 Today, I will be open to giving and receiving the healthiest love possible. I will watch for discrepancies between words and behaviors that confuse me and make me feel crazy. When that happens, I will understand that I am not crazy; I am in the midst of a discrepancy.
 </span>
 
-</div>
+  </div>
+</article>
+
 
 <nav class="meditation-nav" aria-label="Adjacent meditations" data-current-meditation="07.17">
   <div class="meditation-nav-group">

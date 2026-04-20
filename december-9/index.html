@@ -7,6 +7,46 @@
       <title>Asking for Help | The Language of Letting Go</title>
     
     <style>
+      @font-face {
+        font-family: "BBC Reith Sans";
+        src: url("/language-of-letting-go/fonts/BBCReithSans400.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Sans";
+        src: url("/language-of-letting-go/fonts/BBCReithSans700.woff2") format("woff2");
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif400.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif400Italic.woff2") format("woff2");
+        font-weight: 400;
+        font-style: italic;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif700.woff2") format("woff2");
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
       :root {
         color-scheme: light;
         --bg: #f6f1e8;
@@ -15,6 +55,8 @@
         --muted: #6b7280;
         --accent: #235347;
         --border: #ded6c8;
+        --font-sans: "BBC Reith Sans", system-ui, sans-serif;
+        --font-serif: "BBC Reith Serif", Georgia, "Times New Roman", serif;
       }
 
       * {
@@ -23,11 +65,8 @@
 
       body {
         margin: 0;
-        font-family: Georgia, "Times New Roman", serif;
+        font-family: var(--font-sans);
         color: var(--ink);
-        background:
-          radial-gradient(circle at top, rgba(255, 255, 255, 0.75), transparent 40%),
-          linear-gradient(180deg, #efe7d9 0%, var(--bg) 100%);
       }
 
       a {
@@ -57,20 +96,19 @@
         margin: 0;
       }
 
+      .site-header h1 {
+        font-family: var(--font-serif);
+        font-weight: 700;
+      }
+
       .site-header p {
         margin-top: 0.75rem;
         color: var(--muted);
+        font-family: var(--font-sans);
       }
 
       .content {
         padding: 1.5rem;
-      }
-
-      .date {
-        color: var(--muted);
-        font-size: 0.95rem;
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
       }
 
       .meditation-list {
@@ -101,42 +139,73 @@
         background: #f0f6f2;
       }
 
-      .featured-meditation {
-        padding: 1.5rem;
-        margin-bottom: 2rem;
-        border: 1px solid var(--border);
-        border-radius: 1rem;
-        background: linear-gradient(180deg, #fffefb 0%, #f8f4ec 100%);
-      }
-
-      .featured-title {
-        margin: 0.25rem 0 0.5rem;
-      }
-
-      .featured-link {
-        display: inline-block;
-        margin-top: 1rem;
-      }
-
       .quote,
       .focal-point {
         display: block;
-        padding: 1rem 1.1rem;
-        margin: 1.5rem 0;
-        border-left: 4px solid var(--accent);
-        background: #f5f8f2;
+        font-family: var(--font-serif);
+        font-style: italic;
+      }
+
+      .quote {
+        padding: 1rem 2.5rem;
+      }
+
+      .focal-point {
+        margin-top: 1rem;
       }
 
       .quote-attribution {
         display: block;
         margin-top: 0.75rem;
         color: var(--muted);
-        font-style: italic;
+        font-family: var(--font-serif);
+        text-transform: uppercase;
+        font-style: normal;
+        font-size: .9rem;
+        text-align: right;
+      }
+
+      .quote-attribution::before {
+        
+        content: "\2014";
       }
 
       .prose {
-        line-height: 1.75;
+        line-height: 1.625;
         font-size: 1.1rem;
+        font-family: var(--font-serif);
+      }
+
+      .meditation-header {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        font-size: 1.1em;
+        font-family: var(--font-serif);
+        font-weight: 700;
+      }
+
+      .meditation-header .date {
+        font-style: italic;
+      }
+
+      @media screen and (max-width: 599px) {
+        .prose {
+          font-size: 1rem;
+        }
+
+        .meditation-header {
+          font-size: 1em;
+        }
+      }
+
+      .prose p {
+        margin-bottom: 0.125rem;
+        margin-top: 0rem;
+      }
+
+      .prose p + p {
+        text-indent: 2rem;
       }
 
       .back-link {
@@ -202,15 +271,24 @@
         <p>Daily Meditations on Codependency</p>
       </header>
       <section class="content card">
-        <p class="date">December 9</p>
-<h2>Asking for Help</h2>
-<div class="prose">
-  <p>It's okay to ask for help. One of the most absurd things we do to ourselves is not asking for the help we need from a friend, a family member, our Higher Power, or the appropriate resource. We don't have to struggle through feelings and problems alone. We can ask for help from our Higher Power and for support and encouragement from our friends. Whether what we need is information, encouragement, a hand, a word, a hug, someone who will listen, or a ride, we can ask. We can ask people for what we need from them. We can ask God for what we need from God. It is selfdefeating to not ask for the help we need. It keeps us stuck. If we ask long and hard enough, if we direct our request to the right source, we'll get the help we need. There is a difference between asking someone to rescue us and asking someone in a direct manner for the help we need from him or her. We can be straightforward and let others choose whether to help us or not. If the answer is no, we can deal with that. It is selfdefeating to hint, whine, manipulate, or coerce help out of people. It is annoying to go to people as a victim and expect them to rescue us. It is healthy to ask for help when help is what we need. &quot;My problem is shame,&quot; said one woman. &quot;I wanted to ask for help in dealing with it, but I was too ashamed. Isn't that crazy?&quot; We who are eager to help others can learn to allow ourselves to receive help. We can learn to make clean contracts about asking for and receiving the help we want and need.</p>
+        
+
+
+<article >
+  <header class="meditation-header">
+    <h2>Asking for Help</h2>
+    <p class="date">December 9</p>
+  </header>
+
+  <div class="prose">
+    <p>It's okay to ask for help. One of the most absurd things we do to ourselves is not asking for the help we need from a friend, a family member, our Higher Power, or the appropriate resource. We don't have to struggle through feelings and problems alone. We can ask for help from our Higher Power and for support and encouragement from our friends. Whether what we need is information, encouragement, a hand, a word, a hug, someone who will listen, or a ride, we can ask. We can ask people for what we need from them. We can ask God for what we need from God. It is selfdefeating to not ask for the help we need. It keeps us stuck. If we ask long and hard enough, if we direct our request to the right source, we'll get the help we need. There is a difference between asking someone to rescue us and asking someone in a direct manner for the help we need from him or her. We can be straightforward and let others choose whether to help us or not. If the answer is no, we can deal with that. It is selfdefeating to hint, whine, manipulate, or coerce help out of people. It is annoying to go to people as a victim and expect them to rescue us. It is healthy to ask for help when help is what we need. &quot;My problem is shame,&quot; said one woman. &quot;I wanted to ask for help in dealing with it, but I was too ashamed. Isn't that crazy?&quot; We who are eager to help others can learn to allow ourselves to receive help. We can learn to make clean contracts about asking for and receiving the help we want and need.</p>
 <span class="focal-point">
 Today, I will ask for help if I need it—from people and my Higher Power. I will not be a victim, helplessly waiting to be rescued. I will make my request for help specific, to the point, and I will leave room for the person to choose whether or not to help me. I will not be a martyr any longer by refusing to get the help I deserve in life—the help that makes life simpler. God, help me let go of my need to do everything alone. Help me use the vast Universe or resources available to me.
 </span>
 
-</div>
+  </div>
+</article>
+
 
 <nav class="meditation-nav" aria-label="Adjacent meditations" data-current-meditation="12.09">
   <div class="meditation-nav-group">

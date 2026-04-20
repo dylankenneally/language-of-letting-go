@@ -7,6 +7,46 @@
       <title>Taking Care of Ourselves | The Language of Letting Go</title>
     
     <style>
+      @font-face {
+        font-family: "BBC Reith Sans";
+        src: url("/language-of-letting-go/fonts/BBCReithSans400.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Sans";
+        src: url("/language-of-letting-go/fonts/BBCReithSans700.woff2") format("woff2");
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif400.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif400Italic.woff2") format("woff2");
+        font-weight: 400;
+        font-style: italic;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif700.woff2") format("woff2");
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
       :root {
         color-scheme: light;
         --bg: #f6f1e8;
@@ -15,6 +55,8 @@
         --muted: #6b7280;
         --accent: #235347;
         --border: #ded6c8;
+        --font-sans: "BBC Reith Sans", system-ui, sans-serif;
+        --font-serif: "BBC Reith Serif", Georgia, "Times New Roman", serif;
       }
 
       * {
@@ -23,11 +65,8 @@
 
       body {
         margin: 0;
-        font-family: Georgia, "Times New Roman", serif;
+        font-family: var(--font-sans);
         color: var(--ink);
-        background:
-          radial-gradient(circle at top, rgba(255, 255, 255, 0.75), transparent 40%),
-          linear-gradient(180deg, #efe7d9 0%, var(--bg) 100%);
       }
 
       a {
@@ -57,20 +96,19 @@
         margin: 0;
       }
 
+      .site-header h1 {
+        font-family: var(--font-serif);
+        font-weight: 700;
+      }
+
       .site-header p {
         margin-top: 0.75rem;
         color: var(--muted);
+        font-family: var(--font-sans);
       }
 
       .content {
         padding: 1.5rem;
-      }
-
-      .date {
-        color: var(--muted);
-        font-size: 0.95rem;
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
       }
 
       .meditation-list {
@@ -101,42 +139,73 @@
         background: #f0f6f2;
       }
 
-      .featured-meditation {
-        padding: 1.5rem;
-        margin-bottom: 2rem;
-        border: 1px solid var(--border);
-        border-radius: 1rem;
-        background: linear-gradient(180deg, #fffefb 0%, #f8f4ec 100%);
-      }
-
-      .featured-title {
-        margin: 0.25rem 0 0.5rem;
-      }
-
-      .featured-link {
-        display: inline-block;
-        margin-top: 1rem;
-      }
-
       .quote,
       .focal-point {
         display: block;
-        padding: 1rem 1.1rem;
-        margin: 1.5rem 0;
-        border-left: 4px solid var(--accent);
-        background: #f5f8f2;
+        font-family: var(--font-serif);
+        font-style: italic;
+      }
+
+      .quote {
+        padding: 1rem 2.5rem;
+      }
+
+      .focal-point {
+        margin-top: 1rem;
       }
 
       .quote-attribution {
         display: block;
         margin-top: 0.75rem;
         color: var(--muted);
-        font-style: italic;
+        font-family: var(--font-serif);
+        text-transform: uppercase;
+        font-style: normal;
+        font-size: .9rem;
+        text-align: right;
+      }
+
+      .quote-attribution::before {
+        
+        content: "\2014";
       }
 
       .prose {
-        line-height: 1.75;
+        line-height: 1.625;
         font-size: 1.1rem;
+        font-family: var(--font-serif);
+      }
+
+      .meditation-header {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        font-size: 1.1em;
+        font-family: var(--font-serif);
+        font-weight: 700;
+      }
+
+      .meditation-header .date {
+        font-style: italic;
+      }
+
+      @media screen and (max-width: 599px) {
+        .prose {
+          font-size: 1rem;
+        }
+
+        .meditation-header {
+          font-size: 1em;
+        }
+      }
+
+      .prose p {
+        margin-bottom: 0.125rem;
+        margin-top: 0rem;
+      }
+
+      .prose p + p {
+        text-indent: 2rem;
       }
 
       .back-link {
@@ -202,15 +271,24 @@
         <p>Daily Meditations on Codependency</p>
       </header>
       <section class="content card">
-        <p class="date">October 6</p>
-<h2>Taking Care of Ourselves</h2>
-<div class="prose">
-  <p>It's healthy, wise, and loving to be considerate and responsive to the feelings and needs of others. That's different from caretaking. Caretaking is a selfdefeating and, certainly, a relationshipdefeating behavior—a behavior that backfires and can cause us to feel resentful and victimized—because ultimately, what we feel, want, and need will come to the surface. Some people seem to invite emotional caretaking. We can learn to refuse the invitation. We can be concerned; we can be loving, when possible; but we can place value on our own needs and feelings too. Part of recovery means learning to pay attention to, and place importance on, what we feel, want, and need, because we begin to see that there are clear, predictable, and usually undesirable consequences when we don't. Be patient and gentle with yourself as you learn to do this. Be understanding with yourself when you slip back into the old behavior of emotional caretaking and selfneglect. But stop the cycle today. We do not have to feel responsible for others. We do not have to feel guilty about not feeling responsible for others. We can even learn to let ourselves feel good about taking responsibility for our needs and feelings.</p>
+        
+
+
+<article >
+  <header class="meditation-header">
+    <h2>Taking Care of Ourselves</h2>
+    <p class="date">October 6</p>
+  </header>
+
+  <div class="prose">
+    <p>It's healthy, wise, and loving to be considerate and responsive to the feelings and needs of others. That's different from caretaking. Caretaking is a selfdefeating and, certainly, a relationshipdefeating behavior—a behavior that backfires and can cause us to feel resentful and victimized—because ultimately, what we feel, want, and need will come to the surface. Some people seem to invite emotional caretaking. We can learn to refuse the invitation. We can be concerned; we can be loving, when possible; but we can place value on our own needs and feelings too. Part of recovery means learning to pay attention to, and place importance on, what we feel, want, and need, because we begin to see that there are clear, predictable, and usually undesirable consequences when we don't. Be patient and gentle with yourself as you learn to do this. Be understanding with yourself when you slip back into the old behavior of emotional caretaking and selfneglect. But stop the cycle today. We do not have to feel responsible for others. We do not have to feel guilty about not feeling responsible for others. We can even learn to let ourselves feel good about taking responsibility for our needs and feelings.</p>
 <span class="focal-point">
 Today, I will evaluate whether I've slipped into my old behavior of taking responsibility for another's feelings and needs, while neglecting my own. I will own my power, right, and responsibility to place value on myself.
 </span>
 
-</div>
+  </div>
+</article>
+
 
 <nav class="meditation-nav" aria-label="Adjacent meditations" data-current-meditation="10.06">
   <div class="meditation-nav-group">

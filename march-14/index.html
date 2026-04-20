@@ -7,6 +7,46 @@
       <title>Trusting Ourselves | The Language of Letting Go</title>
     
     <style>
+      @font-face {
+        font-family: "BBC Reith Sans";
+        src: url("/language-of-letting-go/fonts/BBCReithSans400.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Sans";
+        src: url("/language-of-letting-go/fonts/BBCReithSans700.woff2") format("woff2");
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif400.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif400Italic.woff2") format("woff2");
+        font-weight: 400;
+        font-style: italic;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif700.woff2") format("woff2");
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
       :root {
         color-scheme: light;
         --bg: #f6f1e8;
@@ -15,6 +55,8 @@
         --muted: #6b7280;
         --accent: #235347;
         --border: #ded6c8;
+        --font-sans: "BBC Reith Sans", system-ui, sans-serif;
+        --font-serif: "BBC Reith Serif", Georgia, "Times New Roman", serif;
       }
 
       * {
@@ -23,11 +65,8 @@
 
       body {
         margin: 0;
-        font-family: Georgia, "Times New Roman", serif;
+        font-family: var(--font-sans);
         color: var(--ink);
-        background:
-          radial-gradient(circle at top, rgba(255, 255, 255, 0.75), transparent 40%),
-          linear-gradient(180deg, #efe7d9 0%, var(--bg) 100%);
       }
 
       a {
@@ -57,20 +96,19 @@
         margin: 0;
       }
 
+      .site-header h1 {
+        font-family: var(--font-serif);
+        font-weight: 700;
+      }
+
       .site-header p {
         margin-top: 0.75rem;
         color: var(--muted);
+        font-family: var(--font-sans);
       }
 
       .content {
         padding: 1.5rem;
-      }
-
-      .date {
-        color: var(--muted);
-        font-size: 0.95rem;
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
       }
 
       .meditation-list {
@@ -101,42 +139,73 @@
         background: #f0f6f2;
       }
 
-      .featured-meditation {
-        padding: 1.5rem;
-        margin-bottom: 2rem;
-        border: 1px solid var(--border);
-        border-radius: 1rem;
-        background: linear-gradient(180deg, #fffefb 0%, #f8f4ec 100%);
-      }
-
-      .featured-title {
-        margin: 0.25rem 0 0.5rem;
-      }
-
-      .featured-link {
-        display: inline-block;
-        margin-top: 1rem;
-      }
-
       .quote,
       .focal-point {
         display: block;
-        padding: 1rem 1.1rem;
-        margin: 1.5rem 0;
-        border-left: 4px solid var(--accent);
-        background: #f5f8f2;
+        font-family: var(--font-serif);
+        font-style: italic;
+      }
+
+      .quote {
+        padding: 1rem 2.5rem;
+      }
+
+      .focal-point {
+        margin-top: 1rem;
       }
 
       .quote-attribution {
         display: block;
         margin-top: 0.75rem;
         color: var(--muted);
-        font-style: italic;
+        font-family: var(--font-serif);
+        text-transform: uppercase;
+        font-style: normal;
+        font-size: .9rem;
+        text-align: right;
+      }
+
+      .quote-attribution::before {
+        
+        content: "\2014";
       }
 
       .prose {
-        line-height: 1.75;
+        line-height: 1.625;
         font-size: 1.1rem;
+        font-family: var(--font-serif);
+      }
+
+      .meditation-header {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        font-size: 1.1em;
+        font-family: var(--font-serif);
+        font-weight: 700;
+      }
+
+      .meditation-header .date {
+        font-style: italic;
+      }
+
+      @media screen and (max-width: 599px) {
+        .prose {
+          font-size: 1rem;
+        }
+
+        .meditation-header {
+          font-size: 1em;
+        }
+      }
+
+      .prose p {
+        margin-bottom: 0.125rem;
+        margin-top: 0rem;
+      }
+
+      .prose p + p {
+        text-indent: 2rem;
       }
 
       .back-link {
@@ -202,15 +271,24 @@
         <p>Daily Meditations on Codependency</p>
       </header>
       <section class="content card">
-        <p class="date">March 14</p>
-<h2>Trusting Ourselves</h2>
-<div class="prose">
-  <p>Trust can be one of the most confusing concepts in recovery. Who do we trust? For what? The most important trust issue we face is learning to trust ourselves. The most detrimental thing that's happened to us is that we came to believe we couldn't trust ourselves. There will be some who tell us we cannot trust ourselves, we are off base and out of whack. There are those who would benefit by our mistrusting ourselves. Fear and doubt are our enemies. Panic is our enemy. Confusion is our opposition. Selftrust is a healing gift we can give ourselves. How do we acquire it? We learn it. What do we do about our mistakes, about those times we thought we could trust ourselves but were wrong? We accept them, and trust ourselves anyway. We know what is best for us. We know what is right for us. If we are wrong, if we need to change our mind, we will be guided into that—but only by trusting where we are today. We can look to others for support and reinforcement, but trust in ourselves is essential. Do not trust fear. Do not trust panic. We can trust ourselves, stand in our own truth, stand in our own light. We have it now. Already. We have all the light we need for today. And tomorrow's light shall be given to us then. Trust ourselves, and we will know whom to trust. Trust ourselves, and we will know what to do. When we feel we absolutely cannot trust ourselves, trust that God will guide us into truth.</p>
+        
+
+
+<article >
+  <header class="meditation-header">
+    <h2>Trusting Ourselves</h2>
+    <p class="date">March 14</p>
+  </header>
+
+  <div class="prose">
+    <p>Trust can be one of the most confusing concepts in recovery. Who do we trust? For what? The most important trust issue we face is learning to trust ourselves. The most detrimental thing that's happened to us is that we came to believe we couldn't trust ourselves. There will be some who tell us we cannot trust ourselves, we are off base and out of whack. There are those who would benefit by our mistrusting ourselves. Fear and doubt are our enemies. Panic is our enemy. Confusion is our opposition. Selftrust is a healing gift we can give ourselves. How do we acquire it? We learn it. What do we do about our mistakes, about those times we thought we could trust ourselves but were wrong? We accept them, and trust ourselves anyway. We know what is best for us. We know what is right for us. If we are wrong, if we need to change our mind, we will be guided into that—but only by trusting where we are today. We can look to others for support and reinforcement, but trust in ourselves is essential. Do not trust fear. Do not trust panic. We can trust ourselves, stand in our own truth, stand in our own light. We have it now. Already. We have all the light we need for today. And tomorrow's light shall be given to us then. Trust ourselves, and we will know whom to trust. Trust ourselves, and we will know what to do. When we feel we absolutely cannot trust ourselves, trust that God will guide us into truth.</p>
 <span class="focal-point">
 God, help me let go of fear, doubt, and confusion—the enemies of selftrust. Help me go forward in peace and confidence. Help me grow in trust for myself and You, one day at a time, one experience at a time.
 </span>
 
-</div>
+  </div>
+</article>
+
 
 <nav class="meditation-nav" aria-label="Adjacent meditations" data-current-meditation="03.14">
   <div class="meditation-nav-group">

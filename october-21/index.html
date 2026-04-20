@@ -7,6 +7,46 @@
       <title>Financial Responsibility | The Language of Letting Go</title>
     
     <style>
+      @font-face {
+        font-family: "BBC Reith Sans";
+        src: url("/language-of-letting-go/fonts/BBCReithSans400.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Sans";
+        src: url("/language-of-letting-go/fonts/BBCReithSans700.woff2") format("woff2");
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif400.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif400Italic.woff2") format("woff2");
+        font-weight: 400;
+        font-style: italic;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif700.woff2") format("woff2");
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
       :root {
         color-scheme: light;
         --bg: #f6f1e8;
@@ -15,6 +55,8 @@
         --muted: #6b7280;
         --accent: #235347;
         --border: #ded6c8;
+        --font-sans: "BBC Reith Sans", system-ui, sans-serif;
+        --font-serif: "BBC Reith Serif", Georgia, "Times New Roman", serif;
       }
 
       * {
@@ -23,11 +65,8 @@
 
       body {
         margin: 0;
-        font-family: Georgia, "Times New Roman", serif;
+        font-family: var(--font-sans);
         color: var(--ink);
-        background:
-          radial-gradient(circle at top, rgba(255, 255, 255, 0.75), transparent 40%),
-          linear-gradient(180deg, #efe7d9 0%, var(--bg) 100%);
       }
 
       a {
@@ -57,20 +96,19 @@
         margin: 0;
       }
 
+      .site-header h1 {
+        font-family: var(--font-serif);
+        font-weight: 700;
+      }
+
       .site-header p {
         margin-top: 0.75rem;
         color: var(--muted);
+        font-family: var(--font-sans);
       }
 
       .content {
         padding: 1.5rem;
-      }
-
-      .date {
-        color: var(--muted);
-        font-size: 0.95rem;
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
       }
 
       .meditation-list {
@@ -101,42 +139,73 @@
         background: #f0f6f2;
       }
 
-      .featured-meditation {
-        padding: 1.5rem;
-        margin-bottom: 2rem;
-        border: 1px solid var(--border);
-        border-radius: 1rem;
-        background: linear-gradient(180deg, #fffefb 0%, #f8f4ec 100%);
-      }
-
-      .featured-title {
-        margin: 0.25rem 0 0.5rem;
-      }
-
-      .featured-link {
-        display: inline-block;
-        margin-top: 1rem;
-      }
-
       .quote,
       .focal-point {
         display: block;
-        padding: 1rem 1.1rem;
-        margin: 1.5rem 0;
-        border-left: 4px solid var(--accent);
-        background: #f5f8f2;
+        font-family: var(--font-serif);
+        font-style: italic;
+      }
+
+      .quote {
+        padding: 1rem 2.5rem;
+      }
+
+      .focal-point {
+        margin-top: 1rem;
       }
 
       .quote-attribution {
         display: block;
         margin-top: 0.75rem;
         color: var(--muted);
-        font-style: italic;
+        font-family: var(--font-serif);
+        text-transform: uppercase;
+        font-style: normal;
+        font-size: .9rem;
+        text-align: right;
+      }
+
+      .quote-attribution::before {
+        
+        content: "\2014";
       }
 
       .prose {
-        line-height: 1.75;
+        line-height: 1.625;
         font-size: 1.1rem;
+        font-family: var(--font-serif);
+      }
+
+      .meditation-header {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        font-size: 1.1em;
+        font-family: var(--font-serif);
+        font-weight: 700;
+      }
+
+      .meditation-header .date {
+        font-style: italic;
+      }
+
+      @media screen and (max-width: 599px) {
+        .prose {
+          font-size: 1rem;
+        }
+
+        .meditation-header {
+          font-size: 1em;
+        }
+      }
+
+      .prose p {
+        margin-bottom: 0.125rem;
+        margin-top: 0rem;
+      }
+
+      .prose p + p {
+        text-indent: 2rem;
       }
 
       .back-link {
@@ -202,15 +271,24 @@
         <p>Daily Meditations on Codependency</p>
       </header>
       <section class="content card">
-        <p class="date">October 21</p>
-<h2>Financial Responsibility</h2>
-<div class="prose">
-  <p>&quot;When I began recovery from chemical dependency, I had to face my money mess stone cold sober, and I really had a mess,&quot; said one woman. &quot;I wasn't able to earn much at first, and it was important to me to make amends. I had past due bills from years before. I needed to try to stay current with my new bills. I had a lot more money before I sobered up. But in time, slowly, gradually, my financial situation cleared up. I restored my credit. I had a checking account. I had a little money in the bank. &quot;Then I married an alcoholic and began to learn about my codependency—the hard way. I lost myself, my feelings, my sanity, and all the progress I had made with my financial affairs. My husband and I opened a checking account together, and he overdrafted checks until I lost the right to have a checking account. I let him charge and charge on my credit card, and he drove that into the ground. &quot;We borrowed and borrowed to keep our sinking ship afloat—and we borrowed a lot from my parents,&quot; she said. &quot;By the time I began my recovery from codependency, I was again facing a real financial mess. I was furious, but it didn't matter who did what. I had some serious financial matters to face if that part of my life was ever going to become manageable again. &quot;Slowly—very slowly—I began to work out of my mess. It seemed impossible! I didn't even want to face it, it felt so overwhelming and hopeless. But I did. And each day I did the best I could to be responsible for myself. &quot;One decision I made was to separate and protect myself financially from my husband, the best I could, before and after we divorced. The other decision I made was to face and begin reconstructing the financial affairs in my life. &quot;It was difficult. We owed over fifty thousand dollars, and my ability to produce income had dramatically decreased. I was grieving; my selfesteem was at an alltime low; my energy was low. I did not know how I would ever untangle this nightmare. But it did happen. Slowly, gradually, with the help of a Higher Power, manageability crept in and replaced chaos. &quot;I began by not spending more than I earned. I paid back some creditors, a little at a time. I let go of what I couldn't do, and focused on what I could do. &quot;Now, eight years have passed. I am debt free, which I never imagined possible. I am living comfortably, with money in the bank. My credit has been restored, again. And I intend to keep it that way. &quot;I am not willing to lose my financial sanity and security again, ever, for love or for alcoholism. With the help of God and the Twelve Steps, I won't have to.&quot; One day at a time, we can be restored in recovery—mentally, emotionally, spiritually, physically, and financially. It may get worse before it gets better— because we are finally facing reality instead of dodging it. But once we make the decision to take financial responsibility for ourselves, we are on our way.</p>
+        
+
+
+<article >
+  <header class="meditation-header">
+    <h2>Financial Responsibility</h2>
+    <p class="date">October 21</p>
+  </header>
+
+  <div class="prose">
+    <p>&quot;When I began recovery from chemical dependency, I had to face my money mess stone cold sober, and I really had a mess,&quot; said one woman. &quot;I wasn't able to earn much at first, and it was important to me to make amends. I had past due bills from years before. I needed to try to stay current with my new bills. I had a lot more money before I sobered up. But in time, slowly, gradually, my financial situation cleared up. I restored my credit. I had a checking account. I had a little money in the bank. &quot;Then I married an alcoholic and began to learn about my codependency—the hard way. I lost myself, my feelings, my sanity, and all the progress I had made with my financial affairs. My husband and I opened a checking account together, and he overdrafted checks until I lost the right to have a checking account. I let him charge and charge on my credit card, and he drove that into the ground. &quot;We borrowed and borrowed to keep our sinking ship afloat—and we borrowed a lot from my parents,&quot; she said. &quot;By the time I began my recovery from codependency, I was again facing a real financial mess. I was furious, but it didn't matter who did what. I had some serious financial matters to face if that part of my life was ever going to become manageable again. &quot;Slowly—very slowly—I began to work out of my mess. It seemed impossible! I didn't even want to face it, it felt so overwhelming and hopeless. But I did. And each day I did the best I could to be responsible for myself. &quot;One decision I made was to separate and protect myself financially from my husband, the best I could, before and after we divorced. The other decision I made was to face and begin reconstructing the financial affairs in my life. &quot;It was difficult. We owed over fifty thousand dollars, and my ability to produce income had dramatically decreased. I was grieving; my selfesteem was at an alltime low; my energy was low. I did not know how I would ever untangle this nightmare. But it did happen. Slowly, gradually, with the help of a Higher Power, manageability crept in and replaced chaos. &quot;I began by not spending more than I earned. I paid back some creditors, a little at a time. I let go of what I couldn't do, and focused on what I could do. &quot;Now, eight years have passed. I am debt free, which I never imagined possible. I am living comfortably, with money in the bank. My credit has been restored, again. And I intend to keep it that way. &quot;I am not willing to lose my financial sanity and security again, ever, for love or for alcoholism. With the help of God and the Twelve Steps, I won't have to.&quot; One day at a time, we can be restored in recovery—mentally, emotionally, spiritually, physically, and financially. It may get worse before it gets better— because we are finally facing reality instead of dodging it. But once we make the decision to take financial responsibility for ourselves, we are on our way.</p>
 <span class="focal-point">
 God, help me remember that what seems hopeless today can often be solved tomorrow, even if I can't see the solution. If I have allowed the problems of others to hurt me financially, help me repair and restore my boundaries around money—and what I am willing to lose. Help me understand that I do not have to allow anyone else's financial irresponsibility, addiction, disease, or problem to hurt me financially. Help me go on with my life in spite of my present financial circumstances, trusting that if I am willing to make amends and be responsible, things will work out.
 </span>
 
-</div>
+  </div>
+</article>
+
 
 <nav class="meditation-nav" aria-label="Adjacent meditations" data-current-meditation="10.21">
   <div class="meditation-nav-group">

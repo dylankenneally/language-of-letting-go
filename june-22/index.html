@@ -7,6 +7,46 @@
       <title>Work Histories | The Language of Letting Go</title>
     
     <style>
+      @font-face {
+        font-family: "BBC Reith Sans";
+        src: url("/language-of-letting-go/fonts/BBCReithSans400.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Sans";
+        src: url("/language-of-letting-go/fonts/BBCReithSans700.woff2") format("woff2");
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif400.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif400Italic.woff2") format("woff2");
+        font-weight: 400;
+        font-style: italic;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif700.woff2") format("woff2");
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
       :root {
         color-scheme: light;
         --bg: #f6f1e8;
@@ -15,6 +55,8 @@
         --muted: #6b7280;
         --accent: #235347;
         --border: #ded6c8;
+        --font-sans: "BBC Reith Sans", system-ui, sans-serif;
+        --font-serif: "BBC Reith Serif", Georgia, "Times New Roman", serif;
       }
 
       * {
@@ -23,11 +65,8 @@
 
       body {
         margin: 0;
-        font-family: Georgia, "Times New Roman", serif;
+        font-family: var(--font-sans);
         color: var(--ink);
-        background:
-          radial-gradient(circle at top, rgba(255, 255, 255, 0.75), transparent 40%),
-          linear-gradient(180deg, #efe7d9 0%, var(--bg) 100%);
       }
 
       a {
@@ -57,20 +96,19 @@
         margin: 0;
       }
 
+      .site-header h1 {
+        font-family: var(--font-serif);
+        font-weight: 700;
+      }
+
       .site-header p {
         margin-top: 0.75rem;
         color: var(--muted);
+        font-family: var(--font-sans);
       }
 
       .content {
         padding: 1.5rem;
-      }
-
-      .date {
-        color: var(--muted);
-        font-size: 0.95rem;
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
       }
 
       .meditation-list {
@@ -101,42 +139,73 @@
         background: #f0f6f2;
       }
 
-      .featured-meditation {
-        padding: 1.5rem;
-        margin-bottom: 2rem;
-        border: 1px solid var(--border);
-        border-radius: 1rem;
-        background: linear-gradient(180deg, #fffefb 0%, #f8f4ec 100%);
-      }
-
-      .featured-title {
-        margin: 0.25rem 0 0.5rem;
-      }
-
-      .featured-link {
-        display: inline-block;
-        margin-top: 1rem;
-      }
-
       .quote,
       .focal-point {
         display: block;
-        padding: 1rem 1.1rem;
-        margin: 1.5rem 0;
-        border-left: 4px solid var(--accent);
-        background: #f5f8f2;
+        font-family: var(--font-serif);
+        font-style: italic;
+      }
+
+      .quote {
+        padding: 1rem 2.5rem;
+      }
+
+      .focal-point {
+        margin-top: 1rem;
       }
 
       .quote-attribution {
         display: block;
         margin-top: 0.75rem;
         color: var(--muted);
-        font-style: italic;
+        font-family: var(--font-serif);
+        text-transform: uppercase;
+        font-style: normal;
+        font-size: .9rem;
+        text-align: right;
+      }
+
+      .quote-attribution::before {
+        
+        content: "\2014";
       }
 
       .prose {
-        line-height: 1.75;
+        line-height: 1.625;
         font-size: 1.1rem;
+        font-family: var(--font-serif);
+      }
+
+      .meditation-header {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        font-size: 1.1em;
+        font-family: var(--font-serif);
+        font-weight: 700;
+      }
+
+      .meditation-header .date {
+        font-style: italic;
+      }
+
+      @media screen and (max-width: 599px) {
+        .prose {
+          font-size: 1rem;
+        }
+
+        .meditation-header {
+          font-size: 1em;
+        }
+      }
+
+      .prose p {
+        margin-bottom: 0.125rem;
+        margin-top: 0rem;
+      }
+
+      .prose p + p {
+        text-indent: 2rem;
       }
 
       .back-link {
@@ -202,15 +271,24 @@
         <p>Daily Meditations on Codependency</p>
       </header>
       <section class="content card">
-        <p class="date">June 22</p>
-<h2>Work Histories</h2>
-<div class="prose">
-  <p>Just as we have relationship histories, most of us have work histories. Just as we have a present circumstance to accept and deal with in our relationship life, we have a present circumstance to deal with and accept in our work life. Just as we develop a healthy attitude toward our relationship history—one that will help us learn and move forward—we can develop a healthy attitude toward our work history. I have worked many jobs in my life, since I was eleven years old. Just as I have learned many things about myself through my relationships, I have learned many lessons through my work. Often, these lessons run parallel to the lessons I'm learning in other areas of my life. I have worked at jobs I hated but was temporarily dependent on. I have gotten stuck in jobs because I was afraid to strike out on my own and find my next set of circumstances. I have been in some jobs to develop skills. Sometimes, I didn't know I was developing those skills until later on when they became an important part of the career of my choice. I have worked at jobs where I have felt victimized, where I felt like I gave and gave and received nothing in return. I have been in relationships where I manufactured similar feelings. I have worked at some jobs that have taught me what I absolutely didn't want; others sparked in me an idea of what I really did want and deserve in my career. Some of my jobs have helped me develop character; others have helped me finetune skills. They have all been a place to practice recovery behaviors. Just as I have had to deal with my feelings and messages about myself in relationships, I have had to deal with my feelings and messages about myself, and what I believed I deserved at work. Just as I have needed to clear the wreckage of feelings about past relationships, I have needed to finish my business with jobs and careers. I have been through two major career changes in my life. I learned that neither career was a mistake and no job was wasted time. I have learned something from each job, and my work history has helped create who I am. I learned something else: there was a Plan, and I was being led. The more I trusted my instincts, what I wanted, and what felt right, the more I felt that I was being led. The more I refused to lose my soul to a job and worked at it because I wanted to and not for the paycheck, the less victimized I felt by any career, even those jobs that paid a meager salary. The more I set goals and took responsibility for achieving the career I wanted, the more I could decide whether a particular job fit into that scheme of things. I could understand why I was working at a particular job and how that was going to benefit me. There are times I have panicked at work and about where I was in my employment history. Panic never helped. Trust and working my program did. There were times I looked around and wondered why I was where I was. There were times people thought I should be someplace different. But when I looked into myself and at God, I knew I was in the right place, for the moment. There were times I didn't get the promotion I wanted. There were times I refused a promotion because it didn't feel right. There are times I have had to quit a job and walk away in order to be true to myself. Sometimes, that was frightening. Sometimes, I felt like a failure. But I learned this: If I was working my program and true to myself, I never had to fear where I was being led. There have been times I couldn't survive on the small amount of money I was receiving. Instead of bringing that issue to a particular employer and making it his or her fault, I have had to learn to bring the issue to myself and my Higher Power. I've learned I'm responsible for setting my boundaries and establishing what I believe I deserve. I've also learned God, not a particular employer, is my source of guidance. I've learned that I'm not stuck or trapped in a job no more than I am in a relationship. I have choices. I may not be able to see them clearly right now, but I do have choices. I've learned that if I really want to take care of myself in a particular way on a job, I will do that. And if I really want to be victimized by a job, I will allow that to happen too. I am responsible for my choices, and I have choices. Above all else, I've learned to accept and trust my present circumstances at work. That does not mean to submit; it does not mean to forego boundaries. It means to trust, accept, then take care of myself the best I'm able to on any given day.</p>
+        
+
+
+<article >
+  <header class="meditation-header">
+    <h2>Work Histories</h2>
+    <p class="date">June 22</p>
+  </header>
+
+  <div class="prose">
+    <p>Just as we have relationship histories, most of us have work histories. Just as we have a present circumstance to accept and deal with in our relationship life, we have a present circumstance to deal with and accept in our work life. Just as we develop a healthy attitude toward our relationship history—one that will help us learn and move forward—we can develop a healthy attitude toward our work history. I have worked many jobs in my life, since I was eleven years old. Just as I have learned many things about myself through my relationships, I have learned many lessons through my work. Often, these lessons run parallel to the lessons I'm learning in other areas of my life. I have worked at jobs I hated but was temporarily dependent on. I have gotten stuck in jobs because I was afraid to strike out on my own and find my next set of circumstances. I have been in some jobs to develop skills. Sometimes, I didn't know I was developing those skills until later on when they became an important part of the career of my choice. I have worked at jobs where I have felt victimized, where I felt like I gave and gave and received nothing in return. I have been in relationships where I manufactured similar feelings. I have worked at some jobs that have taught me what I absolutely didn't want; others sparked in me an idea of what I really did want and deserve in my career. Some of my jobs have helped me develop character; others have helped me finetune skills. They have all been a place to practice recovery behaviors. Just as I have had to deal with my feelings and messages about myself in relationships, I have had to deal with my feelings and messages about myself, and what I believed I deserved at work. Just as I have needed to clear the wreckage of feelings about past relationships, I have needed to finish my business with jobs and careers. I have been through two major career changes in my life. I learned that neither career was a mistake and no job was wasted time. I have learned something from each job, and my work history has helped create who I am. I learned something else: there was a Plan, and I was being led. The more I trusted my instincts, what I wanted, and what felt right, the more I felt that I was being led. The more I refused to lose my soul to a job and worked at it because I wanted to and not for the paycheck, the less victimized I felt by any career, even those jobs that paid a meager salary. The more I set goals and took responsibility for achieving the career I wanted, the more I could decide whether a particular job fit into that scheme of things. I could understand why I was working at a particular job and how that was going to benefit me. There are times I have panicked at work and about where I was in my employment history. Panic never helped. Trust and working my program did. There were times I looked around and wondered why I was where I was. There were times people thought I should be someplace different. But when I looked into myself and at God, I knew I was in the right place, for the moment. There were times I didn't get the promotion I wanted. There were times I refused a promotion because it didn't feel right. There are times I have had to quit a job and walk away in order to be true to myself. Sometimes, that was frightening. Sometimes, I felt like a failure. But I learned this: If I was working my program and true to myself, I never had to fear where I was being led. There have been times I couldn't survive on the small amount of money I was receiving. Instead of bringing that issue to a particular employer and making it his or her fault, I have had to learn to bring the issue to myself and my Higher Power. I've learned I'm responsible for setting my boundaries and establishing what I believe I deserve. I've also learned God, not a particular employer, is my source of guidance. I've learned that I'm not stuck or trapped in a job no more than I am in a relationship. I have choices. I may not be able to see them clearly right now, but I do have choices. I've learned that if I really want to take care of myself in a particular way on a job, I will do that. And if I really want to be victimized by a job, I will allow that to happen too. I am responsible for my choices, and I have choices. Above all else, I've learned to accept and trust my present circumstances at work. That does not mean to submit; it does not mean to forego boundaries. It means to trust, accept, then take care of myself the best I'm able to on any given day.</p>
 <span class="focal-point">
 God, help me bring my recovery behaviors to my career affairs.
 </span>
 
-</div>
+  </div>
+</article>
+
 
 <nav class="meditation-nav" aria-label="Adjacent meditations" data-current-meditation="06.22">
   <div class="meditation-nav-group">

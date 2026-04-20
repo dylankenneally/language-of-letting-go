@@ -7,6 +7,46 @@
       <title>Conflict and Detachment | The Language of Letting Go</title>
     
     <style>
+      @font-face {
+        font-family: "BBC Reith Sans";
+        src: url("/language-of-letting-go/fonts/BBCReithSans400.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Sans";
+        src: url("/language-of-letting-go/fonts/BBCReithSans700.woff2") format("woff2");
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif400.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif400Italic.woff2") format("woff2");
+        font-weight: 400;
+        font-style: italic;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif700.woff2") format("woff2");
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
       :root {
         color-scheme: light;
         --bg: #f6f1e8;
@@ -15,6 +55,8 @@
         --muted: #6b7280;
         --accent: #235347;
         --border: #ded6c8;
+        --font-sans: "BBC Reith Sans", system-ui, sans-serif;
+        --font-serif: "BBC Reith Serif", Georgia, "Times New Roman", serif;
       }
 
       * {
@@ -23,11 +65,8 @@
 
       body {
         margin: 0;
-        font-family: Georgia, "Times New Roman", serif;
+        font-family: var(--font-sans);
         color: var(--ink);
-        background:
-          radial-gradient(circle at top, rgba(255, 255, 255, 0.75), transparent 40%),
-          linear-gradient(180deg, #efe7d9 0%, var(--bg) 100%);
       }
 
       a {
@@ -57,20 +96,19 @@
         margin: 0;
       }
 
+      .site-header h1 {
+        font-family: var(--font-serif);
+        font-weight: 700;
+      }
+
       .site-header p {
         margin-top: 0.75rem;
         color: var(--muted);
+        font-family: var(--font-sans);
       }
 
       .content {
         padding: 1.5rem;
-      }
-
-      .date {
-        color: var(--muted);
-        font-size: 0.95rem;
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
       }
 
       .meditation-list {
@@ -101,42 +139,73 @@
         background: #f0f6f2;
       }
 
-      .featured-meditation {
-        padding: 1.5rem;
-        margin-bottom: 2rem;
-        border: 1px solid var(--border);
-        border-radius: 1rem;
-        background: linear-gradient(180deg, #fffefb 0%, #f8f4ec 100%);
-      }
-
-      .featured-title {
-        margin: 0.25rem 0 0.5rem;
-      }
-
-      .featured-link {
-        display: inline-block;
-        margin-top: 1rem;
-      }
-
       .quote,
       .focal-point {
         display: block;
-        padding: 1rem 1.1rem;
-        margin: 1.5rem 0;
-        border-left: 4px solid var(--accent);
-        background: #f5f8f2;
+        font-family: var(--font-serif);
+        font-style: italic;
+      }
+
+      .quote {
+        padding: 1rem 2.5rem;
+      }
+
+      .focal-point {
+        margin-top: 1rem;
       }
 
       .quote-attribution {
         display: block;
         margin-top: 0.75rem;
         color: var(--muted);
-        font-style: italic;
+        font-family: var(--font-serif);
+        text-transform: uppercase;
+        font-style: normal;
+        font-size: .9rem;
+        text-align: right;
+      }
+
+      .quote-attribution::before {
+        
+        content: "\2014";
       }
 
       .prose {
-        line-height: 1.75;
+        line-height: 1.625;
         font-size: 1.1rem;
+        font-family: var(--font-serif);
+      }
+
+      .meditation-header {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        font-size: 1.1em;
+        font-family: var(--font-serif);
+        font-weight: 700;
+      }
+
+      .meditation-header .date {
+        font-style: italic;
+      }
+
+      @media screen and (max-width: 599px) {
+        .prose {
+          font-size: 1rem;
+        }
+
+        .meditation-header {
+          font-size: 1em;
+        }
+      }
+
+      .prose p {
+        margin-bottom: 0.125rem;
+        margin-top: 0rem;
+      }
+
+      .prose p + p {
+        text-indent: 2rem;
       }
 
       .back-link {
@@ -202,15 +271,24 @@
         <p>Daily Meditations on Codependency</p>
       </header>
       <section class="content card">
-        <p class="date">September 11</p>
-<h2>Conflict and Detachment</h2>
-<div class="prose">
-  <p>In a relationship, there are those wonderful times when things go smoothly for both people, and neither person needs to focus too heavily on the concept of detachment. But there are those challenging times when one person is in crisis or changing—and we need to detach. Then there are stressful cycles when both people in a relationship are in the midst of dealing with intense issues. Both are needy and neither has anything to give. These are times when detachment and taking care of ourselves are difficult. It is helpful, in these moments, to identify the problem. Both people are in the midst of dealing and healing. Neither has much to give, at least at the moment. And both are feeling particularly needy. That is the problem. What's the solution? There may not be a perfect solution. Detachment is still the key, but that can be difficult when we need support ourselves. In fact, the other person may be asking for support rather than offering it. We can still work toward detachment. We can still work through our feelings. We can accept this as a temporary cycle in the relationship, and stop looking to the other person for something he or she cannot give at the moment. We can stop expecting ourselves to give at the moment as well. Communication helps. Identifying the problem and talking about it without blame or shame is a start. Figuring out alternative support systems, or ways to get our needs met, helps. We are still responsible for taking care of ourselves—even when we are in the best of relationships. We can reasonably expect conflicts of need and the clashing of issues to occur in the most loving, healthy relationships. It is one of the cycles of love, friendship, and family. If it is a healthy relationship, the crisis will not go on endlessly. We will regain our balance. The other person will too. We can stop making ourselves so crazy by looking for the other person to be balanced when he or she isn't. Talk things out. Work things out. Keep our expectations of ourselves, other people, and our relationships healthy and reasonable. A good relationship will be able to sustain and survive low points. Sometimes we need them, so we can both grow and learn separately. Sometimes, people who are usually there for us cannot be there for us. We can find another way to take care of ourselves.</p>
+        
+
+
+<article >
+  <header class="meditation-header">
+    <h2>Conflict and Detachment</h2>
+    <p class="date">September 11</p>
+  </header>
+
+  <div class="prose">
+    <p>In a relationship, there are those wonderful times when things go smoothly for both people, and neither person needs to focus too heavily on the concept of detachment. But there are those challenging times when one person is in crisis or changing—and we need to detach. Then there are stressful cycles when both people in a relationship are in the midst of dealing with intense issues. Both are needy and neither has anything to give. These are times when detachment and taking care of ourselves are difficult. It is helpful, in these moments, to identify the problem. Both people are in the midst of dealing and healing. Neither has much to give, at least at the moment. And both are feeling particularly needy. That is the problem. What's the solution? There may not be a perfect solution. Detachment is still the key, but that can be difficult when we need support ourselves. In fact, the other person may be asking for support rather than offering it. We can still work toward detachment. We can still work through our feelings. We can accept this as a temporary cycle in the relationship, and stop looking to the other person for something he or she cannot give at the moment. We can stop expecting ourselves to give at the moment as well. Communication helps. Identifying the problem and talking about it without blame or shame is a start. Figuring out alternative support systems, or ways to get our needs met, helps. We are still responsible for taking care of ourselves—even when we are in the best of relationships. We can reasonably expect conflicts of need and the clashing of issues to occur in the most loving, healthy relationships. It is one of the cycles of love, friendship, and family. If it is a healthy relationship, the crisis will not go on endlessly. We will regain our balance. The other person will too. We can stop making ourselves so crazy by looking for the other person to be balanced when he or she isn't. Talk things out. Work things out. Keep our expectations of ourselves, other people, and our relationships healthy and reasonable. A good relationship will be able to sustain and survive low points. Sometimes we need them, so we can both grow and learn separately. Sometimes, people who are usually there for us cannot be there for us. We can find another way to take care of ourselves.</p>
 <span class="focal-point">
 Today, I will remember that my best relationships have low points. If the low point is the norm, I may want to consider the desirability of the relationship. If the low point is a temporary cycle, I will practice understanding for myself and the other person. God, help me remember that the help and support I want and need does not come in the form of only one person. Help me be open to healthy options for taking care of myself, if my normal support system is not available.
 </span>
 
-</div>
+  </div>
+</article>
+
 
 <nav class="meditation-nav" aria-label="Adjacent meditations" data-current-meditation="09.11">
   <div class="meditation-nav-group">

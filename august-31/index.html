@@ -7,6 +7,46 @@
       <title>Denial | The Language of Letting Go</title>
     
     <style>
+      @font-face {
+        font-family: "BBC Reith Sans";
+        src: url("/language-of-letting-go/fonts/BBCReithSans400.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Sans";
+        src: url("/language-of-letting-go/fonts/BBCReithSans700.woff2") format("woff2");
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif400.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif400Italic.woff2") format("woff2");
+        font-weight: 400;
+        font-style: italic;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif700.woff2") format("woff2");
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
       :root {
         color-scheme: light;
         --bg: #f6f1e8;
@@ -15,6 +55,8 @@
         --muted: #6b7280;
         --accent: #235347;
         --border: #ded6c8;
+        --font-sans: "BBC Reith Sans", system-ui, sans-serif;
+        --font-serif: "BBC Reith Serif", Georgia, "Times New Roman", serif;
       }
 
       * {
@@ -23,11 +65,8 @@
 
       body {
         margin: 0;
-        font-family: Georgia, "Times New Roman", serif;
+        font-family: var(--font-sans);
         color: var(--ink);
-        background:
-          radial-gradient(circle at top, rgba(255, 255, 255, 0.75), transparent 40%),
-          linear-gradient(180deg, #efe7d9 0%, var(--bg) 100%);
       }
 
       a {
@@ -57,20 +96,19 @@
         margin: 0;
       }
 
+      .site-header h1 {
+        font-family: var(--font-serif);
+        font-weight: 700;
+      }
+
       .site-header p {
         margin-top: 0.75rem;
         color: var(--muted);
+        font-family: var(--font-sans);
       }
 
       .content {
         padding: 1.5rem;
-      }
-
-      .date {
-        color: var(--muted);
-        font-size: 0.95rem;
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
       }
 
       .meditation-list {
@@ -101,42 +139,73 @@
         background: #f0f6f2;
       }
 
-      .featured-meditation {
-        padding: 1.5rem;
-        margin-bottom: 2rem;
-        border: 1px solid var(--border);
-        border-radius: 1rem;
-        background: linear-gradient(180deg, #fffefb 0%, #f8f4ec 100%);
-      }
-
-      .featured-title {
-        margin: 0.25rem 0 0.5rem;
-      }
-
-      .featured-link {
-        display: inline-block;
-        margin-top: 1rem;
-      }
-
       .quote,
       .focal-point {
         display: block;
-        padding: 1rem 1.1rem;
-        margin: 1.5rem 0;
-        border-left: 4px solid var(--accent);
-        background: #f5f8f2;
+        font-family: var(--font-serif);
+        font-style: italic;
+      }
+
+      .quote {
+        padding: 1rem 2.5rem;
+      }
+
+      .focal-point {
+        margin-top: 1rem;
       }
 
       .quote-attribution {
         display: block;
         margin-top: 0.75rem;
         color: var(--muted);
-        font-style: italic;
+        font-family: var(--font-serif);
+        text-transform: uppercase;
+        font-style: normal;
+        font-size: .9rem;
+        text-align: right;
+      }
+
+      .quote-attribution::before {
+        
+        content: "\2014";
       }
 
       .prose {
-        line-height: 1.75;
+        line-height: 1.625;
         font-size: 1.1rem;
+        font-family: var(--font-serif);
+      }
+
+      .meditation-header {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        font-size: 1.1em;
+        font-family: var(--font-serif);
+        font-weight: 700;
+      }
+
+      .meditation-header .date {
+        font-style: italic;
+      }
+
+      @media screen and (max-width: 599px) {
+        .prose {
+          font-size: 1rem;
+        }
+
+        .meditation-header {
+          font-size: 1em;
+        }
+      }
+
+      .prose p {
+        margin-bottom: 0.125rem;
+        margin-top: 0rem;
+      }
+
+      .prose p + p {
+        text-indent: 2rem;
       }
 
       .back-link {
@@ -202,15 +271,24 @@
         <p>Daily Meditations on Codependency</p>
       </header>
       <section class="content card">
-        <p class="date">August 31</p>
-<h2>Denial</h2>
-<div class="prose">
-  <p>I've been recovering many years. I've used denial many times. It has been a defense, a survival device, a coping behavior, and, at times, almost my undoing. It has been both a friend and an enemy. When I was a child, I used denial to protect myself and my family. I protected myself from seeing things too painful to see and feelings too overwhelming to feel. Denial got me safely through many traumatic situations, when I had no other resources for survival. The negative aspect of using denial was that I lost touch with myself and my feelings. I became able to participate in harmful situations without even knowing I was hurting. I was able to tolerate a great deal of pain and abuse without the foggiest notion it was abnormal. I learned to participate in my own abuse. Denial protected me from pain, but it also rendered me blind to my feelings, my needs, and myself. It was like a thick blanket that covered and smothered me. Eventually, I began to recover. I had a glimpse of awareness about my pain, my feelings, my behaviors. I began to see myself, and the world, as we were. There was so much denial from my past that had the blanket been entirely ripped from me, I would have died from the shock of exposure. I needed to embrace insights, remembrances, awareness, and healing gently, gradually. Life participated in this process with me. It is a gentle teacher. As I recovered, I was brought to the incidents and people I needed in order to remind me of what I was still denying, to tell me where I required more healing from my past, as I could handle these insights. I still use, and break through, denial—as needed. When the winds of change blow through, upsetting a familiar structure and preparing me for the new, I pick up my blanket and hide, for a while. Sometimes, when someone I love has a problem, I hide under the blanket, momentarily. Memories emerge of things denied, memories that need to be remembered, felt, and accepted so I can continue to become healed—strong and healthy. Sometimes, I feel ashamed about how long it takes me to struggle through to acceptance of reality. I feel embarrassed when I find myself again clouded by the fog of denial. Then something happens, and I see that I am moving forward. The experience was necessary, connected, not at all a mistake, but an important part of healing. It's an exciting process, this journey called recovery, but I understand I may sometimes use denial to help me get through the rough spots. I'm also aware that denial is a friend, and an enemy. I'm on the alert for danger signs: those cloudy, confused feelings. . .sluggish energy. . .feeling compulsive. . . running too fast or hard. . .avoiding support mechanisms. I've gained a healthy respect for our need to use denial as a blanket to wrap ourselves in when we become too cold. It isn't my job to run around ripping people's blankets off or shaming others for using the blanket. Shaming makes them colder, makes them wrap themselves more tightly in the blanket. Yanking their blanket away is dangerous. They could die of exposure, the same way I could have. I've learned the best thing I can do around people who are wrapped in this blanket is to make them feel warm and safe. The warmer and safer they feel, the more able they are to drop their blanket. I don't have to support or encourage their denial. I can be direct. If others are in denial about a particular thing, and their activity is harmful to me, I don't have to be around them. I can wish them well and take care of myself. You see, if I stand too long around someone who is harming me, I will inevitably pick up my blanket again. I tend to be attracted to warm people. When I'm around warm people, I don't need to use my blanket. I've gained respect for creating warm environments, where blankets are not needed, or at least not needed for long. I've gained trust in the way people heal from and deal with life.</p>
+        
+
+
+<article >
+  <header class="meditation-header">
+    <h2>Denial</h2>
+    <p class="date">August 31</p>
+  </header>
+
+  <div class="prose">
+    <p>I've been recovering many years. I've used denial many times. It has been a defense, a survival device, a coping behavior, and, at times, almost my undoing. It has been both a friend and an enemy. When I was a child, I used denial to protect myself and my family. I protected myself from seeing things too painful to see and feelings too overwhelming to feel. Denial got me safely through many traumatic situations, when I had no other resources for survival. The negative aspect of using denial was that I lost touch with myself and my feelings. I became able to participate in harmful situations without even knowing I was hurting. I was able to tolerate a great deal of pain and abuse without the foggiest notion it was abnormal. I learned to participate in my own abuse. Denial protected me from pain, but it also rendered me blind to my feelings, my needs, and myself. It was like a thick blanket that covered and smothered me. Eventually, I began to recover. I had a glimpse of awareness about my pain, my feelings, my behaviors. I began to see myself, and the world, as we were. There was so much denial from my past that had the blanket been entirely ripped from me, I would have died from the shock of exposure. I needed to embrace insights, remembrances, awareness, and healing gently, gradually. Life participated in this process with me. It is a gentle teacher. As I recovered, I was brought to the incidents and people I needed in order to remind me of what I was still denying, to tell me where I required more healing from my past, as I could handle these insights. I still use, and break through, denial—as needed. When the winds of change blow through, upsetting a familiar structure and preparing me for the new, I pick up my blanket and hide, for a while. Sometimes, when someone I love has a problem, I hide under the blanket, momentarily. Memories emerge of things denied, memories that need to be remembered, felt, and accepted so I can continue to become healed—strong and healthy. Sometimes, I feel ashamed about how long it takes me to struggle through to acceptance of reality. I feel embarrassed when I find myself again clouded by the fog of denial. Then something happens, and I see that I am moving forward. The experience was necessary, connected, not at all a mistake, but an important part of healing. It's an exciting process, this journey called recovery, but I understand I may sometimes use denial to help me get through the rough spots. I'm also aware that denial is a friend, and an enemy. I'm on the alert for danger signs: those cloudy, confused feelings. . .sluggish energy. . .feeling compulsive. . . running too fast or hard. . .avoiding support mechanisms. I've gained a healthy respect for our need to use denial as a blanket to wrap ourselves in when we become too cold. It isn't my job to run around ripping people's blankets off or shaming others for using the blanket. Shaming makes them colder, makes them wrap themselves more tightly in the blanket. Yanking their blanket away is dangerous. They could die of exposure, the same way I could have. I've learned the best thing I can do around people who are wrapped in this blanket is to make them feel warm and safe. The warmer and safer they feel, the more able they are to drop their blanket. I don't have to support or encourage their denial. I can be direct. If others are in denial about a particular thing, and their activity is harmful to me, I don't have to be around them. I can wish them well and take care of myself. You see, if I stand too long around someone who is harming me, I will inevitably pick up my blanket again. I tend to be attracted to warm people. When I'm around warm people, I don't need to use my blanket. I've gained respect for creating warm environments, where blankets are not needed, or at least not needed for long. I've gained trust in the way people heal from and deal with life.</p>
 <span class="focal-point">
 God, help me be open to and trust the process that is healing me from all I have denied from my past. Help me strive for awareness and acceptance, but also help me practice gentleness and compassion for myself—and others—for those times I have used denial.
 </span>
 
-</div>
+  </div>
+</article>
+
 
 <nav class="meditation-nav" aria-label="Adjacent meditations" data-current-meditation="08.31">
   <div class="meditation-nav-group">

@@ -7,6 +7,46 @@
       <title>Asking for What We Need | The Language of Letting Go</title>
     
     <style>
+      @font-face {
+        font-family: "BBC Reith Sans";
+        src: url("/language-of-letting-go/fonts/BBCReithSans400.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Sans";
+        src: url("/language-of-letting-go/fonts/BBCReithSans700.woff2") format("woff2");
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif400.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif400Italic.woff2") format("woff2");
+        font-weight: 400;
+        font-style: italic;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif700.woff2") format("woff2");
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
       :root {
         color-scheme: light;
         --bg: #f6f1e8;
@@ -15,6 +55,8 @@
         --muted: #6b7280;
         --accent: #235347;
         --border: #ded6c8;
+        --font-sans: "BBC Reith Sans", system-ui, sans-serif;
+        --font-serif: "BBC Reith Serif", Georgia, "Times New Roman", serif;
       }
 
       * {
@@ -23,11 +65,8 @@
 
       body {
         margin: 0;
-        font-family: Georgia, "Times New Roman", serif;
+        font-family: var(--font-sans);
         color: var(--ink);
-        background:
-          radial-gradient(circle at top, rgba(255, 255, 255, 0.75), transparent 40%),
-          linear-gradient(180deg, #efe7d9 0%, var(--bg) 100%);
       }
 
       a {
@@ -57,20 +96,19 @@
         margin: 0;
       }
 
+      .site-header h1 {
+        font-family: var(--font-serif);
+        font-weight: 700;
+      }
+
       .site-header p {
         margin-top: 0.75rem;
         color: var(--muted);
+        font-family: var(--font-sans);
       }
 
       .content {
         padding: 1.5rem;
-      }
-
-      .date {
-        color: var(--muted);
-        font-size: 0.95rem;
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
       }
 
       .meditation-list {
@@ -101,42 +139,73 @@
         background: #f0f6f2;
       }
 
-      .featured-meditation {
-        padding: 1.5rem;
-        margin-bottom: 2rem;
-        border: 1px solid var(--border);
-        border-radius: 1rem;
-        background: linear-gradient(180deg, #fffefb 0%, #f8f4ec 100%);
-      }
-
-      .featured-title {
-        margin: 0.25rem 0 0.5rem;
-      }
-
-      .featured-link {
-        display: inline-block;
-        margin-top: 1rem;
-      }
-
       .quote,
       .focal-point {
         display: block;
-        padding: 1rem 1.1rem;
-        margin: 1.5rem 0;
-        border-left: 4px solid var(--accent);
-        background: #f5f8f2;
+        font-family: var(--font-serif);
+        font-style: italic;
+      }
+
+      .quote {
+        padding: 1rem 2.5rem;
+      }
+
+      .focal-point {
+        margin-top: 1rem;
       }
 
       .quote-attribution {
         display: block;
         margin-top: 0.75rem;
         color: var(--muted);
-        font-style: italic;
+        font-family: var(--font-serif);
+        text-transform: uppercase;
+        font-style: normal;
+        font-size: .9rem;
+        text-align: right;
+      }
+
+      .quote-attribution::before {
+        
+        content: "\2014";
       }
 
       .prose {
-        line-height: 1.75;
+        line-height: 1.625;
         font-size: 1.1rem;
+        font-family: var(--font-serif);
+      }
+
+      .meditation-header {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        font-size: 1.1em;
+        font-family: var(--font-serif);
+        font-weight: 700;
+      }
+
+      .meditation-header .date {
+        font-style: italic;
+      }
+
+      @media screen and (max-width: 599px) {
+        .prose {
+          font-size: 1rem;
+        }
+
+        .meditation-header {
+          font-size: 1em;
+        }
+      }
+
+      .prose p {
+        margin-bottom: 0.125rem;
+        margin-top: 0rem;
+      }
+
+      .prose p + p {
+        text-indent: 2rem;
       }
 
       .back-link {
@@ -202,15 +271,24 @@
         <p>Daily Meditations on Codependency</p>
       </header>
       <section class="content card">
-        <p class="date">August 9</p>
-<h2>Asking for What We Need</h2>
-<div class="prose">
-  <p>Decide what it is you want and need, then go to the person you need it from and ask for it. Sometimes, it takes hard work and much energy to get what we want and need. We have to go through the pains of identifying what we want, then struggle to believe that we deserve it. Then, we may have to experience the disappointment of asking someone, having the person refuse us, and figuring out what to do next. Sometimes in life, getting what we want and need is not so difficult. Sometimes, all we need to do is ask. We can go to another person, or our Higher Power, and ask for what we need. But because of how difficult it can be, at times, to get what we want and need, we may get trapped in the mindset of believing it will always be that difficult. Sometimes, not wanting to go through the hassle, dreading the struggle, or out of fear, we may make getting what we want and need much more difficult than it needs to be. We may get angry before we ask, deciding that well never get what we want, or anticipating the &quot;fight&quot; well have to endure. By the time we talk to someone about what we want, we may be so angry that we're demanding, not asking; thus our anger triggers a power play that didn't exist except in our mind. Or we may get so worked up that we don't ask—or we waste far more energy than necessary fighting with ourselves, only to find out that the other person, or our Higher Power, is happy to give us what we want. Sometimes, we have to fight and work and wait for what we want and need. Sometimes, we can get it just by asking or stating that this is what we want. Ask. If the answer is no, or not what we want, then we can decide what to do next.</p>
+        
+
+
+<article >
+  <header class="meditation-header">
+    <h2>Asking for What We Need</h2>
+    <p class="date">August 9</p>
+  </header>
+
+  <div class="prose">
+    <p>Decide what it is you want and need, then go to the person you need it from and ask for it. Sometimes, it takes hard work and much energy to get what we want and need. We have to go through the pains of identifying what we want, then struggle to believe that we deserve it. Then, we may have to experience the disappointment of asking someone, having the person refuse us, and figuring out what to do next. Sometimes in life, getting what we want and need is not so difficult. Sometimes, all we need to do is ask. We can go to another person, or our Higher Power, and ask for what we need. But because of how difficult it can be, at times, to get what we want and need, we may get trapped in the mindset of believing it will always be that difficult. Sometimes, not wanting to go through the hassle, dreading the struggle, or out of fear, we may make getting what we want and need much more difficult than it needs to be. We may get angry before we ask, deciding that well never get what we want, or anticipating the &quot;fight&quot; well have to endure. By the time we talk to someone about what we want, we may be so angry that we're demanding, not asking; thus our anger triggers a power play that didn't exist except in our mind. Or we may get so worked up that we don't ask—or we waste far more energy than necessary fighting with ourselves, only to find out that the other person, or our Higher Power, is happy to give us what we want. Sometimes, we have to fight and work and wait for what we want and need. Sometimes, we can get it just by asking or stating that this is what we want. Ask. If the answer is no, or not what we want, then we can decide what to do next.</p>
 <span class="focal-point">
 Today, I will not set up a difficult situation that doesn't exist with other people, or my Higher Power, about getting what I want and need. If there is something I need from someone, I will ask first, before I struggle.
 </span>
 
-</div>
+  </div>
+</article>
+
 
 <nav class="meditation-nav" aria-label="Adjacent meditations" data-current-meditation="08.09">
   <div class="meditation-nav-group">

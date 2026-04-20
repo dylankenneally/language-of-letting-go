@@ -7,6 +7,46 @@
       <title>Opening Ourselves to Love | The Language of Letting Go</title>
     
     <style>
+      @font-face {
+        font-family: "BBC Reith Sans";
+        src: url("/language-of-letting-go/fonts/BBCReithSans400.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Sans";
+        src: url("/language-of-letting-go/fonts/BBCReithSans700.woff2") format("woff2");
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif400.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif400Italic.woff2") format("woff2");
+        font-weight: 400;
+        font-style: italic;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif700.woff2") format("woff2");
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
       :root {
         color-scheme: light;
         --bg: #f6f1e8;
@@ -15,6 +55,8 @@
         --muted: #6b7280;
         --accent: #235347;
         --border: #ded6c8;
+        --font-sans: "BBC Reith Sans", system-ui, sans-serif;
+        --font-serif: "BBC Reith Serif", Georgia, "Times New Roman", serif;
       }
 
       * {
@@ -23,11 +65,8 @@
 
       body {
         margin: 0;
-        font-family: Georgia, "Times New Roman", serif;
+        font-family: var(--font-sans);
         color: var(--ink);
-        background:
-          radial-gradient(circle at top, rgba(255, 255, 255, 0.75), transparent 40%),
-          linear-gradient(180deg, #efe7d9 0%, var(--bg) 100%);
       }
 
       a {
@@ -57,20 +96,19 @@
         margin: 0;
       }
 
+      .site-header h1 {
+        font-family: var(--font-serif);
+        font-weight: 700;
+      }
+
       .site-header p {
         margin-top: 0.75rem;
         color: var(--muted);
+        font-family: var(--font-sans);
       }
 
       .content {
         padding: 1.5rem;
-      }
-
-      .date {
-        color: var(--muted);
-        font-size: 0.95rem;
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
       }
 
       .meditation-list {
@@ -101,42 +139,73 @@
         background: #f0f6f2;
       }
 
-      .featured-meditation {
-        padding: 1.5rem;
-        margin-bottom: 2rem;
-        border: 1px solid var(--border);
-        border-radius: 1rem;
-        background: linear-gradient(180deg, #fffefb 0%, #f8f4ec 100%);
-      }
-
-      .featured-title {
-        margin: 0.25rem 0 0.5rem;
-      }
-
-      .featured-link {
-        display: inline-block;
-        margin-top: 1rem;
-      }
-
       .quote,
       .focal-point {
         display: block;
-        padding: 1rem 1.1rem;
-        margin: 1.5rem 0;
-        border-left: 4px solid var(--accent);
-        background: #f5f8f2;
+        font-family: var(--font-serif);
+        font-style: italic;
+      }
+
+      .quote {
+        padding: 1rem 2.5rem;
+      }
+
+      .focal-point {
+        margin-top: 1rem;
       }
 
       .quote-attribution {
         display: block;
         margin-top: 0.75rem;
         color: var(--muted);
-        font-style: italic;
+        font-family: var(--font-serif);
+        text-transform: uppercase;
+        font-style: normal;
+        font-size: .9rem;
+        text-align: right;
+      }
+
+      .quote-attribution::before {
+        
+        content: "\2014";
       }
 
       .prose {
-        line-height: 1.75;
+        line-height: 1.625;
         font-size: 1.1rem;
+        font-family: var(--font-serif);
+      }
+
+      .meditation-header {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        font-size: 1.1em;
+        font-family: var(--font-serif);
+        font-weight: 700;
+      }
+
+      .meditation-header .date {
+        font-style: italic;
+      }
+
+      @media screen and (max-width: 599px) {
+        .prose {
+          font-size: 1rem;
+        }
+
+        .meditation-header {
+          font-size: 1em;
+        }
+      }
+
+      .prose p {
+        margin-bottom: 0.125rem;
+        margin-top: 0rem;
+      }
+
+      .prose p + p {
+        text-indent: 2rem;
       }
 
       .back-link {
@@ -202,15 +271,24 @@
         <p>Daily Meditations on Codependency</p>
       </header>
       <section class="content card">
-        <p class="date">April 23</p>
-<h2>Opening Ourselves to Love</h2>
-<div class="prose">
-  <p>Allowing ourselves to receive love is one of the greatest challenges we face in recovery. Many of us have blocked ourselves from receiving love. We may have lived with people who used love to control us. They would be there for us, but at the high price of our freedom. Love was given, or withheld, to control us and have power over us. It was not safe for us to receive love from these people. We may have gotten accustomed to not receiving love, not acknowledging our need for love, because we lived with people who had no real love to give. At some point in recovery, we acknowledge that we, too, want and need to be loved. We may feel awkward with this need. Where do we go with it? What do we do? Who can give us love? How can we determine who is safe and who isn't? How can we let others care for us without feeling trapped, abused, frightened, and unable to care for ourselves? We will learn. The starting point is surrender—to our desire to be loved, our need to be nurtured and loved. We will grow confident in our ability to take care of ourselves with people. We will feel safe enough to let people care for us; we will grow to trust our ability to choose people who are safe and who can give us love. We may need to get angry first—angry that our needs have not been met. Later, we can become grateful to those people who have shown us what we don't want, the ones who have assisted us in the process of believing we deserve love, and the ones who come into our life to love us. We are opening up like flowers. Sometimes it hurts as the petals push open. Be glad. Our heart is opening up to the love that is and will continue to be there for us. Surrender to the love that is there for us, to the love that people, the Universe, and our Higher Power send our way. Surrender to love, without allowing people to control us or keep us from caring for ourselves. Start by surrendering to love for yourself.</p>
+        
+
+
+<article >
+  <header class="meditation-header">
+    <h2>Opening Ourselves to Love</h2>
+    <p class="date">April 23</p>
+  </header>
+
+  <div class="prose">
+    <p>Allowing ourselves to receive love is one of the greatest challenges we face in recovery. Many of us have blocked ourselves from receiving love. We may have lived with people who used love to control us. They would be there for us, but at the high price of our freedom. Love was given, or withheld, to control us and have power over us. It was not safe for us to receive love from these people. We may have gotten accustomed to not receiving love, not acknowledging our need for love, because we lived with people who had no real love to give. At some point in recovery, we acknowledge that we, too, want and need to be loved. We may feel awkward with this need. Where do we go with it? What do we do? Who can give us love? How can we determine who is safe and who isn't? How can we let others care for us without feeling trapped, abused, frightened, and unable to care for ourselves? We will learn. The starting point is surrender—to our desire to be loved, our need to be nurtured and loved. We will grow confident in our ability to take care of ourselves with people. We will feel safe enough to let people care for us; we will grow to trust our ability to choose people who are safe and who can give us love. We may need to get angry first—angry that our needs have not been met. Later, we can become grateful to those people who have shown us what we don't want, the ones who have assisted us in the process of believing we deserve love, and the ones who come into our life to love us. We are opening up like flowers. Sometimes it hurts as the petals push open. Be glad. Our heart is opening up to the love that is and will continue to be there for us. Surrender to the love that is there for us, to the love that people, the Universe, and our Higher Power send our way. Surrender to love, without allowing people to control us or keep us from caring for ourselves. Start by surrendering to love for yourself.</p>
 <span class="focal-point">
 Today, I will open myself to the love that is here for me. I will let myself receive love that is safe, knowing I can take care of myself with people. I will be grateful to all the people from my past who have assisted me in my process of opening up to love. I claim, accept, and am grateful for the love that is coming to me.
 </span>
 
-</div>
+  </div>
+</article>
+
 
 <nav class="meditation-nav" aria-label="Adjacent meditations" data-current-meditation="04.23">
   <div class="meditation-nav-group">

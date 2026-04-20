@@ -7,6 +7,46 @@
       <title>Letting Go of Being a Victim | The Language of Letting Go</title>
     
     <style>
+      @font-face {
+        font-family: "BBC Reith Sans";
+        src: url("/language-of-letting-go/fonts/BBCReithSans400.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Sans";
+        src: url("/language-of-letting-go/fonts/BBCReithSans700.woff2") format("woff2");
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif400.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif400Italic.woff2") format("woff2");
+        font-weight: 400;
+        font-style: italic;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif700.woff2") format("woff2");
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
       :root {
         color-scheme: light;
         --bg: #f6f1e8;
@@ -15,6 +55,8 @@
         --muted: #6b7280;
         --accent: #235347;
         --border: #ded6c8;
+        --font-sans: "BBC Reith Sans", system-ui, sans-serif;
+        --font-serif: "BBC Reith Serif", Georgia, "Times New Roman", serif;
       }
 
       * {
@@ -23,11 +65,8 @@
 
       body {
         margin: 0;
-        font-family: Georgia, "Times New Roman", serif;
+        font-family: var(--font-sans);
         color: var(--ink);
-        background:
-          radial-gradient(circle at top, rgba(255, 255, 255, 0.75), transparent 40%),
-          linear-gradient(180deg, #efe7d9 0%, var(--bg) 100%);
       }
 
       a {
@@ -57,20 +96,19 @@
         margin: 0;
       }
 
+      .site-header h1 {
+        font-family: var(--font-serif);
+        font-weight: 700;
+      }
+
       .site-header p {
         margin-top: 0.75rem;
         color: var(--muted);
+        font-family: var(--font-sans);
       }
 
       .content {
         padding: 1.5rem;
-      }
-
-      .date {
-        color: var(--muted);
-        font-size: 0.95rem;
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
       }
 
       .meditation-list {
@@ -101,42 +139,73 @@
         background: #f0f6f2;
       }
 
-      .featured-meditation {
-        padding: 1.5rem;
-        margin-bottom: 2rem;
-        border: 1px solid var(--border);
-        border-radius: 1rem;
-        background: linear-gradient(180deg, #fffefb 0%, #f8f4ec 100%);
-      }
-
-      .featured-title {
-        margin: 0.25rem 0 0.5rem;
-      }
-
-      .featured-link {
-        display: inline-block;
-        margin-top: 1rem;
-      }
-
       .quote,
       .focal-point {
         display: block;
-        padding: 1rem 1.1rem;
-        margin: 1.5rem 0;
-        border-left: 4px solid var(--accent);
-        background: #f5f8f2;
+        font-family: var(--font-serif);
+        font-style: italic;
+      }
+
+      .quote {
+        padding: 1rem 2.5rem;
+      }
+
+      .focal-point {
+        margin-top: 1rem;
       }
 
       .quote-attribution {
         display: block;
         margin-top: 0.75rem;
         color: var(--muted);
-        font-style: italic;
+        font-family: var(--font-serif);
+        text-transform: uppercase;
+        font-style: normal;
+        font-size: .9rem;
+        text-align: right;
+      }
+
+      .quote-attribution::before {
+        
+        content: "\2014";
       }
 
       .prose {
-        line-height: 1.75;
+        line-height: 1.625;
         font-size: 1.1rem;
+        font-family: var(--font-serif);
+      }
+
+      .meditation-header {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        font-size: 1.1em;
+        font-family: var(--font-serif);
+        font-weight: 700;
+      }
+
+      .meditation-header .date {
+        font-style: italic;
+      }
+
+      @media screen and (max-width: 599px) {
+        .prose {
+          font-size: 1rem;
+        }
+
+        .meditation-header {
+          font-size: 1em;
+        }
+      }
+
+      .prose p {
+        margin-bottom: 0.125rem;
+        margin-top: 0rem;
+      }
+
+      .prose p + p {
+        text-indent: 2rem;
       }
 
       .back-link {
@@ -202,15 +271,24 @@
         <p>Daily Meditations on Codependency</p>
       </header>
       <section class="content card">
-        <p class="date">March 22</p>
-<h2>Letting Go of Being a Victim</h2>
-<div class="prose">
-  <p>It's okay to have a good day. Really. It's okay to be doing okay and to feel like our life is manageable and on track. Many of us have learned, as part of our survival behaviors, that the way to get the attention and approval we want is to be victims. If life is awful, too difficult, unmanageable, too hard, unfair, then others will accept, like, and approve of us, we think. We may have learned this from living and associating with people who also learned to survive by being a victim. We are not victims. We do not need to be victimized. We do not need to be helpless and out of control to get the attention and love we desire. In fact, the kind of love we are seeking cannot be obtained that way. We can get the love we really want and need by only owning our power. We learn that we can stand on our own two feet, even though it sometimes feels good to lean a little. We learn that the people we are leaning on are not holding us up. They are standing next to us. We all have bad days—days when things are not going the way we'd like, days when we have feelings of sadness and fear. But we can deal with our bad days and darker feelings in ways that reflect selfresponsibility rather than victimization. It's okay to have a good day too. We might not have as much to talk about, but well have more to enjoy.</p>
+        
+
+
+<article >
+  <header class="meditation-header">
+    <h2>Letting Go of Being a Victim</h2>
+    <p class="date">March 22</p>
+  </header>
+
+  <div class="prose">
+    <p>It's okay to have a good day. Really. It's okay to be doing okay and to feel like our life is manageable and on track. Many of us have learned, as part of our survival behaviors, that the way to get the attention and approval we want is to be victims. If life is awful, too difficult, unmanageable, too hard, unfair, then others will accept, like, and approve of us, we think. We may have learned this from living and associating with people who also learned to survive by being a victim. We are not victims. We do not need to be victimized. We do not need to be helpless and out of control to get the attention and love we desire. In fact, the kind of love we are seeking cannot be obtained that way. We can get the love we really want and need by only owning our power. We learn that we can stand on our own two feet, even though it sometimes feels good to lean a little. We learn that the people we are leaning on are not holding us up. They are standing next to us. We all have bad days—days when things are not going the way we'd like, days when we have feelings of sadness and fear. But we can deal with our bad days and darker feelings in ways that reflect selfresponsibility rather than victimization. It's okay to have a good day too. We might not have as much to talk about, but well have more to enjoy.</p>
 <span class="focal-point">
 God, help me let go of my need to be a victim. Help me let go of my belief that to be loved and get attention I need to be a victim. Surround me with people who love me when I own my power. Help me start having good days and enjoying them.
 </span>
 
-</div>
+  </div>
+</article>
+
 
 <nav class="meditation-nav" aria-label="Adjacent meditations" data-current-meditation="03.22">
   <div class="meditation-nav-group">

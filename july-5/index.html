@@ -7,6 +7,46 @@
       <title>Survivor Guilt | The Language of Letting Go</title>
     
     <style>
+      @font-face {
+        font-family: "BBC Reith Sans";
+        src: url("/language-of-letting-go/fonts/BBCReithSans400.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Sans";
+        src: url("/language-of-letting-go/fonts/BBCReithSans700.woff2") format("woff2");
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif400.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif400Italic.woff2") format("woff2");
+        font-weight: 400;
+        font-style: italic;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif700.woff2") format("woff2");
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
       :root {
         color-scheme: light;
         --bg: #f6f1e8;
@@ -15,6 +55,8 @@
         --muted: #6b7280;
         --accent: #235347;
         --border: #ded6c8;
+        --font-sans: "BBC Reith Sans", system-ui, sans-serif;
+        --font-serif: "BBC Reith Serif", Georgia, "Times New Roman", serif;
       }
 
       * {
@@ -23,11 +65,8 @@
 
       body {
         margin: 0;
-        font-family: Georgia, "Times New Roman", serif;
+        font-family: var(--font-sans);
         color: var(--ink);
-        background:
-          radial-gradient(circle at top, rgba(255, 255, 255, 0.75), transparent 40%),
-          linear-gradient(180deg, #efe7d9 0%, var(--bg) 100%);
       }
 
       a {
@@ -57,20 +96,19 @@
         margin: 0;
       }
 
+      .site-header h1 {
+        font-family: var(--font-serif);
+        font-weight: 700;
+      }
+
       .site-header p {
         margin-top: 0.75rem;
         color: var(--muted);
+        font-family: var(--font-sans);
       }
 
       .content {
         padding: 1.5rem;
-      }
-
-      .date {
-        color: var(--muted);
-        font-size: 0.95rem;
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
       }
 
       .meditation-list {
@@ -101,42 +139,73 @@
         background: #f0f6f2;
       }
 
-      .featured-meditation {
-        padding: 1.5rem;
-        margin-bottom: 2rem;
-        border: 1px solid var(--border);
-        border-radius: 1rem;
-        background: linear-gradient(180deg, #fffefb 0%, #f8f4ec 100%);
-      }
-
-      .featured-title {
-        margin: 0.25rem 0 0.5rem;
-      }
-
-      .featured-link {
-        display: inline-block;
-        margin-top: 1rem;
-      }
-
       .quote,
       .focal-point {
         display: block;
-        padding: 1rem 1.1rem;
-        margin: 1.5rem 0;
-        border-left: 4px solid var(--accent);
-        background: #f5f8f2;
+        font-family: var(--font-serif);
+        font-style: italic;
+      }
+
+      .quote {
+        padding: 1rem 2.5rem;
+      }
+
+      .focal-point {
+        margin-top: 1rem;
       }
 
       .quote-attribution {
         display: block;
         margin-top: 0.75rem;
         color: var(--muted);
-        font-style: italic;
+        font-family: var(--font-serif);
+        text-transform: uppercase;
+        font-style: normal;
+        font-size: .9rem;
+        text-align: right;
+      }
+
+      .quote-attribution::before {
+        
+        content: "\2014";
       }
 
       .prose {
-        line-height: 1.75;
+        line-height: 1.625;
         font-size: 1.1rem;
+        font-family: var(--font-serif);
+      }
+
+      .meditation-header {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        font-size: 1.1em;
+        font-family: var(--font-serif);
+        font-weight: 700;
+      }
+
+      .meditation-header .date {
+        font-style: italic;
+      }
+
+      @media screen and (max-width: 599px) {
+        .prose {
+          font-size: 1rem;
+        }
+
+        .meditation-header {
+          font-size: 1em;
+        }
+      }
+
+      .prose p {
+        margin-bottom: 0.125rem;
+        margin-top: 0rem;
+      }
+
+      .prose p + p {
+        text-indent: 2rem;
       }
 
       .back-link {
@@ -202,15 +271,24 @@
         <p>Daily Meditations on Codependency</p>
       </header>
       <section class="content card">
-        <p class="date">July 5</p>
-<h2>Survivor Guilt</h2>
-<div class="prose">
-  <p>We begin recovering. We begin taking care of ourselves. Our recovery program starts to work in our life, and we begin to feel good about ourselves. Then it hits. Guilt. Whenever we begin to experience the fullness and joy of life, we may feel guilty about those we've left behind—those not recovering, those still in pain. This survivor guilt is a symptom of codependency. We may think about the husband we've divorced who is still drinking. We may dwell on a child, grown or adult, still in pain. We may get a phone call from a nonrecovering parent who relates his or her misery to us. And we feel pulled into their pain. How can we feel so happy, so good, when those we love are still in misery? Can we really break away and lead satisfying lives, despite their circumstances? Yes, we can. And yes, it hurts to leave behind those we love. But keep moving forward anyway. Be patient. Other people's recovery is not our job. We cannot make them recover. We cannot make them happy. We may ask why we were chosen for a fuller life. We may never know the answer. Some may catch up in their own time, but their recovery is not our business. The only recovery we can truly claim is our own. We can let go of others with love, and love ourselves without guilt.</p>
+        
+
+
+<article >
+  <header class="meditation-header">
+    <h2>Survivor Guilt</h2>
+    <p class="date">July 5</p>
+  </header>
+
+  <div class="prose">
+    <p>We begin recovering. We begin taking care of ourselves. Our recovery program starts to work in our life, and we begin to feel good about ourselves. Then it hits. Guilt. Whenever we begin to experience the fullness and joy of life, we may feel guilty about those we've left behind—those not recovering, those still in pain. This survivor guilt is a symptom of codependency. We may think about the husband we've divorced who is still drinking. We may dwell on a child, grown or adult, still in pain. We may get a phone call from a nonrecovering parent who relates his or her misery to us. And we feel pulled into their pain. How can we feel so happy, so good, when those we love are still in misery? Can we really break away and lead satisfying lives, despite their circumstances? Yes, we can. And yes, it hurts to leave behind those we love. But keep moving forward anyway. Be patient. Other people's recovery is not our job. We cannot make them recover. We cannot make them happy. We may ask why we were chosen for a fuller life. We may never know the answer. Some may catch up in their own time, but their recovery is not our business. The only recovery we can truly claim is our own. We can let go of others with love, and love ourselves without guilt.</p>
 <span class="focal-point">
 Today, I am willing to work through my sadness and guilt. I will let myself be healthy and happy, even though someone I love has not chosen the same path.
 </span>
 
-</div>
+  </div>
+</article>
+
 
 <nav class="meditation-nav" aria-label="Adjacent meditations" data-current-meditation="07.05">
   <div class="meditation-nav-group">

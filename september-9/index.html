@@ -7,6 +7,46 @@
       <title>Perspective | The Language of Letting Go</title>
     
     <style>
+      @font-face {
+        font-family: "BBC Reith Sans";
+        src: url("/language-of-letting-go/fonts/BBCReithSans400.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Sans";
+        src: url("/language-of-letting-go/fonts/BBCReithSans700.woff2") format("woff2");
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif400.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif400Italic.woff2") format("woff2");
+        font-weight: 400;
+        font-style: italic;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif700.woff2") format("woff2");
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
       :root {
         color-scheme: light;
         --bg: #f6f1e8;
@@ -15,6 +55,8 @@
         --muted: #6b7280;
         --accent: #235347;
         --border: #ded6c8;
+        --font-sans: "BBC Reith Sans", system-ui, sans-serif;
+        --font-serif: "BBC Reith Serif", Georgia, "Times New Roman", serif;
       }
 
       * {
@@ -23,11 +65,8 @@
 
       body {
         margin: 0;
-        font-family: Georgia, "Times New Roman", serif;
+        font-family: var(--font-sans);
         color: var(--ink);
-        background:
-          radial-gradient(circle at top, rgba(255, 255, 255, 0.75), transparent 40%),
-          linear-gradient(180deg, #efe7d9 0%, var(--bg) 100%);
       }
 
       a {
@@ -57,20 +96,19 @@
         margin: 0;
       }
 
+      .site-header h1 {
+        font-family: var(--font-serif);
+        font-weight: 700;
+      }
+
       .site-header p {
         margin-top: 0.75rem;
         color: var(--muted);
+        font-family: var(--font-sans);
       }
 
       .content {
         padding: 1.5rem;
-      }
-
-      .date {
-        color: var(--muted);
-        font-size: 0.95rem;
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
       }
 
       .meditation-list {
@@ -101,42 +139,73 @@
         background: #f0f6f2;
       }
 
-      .featured-meditation {
-        padding: 1.5rem;
-        margin-bottom: 2rem;
-        border: 1px solid var(--border);
-        border-radius: 1rem;
-        background: linear-gradient(180deg, #fffefb 0%, #f8f4ec 100%);
-      }
-
-      .featured-title {
-        margin: 0.25rem 0 0.5rem;
-      }
-
-      .featured-link {
-        display: inline-block;
-        margin-top: 1rem;
-      }
-
       .quote,
       .focal-point {
         display: block;
-        padding: 1rem 1.1rem;
-        margin: 1.5rem 0;
-        border-left: 4px solid var(--accent);
-        background: #f5f8f2;
+        font-family: var(--font-serif);
+        font-style: italic;
+      }
+
+      .quote {
+        padding: 1rem 2.5rem;
+      }
+
+      .focal-point {
+        margin-top: 1rem;
       }
 
       .quote-attribution {
         display: block;
         margin-top: 0.75rem;
         color: var(--muted);
-        font-style: italic;
+        font-family: var(--font-serif);
+        text-transform: uppercase;
+        font-style: normal;
+        font-size: .9rem;
+        text-align: right;
+      }
+
+      .quote-attribution::before {
+        
+        content: "\2014";
       }
 
       .prose {
-        line-height: 1.75;
+        line-height: 1.625;
         font-size: 1.1rem;
+        font-family: var(--font-serif);
+      }
+
+      .meditation-header {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        font-size: 1.1em;
+        font-family: var(--font-serif);
+        font-weight: 700;
+      }
+
+      .meditation-header .date {
+        font-style: italic;
+      }
+
+      @media screen and (max-width: 599px) {
+        .prose {
+          font-size: 1rem;
+        }
+
+        .meditation-header {
+          font-size: 1em;
+        }
+      }
+
+      .prose p {
+        margin-bottom: 0.125rem;
+        margin-top: 0rem;
+      }
+
+      .prose p + p {
+        text-indent: 2rem;
       }
 
       .back-link {
@@ -202,15 +271,24 @@
         <p>Daily Meditations on Codependency</p>
       </header>
       <section class="content card">
-        <p class="date">September 9</p>
-<h2>Perspective</h2>
-<div class="prose">
-  <p>Too often, we try to gain a clear perspective before it is time. That will make us crazy. We do not always know why things are happening the way they are. We do not always know how a particular relationship will work out. We do not always understand the source of our feelings, why we've been led down a particular path, what is being worked out in us, what we are learning, why we needed to recycle, why we had to wait, why we needed to go through a time of discipline, or why a door closed. How our present circumstances will work into the larger scheme of events is not always clear to us. That is how it needs to be. Perspective will come in retrospect. We could strain for hours today for the meaning of something that may come in an instant next year. Let it go. We can let go of our need to figure things out, to feel in control. Now is the time to be. To feel. To go through it. To allow things to happen. To learn. To let whatever is being worked out in us take its course. In hindsight, we will know. It will become clear. For today, being is enough. We have been told that all things shall work out for good in our life. We can trust that to happen, even if we cannot see the place today's events will hold in the larger picture.</p>
+        
+
+
+<article >
+  <header class="meditation-header">
+    <h2>Perspective</h2>
+    <p class="date">September 9</p>
+  </header>
+
+  <div class="prose">
+    <p>Too often, we try to gain a clear perspective before it is time. That will make us crazy. We do not always know why things are happening the way they are. We do not always know how a particular relationship will work out. We do not always understand the source of our feelings, why we've been led down a particular path, what is being worked out in us, what we are learning, why we needed to recycle, why we had to wait, why we needed to go through a time of discipline, or why a door closed. How our present circumstances will work into the larger scheme of events is not always clear to us. That is how it needs to be. Perspective will come in retrospect. We could strain for hours today for the meaning of something that may come in an instant next year. Let it go. We can let go of our need to figure things out, to feel in control. Now is the time to be. To feel. To go through it. To allow things to happen. To learn. To let whatever is being worked out in us take its course. In hindsight, we will know. It will become clear. For today, being is enough. We have been told that all things shall work out for good in our life. We can trust that to happen, even if we cannot see the place today's events will hold in the larger picture.</p>
 <span class="focal-point">
 Today, I will let things happen without trying to figure everything out. If clarity is not available to me today, I will trust it to come later, in retrospect. I will put simple trust in the truth that all is well, events are unfolding as they should, and all will work out for good in my life—better than I can imagine.
 </span>
 
-</div>
+  </div>
+</article>
+
 
 <nav class="meditation-nav" aria-label="Adjacent meditations" data-current-meditation="09.09">
   <div class="meditation-nav-group">

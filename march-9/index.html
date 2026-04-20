@@ -7,6 +7,46 @@
       <title>Taking Care of Ourselves | The Language of Letting Go</title>
     
     <style>
+      @font-face {
+        font-family: "BBC Reith Sans";
+        src: url("/language-of-letting-go/fonts/BBCReithSans400.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Sans";
+        src: url("/language-of-letting-go/fonts/BBCReithSans700.woff2") format("woff2");
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif400.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif400Italic.woff2") format("woff2");
+        font-weight: 400;
+        font-style: italic;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif700.woff2") format("woff2");
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
       :root {
         color-scheme: light;
         --bg: #f6f1e8;
@@ -15,6 +55,8 @@
         --muted: #6b7280;
         --accent: #235347;
         --border: #ded6c8;
+        --font-sans: "BBC Reith Sans", system-ui, sans-serif;
+        --font-serif: "BBC Reith Serif", Georgia, "Times New Roman", serif;
       }
 
       * {
@@ -23,11 +65,8 @@
 
       body {
         margin: 0;
-        font-family: Georgia, "Times New Roman", serif;
+        font-family: var(--font-sans);
         color: var(--ink);
-        background:
-          radial-gradient(circle at top, rgba(255, 255, 255, 0.75), transparent 40%),
-          linear-gradient(180deg, #efe7d9 0%, var(--bg) 100%);
       }
 
       a {
@@ -57,20 +96,19 @@
         margin: 0;
       }
 
+      .site-header h1 {
+        font-family: var(--font-serif);
+        font-weight: 700;
+      }
+
       .site-header p {
         margin-top: 0.75rem;
         color: var(--muted);
+        font-family: var(--font-sans);
       }
 
       .content {
         padding: 1.5rem;
-      }
-
-      .date {
-        color: var(--muted);
-        font-size: 0.95rem;
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
       }
 
       .meditation-list {
@@ -101,42 +139,73 @@
         background: #f0f6f2;
       }
 
-      .featured-meditation {
-        padding: 1.5rem;
-        margin-bottom: 2rem;
-        border: 1px solid var(--border);
-        border-radius: 1rem;
-        background: linear-gradient(180deg, #fffefb 0%, #f8f4ec 100%);
-      }
-
-      .featured-title {
-        margin: 0.25rem 0 0.5rem;
-      }
-
-      .featured-link {
-        display: inline-block;
-        margin-top: 1rem;
-      }
-
       .quote,
       .focal-point {
         display: block;
-        padding: 1rem 1.1rem;
-        margin: 1.5rem 0;
-        border-left: 4px solid var(--accent);
-        background: #f5f8f2;
+        font-family: var(--font-serif);
+        font-style: italic;
+      }
+
+      .quote {
+        padding: 1rem 2.5rem;
+      }
+
+      .focal-point {
+        margin-top: 1rem;
       }
 
       .quote-attribution {
         display: block;
         margin-top: 0.75rem;
         color: var(--muted);
-        font-style: italic;
+        font-family: var(--font-serif);
+        text-transform: uppercase;
+        font-style: normal;
+        font-size: .9rem;
+        text-align: right;
+      }
+
+      .quote-attribution::before {
+        
+        content: "\2014";
       }
 
       .prose {
-        line-height: 1.75;
+        line-height: 1.625;
         font-size: 1.1rem;
+        font-family: var(--font-serif);
+      }
+
+      .meditation-header {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        font-size: 1.1em;
+        font-family: var(--font-serif);
+        font-weight: 700;
+      }
+
+      .meditation-header .date {
+        font-style: italic;
+      }
+
+      @media screen and (max-width: 599px) {
+        .prose {
+          font-size: 1rem;
+        }
+
+        .meditation-header {
+          font-size: 1em;
+        }
+      }
+
+      .prose p {
+        margin-bottom: 0.125rem;
+        margin-top: 0rem;
+      }
+
+      .prose p + p {
+        text-indent: 2rem;
       }
 
       .back-link {
@@ -202,15 +271,24 @@
         <p>Daily Meditations on Codependency</p>
       </header>
       <section class="content card">
-        <p class="date">March 9</p>
-<h2>Taking Care of Ourselves</h2>
-<div class="prose">
-  <p>We cannot simultaneously set a boundary and take care of another person's feelings. It's impossible; the two acts contradict. What a tremendous asset to have compassion for others! How difficult that same quality can make it to set boundaries! It's good to care about other people and their feelings; it's essential to care about ourselves too. Sometimes, to take good care of ourselves, we need to make a choice. Some of us live with a deeply ingrained message from our family, or from church, about never hurting other people's feelings. We can replace that message with a new one, one that says it's not okay to hurt ourselves. Sometimes, when we take care of ourselves, others will react with hurt feelings. That's okay. We will learn, grow, and benefit by the experience; they will too. The most powerful and positive impact we can have on other people is accomplished by taking responsibility for ourselves, and allowing others to be responsible for themselves. Caring works. Caretaking doesn't. We can learn to walk the line between the two.</p>
+        
+
+
+<article >
+  <header class="meditation-header">
+    <h2>Taking Care of Ourselves</h2>
+    <p class="date">March 9</p>
+  </header>
+
+  <div class="prose">
+    <p>We cannot simultaneously set a boundary and take care of another person's feelings. It's impossible; the two acts contradict. What a tremendous asset to have compassion for others! How difficult that same quality can make it to set boundaries! It's good to care about other people and their feelings; it's essential to care about ourselves too. Sometimes, to take good care of ourselves, we need to make a choice. Some of us live with a deeply ingrained message from our family, or from church, about never hurting other people's feelings. We can replace that message with a new one, one that says it's not okay to hurt ourselves. Sometimes, when we take care of ourselves, others will react with hurt feelings. That's okay. We will learn, grow, and benefit by the experience; they will too. The most powerful and positive impact we can have on other people is accomplished by taking responsibility for ourselves, and allowing others to be responsible for themselves. Caring works. Caretaking doesn't. We can learn to walk the line between the two.</p>
 <span class="focal-point">
 Today, I will set the limits I need to set. I will let go of my need to take care of other people's feelings and instead take care of my own. I will give myself permission to take care of myself, knowing it's the best thing I can do for myself and others.
 </span>
 
-</div>
+  </div>
+</article>
+
 
 <nav class="meditation-nav" aria-label="Adjacent meditations" data-current-meditation="03.09">
   <div class="meditation-nav-group">

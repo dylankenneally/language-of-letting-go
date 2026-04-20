@@ -7,6 +7,46 @@
       <title>Financial Fears | The Language of Letting Go</title>
     
     <style>
+      @font-face {
+        font-family: "BBC Reith Sans";
+        src: url("/language-of-letting-go/fonts/BBCReithSans400.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Sans";
+        src: url("/language-of-letting-go/fonts/BBCReithSans700.woff2") format("woff2");
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif400.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif400Italic.woff2") format("woff2");
+        font-weight: 400;
+        font-style: italic;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif700.woff2") format("woff2");
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
       :root {
         color-scheme: light;
         --bg: #f6f1e8;
@@ -15,6 +55,8 @@
         --muted: #6b7280;
         --accent: #235347;
         --border: #ded6c8;
+        --font-sans: "BBC Reith Sans", system-ui, sans-serif;
+        --font-serif: "BBC Reith Serif", Georgia, "Times New Roman", serif;
       }
 
       * {
@@ -23,11 +65,8 @@
 
       body {
         margin: 0;
-        font-family: Georgia, "Times New Roman", serif;
+        font-family: var(--font-sans);
         color: var(--ink);
-        background:
-          radial-gradient(circle at top, rgba(255, 255, 255, 0.75), transparent 40%),
-          linear-gradient(180deg, #efe7d9 0%, var(--bg) 100%);
       }
 
       a {
@@ -57,20 +96,19 @@
         margin: 0;
       }
 
+      .site-header h1 {
+        font-family: var(--font-serif);
+        font-weight: 700;
+      }
+
       .site-header p {
         margin-top: 0.75rem;
         color: var(--muted);
+        font-family: var(--font-sans);
       }
 
       .content {
         padding: 1.5rem;
-      }
-
-      .date {
-        color: var(--muted);
-        font-size: 0.95rem;
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
       }
 
       .meditation-list {
@@ -101,42 +139,73 @@
         background: #f0f6f2;
       }
 
-      .featured-meditation {
-        padding: 1.5rem;
-        margin-bottom: 2rem;
-        border: 1px solid var(--border);
-        border-radius: 1rem;
-        background: linear-gradient(180deg, #fffefb 0%, #f8f4ec 100%);
-      }
-
-      .featured-title {
-        margin: 0.25rem 0 0.5rem;
-      }
-
-      .featured-link {
-        display: inline-block;
-        margin-top: 1rem;
-      }
-
       .quote,
       .focal-point {
         display: block;
-        padding: 1rem 1.1rem;
-        margin: 1.5rem 0;
-        border-left: 4px solid var(--accent);
-        background: #f5f8f2;
+        font-family: var(--font-serif);
+        font-style: italic;
+      }
+
+      .quote {
+        padding: 1rem 2.5rem;
+      }
+
+      .focal-point {
+        margin-top: 1rem;
       }
 
       .quote-attribution {
         display: block;
         margin-top: 0.75rem;
         color: var(--muted);
-        font-style: italic;
+        font-family: var(--font-serif);
+        text-transform: uppercase;
+        font-style: normal;
+        font-size: .9rem;
+        text-align: right;
+      }
+
+      .quote-attribution::before {
+        
+        content: "\2014";
       }
 
       .prose {
-        line-height: 1.75;
+        line-height: 1.625;
         font-size: 1.1rem;
+        font-family: var(--font-serif);
+      }
+
+      .meditation-header {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        font-size: 1.1em;
+        font-family: var(--font-serif);
+        font-weight: 700;
+      }
+
+      .meditation-header .date {
+        font-style: italic;
+      }
+
+      @media screen and (max-width: 599px) {
+        .prose {
+          font-size: 1rem;
+        }
+
+        .meditation-header {
+          font-size: 1em;
+        }
+      }
+
+      .prose p {
+        margin-bottom: 0.125rem;
+        margin-top: 0rem;
+      }
+
+      .prose p + p {
+        text-indent: 2rem;
       }
 
       .back-link {
@@ -202,15 +271,24 @@
         <p>Daily Meditations on Codependency</p>
       </header>
       <section class="content card">
-        <p class="date">November 21</p>
-<h2>Financial Fears</h2>
-<div class="prose">
-  <p>I sat in the car, looking at the sign on the door of the food shelf office: &quot;Closed until Friday.&quot; It was Wednesday. I had two hungry children and myself; I had no money. I laid my head on the steering wheel. I couldn't take it anymore. I had been so strong, so brave, so trusting for so long. I was a single parent with two children, recently divorced. I had worked so courageously at being grateful for what I had, while setting financial goals and working at believing I deserved the best. I had put up with so much poverty, so much deprivation. Daily, I worked the Eleventh Step. I worked so hard at praying for knowledge of God's will for me only, and the power to carry it through. I believed I was doing what I needed to do in my life. I wasn't lollygagging. I was doing my best, working my hardest. And there just wasn't enough money. Life had been a struggle in many ways, but the financial struggle seemed endless. Money isn't everything, but it takes money to solve certain problems. I was sick of &quot;letting go&quot; and &quot;letting go&quot; and ''letting go.&quot; I was sick of &quot;acting as if'' I had enough money. I was tired of having to work so hard daily at letting go of the pain and fear about not having enough. I was tired of working so hard at being happy without having enough. Actually, most of the time I was happy. I had found my soul in poverty. But now that I had my soul and my self, I wanted some money too. While I sat in the car trying to compose myself, I heard God speak to me in that silent, still voice that whispers gently to our souls. &quot;You don't ever have to worry about money again, child. Not unless you want to. I told you that I would take care of you. And I will.&quot; Great, I thought. Thanks a lot. I believe you. I trust you. But look around. I have no money. I have no food. And the food shelf is closed. You've let me down. Again I heard His voice in my soul: &quot;You don't have to worry about money again. You don't have to be afraid. I promised to meet all your needs.&quot; I went home, called a friend, and asked to borrow some money. I hated borrowing, but I had no choice. My breakdown in the car was a release, but it didn't solve a thing that day. There was no check in the mailbox. But I got food for the day. And the next day. And the next. Within six months, my income doubled. Within nine months, it tripled. Since that day, I have had hard times, but I have never had to go without—not for more than a moment in time. Now, I have enough. Sometimes I still worry about money because that seems to be habitual. But now I know I don't have to, and I know I never did.</p>
+        
+
+
+<article >
+  <header class="meditation-header">
+    <h2>Financial Fears</h2>
+    <p class="date">November 21</p>
+  </header>
+
+  <div class="prose">
+    <p>I sat in the car, looking at the sign on the door of the food shelf office: &quot;Closed until Friday.&quot; It was Wednesday. I had two hungry children and myself; I had no money. I laid my head on the steering wheel. I couldn't take it anymore. I had been so strong, so brave, so trusting for so long. I was a single parent with two children, recently divorced. I had worked so courageously at being grateful for what I had, while setting financial goals and working at believing I deserved the best. I had put up with so much poverty, so much deprivation. Daily, I worked the Eleventh Step. I worked so hard at praying for knowledge of God's will for me only, and the power to carry it through. I believed I was doing what I needed to do in my life. I wasn't lollygagging. I was doing my best, working my hardest. And there just wasn't enough money. Life had been a struggle in many ways, but the financial struggle seemed endless. Money isn't everything, but it takes money to solve certain problems. I was sick of &quot;letting go&quot; and &quot;letting go&quot; and ''letting go.&quot; I was sick of &quot;acting as if'' I had enough money. I was tired of having to work so hard daily at letting go of the pain and fear about not having enough. I was tired of working so hard at being happy without having enough. Actually, most of the time I was happy. I had found my soul in poverty. But now that I had my soul and my self, I wanted some money too. While I sat in the car trying to compose myself, I heard God speak to me in that silent, still voice that whispers gently to our souls. &quot;You don't ever have to worry about money again, child. Not unless you want to. I told you that I would take care of you. And I will.&quot; Great, I thought. Thanks a lot. I believe you. I trust you. But look around. I have no money. I have no food. And the food shelf is closed. You've let me down. Again I heard His voice in my soul: &quot;You don't have to worry about money again. You don't have to be afraid. I promised to meet all your needs.&quot; I went home, called a friend, and asked to borrow some money. I hated borrowing, but I had no choice. My breakdown in the car was a release, but it didn't solve a thing that day. There was no check in the mailbox. But I got food for the day. And the next day. And the next. Within six months, my income doubled. Within nine months, it tripled. Since that day, I have had hard times, but I have never had to go without—not for more than a moment in time. Now, I have enough. Sometimes I still worry about money because that seems to be habitual. But now I know I don't have to, and I know I never did.</p>
 <span class="focal-point">
 God, help me work hard at what I believe is right for me in my life today, and I'll trust You for the rest. Help me let go of my fears about money. Help me turn that area over to You, God. Take away the blocks and barriers in my life to financial success.
 </span>
 
-</div>
+  </div>
+</article>
+
 
 <nav class="meditation-nav" aria-label="Adjacent meditations" data-current-meditation="11.21">
   <div class="meditation-nav-group">

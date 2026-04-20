@@ -7,6 +7,46 @@
       <title>Fear | The Language of Letting Go</title>
     
     <style>
+      @font-face {
+        font-family: "BBC Reith Sans";
+        src: url("/language-of-letting-go/fonts/BBCReithSans400.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Sans";
+        src: url("/language-of-letting-go/fonts/BBCReithSans700.woff2") format("woff2");
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif400.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif400Italic.woff2") format("woff2");
+        font-weight: 400;
+        font-style: italic;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif700.woff2") format("woff2");
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
       :root {
         color-scheme: light;
         --bg: #f6f1e8;
@@ -15,6 +55,8 @@
         --muted: #6b7280;
         --accent: #235347;
         --border: #ded6c8;
+        --font-sans: "BBC Reith Sans", system-ui, sans-serif;
+        --font-serif: "BBC Reith Serif", Georgia, "Times New Roman", serif;
       }
 
       * {
@@ -23,11 +65,8 @@
 
       body {
         margin: 0;
-        font-family: Georgia, "Times New Roman", serif;
+        font-family: var(--font-sans);
         color: var(--ink);
-        background:
-          radial-gradient(circle at top, rgba(255, 255, 255, 0.75), transparent 40%),
-          linear-gradient(180deg, #efe7d9 0%, var(--bg) 100%);
       }
 
       a {
@@ -57,20 +96,19 @@
         margin: 0;
       }
 
+      .site-header h1 {
+        font-family: var(--font-serif);
+        font-weight: 700;
+      }
+
       .site-header p {
         margin-top: 0.75rem;
         color: var(--muted);
+        font-family: var(--font-sans);
       }
 
       .content {
         padding: 1.5rem;
-      }
-
-      .date {
-        color: var(--muted);
-        font-size: 0.95rem;
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
       }
 
       .meditation-list {
@@ -101,42 +139,73 @@
         background: #f0f6f2;
       }
 
-      .featured-meditation {
-        padding: 1.5rem;
-        margin-bottom: 2rem;
-        border: 1px solid var(--border);
-        border-radius: 1rem;
-        background: linear-gradient(180deg, #fffefb 0%, #f8f4ec 100%);
-      }
-
-      .featured-title {
-        margin: 0.25rem 0 0.5rem;
-      }
-
-      .featured-link {
-        display: inline-block;
-        margin-top: 1rem;
-      }
-
       .quote,
       .focal-point {
         display: block;
-        padding: 1rem 1.1rem;
-        margin: 1.5rem 0;
-        border-left: 4px solid var(--accent);
-        background: #f5f8f2;
+        font-family: var(--font-serif);
+        font-style: italic;
+      }
+
+      .quote {
+        padding: 1rem 2.5rem;
+      }
+
+      .focal-point {
+        margin-top: 1rem;
       }
 
       .quote-attribution {
         display: block;
         margin-top: 0.75rem;
         color: var(--muted);
-        font-style: italic;
+        font-family: var(--font-serif);
+        text-transform: uppercase;
+        font-style: normal;
+        font-size: .9rem;
+        text-align: right;
+      }
+
+      .quote-attribution::before {
+        
+        content: "\2014";
       }
 
       .prose {
-        line-height: 1.75;
+        line-height: 1.625;
         font-size: 1.1rem;
+        font-family: var(--font-serif);
+      }
+
+      .meditation-header {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        font-size: 1.1em;
+        font-family: var(--font-serif);
+        font-weight: 700;
+      }
+
+      .meditation-header .date {
+        font-style: italic;
+      }
+
+      @media screen and (max-width: 599px) {
+        .prose {
+          font-size: 1rem;
+        }
+
+        .meditation-header {
+          font-size: 1em;
+        }
+      }
+
+      .prose p {
+        margin-bottom: 0.125rem;
+        margin-top: 0rem;
+      }
+
+      .prose p + p {
+        text-indent: 2rem;
       }
 
       .back-link {
@@ -202,15 +271,24 @@
         <p>Daily Meditations on Codependency</p>
       </header>
       <section class="content card">
-        <p class="date">July 28</p>
-<h2>Fear</h2>
-<div class="prose">
-  <p>One day, I decided to try something new. I took my tenyearold son out on the St. Croix River on a Waverunner. A Waverunner is a small boating vehicle resembling a motorcycle. We donned life jackets and embarked on an experience that turned out to be both exhilarating and frightening: exhilarating when I let myself enjoy it; frightening when I thought too much about what I was doing and all the terrible things that could happen. Midway through our ride, my worst fear came true. We took a spill. We were floundering in thirty feet of water. The Waverunner was bobbing on the waves in front of me, like a motorized turtle on its back. ''Don't panic,'' my son said calmly. &quot;What if we drown?&quot; I objected. &quot;We can't,&quot; he said. &quot;We have life jackets on. See! We're floating.&quot; &quot;The machine is upside down,&quot; I said. &quot;How are we going to turn it over?&quot; &quot;Just like the man said,&quot; my son answered. &quot;The arrow points this way.&quot; With an easy gesture, we turned the machine rightside up. &quot;What if we can't climb back on?&quot; I asked. &quot;We can,&quot; my son replied. &quot;That's what Waverunners were made for: climbing on in the water.&quot; I relaxed and as we drove off, I wondered why I had become so frightened. I thought maybe it's because I don't trust my ability to solve problems. Maybe it's because once I almost drowned when I wasn't wearing a life jacket. But you didn't drown then either, a small voice inside reassured me. You survived. Don't panic. Problems were made to be solved. Life was made to be lived. Although sometimes we may be in over our heads yes, we may even go under for a few moments and gulp a few mouthfuls of water, we won't drown. We're wearing and always have been wearing—a life jacket. That support jacket is called &quot;God.&quot;</p>
+        
+
+
+<article >
+  <header class="meditation-header">
+    <h2>Fear</h2>
+    <p class="date">July 28</p>
+  </header>
+
+  <div class="prose">
+    <p>One day, I decided to try something new. I took my tenyearold son out on the St. Croix River on a Waverunner. A Waverunner is a small boating vehicle resembling a motorcycle. We donned life jackets and embarked on an experience that turned out to be both exhilarating and frightening: exhilarating when I let myself enjoy it; frightening when I thought too much about what I was doing and all the terrible things that could happen. Midway through our ride, my worst fear came true. We took a spill. We were floundering in thirty feet of water. The Waverunner was bobbing on the waves in front of me, like a motorized turtle on its back. ''Don't panic,'' my son said calmly. &quot;What if we drown?&quot; I objected. &quot;We can't,&quot; he said. &quot;We have life jackets on. See! We're floating.&quot; &quot;The machine is upside down,&quot; I said. &quot;How are we going to turn it over?&quot; &quot;Just like the man said,&quot; my son answered. &quot;The arrow points this way.&quot; With an easy gesture, we turned the machine rightside up. &quot;What if we can't climb back on?&quot; I asked. &quot;We can,&quot; my son replied. &quot;That's what Waverunners were made for: climbing on in the water.&quot; I relaxed and as we drove off, I wondered why I had become so frightened. I thought maybe it's because I don't trust my ability to solve problems. Maybe it's because once I almost drowned when I wasn't wearing a life jacket. But you didn't drown then either, a small voice inside reassured me. You survived. Don't panic. Problems were made to be solved. Life was made to be lived. Although sometimes we may be in over our heads yes, we may even go under for a few moments and gulp a few mouthfuls of water, we won't drown. We're wearing and always have been wearing—a life jacket. That support jacket is called &quot;God.&quot;</p>
 <span class="focal-point">
 Today, I will remember to take care of myself. When I get in over my head, God is there supporting me—even when my fears try to make me forget.
 </span>
 
-</div>
+  </div>
+</article>
+
 
 <nav class="meditation-nav" aria-label="Adjacent meditations" data-current-meditation="07.28">
   <div class="meditation-nav-group">

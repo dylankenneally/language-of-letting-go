@@ -7,6 +7,46 @@
       <title>Initiating Relationships | The Language of Letting Go</title>
     
     <style>
+      @font-face {
+        font-family: "BBC Reith Sans";
+        src: url("/language-of-letting-go/fonts/BBCReithSans400.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Sans";
+        src: url("/language-of-letting-go/fonts/BBCReithSans700.woff2") format("woff2");
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif400.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif400Italic.woff2") format("woff2");
+        font-weight: 400;
+        font-style: italic;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif700.woff2") format("woff2");
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
       :root {
         color-scheme: light;
         --bg: #f6f1e8;
@@ -15,6 +55,8 @@
         --muted: #6b7280;
         --accent: #235347;
         --border: #ded6c8;
+        --font-sans: "BBC Reith Sans", system-ui, sans-serif;
+        --font-serif: "BBC Reith Serif", Georgia, "Times New Roman", serif;
       }
 
       * {
@@ -23,11 +65,8 @@
 
       body {
         margin: 0;
-        font-family: Georgia, "Times New Roman", serif;
+        font-family: var(--font-sans);
         color: var(--ink);
-        background:
-          radial-gradient(circle at top, rgba(255, 255, 255, 0.75), transparent 40%),
-          linear-gradient(180deg, #efe7d9 0%, var(--bg) 100%);
       }
 
       a {
@@ -57,20 +96,19 @@
         margin: 0;
       }
 
+      .site-header h1 {
+        font-family: var(--font-serif);
+        font-weight: 700;
+      }
+
       .site-header p {
         margin-top: 0.75rem;
         color: var(--muted);
+        font-family: var(--font-sans);
       }
 
       .content {
         padding: 1.5rem;
-      }
-
-      .date {
-        color: var(--muted);
-        font-size: 0.95rem;
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
       }
 
       .meditation-list {
@@ -101,42 +139,73 @@
         background: #f0f6f2;
       }
 
-      .featured-meditation {
-        padding: 1.5rem;
-        margin-bottom: 2rem;
-        border: 1px solid var(--border);
-        border-radius: 1rem;
-        background: linear-gradient(180deg, #fffefb 0%, #f8f4ec 100%);
-      }
-
-      .featured-title {
-        margin: 0.25rem 0 0.5rem;
-      }
-
-      .featured-link {
-        display: inline-block;
-        margin-top: 1rem;
-      }
-
       .quote,
       .focal-point {
         display: block;
-        padding: 1rem 1.1rem;
-        margin: 1.5rem 0;
-        border-left: 4px solid var(--accent);
-        background: #f5f8f2;
+        font-family: var(--font-serif);
+        font-style: italic;
+      }
+
+      .quote {
+        padding: 1rem 2.5rem;
+      }
+
+      .focal-point {
+        margin-top: 1rem;
       }
 
       .quote-attribution {
         display: block;
         margin-top: 0.75rem;
         color: var(--muted);
-        font-style: italic;
+        font-family: var(--font-serif);
+        text-transform: uppercase;
+        font-style: normal;
+        font-size: .9rem;
+        text-align: right;
+      }
+
+      .quote-attribution::before {
+        
+        content: "\2014";
       }
 
       .prose {
-        line-height: 1.75;
+        line-height: 1.625;
         font-size: 1.1rem;
+        font-family: var(--font-serif);
+      }
+
+      .meditation-header {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        font-size: 1.1em;
+        font-family: var(--font-serif);
+        font-weight: 700;
+      }
+
+      .meditation-header .date {
+        font-style: italic;
+      }
+
+      @media screen and (max-width: 599px) {
+        .prose {
+          font-size: 1rem;
+        }
+
+        .meditation-header {
+          font-size: 1em;
+        }
+      }
+
+      .prose p {
+        margin-bottom: 0.125rem;
+        margin-top: 0rem;
+      }
+
+      .prose p + p {
+        text-indent: 2rem;
       }
 
       .back-link {
@@ -202,15 +271,24 @@
         <p>Daily Meditations on Codependency</p>
       </header>
       <section class="content card">
-        <p class="date">April 29</p>
-<h2>Initiating Relationships</h2>
-<div class="prose">
-  <p>Often, we can learn much about ourselves from the people to whom we are attracted. As we progress through recovery, we learn we can no longer form relationships solely on the basis of attraction. We learn to be patient, to allow ourselves to take into account important facts, and to process information about that person. What we are striving for in recovery is a healthy attraction to people. We allow ourselves to be attracted to who people are, not to their potential or to what we hope they are. The more we work through our family of origin issues, the less we will find ourselves needing to work through them with the people we're attracted to. Finishing our business from the past helps us form new and healthier relationships. The more we overcome our need to be excessive caretakers, the less we will find ourselves attracted to people who need to be constantly taken care of. The more we learn to love and respect ourselves, the more we will become attracted to people who will love and respect us and who we can safely love and respect. This is a slow process. We need to be patient with ourselves. The type of people we find ourselves attracted to does not change overnight. Being attracted to dysfunctional people can linger long and well into recovery. That does not mean we need to allow it to control us. The fact is, we will initiate and maintain relationships with people we need to be with until we learn what it is we need to learn—no matter how long we've been recovering. No matter who we find ourselves relating to, and what we discover happening in the relationship, the issue is still about us, and not about the other person. That is the heart, the hope, and the power of recovery. We can learn to take care of ourselves during the process of initiating and forming relationships. We can learn to go slowly. We can learn to pay attention. We can allow ourselves to make mistakes, even when we know better. We can stop blaming our relationships on God, and begin to take responsibility for them. We can learn to enjoy the healthy relationships, and remove ourselves more quickly from the dysfunctional ones. We can learn to look for what's good for us, instead of what's good for the other person.</p>
+        
+
+
+<article >
+  <header class="meditation-header">
+    <h2>Initiating Relationships</h2>
+    <p class="date">April 29</p>
+  </header>
+
+  <div class="prose">
+    <p>Often, we can learn much about ourselves from the people to whom we are attracted. As we progress through recovery, we learn we can no longer form relationships solely on the basis of attraction. We learn to be patient, to allow ourselves to take into account important facts, and to process information about that person. What we are striving for in recovery is a healthy attraction to people. We allow ourselves to be attracted to who people are, not to their potential or to what we hope they are. The more we work through our family of origin issues, the less we will find ourselves needing to work through them with the people we're attracted to. Finishing our business from the past helps us form new and healthier relationships. The more we overcome our need to be excessive caretakers, the less we will find ourselves attracted to people who need to be constantly taken care of. The more we learn to love and respect ourselves, the more we will become attracted to people who will love and respect us and who we can safely love and respect. This is a slow process. We need to be patient with ourselves. The type of people we find ourselves attracted to does not change overnight. Being attracted to dysfunctional people can linger long and well into recovery. That does not mean we need to allow it to control us. The fact is, we will initiate and maintain relationships with people we need to be with until we learn what it is we need to learn—no matter how long we've been recovering. No matter who we find ourselves relating to, and what we discover happening in the relationship, the issue is still about us, and not about the other person. That is the heart, the hope, and the power of recovery. We can learn to take care of ourselves during the process of initiating and forming relationships. We can learn to go slowly. We can learn to pay attention. We can allow ourselves to make mistakes, even when we know better. We can stop blaming our relationships on God, and begin to take responsibility for them. We can learn to enjoy the healthy relationships, and remove ourselves more quickly from the dysfunctional ones. We can learn to look for what's good for us, instead of what's good for the other person.</p>
 <span class="focal-point">
 God, help me pay attention to my behaviors during the process of initiating relationships. Help me take responsibility for myself and learn what I need to learn. I will trust that the people I want and need will come into my life. I understand that if a relationship is not good for me, I have the right and ability to refuse to enter into it—even though the other person thinks it may be good for him or her. I will be open to the lessons I need to learn about me in relationships, so I am prepared for the best possible relationships with people.
 </span>
 
-</div>
+  </div>
+</article>
+
 
 <nav class="meditation-nav" aria-label="Adjacent meditations" data-current-meditation="04.29">
   <div class="meditation-nav-group">

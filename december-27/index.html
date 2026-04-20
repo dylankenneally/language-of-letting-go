@@ -7,6 +7,46 @@
       <title>Near the Top | The Language of Letting Go</title>
     
     <style>
+      @font-face {
+        font-family: "BBC Reith Sans";
+        src: url("/language-of-letting-go/fonts/BBCReithSans400.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Sans";
+        src: url("/language-of-letting-go/fonts/BBCReithSans700.woff2") format("woff2");
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif400.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif400Italic.woff2") format("woff2");
+        font-weight: 400;
+        font-style: italic;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif700.woff2") format("woff2");
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
       :root {
         color-scheme: light;
         --bg: #f6f1e8;
@@ -15,6 +55,8 @@
         --muted: #6b7280;
         --accent: #235347;
         --border: #ded6c8;
+        --font-sans: "BBC Reith Sans", system-ui, sans-serif;
+        --font-serif: "BBC Reith Serif", Georgia, "Times New Roman", serif;
       }
 
       * {
@@ -23,11 +65,8 @@
 
       body {
         margin: 0;
-        font-family: Georgia, "Times New Roman", serif;
+        font-family: var(--font-sans);
         color: var(--ink);
-        background:
-          radial-gradient(circle at top, rgba(255, 255, 255, 0.75), transparent 40%),
-          linear-gradient(180deg, #efe7d9 0%, var(--bg) 100%);
       }
 
       a {
@@ -57,20 +96,19 @@
         margin: 0;
       }
 
+      .site-header h1 {
+        font-family: var(--font-serif);
+        font-weight: 700;
+      }
+
       .site-header p {
         margin-top: 0.75rem;
         color: var(--muted);
+        font-family: var(--font-sans);
       }
 
       .content {
         padding: 1.5rem;
-      }
-
-      .date {
-        color: var(--muted);
-        font-size: 0.95rem;
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
       }
 
       .meditation-list {
@@ -101,42 +139,73 @@
         background: #f0f6f2;
       }
 
-      .featured-meditation {
-        padding: 1.5rem;
-        margin-bottom: 2rem;
-        border: 1px solid var(--border);
-        border-radius: 1rem;
-        background: linear-gradient(180deg, #fffefb 0%, #f8f4ec 100%);
-      }
-
-      .featured-title {
-        margin: 0.25rem 0 0.5rem;
-      }
-
-      .featured-link {
-        display: inline-block;
-        margin-top: 1rem;
-      }
-
       .quote,
       .focal-point {
         display: block;
-        padding: 1rem 1.1rem;
-        margin: 1.5rem 0;
-        border-left: 4px solid var(--accent);
-        background: #f5f8f2;
+        font-family: var(--font-serif);
+        font-style: italic;
+      }
+
+      .quote {
+        padding: 1rem 2.5rem;
+      }
+
+      .focal-point {
+        margin-top: 1rem;
       }
 
       .quote-attribution {
         display: block;
         margin-top: 0.75rem;
         color: var(--muted);
-        font-style: italic;
+        font-family: var(--font-serif);
+        text-transform: uppercase;
+        font-style: normal;
+        font-size: .9rem;
+        text-align: right;
+      }
+
+      .quote-attribution::before {
+        
+        content: "\2014";
       }
 
       .prose {
-        line-height: 1.75;
+        line-height: 1.625;
         font-size: 1.1rem;
+        font-family: var(--font-serif);
+      }
+
+      .meditation-header {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        font-size: 1.1em;
+        font-family: var(--font-serif);
+        font-weight: 700;
+      }
+
+      .meditation-header .date {
+        font-style: italic;
+      }
+
+      @media screen and (max-width: 599px) {
+        .prose {
+          font-size: 1rem;
+        }
+
+        .meditation-header {
+          font-size: 1em;
+        }
+      }
+
+      .prose p {
+        margin-bottom: 0.125rem;
+        margin-top: 0rem;
+      }
+
+      .prose p + p {
+        text-indent: 2rem;
       }
 
       .back-link {
@@ -202,15 +271,24 @@
         <p>Daily Meditations on Codependency</p>
       </header>
       <section class="content card">
-        <p class="date">December 27</p>
-<h2>Near the Top</h2>
-<div class="prose">
-  <p>I know you're tired. I know you feel overwhelmed. You may feel as though this crisis, this problem, this hard time will last forever. It won't. You are almost through. You don't just think it has been hard; it has been hard. You have been tested, tried, and retested on what you have learned. Your beliefs and your faith have been tried in fire. You have believed, then doubted, then worked at believing some more. You have had to have faith even when you could not see or imagine what you were asked to believe. Others around you may have tried to convince you not to believe in what you were hoping you could believe. You have had opposition. You have not gotten to this place with total support and joy. You have had to work hard, in spite of what was happening around you. Sometimes, what motivated you was anger; sometimes fear. Things went wrong—more problems occurred than you anticipated. There were obstacles, frustrations, and annoyances en route. You did not plan on this being the way it would evolve. Much of this has been a surprise; some of it has not been at all what you desired. Yet, it has been good. Part of you, the deepest part that knows truth, has sensed this all along, even when your head told you that things were out of whack and crazy, that there was no plan or purpose, that God had forgotten you. So much has happened, and each incident—the most painful, the most troubling, the most surprising—has a connection. You are beginning to see and sense that. You never dreamt things would happen this way, did you? But they did. Now you are learning the secret—they were meant to happen this way, and this way is good, better than what you expected. You didn't believe it would take this long, either—did you? But it did. You have learned patience. You never thought you could have it, but now you know you do. You have been led. Many were the moments when you thought you were forgotten, when you were convinced you had been abandoned. Now you know you have been guided. Now things are coming into place. You are almost at the end of this phase, this difficult portion of the journey. The lesson is almost complete. You know—the lesson you fought, resisted, and insisted you could not learn. Yes, that one. You have almost mastered it. You have been changed from the inside out. You have been moved to a different level, a higher level, a better level. You have been climbing a mountain. It has not been easy, but mountain climbing is never easy. Now, you are near the top. A moment longer, and the victory shall be yours. Steady your shoulders. Breathe deeply. Move forward in confidence and peace. The time is coming to relish and enjoy all which you have fought for. That time is drawing near, finally. I know you have thought before that the time was drawing near, only to learn that it wasn't. But now, the reward is coming. You know that too. You can feel it. Your struggle has not been in vain. For every struggle on this journey, there is a climax, a resolution. Peace, joy, abundant blessings, and reward are yours here on earth. Enjoy. There will be more mountains, but now you know how to climb them. And you have learned the secret of what is at the top.</p>
+        
+
+
+<article >
+  <header class="meditation-header">
+    <h2>Near the Top</h2>
+    <p class="date">December 27</p>
+  </header>
+
+  <div class="prose">
+    <p>I know you're tired. I know you feel overwhelmed. You may feel as though this crisis, this problem, this hard time will last forever. It won't. You are almost through. You don't just think it has been hard; it has been hard. You have been tested, tried, and retested on what you have learned. Your beliefs and your faith have been tried in fire. You have believed, then doubted, then worked at believing some more. You have had to have faith even when you could not see or imagine what you were asked to believe. Others around you may have tried to convince you not to believe in what you were hoping you could believe. You have had opposition. You have not gotten to this place with total support and joy. You have had to work hard, in spite of what was happening around you. Sometimes, what motivated you was anger; sometimes fear. Things went wrong—more problems occurred than you anticipated. There were obstacles, frustrations, and annoyances en route. You did not plan on this being the way it would evolve. Much of this has been a surprise; some of it has not been at all what you desired. Yet, it has been good. Part of you, the deepest part that knows truth, has sensed this all along, even when your head told you that things were out of whack and crazy, that there was no plan or purpose, that God had forgotten you. So much has happened, and each incident—the most painful, the most troubling, the most surprising—has a connection. You are beginning to see and sense that. You never dreamt things would happen this way, did you? But they did. Now you are learning the secret—they were meant to happen this way, and this way is good, better than what you expected. You didn't believe it would take this long, either—did you? But it did. You have learned patience. You never thought you could have it, but now you know you do. You have been led. Many were the moments when you thought you were forgotten, when you were convinced you had been abandoned. Now you know you have been guided. Now things are coming into place. You are almost at the end of this phase, this difficult portion of the journey. The lesson is almost complete. You know—the lesson you fought, resisted, and insisted you could not learn. Yes, that one. You have almost mastered it. You have been changed from the inside out. You have been moved to a different level, a higher level, a better level. You have been climbing a mountain. It has not been easy, but mountain climbing is never easy. Now, you are near the top. A moment longer, and the victory shall be yours. Steady your shoulders. Breathe deeply. Move forward in confidence and peace. The time is coming to relish and enjoy all which you have fought for. That time is drawing near, finally. I know you have thought before that the time was drawing near, only to learn that it wasn't. But now, the reward is coming. You know that too. You can feel it. Your struggle has not been in vain. For every struggle on this journey, there is a climax, a resolution. Peace, joy, abundant blessings, and reward are yours here on earth. Enjoy. There will be more mountains, but now you know how to climb them. And you have learned the secret of what is at the top.</p>
 <span class="focal-point">
 Today, I will accept where I am and continue pushing forward. If I am in the midst of a learning experience, I will allow myself to continue on with the faith that the day of mastery and reward will come. Help me, God, understand that despite my best efforts to live in peaceful serenity, there are times of mountain climbing. Help me stop creating chaos and crisis, and help me meet the challenges that will move me upward and forward.
 </span>
 
-</div>
+  </div>
+</article>
+
 
 <nav class="meditation-nav" aria-label="Adjacent meditations" data-current-meditation="12.27">
   <div class="meditation-nav-group">

@@ -7,6 +7,46 @@
       <title>Solving Problems | The Language of Letting Go</title>
     
     <style>
+      @font-face {
+        font-family: "BBC Reith Sans";
+        src: url("/language-of-letting-go/fonts/BBCReithSans400.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Sans";
+        src: url("/language-of-letting-go/fonts/BBCReithSans700.woff2") format("woff2");
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif400.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif400Italic.woff2") format("woff2");
+        font-weight: 400;
+        font-style: italic;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif700.woff2") format("woff2");
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
       :root {
         color-scheme: light;
         --bg: #f6f1e8;
@@ -15,6 +55,8 @@
         --muted: #6b7280;
         --accent: #235347;
         --border: #ded6c8;
+        --font-sans: "BBC Reith Sans", system-ui, sans-serif;
+        --font-serif: "BBC Reith Serif", Georgia, "Times New Roman", serif;
       }
 
       * {
@@ -23,11 +65,8 @@
 
       body {
         margin: 0;
-        font-family: Georgia, "Times New Roman", serif;
+        font-family: var(--font-sans);
         color: var(--ink);
-        background:
-          radial-gradient(circle at top, rgba(255, 255, 255, 0.75), transparent 40%),
-          linear-gradient(180deg, #efe7d9 0%, var(--bg) 100%);
       }
 
       a {
@@ -57,20 +96,19 @@
         margin: 0;
       }
 
+      .site-header h1 {
+        font-family: var(--font-serif);
+        font-weight: 700;
+      }
+
       .site-header p {
         margin-top: 0.75rem;
         color: var(--muted);
+        font-family: var(--font-sans);
       }
 
       .content {
         padding: 1.5rem;
-      }
-
-      .date {
-        color: var(--muted);
-        font-size: 0.95rem;
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
       }
 
       .meditation-list {
@@ -101,42 +139,73 @@
         background: #f0f6f2;
       }
 
-      .featured-meditation {
-        padding: 1.5rem;
-        margin-bottom: 2rem;
-        border: 1px solid var(--border);
-        border-radius: 1rem;
-        background: linear-gradient(180deg, #fffefb 0%, #f8f4ec 100%);
-      }
-
-      .featured-title {
-        margin: 0.25rem 0 0.5rem;
-      }
-
-      .featured-link {
-        display: inline-block;
-        margin-top: 1rem;
-      }
-
       .quote,
       .focal-point {
         display: block;
-        padding: 1rem 1.1rem;
-        margin: 1.5rem 0;
-        border-left: 4px solid var(--accent);
-        background: #f5f8f2;
+        font-family: var(--font-serif);
+        font-style: italic;
+      }
+
+      .quote {
+        padding: 1rem 2.5rem;
+      }
+
+      .focal-point {
+        margin-top: 1rem;
       }
 
       .quote-attribution {
         display: block;
         margin-top: 0.75rem;
         color: var(--muted);
-        font-style: italic;
+        font-family: var(--font-serif);
+        text-transform: uppercase;
+        font-style: normal;
+        font-size: .9rem;
+        text-align: right;
+      }
+
+      .quote-attribution::before {
+        
+        content: "\2014";
       }
 
       .prose {
-        line-height: 1.75;
+        line-height: 1.625;
         font-size: 1.1rem;
+        font-family: var(--font-serif);
+      }
+
+      .meditation-header {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        font-size: 1.1em;
+        font-family: var(--font-serif);
+        font-weight: 700;
+      }
+
+      .meditation-header .date {
+        font-style: italic;
+      }
+
+      @media screen and (max-width: 599px) {
+        .prose {
+          font-size: 1rem;
+        }
+
+        .meditation-header {
+          font-size: 1em;
+        }
+      }
+
+      .prose p {
+        margin-bottom: 0.125rem;
+        margin-top: 0rem;
+      }
+
+      .prose p + p {
+        text-indent: 2rem;
       }
 
       .back-link {
@@ -202,15 +271,24 @@
         <p>Daily Meditations on Codependency</p>
       </header>
       <section class="content card">
-        <p class="date">May 19</p>
-<h2>Solving Problems</h2>
-<div class="prose">
-  <p>&quot;Shame is the first feeling that strikes me whenever I, or someone I love, has a problem,&quot; said one recovering woman. Many of us were raised with the belief that having a problem is something to be ashamed of. This belief can do many damaging things to us. It can stop us from identifying our problems; it can make us feel alienated and inferior when we have, or someone we love has, a problem. Shame can block us from solving a problem and finding the gift from the problem. Problems are a part of life. So are solutions. People have problems, but we, and our selfesteem, are separate from our problems. I've yet to meet a person who didn't have problems to solve, but I've met many who felt ashamed to talk about the problems they actually had solved! We are more than our problems. Even if our problem is our own behavior, the problem is not who we are—it's what we did. It's okay to have problems. It's okay to talk about problems—at appropriate times, and with safe people. It's okay to solve problems. And we're okay, even when we have, or someone we love, has a problem. We don't have to forfeit our personal power or our selfesteem. We have solved exactly the problems we've needed to solve to become who we are.</p>
+        
+
+
+<article >
+  <header class="meditation-header">
+    <h2>Solving Problems</h2>
+    <p class="date">May 19</p>
+  </header>
+
+  <div class="prose">
+    <p>&quot;Shame is the first feeling that strikes me whenever I, or someone I love, has a problem,&quot; said one recovering woman. Many of us were raised with the belief that having a problem is something to be ashamed of. This belief can do many damaging things to us. It can stop us from identifying our problems; it can make us feel alienated and inferior when we have, or someone we love has, a problem. Shame can block us from solving a problem and finding the gift from the problem. Problems are a part of life. So are solutions. People have problems, but we, and our selfesteem, are separate from our problems. I've yet to meet a person who didn't have problems to solve, but I've met many who felt ashamed to talk about the problems they actually had solved! We are more than our problems. Even if our problem is our own behavior, the problem is not who we are—it's what we did. It's okay to have problems. It's okay to talk about problems—at appropriate times, and with safe people. It's okay to solve problems. And we're okay, even when we have, or someone we love, has a problem. We don't have to forfeit our personal power or our selfesteem. We have solved exactly the problems we've needed to solve to become who we are.</p>
 <span class="focal-point">
 Today, I will let go of my shame about problems.
 </span>
 
-</div>
+  </div>
+</article>
+
 
 <nav class="meditation-nav" aria-label="Adjacent meditations" data-current-meditation="05.19">
   <div class="meditation-nav-group">

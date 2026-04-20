@@ -7,6 +7,46 @@
       <title>Charity | The Language of Letting Go</title>
     
     <style>
+      @font-face {
+        font-family: "BBC Reith Sans";
+        src: url("/language-of-letting-go/fonts/BBCReithSans400.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Sans";
+        src: url("/language-of-letting-go/fonts/BBCReithSans700.woff2") format("woff2");
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif400.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif400Italic.woff2") format("woff2");
+        font-weight: 400;
+        font-style: italic;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif700.woff2") format("woff2");
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
       :root {
         color-scheme: light;
         --bg: #f6f1e8;
@@ -15,6 +55,8 @@
         --muted: #6b7280;
         --accent: #235347;
         --border: #ded6c8;
+        --font-sans: "BBC Reith Sans", system-ui, sans-serif;
+        --font-serif: "BBC Reith Serif", Georgia, "Times New Roman", serif;
       }
 
       * {
@@ -23,11 +65,8 @@
 
       body {
         margin: 0;
-        font-family: Georgia, "Times New Roman", serif;
+        font-family: var(--font-sans);
         color: var(--ink);
-        background:
-          radial-gradient(circle at top, rgba(255, 255, 255, 0.75), transparent 40%),
-          linear-gradient(180deg, #efe7d9 0%, var(--bg) 100%);
       }
 
       a {
@@ -57,20 +96,19 @@
         margin: 0;
       }
 
+      .site-header h1 {
+        font-family: var(--font-serif);
+        font-weight: 700;
+      }
+
       .site-header p {
         margin-top: 0.75rem;
         color: var(--muted);
+        font-family: var(--font-sans);
       }
 
       .content {
         padding: 1.5rem;
-      }
-
-      .date {
-        color: var(--muted);
-        font-size: 0.95rem;
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
       }
 
       .meditation-list {
@@ -101,42 +139,73 @@
         background: #f0f6f2;
       }
 
-      .featured-meditation {
-        padding: 1.5rem;
-        margin-bottom: 2rem;
-        border: 1px solid var(--border);
-        border-radius: 1rem;
-        background: linear-gradient(180deg, #fffefb 0%, #f8f4ec 100%);
-      }
-
-      .featured-title {
-        margin: 0.25rem 0 0.5rem;
-      }
-
-      .featured-link {
-        display: inline-block;
-        margin-top: 1rem;
-      }
-
       .quote,
       .focal-point {
         display: block;
-        padding: 1rem 1.1rem;
-        margin: 1.5rem 0;
-        border-left: 4px solid var(--accent);
-        background: #f5f8f2;
+        font-family: var(--font-serif);
+        font-style: italic;
+      }
+
+      .quote {
+        padding: 1rem 2.5rem;
+      }
+
+      .focal-point {
+        margin-top: 1rem;
       }
 
       .quote-attribution {
         display: block;
         margin-top: 0.75rem;
         color: var(--muted);
-        font-style: italic;
+        font-family: var(--font-serif);
+        text-transform: uppercase;
+        font-style: normal;
+        font-size: .9rem;
+        text-align: right;
+      }
+
+      .quote-attribution::before {
+        
+        content: "\2014";
       }
 
       .prose {
-        line-height: 1.75;
+        line-height: 1.625;
         font-size: 1.1rem;
+        font-family: var(--font-serif);
+      }
+
+      .meditation-header {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        font-size: 1.1em;
+        font-family: var(--font-serif);
+        font-weight: 700;
+      }
+
+      .meditation-header .date {
+        font-style: italic;
+      }
+
+      @media screen and (max-width: 599px) {
+        .prose {
+          font-size: 1rem;
+        }
+
+        .meditation-header {
+          font-size: 1em;
+        }
+      }
+
+      .prose p {
+        margin-bottom: 0.125rem;
+        margin-top: 0rem;
+      }
+
+      .prose p + p {
+        text-indent: 2rem;
       }
 
       .back-link {
@@ -202,15 +271,24 @@
         <p>Daily Meditations on Codependency</p>
       </header>
       <section class="content card">
-        <p class="date">June 3</p>
-<h2>Charity</h2>
-<div class="prose">
-  <p>We need healthy boundaries about receiving money, and we need healthy boundaries about giving money. Some of us give money for inappropriate reasons. We may be ashamed because we have money and don't believe we deserve it. We may belong to an organization that uses shame as a form of control to coerce us out of our money that the organization wants. We can get hooked into giving money to our children, family members, or friends because we have earned or unearned guilt. We allow ourselves to be financially blackmailed, sometimes by the people we love. This is not money freely given, or given in health. Some of us give money out of a sense of caretaking. We may have exaggerated feelings of responsibility for others, including financial responsibility. We may be giving simply because we have not learned to own our power to say no when the answer is no. Some of us give because we hope or believe people will love us if we take care of them financially. We do not have to give money to anyone. Giving money is our choice. We do not have to allow ourselves to be victimized, manipulated, or coerced out of our money. We are financially responsible for ourselves. Part of being healthy is allowing those around us be financially responsible for themselves. We do not have to be ashamed about having the money that we earn; we deserve to have the money we have been given—whatever the amount, without feeling obligated to give it all away, or guilty because others want what we have. Charity is a blessing. Giving is part of healthy living. We can learn to develop healthy boundaries around giving.</p>
+        
+
+
+<article >
+  <header class="meditation-header">
+    <h2>Charity</h2>
+    <p class="date">June 3</p>
+  </header>
+
+  <div class="prose">
+    <p>We need healthy boundaries about receiving money, and we need healthy boundaries about giving money. Some of us give money for inappropriate reasons. We may be ashamed because we have money and don't believe we deserve it. We may belong to an organization that uses shame as a form of control to coerce us out of our money that the organization wants. We can get hooked into giving money to our children, family members, or friends because we have earned or unearned guilt. We allow ourselves to be financially blackmailed, sometimes by the people we love. This is not money freely given, or given in health. Some of us give money out of a sense of caretaking. We may have exaggerated feelings of responsibility for others, including financial responsibility. We may be giving simply because we have not learned to own our power to say no when the answer is no. Some of us give because we hope or believe people will love us if we take care of them financially. We do not have to give money to anyone. Giving money is our choice. We do not have to allow ourselves to be victimized, manipulated, or coerced out of our money. We are financially responsible for ourselves. Part of being healthy is allowing those around us be financially responsible for themselves. We do not have to be ashamed about having the money that we earn; we deserve to have the money we have been given—whatever the amount, without feeling obligated to give it all away, or guilty because others want what we have. Charity is a blessing. Giving is part of healthy living. We can learn to develop healthy boundaries around giving.</p>
 <span class="focal-point">
 Today, I will strive to begin developing healthy boundaries about giving money. I understand that giving is my choice.
 </span>
 
-</div>
+  </div>
+</article>
+
 
 <nav class="meditation-nav" aria-label="Adjacent meditations" data-current-meditation="06.03">
   <div class="meditation-nav-group">

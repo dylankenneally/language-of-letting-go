@@ -7,6 +7,46 @@
       <title>Taking Care of Ourselves on the Job | The Language of Letting Go</title>
     
     <style>
+      @font-face {
+        font-family: "BBC Reith Sans";
+        src: url("/language-of-letting-go/fonts/BBCReithSans400.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Sans";
+        src: url("/language-of-letting-go/fonts/BBCReithSans700.woff2") format("woff2");
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif400.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif400Italic.woff2") format("woff2");
+        font-weight: 400;
+        font-style: italic;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif700.woff2") format("woff2");
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
       :root {
         color-scheme: light;
         --bg: #f6f1e8;
@@ -15,6 +55,8 @@
         --muted: #6b7280;
         --accent: #235347;
         --border: #ded6c8;
+        --font-sans: "BBC Reith Sans", system-ui, sans-serif;
+        --font-serif: "BBC Reith Serif", Georgia, "Times New Roman", serif;
       }
 
       * {
@@ -23,11 +65,8 @@
 
       body {
         margin: 0;
-        font-family: Georgia, "Times New Roman", serif;
+        font-family: var(--font-sans);
         color: var(--ink);
-        background:
-          radial-gradient(circle at top, rgba(255, 255, 255, 0.75), transparent 40%),
-          linear-gradient(180deg, #efe7d9 0%, var(--bg) 100%);
       }
 
       a {
@@ -57,20 +96,19 @@
         margin: 0;
       }
 
+      .site-header h1 {
+        font-family: var(--font-serif);
+        font-weight: 700;
+      }
+
       .site-header p {
         margin-top: 0.75rem;
         color: var(--muted);
+        font-family: var(--font-sans);
       }
 
       .content {
         padding: 1.5rem;
-      }
-
-      .date {
-        color: var(--muted);
-        font-size: 0.95rem;
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
       }
 
       .meditation-list {
@@ -101,42 +139,73 @@
         background: #f0f6f2;
       }
 
-      .featured-meditation {
-        padding: 1.5rem;
-        margin-bottom: 2rem;
-        border: 1px solid var(--border);
-        border-radius: 1rem;
-        background: linear-gradient(180deg, #fffefb 0%, #f8f4ec 100%);
-      }
-
-      .featured-title {
-        margin: 0.25rem 0 0.5rem;
-      }
-
-      .featured-link {
-        display: inline-block;
-        margin-top: 1rem;
-      }
-
       .quote,
       .focal-point {
         display: block;
-        padding: 1rem 1.1rem;
-        margin: 1.5rem 0;
-        border-left: 4px solid var(--accent);
-        background: #f5f8f2;
+        font-family: var(--font-serif);
+        font-style: italic;
+      }
+
+      .quote {
+        padding: 1rem 2.5rem;
+      }
+
+      .focal-point {
+        margin-top: 1rem;
       }
 
       .quote-attribution {
         display: block;
         margin-top: 0.75rem;
         color: var(--muted);
-        font-style: italic;
+        font-family: var(--font-serif);
+        text-transform: uppercase;
+        font-style: normal;
+        font-size: .9rem;
+        text-align: right;
+      }
+
+      .quote-attribution::before {
+        
+        content: "\2014";
       }
 
       .prose {
-        line-height: 1.75;
+        line-height: 1.625;
         font-size: 1.1rem;
+        font-family: var(--font-serif);
+      }
+
+      .meditation-header {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        font-size: 1.1em;
+        font-family: var(--font-serif);
+        font-weight: 700;
+      }
+
+      .meditation-header .date {
+        font-style: italic;
+      }
+
+      @media screen and (max-width: 599px) {
+        .prose {
+          font-size: 1rem;
+        }
+
+        .meditation-header {
+          font-size: 1em;
+        }
+      }
+
+      .prose p {
+        margin-bottom: 0.125rem;
+        margin-top: 0rem;
+      }
+
+      .prose p + p {
+        text-indent: 2rem;
       }
 
       .back-link {
@@ -202,15 +271,24 @@
         <p>Daily Meditations on Codependency</p>
       </header>
       <section class="content card">
-        <p class="date">August 28</p>
-<h2>Taking Care of Ourselves on the Job</h2>
-<div class="prose">
-  <p>It's okay to take care of ourselves on the job. It is not only okay, it is necessary. Taking care of ourselves on the job means we deal with feelings appropriately; we take responsibility for ourselves. We detach, when detachment is called for. We set boundaries, when we need to do that. We negotiate conflicts; we try to separate our issues from the other person's issues, and we don't expect perfection from ourselves or others. We let go of our need to control that which we cannot control. Instead, we strive for peace and manageability, owning our power to be who we are and to take care of ourselves. We do not tolerate abuse, nor do we abuse or mistreat anyone else. We work at letting go of our fear and developing appropriate confidence. We try to learn from our mistakes, but we forgive ourselves when we make them. We try to not set ourselves up by taking jobs that couldn't possibly work out, or jobs that aren't right for us. If we find ourselves in one of those circumstances, we address the issue responsibly. We figure out what our responsibilities are, and we generally stick to those, unless another agreement is made. We leave room for great days, and notsogreat days. We are gentle and loving with people whenever possible, but we are assertive and firm when that is called for. We accept our strengths and build on them. We accept our weaknesses and limitations, including the limitations of our power. We strive to stop trying to control and change what is not our business to change. We focus on what is our responsibility and what we can change. We set reasonable goals. We take ourselves into account. We strive for balance. Sometimes, we give ourselves a good gripe session to let it all out, but we do that appropriately, in a way meant to take care of ourselves and release our feelings, not to sabotage ourselves. We strive to avoid malicious gossip and other selfdefeating behaviors. We avoid competition, strive for cooperation and a loving spirit. We understand that we may like some people we work with and dislike others, but strive to find harmony and balance with everyone. We do not deny how we feel about a certain person, but we strive to maintain good working relationships wherever possible. When we don't know, we say we don't know. When we need help, we ask for it directly. When panic sets in, we address the panic as a separate issue and try not to let our work and behavior be controlled by panic. We strive to take responsible care of ourselves by appropriately asking for what we need at work, while not neglecting ourselves. If we are part of a team, we strive for healthy teamwork as an opportunity to learn how to work in cooperation with others. If something gets or feels crazy, if we find ourselves working with a person who is addicted or has some kind of dysfunction that is troublesome, we do not make ourselves crazier by denying the problem. We accept it and strive in peace to figure out what we need to do to take care of ourselves. We let go of our need to be martyrs or rescuers at work. We know we do not have to stay in situations that make us miserable. Instead of sabotaging a system or ourselves, we plan a positive solution, understanding we need to take responsibility for ourselves along the way. We remove ourselves as victims, and we work at believing we deserve the best. We practice acceptance, gratitude, and faith. One day at a time, we strive to enjoy what is good, solve the problems that are ours to solve, and give the gift of ourselves at work.</p>
+        
+
+
+<article >
+  <header class="meditation-header">
+    <h2>Taking Care of Ourselves on the Job</h2>
+    <p class="date">August 28</p>
+  </header>
+
+  <div class="prose">
+    <p>It's okay to take care of ourselves on the job. It is not only okay, it is necessary. Taking care of ourselves on the job means we deal with feelings appropriately; we take responsibility for ourselves. We detach, when detachment is called for. We set boundaries, when we need to do that. We negotiate conflicts; we try to separate our issues from the other person's issues, and we don't expect perfection from ourselves or others. We let go of our need to control that which we cannot control. Instead, we strive for peace and manageability, owning our power to be who we are and to take care of ourselves. We do not tolerate abuse, nor do we abuse or mistreat anyone else. We work at letting go of our fear and developing appropriate confidence. We try to learn from our mistakes, but we forgive ourselves when we make them. We try to not set ourselves up by taking jobs that couldn't possibly work out, or jobs that aren't right for us. If we find ourselves in one of those circumstances, we address the issue responsibly. We figure out what our responsibilities are, and we generally stick to those, unless another agreement is made. We leave room for great days, and notsogreat days. We are gentle and loving with people whenever possible, but we are assertive and firm when that is called for. We accept our strengths and build on them. We accept our weaknesses and limitations, including the limitations of our power. We strive to stop trying to control and change what is not our business to change. We focus on what is our responsibility and what we can change. We set reasonable goals. We take ourselves into account. We strive for balance. Sometimes, we give ourselves a good gripe session to let it all out, but we do that appropriately, in a way meant to take care of ourselves and release our feelings, not to sabotage ourselves. We strive to avoid malicious gossip and other selfdefeating behaviors. We avoid competition, strive for cooperation and a loving spirit. We understand that we may like some people we work with and dislike others, but strive to find harmony and balance with everyone. We do not deny how we feel about a certain person, but we strive to maintain good working relationships wherever possible. When we don't know, we say we don't know. When we need help, we ask for it directly. When panic sets in, we address the panic as a separate issue and try not to let our work and behavior be controlled by panic. We strive to take responsible care of ourselves by appropriately asking for what we need at work, while not neglecting ourselves. If we are part of a team, we strive for healthy teamwork as an opportunity to learn how to work in cooperation with others. If something gets or feels crazy, if we find ourselves working with a person who is addicted or has some kind of dysfunction that is troublesome, we do not make ourselves crazier by denying the problem. We accept it and strive in peace to figure out what we need to do to take care of ourselves. We let go of our need to be martyrs or rescuers at work. We know we do not have to stay in situations that make us miserable. Instead of sabotaging a system or ourselves, we plan a positive solution, understanding we need to take responsibility for ourselves along the way. We remove ourselves as victims, and we work at believing we deserve the best. We practice acceptance, gratitude, and faith. One day at a time, we strive to enjoy what is good, solve the problems that are ours to solve, and give the gift of ourselves at work.</p>
 <span class="focal-point">
 Today, I will pay attention to what recovery behaviors I could practice that would improve my work life. I will take care of myself on the job. God, help me let go of my need to be victimized by work. Help me be open to all the good stuff that is available to me through work.
 </span>
 
-</div>
+  </div>
+</article>
+
 
 <nav class="meditation-nav" aria-label="Adjacent meditations" data-current-meditation="08.28">
   <div class="meditation-nav-group">

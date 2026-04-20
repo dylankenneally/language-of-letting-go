@@ -7,6 +7,46 @@
       <title>Throwing Out the Rule Book | The Language of Letting Go</title>
     
     <style>
+      @font-face {
+        font-family: "BBC Reith Sans";
+        src: url("/language-of-letting-go/fonts/BBCReithSans400.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Sans";
+        src: url("/language-of-letting-go/fonts/BBCReithSans700.woff2") format("woff2");
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif400.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif400Italic.woff2") format("woff2");
+        font-weight: 400;
+        font-style: italic;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif700.woff2") format("woff2");
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
       :root {
         color-scheme: light;
         --bg: #f6f1e8;
@@ -15,6 +55,8 @@
         --muted: #6b7280;
         --accent: #235347;
         --border: #ded6c8;
+        --font-sans: "BBC Reith Sans", system-ui, sans-serif;
+        --font-serif: "BBC Reith Serif", Georgia, "Times New Roman", serif;
       }
 
       * {
@@ -23,11 +65,8 @@
 
       body {
         margin: 0;
-        font-family: Georgia, "Times New Roman", serif;
+        font-family: var(--font-sans);
         color: var(--ink);
-        background:
-          radial-gradient(circle at top, rgba(255, 255, 255, 0.75), transparent 40%),
-          linear-gradient(180deg, #efe7d9 0%, var(--bg) 100%);
       }
 
       a {
@@ -57,20 +96,19 @@
         margin: 0;
       }
 
+      .site-header h1 {
+        font-family: var(--font-serif);
+        font-weight: 700;
+      }
+
       .site-header p {
         margin-top: 0.75rem;
         color: var(--muted);
+        font-family: var(--font-sans);
       }
 
       .content {
         padding: 1.5rem;
-      }
-
-      .date {
-        color: var(--muted);
-        font-size: 0.95rem;
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
       }
 
       .meditation-list {
@@ -101,42 +139,73 @@
         background: #f0f6f2;
       }
 
-      .featured-meditation {
-        padding: 1.5rem;
-        margin-bottom: 2rem;
-        border: 1px solid var(--border);
-        border-radius: 1rem;
-        background: linear-gradient(180deg, #fffefb 0%, #f8f4ec 100%);
-      }
-
-      .featured-title {
-        margin: 0.25rem 0 0.5rem;
-      }
-
-      .featured-link {
-        display: inline-block;
-        margin-top: 1rem;
-      }
-
       .quote,
       .focal-point {
         display: block;
-        padding: 1rem 1.1rem;
-        margin: 1.5rem 0;
-        border-left: 4px solid var(--accent);
-        background: #f5f8f2;
+        font-family: var(--font-serif);
+        font-style: italic;
+      }
+
+      .quote {
+        padding: 1rem 2.5rem;
+      }
+
+      .focal-point {
+        margin-top: 1rem;
       }
 
       .quote-attribution {
         display: block;
         margin-top: 0.75rem;
         color: var(--muted);
-        font-style: italic;
+        font-family: var(--font-serif);
+        text-transform: uppercase;
+        font-style: normal;
+        font-size: .9rem;
+        text-align: right;
+      }
+
+      .quote-attribution::before {
+        
+        content: "\2014";
       }
 
       .prose {
-        line-height: 1.75;
+        line-height: 1.625;
         font-size: 1.1rem;
+        font-family: var(--font-serif);
+      }
+
+      .meditation-header {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        font-size: 1.1em;
+        font-family: var(--font-serif);
+        font-weight: 700;
+      }
+
+      .meditation-header .date {
+        font-style: italic;
+      }
+
+      @media screen and (max-width: 599px) {
+        .prose {
+          font-size: 1rem;
+        }
+
+        .meditation-header {
+          font-size: 1em;
+        }
+      }
+
+      .prose p {
+        margin-bottom: 0.125rem;
+        margin-top: 0rem;
+      }
+
+      .prose p + p {
+        text-indent: 2rem;
       }
 
       .back-link {
@@ -202,17 +271,26 @@
         <p>Daily Meditations on Codependency</p>
       </header>
       <section class="content card">
-        <p class="date">October 18</p>
-<h2>Throwing Out the Rule Book</h2>
-<div class="prose">
-  <p>Many of us feel like we need a rule book, a microscope, and a warranty to get through life. We feel uncertain, frightened. We want the security of knowing what's going to happen, and how we shall act.</p>
+        
+
+
+<article >
+  <header class="meditation-header">
+    <h2>Throwing Out the Rule Book</h2>
+    <p class="date">October 18</p>
+  </header>
+
+  <div class="prose">
+    <p>Many of us feel like we need a rule book, a microscope, and a warranty to get through life. We feel uncertain, frightened. We want the security of knowing what's going to happen, and how we shall act.</p>
 <p><em>We don't trust ourselves or life. We don't trust the Plan. We want to be in control.</em></p>
 <p>&quot;I've made terrible mistakes about my choices, mistakes that nearly destroyed me. Life has really shocked me. How can I trust myself? How can I trust life, and my instincts, after where I've been?&quot; asked one woman. It is understandable that we fear being crushed again, considering the way many of us were when we bottomed out on our codependency. We don't have to be fearful. We can trust our self, our path, and our instincts. Yes, we want to avoid making the same mistakes again. We are not the same people we were yesterday or last year. We've learned, grown, changed. We did what we needed to do then. If we made a mistake, we cannot let that stop us from living and fully experiencing today. We have arrived at the understanding that we needed our experiences—even our mistakes—to get to where we are today. Do we know that we needed our life to unfold exactly as it did to find ourselves, our Higher Power, and this new way of life? Or is part of us still calling our past a mistake? We can let go of our past and trust ourselves now. We do not have to punish ourselves with our past. We don't need a rule book, a microscope, a warranty. All we really need is a mirror. We can look into the mirror and say, &quot;I trust you. No matter what happens, you can take care of yourself. And what happens will continue to be good, better than you think.&quot;</p>
 <span class="focal-point">
 Today I will stop clinging to the painful lessons of the past. I will open myself to the positive lessons today and tomorrow hold for me. I trust that I can and will take care of myself now. I trust that the Plan is good, even when I don't know what it is.
 </span>
 
-</div>
+  </div>
+</article>
+
 
 <nav class="meditation-nav" aria-label="Adjacent meditations" data-current-meditation="10.18">
   <div class="meditation-nav-group">

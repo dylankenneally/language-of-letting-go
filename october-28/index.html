@@ -7,6 +7,46 @@
       <title>Meditation and Prayer | The Language of Letting Go</title>
     
     <style>
+      @font-face {
+        font-family: "BBC Reith Sans";
+        src: url("/language-of-letting-go/fonts/BBCReithSans400.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Sans";
+        src: url("/language-of-letting-go/fonts/BBCReithSans700.woff2") format("woff2");
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif400.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif400Italic.woff2") format("woff2");
+        font-weight: 400;
+        font-style: italic;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif700.woff2") format("woff2");
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
       :root {
         color-scheme: light;
         --bg: #f6f1e8;
@@ -15,6 +55,8 @@
         --muted: #6b7280;
         --accent: #235347;
         --border: #ded6c8;
+        --font-sans: "BBC Reith Sans", system-ui, sans-serif;
+        --font-serif: "BBC Reith Serif", Georgia, "Times New Roman", serif;
       }
 
       * {
@@ -23,11 +65,8 @@
 
       body {
         margin: 0;
-        font-family: Georgia, "Times New Roman", serif;
+        font-family: var(--font-sans);
         color: var(--ink);
-        background:
-          radial-gradient(circle at top, rgba(255, 255, 255, 0.75), transparent 40%),
-          linear-gradient(180deg, #efe7d9 0%, var(--bg) 100%);
       }
 
       a {
@@ -57,20 +96,19 @@
         margin: 0;
       }
 
+      .site-header h1 {
+        font-family: var(--font-serif);
+        font-weight: 700;
+      }
+
       .site-header p {
         margin-top: 0.75rem;
         color: var(--muted);
+        font-family: var(--font-sans);
       }
 
       .content {
         padding: 1.5rem;
-      }
-
-      .date {
-        color: var(--muted);
-        font-size: 0.95rem;
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
       }
 
       .meditation-list {
@@ -101,42 +139,73 @@
         background: #f0f6f2;
       }
 
-      .featured-meditation {
-        padding: 1.5rem;
-        margin-bottom: 2rem;
-        border: 1px solid var(--border);
-        border-radius: 1rem;
-        background: linear-gradient(180deg, #fffefb 0%, #f8f4ec 100%);
-      }
-
-      .featured-title {
-        margin: 0.25rem 0 0.5rem;
-      }
-
-      .featured-link {
-        display: inline-block;
-        margin-top: 1rem;
-      }
-
       .quote,
       .focal-point {
         display: block;
-        padding: 1rem 1.1rem;
-        margin: 1.5rem 0;
-        border-left: 4px solid var(--accent);
-        background: #f5f8f2;
+        font-family: var(--font-serif);
+        font-style: italic;
+      }
+
+      .quote {
+        padding: 1rem 2.5rem;
+      }
+
+      .focal-point {
+        margin-top: 1rem;
       }
 
       .quote-attribution {
         display: block;
         margin-top: 0.75rem;
         color: var(--muted);
-        font-style: italic;
+        font-family: var(--font-serif);
+        text-transform: uppercase;
+        font-style: normal;
+        font-size: .9rem;
+        text-align: right;
+      }
+
+      .quote-attribution::before {
+        
+        content: "\2014";
       }
 
       .prose {
-        line-height: 1.75;
+        line-height: 1.625;
         font-size: 1.1rem;
+        font-family: var(--font-serif);
+      }
+
+      .meditation-header {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        font-size: 1.1em;
+        font-family: var(--font-serif);
+        font-weight: 700;
+      }
+
+      .meditation-header .date {
+        font-style: italic;
+      }
+
+      @media screen and (max-width: 599px) {
+        .prose {
+          font-size: 1rem;
+        }
+
+        .meditation-header {
+          font-size: 1em;
+        }
+      }
+
+      .prose p {
+        margin-bottom: 0.125rem;
+        margin-top: 0rem;
+      }
+
+      .prose p + p {
+        text-indent: 2rem;
       }
 
       .back-link {
@@ -202,15 +271,24 @@
         <p>Daily Meditations on Codependency</p>
       </header>
       <section class="content card">
-        <p class="date">October 28</p>
-<h2>Meditation and Prayer</h2>
-<div class="prose">
-  <p>The Eleventh Step asks us to meditate as a route to improving our conscious contact with God. Meditation is different than obsessing or worrying. Obsession and worrying are fear connections. Meditation means opening our mind and our spiritual energy to the God connection. To connect with God, we need to relax as best we can and open our conscious and subconscious mind to a Higher Consciousness—one that is available to each of us. In the busyness of our day and life, it may seem like a waste of time to slow down, to stop what we're doing, and take this kind of break. It is no more a waste of time than stopping to put gas in our car when the tank is almost empty. It is necessary, it is beneficial, and it saves time. In fact, meditation can create more time and energy than the moments we take to do it. Meditation and prayer are powerful recovery behaviors that work. We need to be patient. It is not reasonable to expect immediate answers, insight, or inspiration. But solutions are coming. They are already on the way, if we have done our part —meditate and pray—and then let the rest go. Whether we pray and meditate first thing in the morning, during a coffee break, or in the evening is our choice. When our conscious contact with God improves, our subconscious contact will too. We will find ourselves increasingly tuned in to God's harmony and will for us. We will find and maintain that soul connection, the God connection.</p>
+        
+
+
+<article >
+  <header class="meditation-header">
+    <h2>Meditation and Prayer</h2>
+    <p class="date">October 28</p>
+  </header>
+
+  <div class="prose">
+    <p>The Eleventh Step asks us to meditate as a route to improving our conscious contact with God. Meditation is different than obsessing or worrying. Obsession and worrying are fear connections. Meditation means opening our mind and our spiritual energy to the God connection. To connect with God, we need to relax as best we can and open our conscious and subconscious mind to a Higher Consciousness—one that is available to each of us. In the busyness of our day and life, it may seem like a waste of time to slow down, to stop what we're doing, and take this kind of break. It is no more a waste of time than stopping to put gas in our car when the tank is almost empty. It is necessary, it is beneficial, and it saves time. In fact, meditation can create more time and energy than the moments we take to do it. Meditation and prayer are powerful recovery behaviors that work. We need to be patient. It is not reasonable to expect immediate answers, insight, or inspiration. But solutions are coming. They are already on the way, if we have done our part —meditate and pray—and then let the rest go. Whether we pray and meditate first thing in the morning, during a coffee break, or in the evening is our choice. When our conscious contact with God improves, our subconscious contact will too. We will find ourselves increasingly tuned in to God's harmony and will for us. We will find and maintain that soul connection, the God connection.</p>
 <span class="focal-point">
 Today, I will take a moment for meditation and prayer. I will decide when and how long to do it. I am a child and creation of God—a Higher Power who loves to listen and talk to me. God, help me let go of my fears about whether or not You hear and care. Help me know that You are there and that I am able to tap into the spiritual consciousness.
 </span>
 
-</div>
+  </div>
+</article>
+
 
 <nav class="meditation-nav" aria-label="Adjacent meditations" data-current-meditation="10.28">
   <div class="meditation-nav-group">

@@ -7,6 +7,46 @@
       <title>Property Lines | The Language of Letting Go</title>
     
     <style>
+      @font-face {
+        font-family: "BBC Reith Sans";
+        src: url("/language-of-letting-go/fonts/BBCReithSans400.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Sans";
+        src: url("/language-of-letting-go/fonts/BBCReithSans700.woff2") format("woff2");
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif400.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif400Italic.woff2") format("woff2");
+        font-weight: 400;
+        font-style: italic;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif700.woff2") format("woff2");
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
       :root {
         color-scheme: light;
         --bg: #f6f1e8;
@@ -15,6 +55,8 @@
         --muted: #6b7280;
         --accent: #235347;
         --border: #ded6c8;
+        --font-sans: "BBC Reith Sans", system-ui, sans-serif;
+        --font-serif: "BBC Reith Serif", Georgia, "Times New Roman", serif;
       }
 
       * {
@@ -23,11 +65,8 @@
 
       body {
         margin: 0;
-        font-family: Georgia, "Times New Roman", serif;
+        font-family: var(--font-sans);
         color: var(--ink);
-        background:
-          radial-gradient(circle at top, rgba(255, 255, 255, 0.75), transparent 40%),
-          linear-gradient(180deg, #efe7d9 0%, var(--bg) 100%);
       }
 
       a {
@@ -57,20 +96,19 @@
         margin: 0;
       }
 
+      .site-header h1 {
+        font-family: var(--font-serif);
+        font-weight: 700;
+      }
+
       .site-header p {
         margin-top: 0.75rem;
         color: var(--muted);
+        font-family: var(--font-sans);
       }
 
       .content {
         padding: 1.5rem;
-      }
-
-      .date {
-        color: var(--muted);
-        font-size: 0.95rem;
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
       }
 
       .meditation-list {
@@ -101,42 +139,73 @@
         background: #f0f6f2;
       }
 
-      .featured-meditation {
-        padding: 1.5rem;
-        margin-bottom: 2rem;
-        border: 1px solid var(--border);
-        border-radius: 1rem;
-        background: linear-gradient(180deg, #fffefb 0%, #f8f4ec 100%);
-      }
-
-      .featured-title {
-        margin: 0.25rem 0 0.5rem;
-      }
-
-      .featured-link {
-        display: inline-block;
-        margin-top: 1rem;
-      }
-
       .quote,
       .focal-point {
         display: block;
-        padding: 1rem 1.1rem;
-        margin: 1.5rem 0;
-        border-left: 4px solid var(--accent);
-        background: #f5f8f2;
+        font-family: var(--font-serif);
+        font-style: italic;
+      }
+
+      .quote {
+        padding: 1rem 2.5rem;
+      }
+
+      .focal-point {
+        margin-top: 1rem;
       }
 
       .quote-attribution {
         display: block;
         margin-top: 0.75rem;
         color: var(--muted);
-        font-style: italic;
+        font-family: var(--font-serif);
+        text-transform: uppercase;
+        font-style: normal;
+        font-size: .9rem;
+        text-align: right;
+      }
+
+      .quote-attribution::before {
+        
+        content: "\2014";
       }
 
       .prose {
-        line-height: 1.75;
+        line-height: 1.625;
         font-size: 1.1rem;
+        font-family: var(--font-serif);
+      }
+
+      .meditation-header {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        font-size: 1.1em;
+        font-family: var(--font-serif);
+        font-weight: 700;
+      }
+
+      .meditation-header .date {
+        font-style: italic;
+      }
+
+      @media screen and (max-width: 599px) {
+        .prose {
+          font-size: 1rem;
+        }
+
+        .meditation-header {
+          font-size: 1em;
+        }
+      }
+
+      .prose p {
+        margin-bottom: 0.125rem;
+        margin-top: 0rem;
+      }
+
+      .prose p + p {
+        text-indent: 2rem;
       }
 
       .back-link {
@@ -202,15 +271,24 @@
         <p>Daily Meditations on Codependency</p>
       </header>
       <section class="content card">
-        <p class="date">May 13</p>
-<h2>Property Lines</h2>
-<div class="prose">
-  <p>A helpful tool in our recovery, especially in the behavior we call detachment, is learning to identify who owns what. Then we let each person own and possess his or her rightful property. If another person has an addiction, a problem, a feeling, or a selfdefeating behavior, that is their property, not ours. If someone is a martyr, immersed in negativity, controlling, or manipulative, that is their issue, not ours. If someone has acted and experienced a particular consequence, both the behavior and the consequence belong to that person. If someone is in denial or cannot think clearly on a particular issue, that confusion belongs to him or her. If someone has a limited or impaired ability to love or care, that is his or her property, not ours. If someone has no approval or nurturing to give away, that is that person's property. People's lies, deceptions, tricks, manipulations, abusive behaviors, inappropriate behaviors, cheating behaviors, and tacky behaviors belong to them too. Not us. People's hopes and dreams are their property. Their guilt belongs to them too. Their happiness or misery is also theirs. So are their beliefs and messages. If some people don't like themselves, that is their choice. Other people's choices are their property, not ours. What people choose to say and do is their business. What is our property? Our property includes our behaviors, problems, feelings, happiness, misery, choices, and messages; our ability to love, care, and nurture; our thoughts, our denial, our hopes and dreams for ourselves. Whether we allow ourselves to be controlled, manipulated, deceived, or mistreated is our business. In recovery, we learn an appropriate sense of ownership. If something isn't ours, we don't take it. If we take it, we learn to give it back. Let other people have their property, and learn to own and take good care of what's ours.</p>
+        
+
+
+<article >
+  <header class="meditation-header">
+    <h2>Property Lines</h2>
+    <p class="date">May 13</p>
+  </header>
+
+  <div class="prose">
+    <p>A helpful tool in our recovery, especially in the behavior we call detachment, is learning to identify who owns what. Then we let each person own and possess his or her rightful property. If another person has an addiction, a problem, a feeling, or a selfdefeating behavior, that is their property, not ours. If someone is a martyr, immersed in negativity, controlling, or manipulative, that is their issue, not ours. If someone has acted and experienced a particular consequence, both the behavior and the consequence belong to that person. If someone is in denial or cannot think clearly on a particular issue, that confusion belongs to him or her. If someone has a limited or impaired ability to love or care, that is his or her property, not ours. If someone has no approval or nurturing to give away, that is that person's property. People's lies, deceptions, tricks, manipulations, abusive behaviors, inappropriate behaviors, cheating behaviors, and tacky behaviors belong to them too. Not us. People's hopes and dreams are their property. Their guilt belongs to them too. Their happiness or misery is also theirs. So are their beliefs and messages. If some people don't like themselves, that is their choice. Other people's choices are their property, not ours. What people choose to say and do is their business. What is our property? Our property includes our behaviors, problems, feelings, happiness, misery, choices, and messages; our ability to love, care, and nurture; our thoughts, our denial, our hopes and dreams for ourselves. Whether we allow ourselves to be controlled, manipulated, deceived, or mistreated is our business. In recovery, we learn an appropriate sense of ownership. If something isn't ours, we don't take it. If we take it, we learn to give it back. Let other people have their property, and learn to own and take good care of what's ours.</p>
 <span class="focal-point">
 Today, I will work at developing a clear sense of what belongs to me, and what doesn't. If it's not mine, I won't keep it. I will deal with myself, my issues, and my responsibilities. I will take my hands off what is not mine.
 </span>
 
-</div>
+  </div>
+</article>
+
 
 <nav class="meditation-nav" aria-label="Adjacent meditations" data-current-meditation="05.13">
   <div class="meditation-nav-group">

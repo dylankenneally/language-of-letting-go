@@ -7,6 +7,46 @@
       <title>Surviving Slumps | The Language of Letting Go</title>
     
     <style>
+      @font-face {
+        font-family: "BBC Reith Sans";
+        src: url("/language-of-letting-go/fonts/BBCReithSans400.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Sans";
+        src: url("/language-of-letting-go/fonts/BBCReithSans700.woff2") format("woff2");
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif400.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif400Italic.woff2") format("woff2");
+        font-weight: 400;
+        font-style: italic;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif700.woff2") format("woff2");
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
       :root {
         color-scheme: light;
         --bg: #f6f1e8;
@@ -15,6 +55,8 @@
         --muted: #6b7280;
         --accent: #235347;
         --border: #ded6c8;
+        --font-sans: "BBC Reith Sans", system-ui, sans-serif;
+        --font-serif: "BBC Reith Serif", Georgia, "Times New Roman", serif;
       }
 
       * {
@@ -23,11 +65,8 @@
 
       body {
         margin: 0;
-        font-family: Georgia, "Times New Roman", serif;
+        font-family: var(--font-sans);
         color: var(--ink);
-        background:
-          radial-gradient(circle at top, rgba(255, 255, 255, 0.75), transparent 40%),
-          linear-gradient(180deg, #efe7d9 0%, var(--bg) 100%);
       }
 
       a {
@@ -57,20 +96,19 @@
         margin: 0;
       }
 
+      .site-header h1 {
+        font-family: var(--font-serif);
+        font-weight: 700;
+      }
+
       .site-header p {
         margin-top: 0.75rem;
         color: var(--muted);
+        font-family: var(--font-sans);
       }
 
       .content {
         padding: 1.5rem;
-      }
-
-      .date {
-        color: var(--muted);
-        font-size: 0.95rem;
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
       }
 
       .meditation-list {
@@ -101,42 +139,73 @@
         background: #f0f6f2;
       }
 
-      .featured-meditation {
-        padding: 1.5rem;
-        margin-bottom: 2rem;
-        border: 1px solid var(--border);
-        border-radius: 1rem;
-        background: linear-gradient(180deg, #fffefb 0%, #f8f4ec 100%);
-      }
-
-      .featured-title {
-        margin: 0.25rem 0 0.5rem;
-      }
-
-      .featured-link {
-        display: inline-block;
-        margin-top: 1rem;
-      }
-
       .quote,
       .focal-point {
         display: block;
-        padding: 1rem 1.1rem;
-        margin: 1.5rem 0;
-        border-left: 4px solid var(--accent);
-        background: #f5f8f2;
+        font-family: var(--font-serif);
+        font-style: italic;
+      }
+
+      .quote {
+        padding: 1rem 2.5rem;
+      }
+
+      .focal-point {
+        margin-top: 1rem;
       }
 
       .quote-attribution {
         display: block;
         margin-top: 0.75rem;
         color: var(--muted);
-        font-style: italic;
+        font-family: var(--font-serif);
+        text-transform: uppercase;
+        font-style: normal;
+        font-size: .9rem;
+        text-align: right;
+      }
+
+      .quote-attribution::before {
+        
+        content: "\2014";
       }
 
       .prose {
-        line-height: 1.75;
+        line-height: 1.625;
         font-size: 1.1rem;
+        font-family: var(--font-serif);
+      }
+
+      .meditation-header {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        font-size: 1.1em;
+        font-family: var(--font-serif);
+        font-weight: 700;
+      }
+
+      .meditation-header .date {
+        font-style: italic;
+      }
+
+      @media screen and (max-width: 599px) {
+        .prose {
+          font-size: 1rem;
+        }
+
+        .meditation-header {
+          font-size: 1em;
+        }
+      }
+
+      .prose p {
+        margin-bottom: 0.125rem;
+        margin-top: 0rem;
+      }
+
+      .prose p + p {
+        text-indent: 2rem;
       }
 
       .back-link {
@@ -202,15 +271,24 @@
         <p>Daily Meditations on Codependency</p>
       </header>
       <section class="content card">
-        <p class="date">June 26</p>
-<h2>Surviving Slumps</h2>
-<div class="prose">
-  <p>A slump can go on for days. We feel sluggish, unfocused, and sometimes overwhelmed with feelings we can't sort out. We may not understand what is going on with us. Even our attempts to practice recovery behaviors may not appear to work. We still don't feel emotionally, mentally, and spiritually as good as we would like. In a slump, we may find ourselves reverting instinctively to old patterns of thinking, feeling, and behaving, even when we know better. We may find ourselves obsessing, even when we know that what we're doing is obsessing and that it doesn't work. We may find ourselves looking frantically for other people to make us feel better, the whole time knowing our happiness and wellbeing does not lay with others. We may begin taking things personally that are not our issues, and reacting in ways we've learned all too well do not work. We're in a slump. It won't last forever. These periods are normal, even necessary. These are the days to get through. These are the days to focus on recovery behaviors, whether or not the rewards occur immediately. These are sometimes the days to let ourselves be and love ourselves as much as we can. We don't have to be ashamed, no matter how long we've been recovering. We don't have to unreasonably expect &quot;more&quot; from ourselves. We don't ever have to expect ourselves to live life perfectly. Get through the slump. It will end. Sometimes, a slump can go on for days and then, in the course of an hour, we see ourselves pull out of it and feel better. Sometimes it can last a little longer. Practice one recovery behavior in one small area, and begin to climb uphill. Soon, the slump will disappear. We can never judge where we will be tomorrow by where we are today.</p>
+        
+
+
+<article >
+  <header class="meditation-header">
+    <h2>Surviving Slumps</h2>
+    <p class="date">June 26</p>
+  </header>
+
+  <div class="prose">
+    <p>A slump can go on for days. We feel sluggish, unfocused, and sometimes overwhelmed with feelings we can't sort out. We may not understand what is going on with us. Even our attempts to practice recovery behaviors may not appear to work. We still don't feel emotionally, mentally, and spiritually as good as we would like. In a slump, we may find ourselves reverting instinctively to old patterns of thinking, feeling, and behaving, even when we know better. We may find ourselves obsessing, even when we know that what we're doing is obsessing and that it doesn't work. We may find ourselves looking frantically for other people to make us feel better, the whole time knowing our happiness and wellbeing does not lay with others. We may begin taking things personally that are not our issues, and reacting in ways we've learned all too well do not work. We're in a slump. It won't last forever. These periods are normal, even necessary. These are the days to get through. These are the days to focus on recovery behaviors, whether or not the rewards occur immediately. These are sometimes the days to let ourselves be and love ourselves as much as we can. We don't have to be ashamed, no matter how long we've been recovering. We don't have to unreasonably expect &quot;more&quot; from ourselves. We don't ever have to expect ourselves to live life perfectly. Get through the slump. It will end. Sometimes, a slump can go on for days and then, in the course of an hour, we see ourselves pull out of it and feel better. Sometimes it can last a little longer. Practice one recovery behavior in one small area, and begin to climb uphill. Soon, the slump will disappear. We can never judge where we will be tomorrow by where we are today.</p>
 <span class="focal-point">
 Today, I will focus on practicing one recovery behavior on one of my issues, trusting that this practice will move me forward. I will remember that acceptance, gratitude, and detachment are a good place to begin.
 </span>
 
-</div>
+  </div>
+</article>
+
 
 <nav class="meditation-nav" aria-label="Adjacent meditations" data-current-meditation="06.26">
   <div class="meditation-nav-group">

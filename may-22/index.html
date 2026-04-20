@@ -7,6 +7,46 @@
       <title>Times of Reprogramming | The Language of Letting Go</title>
     
     <style>
+      @font-face {
+        font-family: "BBC Reith Sans";
+        src: url("/language-of-letting-go/fonts/BBCReithSans400.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Sans";
+        src: url("/language-of-letting-go/fonts/BBCReithSans700.woff2") format("woff2");
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif400.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif400Italic.woff2") format("woff2");
+        font-weight: 400;
+        font-style: italic;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "BBC Reith Serif";
+        src: url("/language-of-letting-go/fonts/BBCReithSerif700.woff2") format("woff2");
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
       :root {
         color-scheme: light;
         --bg: #f6f1e8;
@@ -15,6 +55,8 @@
         --muted: #6b7280;
         --accent: #235347;
         --border: #ded6c8;
+        --font-sans: "BBC Reith Sans", system-ui, sans-serif;
+        --font-serif: "BBC Reith Serif", Georgia, "Times New Roman", serif;
       }
 
       * {
@@ -23,11 +65,8 @@
 
       body {
         margin: 0;
-        font-family: Georgia, "Times New Roman", serif;
+        font-family: var(--font-sans);
         color: var(--ink);
-        background:
-          radial-gradient(circle at top, rgba(255, 255, 255, 0.75), transparent 40%),
-          linear-gradient(180deg, #efe7d9 0%, var(--bg) 100%);
       }
 
       a {
@@ -57,20 +96,19 @@
         margin: 0;
       }
 
+      .site-header h1 {
+        font-family: var(--font-serif);
+        font-weight: 700;
+      }
+
       .site-header p {
         margin-top: 0.75rem;
         color: var(--muted);
+        font-family: var(--font-sans);
       }
 
       .content {
         padding: 1.5rem;
-      }
-
-      .date {
-        color: var(--muted);
-        font-size: 0.95rem;
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
       }
 
       .meditation-list {
@@ -101,42 +139,73 @@
         background: #f0f6f2;
       }
 
-      .featured-meditation {
-        padding: 1.5rem;
-        margin-bottom: 2rem;
-        border: 1px solid var(--border);
-        border-radius: 1rem;
-        background: linear-gradient(180deg, #fffefb 0%, #f8f4ec 100%);
-      }
-
-      .featured-title {
-        margin: 0.25rem 0 0.5rem;
-      }
-
-      .featured-link {
-        display: inline-block;
-        margin-top: 1rem;
-      }
-
       .quote,
       .focal-point {
         display: block;
-        padding: 1rem 1.1rem;
-        margin: 1.5rem 0;
-        border-left: 4px solid var(--accent);
-        background: #f5f8f2;
+        font-family: var(--font-serif);
+        font-style: italic;
+      }
+
+      .quote {
+        padding: 1rem 2.5rem;
+      }
+
+      .focal-point {
+        margin-top: 1rem;
       }
 
       .quote-attribution {
         display: block;
         margin-top: 0.75rem;
         color: var(--muted);
-        font-style: italic;
+        font-family: var(--font-serif);
+        text-transform: uppercase;
+        font-style: normal;
+        font-size: .9rem;
+        text-align: right;
+      }
+
+      .quote-attribution::before {
+        
+        content: "\2014";
       }
 
       .prose {
-        line-height: 1.75;
+        line-height: 1.625;
         font-size: 1.1rem;
+        font-family: var(--font-serif);
+      }
+
+      .meditation-header {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        font-size: 1.1em;
+        font-family: var(--font-serif);
+        font-weight: 700;
+      }
+
+      .meditation-header .date {
+        font-style: italic;
+      }
+
+      @media screen and (max-width: 599px) {
+        .prose {
+          font-size: 1rem;
+        }
+
+        .meditation-header {
+          font-size: 1em;
+        }
+      }
+
+      .prose p {
+        margin-bottom: 0.125rem;
+        margin-top: 0rem;
+      }
+
+      .prose p + p {
+        text-indent: 2rem;
       }
 
       .back-link {
@@ -202,15 +271,24 @@
         <p>Daily Meditations on Codependency</p>
       </header>
       <section class="content card">
-        <p class="date">May 22</p>
-<h2>Times of Reprogramming</h2>
-<div class="prose">
-  <p>Do not ask for love unless you're ready to be healed enough to give and receive love. Do not ask for joy unless you're ready to feel and release your pain, so you can feel joy. Do not ask for success unless you're ready to conquer the behaviors that would sabotage success. Wouldn't it be nice if we could imagine ourselves having or becoming—and then immediately receiving—what we wanted? We can have and be the good things we want. All good things are ours for the asking. But first, groundwork— preparation work—must be done. A gardener would not plant seeds unless the ground was adequately prepared to nurture and nourish those seeds. The planting would be wasted effort. It would be wasted effort for us to get what we wanted before we were ready. First, we need to become aware of our need or desire. This may not be easy! Many of us have become accustomed to shutting off the inner voice of our wants, needs, and desires. Sometimes, life has to work hard to get our attention. Next we let go of the old &quot;programming&quot;—the behaviors and beliefs that interfere with nurturing and nourishing the good. Many of us have strong sabotaging programs, learned from childhood, that need to be released. We may need to &quot;act as if&quot; for a while until the belief that we deserve the good becomes real. We combine this process with much letting go, while we are being changed at the core. There is a naturalness to this process, but it can be intense. Things take time. Good things are ours for the asking, if we are willing to participate in the work of groundbreaking. Work and wait.</p>
+        
+
+
+<article >
+  <header class="meditation-header">
+    <h2>Times of Reprogramming</h2>
+    <p class="date">May 22</p>
+  </header>
+
+  <div class="prose">
+    <p>Do not ask for love unless you're ready to be healed enough to give and receive love. Do not ask for joy unless you're ready to feel and release your pain, so you can feel joy. Do not ask for success unless you're ready to conquer the behaviors that would sabotage success. Wouldn't it be nice if we could imagine ourselves having or becoming—and then immediately receiving—what we wanted? We can have and be the good things we want. All good things are ours for the asking. But first, groundwork— preparation work—must be done. A gardener would not plant seeds unless the ground was adequately prepared to nurture and nourish those seeds. The planting would be wasted effort. It would be wasted effort for us to get what we wanted before we were ready. First, we need to become aware of our need or desire. This may not be easy! Many of us have become accustomed to shutting off the inner voice of our wants, needs, and desires. Sometimes, life has to work hard to get our attention. Next we let go of the old &quot;programming&quot;—the behaviors and beliefs that interfere with nurturing and nourishing the good. Many of us have strong sabotaging programs, learned from childhood, that need to be released. We may need to &quot;act as if&quot; for a while until the belief that we deserve the good becomes real. We combine this process with much letting go, while we are being changed at the core. There is a naturalness to this process, but it can be intense. Things take time. Good things are ours for the asking, if we are willing to participate in the work of groundbreaking. Work and wait.</p>
 <span class="focal-point">
 Today, God, give me the courage to identify the good I want in my life and to ask for it. Give me also the faith and stamina I need to go through the work that must be accomplished first.
 </span>
 
-</div>
+  </div>
+</article>
+
 
 <nav class="meditation-nav" aria-label="Adjacent meditations" data-current-meditation="05.22">
   <div class="meditation-nav-group">
