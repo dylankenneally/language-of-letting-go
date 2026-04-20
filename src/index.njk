@@ -1,8 +1,6 @@
 ---
 layout: base.njk
 ---
-<p>This site currently includes {{ collections.meditations | length }} daily meditations.</p>
-
 {% set firstMeditation = collections.meditations[0] %}
 <article class="featured-meditation" id="today-meditation">
   <p class="date" id="today-meditation-date">{{ firstMeditation.data.displayDate }}</p>

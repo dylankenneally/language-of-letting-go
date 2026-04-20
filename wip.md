@@ -68,6 +68,7 @@ Please place all 366 markdown files in to a single compressed zip file for me to
   - [ ] search `*` - the ai's way of italics
   - [ ] `. . .` ?
   - [ ] `AlAnon` to `Al-Anon` - ai removed
+  - [ ] `well` vs `we'll` - ai removed
 - [ ] markdown formatting is not being respected in nested elements
   - [ ] spans for focal point and quote
   - [ ] is using spans the write approach here?
@@ -122,3 +123,4 @@ Please place all 366 markdown files in to a single compressed zip file for me to
 - [ ] arial/a11y stuff
 - [ ] feats
   - [ ] text size up/down - from na app video from natalia
+  - [ ] share? <https://www.aa.org/daily-reflections>

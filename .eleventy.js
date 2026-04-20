@@ -22,6 +22,7 @@ function getPathPrefix() {
 }
 
 export default function(eleventyConfig) {
+  eleventyConfig.addPassthroughCopy({ "src/fonts/*.woff2": "fonts" });
   // eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
   // eleventyConfig.addPassthroughCopy("CNAME");
 
