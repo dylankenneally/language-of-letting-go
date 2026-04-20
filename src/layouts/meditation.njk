@@ -1,15 +1,9 @@
 ---
 layout: base.njk
 ---
+{% from "meditation-content.njk" import meditationContent %}
 
-<header class="meditation-header">
-  <h2>{{ title }}</h2>
-  <p class="date">{{ displayDate }}</p>
-</header>
-
-<div class="prose">
-  {{ content | safe }}
-</div>
+{{ meditationContent(title, displayDate, content) }}
 
 <nav class="meditation-nav" aria-label="Adjacent meditations" data-current-meditation="{{ page.fileSlug }}">
   <div class="meditation-nav-group">

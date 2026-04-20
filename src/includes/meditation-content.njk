@@ -1,0 +1,10 @@
+{% macro meditationContent(title, displayDate, content, titleId="", dateId="", contentId="") %}
+<header class="meditation-header">
+  <h2{% if titleId %} id="{{ titleId }}"{% endif %}>{{ title }}</h2>
+  <p class="date"{% if dateId %} id="{{ dateId }}"{% endif %}>{{ displayDate }}</p>
+</header>
+
+<div class="prose"{% if contentId %} id="{{ contentId }}"{% endif %}>
+  {{ content | safe }}
+</div>
+{% endmacro %}

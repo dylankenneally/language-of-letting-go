@@ -2,13 +2,17 @@
 layout: base.njk
 ---
 {% set firstMeditation = collections.meditations[0] %}
-<article class="featured-meditation" id="today-meditation">
-  <p class="date" id="today-meditation-date">{{ firstMeditation.data.displayDate }}</p>
-  <h2 class="featured-title" id="today-meditation-title">{{ firstMeditation.data.title }}</h2>
-  <div class="prose" id="today-meditation-content">
-    {{ firstMeditation.content | safe }}
-  </div>
-  <p><a class="featured-link" id="today-meditation-link" href="{{ firstMeditation.url | url }}">{{ firstMeditation.data.displayDate }}</a></p>
+{% from "meditation-content.njk" import meditationContent %}
+<article class="featured-meditation" id="today-meditation" aria-labelledby="today-meditation-title">
+  {{ meditationContent(
+      firstMeditation.data.title,
+      firstMeditation.data.displayDate,
+      firstMeditation.content,
+      "today-meditation-title",
+      "today-meditation-date",
+      "today-meditation-content"
+    )
+  }}
 </article>
 
 <ul class="meditation-list">
@@ -51,8 +55,6 @@ layout: base.njk
       document.getElementById("today-meditation-date").textContent = todaysMeditation.displayDate;
       document.getElementById("today-meditation-title").textContent = todaysMeditation.title;
       document.getElementById("today-meditation-content").innerHTML = todaysMeditation.content;
-      document.getElementById("today-meditation-link").href = todaysMeditation.url;
-      document.getElementById("today-meditation-link").textContent = todaysMeditation.displayDate;
 
       const currentLink = document.querySelector(`[data-meditation-id="${todaysMeditation.id}"]`);
       if (currentLink) {

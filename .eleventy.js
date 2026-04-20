@@ -40,7 +40,7 @@ export default function(eleventyConfig) {
 
       // sub directories from ./src/
       data: "data",
-      // includes: "includes",
+      includes: "includes",
       layouts: "layouts",
 
       // data: "_data"

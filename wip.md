@@ -90,10 +90,6 @@ Please place all 366 markdown files in to a single compressed zip file for me to
 - [ ] mobile
 - [ ] about, etc
 - [ ] make it look more like the book?
-- [ ] like/share etc?
-- [ ] search
-- [ ] index, like the book, but also with dates
-  - [ ] bibliography - quotes
 - [ ] i18n/l10n
   - [ ] see also: src/meditations/meditations.11tydata.js
   - [ ] translations
@@ -123,4 +119,7 @@ Please place all 366 markdown files in to a single compressed zip file for me to
 - [ ] arial/a11y stuff
 - [ ] feats
   - [ ] text size up/down - from na app video from natalia
-  - [ ] share? <https://www.aa.org/daily-reflections>
+  - [ ] like/share etc? <https://www.aa.org/daily-reflections>
+  - [ ] search
+  - [ ] index, like the book, but also with dates
+    - [ ] bibliography - quotes
