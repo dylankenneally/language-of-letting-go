@@ -3,17 +3,15 @@ layout: base.njk
 ---
 {% set firstMeditation = collections.meditations[0] %}
 {% from "meditation-content.njk" import meditationContent %}
-<article class="featured-meditation" id="today-meditation" aria-labelledby="today-meditation-title">
-  {{ meditationContent(
-      firstMeditation.data.title,
-      firstMeditation.data.displayDate,
-      firstMeditation.content,
-      "today-meditation-title",
-      "today-meditation-date",
-      "today-meditation-content"
-    )
-  }}
-</article>
+{{ meditationContent(
+    firstMeditation.data.title,
+    firstMeditation.data.displayDate,
+    firstMeditation.content,
+    "today-meditation-title",
+    "today-meditation-date",
+    "today-meditation-content"
+  )
+}}
 
 <ul class="meditation-list">
   {% for meditation in collections.meditations %}
