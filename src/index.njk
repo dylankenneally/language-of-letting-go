@@ -2,27 +2,23 @@
 layout: base.njk
 ---
 {% set firstMeditation = collections.meditations[0] %}
-{% from "meditation-content.njk" import meditationContent %}
-{{ meditationContent(
-    firstMeditation.data.title,
-    firstMeditation.data.displayDate,
-    firstMeditation.content,
-    "today-meditation-title",
-    "today-meditation-date",
-    "today-meditation-content"
-  )
-}}
 
-<ul class="meditation-list">
-  {% for meditation in collections.meditations %}
-    <li>
-      <a href="{{ meditation.url | url }}" data-meditation-id="{{ meditation.fileSlug }}">
-        <strong>{{ meditation.data.title }}</strong>
-        <span>{{ meditation.data.displayDate }}</span>
-      </a>
-    </li>
-  {% endfor %}
-</ul>
+<div id="current-meditation">
+  {% from "meditation-content.njk" import meditationContent %}
+  {{ meditationContent(
+      firstMeditation.data.title,
+      firstMeditation.data.displayDate,
+      firstMeditation.content,
+      "today-meditation-title",
+      "today-meditation-date",
+      "today-meditation-content"
+    )
+  }}
+
+  <section class="calendar-section" aria-label="Pick a Date">
+    <div id="meditation-calendar" class="meditation-calendar"></div>
+  </section>
+</div>
 
 <script id="meditations-data" type="application/json">
 [
@@ -38,26 +34,134 @@ layout: base.njk
 ]
 </script>
 
+<script src="{{ '/vanilla-calendar-pro/index.js' | url }}"></script>
 <script>
   const meditationDataNode = document.getElementById("meditations-data");
 
   if (meditationDataNode) {
     const meditations = JSON.parse(meditationDataNode.textContent);
+    const meditationsById = new Map(meditations.map((meditation) => [meditation.id, meditation]));
+    const calendarRoot = document.getElementById("meditation-calendar");
+    const titleNode = document.getElementById("today-meditation-title");
+    const dateNode = document.getElementById("today-meditation-date");
+    const contentNode = document.getElementById("today-meditation-content");
     const now = new Date();
     const month = String(now.getMonth() + 1).padStart(2, "0");
     const day = String(now.getDate()).padStart(2, "0");
+    const year = now.getFullYear();
     const todayId = `${month}.${day}`;
-    const todaysMeditation = meditations.find((meditation) => meditation.id === todayId);
+    const todaysMeditation = meditationsById.get(todayId);
+    const defaultMeditation = todaysMeditation || meditations[0];
+    const initialUrl = new URL(window.location.href);
 
-    if (todaysMeditation) {
-      document.getElementById("today-meditation-date").textContent = todaysMeditation.displayDate;
-      document.getElementById("today-meditation-title").textContent = todaysMeditation.title;
-      document.getElementById("today-meditation-content").innerHTML = todaysMeditation.content;
+    function getMeditationIdFromCalendarDate(dateString) {
+      const [, selectedMonth, selectedDay] = dateString.split("-");
+      return `${selectedMonth}.${selectedDay}`;
+    }
 
-      const currentLink = document.querySelector(`[data-meditation-id="${todaysMeditation.id}"]`);
-      if (currentLink) {
-        currentLink.classList.add("is-current");
+    function getCalendarDateFromMeditationId(meditationId) {
+      if (!meditationId) {
+        return null;
       }
+
+      const [selectedMonth, selectedDay] = meditationId.split(".");
+      return `${year}-${selectedMonth}-${selectedDay}`;
+    }
+
+    function getMeditationFromLocation() {
+      const meditationId = new URL(window.location.href).searchParams.get("date");
+      return meditationsById.get(meditationId) || null;
+    }
+
+    const initialMeditation = getMeditationFromLocation() || defaultMeditation;
+
+    function setFeaturedMeditation(meditation) {
+      if (!meditation || !titleNode || !dateNode || !contentNode) {
+        return;
+      }
+
+      dateNode.textContent = meditation.displayDate;
+      titleNode.textContent = meditation.title;
+      contentNode.innerHTML = meditation.content;
+    }
+
+    function getUrlForMeditation(meditationId) {
+      const nextUrl = new URL(window.location.href);
+
+      if (meditationId === todayId) {
+        nextUrl.searchParams.delete("date");
+      } else {
+        nextUrl.searchParams.set("date", meditationId);
+      }
+
+      return nextUrl;
+    }
+
+    function updateHistoryForMeditation(meditation) {
+      const nextUrl = getUrlForMeditation(meditation.id);
+      const nextPath = `${nextUrl.pathname}${nextUrl.search}${nextUrl.hash}`;
+      window.history.pushState({ meditationId: meditation.id }, "", nextPath);
+    }
+
+    function syncCalendarSelection(calendar, meditationId) {
+      if (!calendar) {
+        return;
+      }
+
+      const selectedDate = getCalendarDateFromMeditationId(meditationId);
+      if (!selectedDate) {
+        return;
+      }
+
+      calendar.set({
+        selectedDates: [selectedDate]
+      });
+    }
+
+    setFeaturedMeditation(initialMeditation);
+
+    if (calendarRoot && window.VanillaCalendarPro) {
+      const initialDate = getCalendarDateFromMeditationId(initialMeditation.id) || `${year}-${month}-${day}`;
+      const calendar = new window.VanillaCalendarPro.Calendar("#meditation-calendar", {
+        firstWeekday: 1,
+        locale: document.documentElement.lang || "en",
+        selectedTheme: "light",
+        selectedWeekends: [],
+        selectedDates: [initialDate],
+        enableJumpToSelectedDate: true,
+        onClickDate(self, event) {
+          const dateElement = event.target.closest("[data-vc-date]");
+          if (!dateElement || !dateElement.dataset.vcDate) {
+            return;
+          }
+
+          const meditationId = getMeditationIdFromCalendarDate(dateElement.dataset.vcDate);
+          const selectedMeditation = meditationsById.get(meditationId);
+          if (!selectedMeditation) {
+            return;
+          }
+
+          setFeaturedMeditation(selectedMeditation);
+          updateHistoryForMeditation(selectedMeditation);
+        }
+      });
+
+      calendar.init();
+
+      window.addEventListener("popstate", () => {
+        const meditation = getMeditationFromLocation() || defaultMeditation;
+        setFeaturedMeditation(meditation);
+        syncCalendarSelection(calendar, meditation.id);
+      });
+    }
+
+    if (!initialUrl.searchParams.get("date") && initialMeditation.id !== todayId) {
+      const nextUrl = getUrlForMeditation(initialMeditation.id);
+      window.history.replaceState(
+        { meditationId: initialMeditation.id },
+        "",
+        `${nextUrl.pathname}${nextUrl.search}${nextUrl.hash}`
+      );
     }
   }
 </script>
