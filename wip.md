@@ -50,11 +50,7 @@ Please place all 366 markdown files in to a single compressed zip file for me to
   - [x] jan
   - [x] feb
   - [ ] mar
-  - [ ] apr
-    - [x] 01-07
-    - [ ] 08-17
-    - [x] 18-21
-    - [ ] 22-31
+  - [x] apr
   - [ ] may
   - [ ] jun
   - [ ] jul
@@ -69,6 +65,7 @@ Please place all 366 markdown files in to a single compressed zip file for me to
   - [ ] `. . .` ?
   - [ ] `AlAnon` to `Al-Anon` - ai removed
   - [ ] `well` vs `we'll` - ai removed
+  - [ ] `-` ai does not put spaces before and/or after these - use regex to find and review them
 - [ ] markdown formatting is not being respected in nested elements
   - [ ] spans for focal point and quote
   - [ ] is using spans the write approach here?
