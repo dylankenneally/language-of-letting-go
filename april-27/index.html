@@ -6,6 +6,8 @@
     
       <title>Letting Go of the Need to Control | The Language of Letting Go</title>
     
+    <link rel="stylesheet" href="/language-of-letting-go/vanilla-calendar-pro/styles/layout.css">
+    <link rel="stylesheet" href="/language-of-letting-go/vanilla-calendar-pro/styles/themes/light.css">
     <style>
       @font-face {
         font-family: "BBC Reith Sans";
@@ -111,32 +113,81 @@
         padding: 1.5rem;
       }
 
-      .meditation-list {
-        list-style: none;
-        padding: 0;
-        margin: 1.5rem 0 0;
-        display: grid;
-        gap: 0.75rem;
+      .calendar-section {
+        margin-top: 1.5rem;
       }
 
-      .meditation-list a {
-        display: flex;
-        justify-content: space-between;
-        gap: 1rem;
-        padding: 1rem 1.1rem;
-        text-decoration: none;
+      .vc {
         border: 1px solid var(--border);
-        border-radius: 0.9rem;
-        background: rgba(255, 255, 255, 0.72);
+        border-radius: 1rem;
       }
 
-      .meditation-list a:hover {
-        background: #fff;
+      .vc-wrapper * {
+        font-family: var(--font-sans);
       }
 
-      .meditation-list a.is-current {
-        border-color: var(--accent);
-        background: #f0f6f2;
+      .vc [data-vc="calendar"] {
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+        background: transparent;
+        color: var(--ink);
+      }
+
+      .vc [data-vc="column"] {
+        min-width: 0;
+      }
+
+      .vc [data-vc="month"],
+      .vc [data-vc="year"] {
+        font-family: var(--font-serif);
+      }
+
+      .vc [data-vc="week"] {
+        margin-bottom: 0.65rem;
+      }
+
+      .vc [data-vc-theme="light"].vc,
+      .vc [data-vc-theme="light"] .vc-month,
+      .vc [data-vc-theme="light"] .vc-year,
+      .vc [data-vc-theme="light"] .vc-header__content {
+        color: var(--ink);
+      }
+
+      .vc [data-vc-theme="light"].vc [tabindex="0"]:focus-visible,
+      .vc [data-vc-theme="light"].vc button:focus-visible,
+      .vc [data-vc-theme="light"].vc:focus-visible {
+        outline-color: rgba(35, 83, 71, 0.45);
+      }
+
+      .vc [data-vc-theme="light"] .vc-month:hover,
+      .vc [data-vc-theme="light"] .vc-year:hover,
+      .vc [data-vc-theme="light"] .vc-week__day,
+      .vc [data-vc-theme="light"] .vc-week-number,
+      .vc [data-vc-theme="light"] .vc-week-numbers__title {
+        color: var(--muted);
+      }
+
+      .vc [data-vc-theme="light"] .vc-date__btn:hover,
+      .vc [data-vc-theme="light"] .vc-date[data-vc-date-today] .vc-date__btn {
+        background: rgba(35, 83, 71, 0.08);
+        color: var(--ink);
+      }
+
+      .vc [data-vc-theme="light"] .vc-date[data-vc-date-selected] .vc-date__btn,
+      .vc [data-vc-theme="light"] .vc-date[data-vc-date-selected=middle] .vc-date__btn,
+      .vc [data-vc-theme="light"] .vc-months__month[data-vc-months-month-selected],
+      .vc [data-vc-theme="light"] .vc-years__year[data-vc-years-year-selected] {
+        background: var(--accent);
+        color: #fff;
+      }
+
+      .vc [data-vc-theme="light"] .vc-arrow:before {
+        opacity: 0.9;
+      }
+
+      .vc [data-vc-theme="light"] .vc-date[data-vc-date-disabled] .vc-date__btn {
+        color: #a3acb7;
       }
 
       .quote,
@@ -189,6 +240,13 @@
         font-style: italic;
       }
 
+      #current-meditation {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 2rem;
+      }
+
       @media screen and (max-width: 599px) {
         .prose {
           font-size: 1rem;
@@ -196,6 +254,17 @@
 
         .meditation-header {
           font-size: 1em;
+        }
+
+        .calendar-section {
+          padding: 1rem;
+        }
+      }
+
+      @media screen and (max-width: 999px) {
+        #current-meditation {
+          flex-wrap: wrap;
+          gap: unset;
         }
       }
 
@@ -282,12 +351,21 @@
 
   <div class="prose">
     <span class="quote">
-The rewards from detachment are great: serenity; a deep sense of peace; the ability to give and receive love in selfenhancing, energizing ways; and the freedom to find real solutions to our problems.
+The rewards from detachment are great: serenity; a deep sense of peace; the ability to give and receive love in self-enhancing, energizing ways; and the freedom to find real solutions to our problems.
 <span class="quote-attribution">
 Codependent No More
 </span>
 </span>
-<p>Letting go of our need to control can set us and others free. It can set our Higher Power free to send the best to us. If we weren't trying to control someone or something, what would we be doing differently? What would we do that we're not letting ourselves do now? Where would we go? What would we say? What decisions would we make? What would we ask for? What boundaries would be set? When would we say no or yes? If we weren't trying to control whether a person liked us or his or her reaction to us, what would we do differently? If we weren't trying to control the course of a relationship, what would we do differently? If we weren't trying to control another person's behavior, how would we think, feel, speak, and behave differently than we do now? What haven't we been letting ourselves do while hoping that selfdenial would influence a particular situation or person? Are there some things we've been doing that we'd stop? How would we treat ourselves differently? Would we let ourselves enjoy life more and feel better right now? Would we stop feeling so bad? Would we treat ourselves better? If we weren't trying to control, what would we do differently? Make a list, then do it.</p>
+<p>Letting go of our need to control can set us and others free. It can set our Higher Power free to send the best to us.</p>
+<p>If we weren't trying to control someone or something, what would we be doing differently?</p>
+<p>What would we do that we're not letting ourselves do now? Where would we go? What would we say?</p>
+<p>What decisions would we make?</p>
+<p>What would we ask for? What boundaries would be set? When would we say no or yes?</p>
+<p>If we weren't trying to control whether a person liked us or his or her reaction to us, what would we do differently? If we weren't trying to control the course of a relationship, what would we do differently? If we weren't trying to control another person's behavior, how would we think, feel, speak, and behave differently than we do now?</p>
+<p>What haven't we been letting ourselves do while hoping that self-denial would influence a particular situation or person? Are there some things we've been doing that we'd stop?</p>
+<p>How would we treat ourselves differently?</p>
+<p>Would we let ourselves enjoy life more and feel better right now? Would we stop feeling so bad? Would we treat ourselves better?</p>
+<p>If we weren't trying to control, what would we do differently? Make a list, then do it.</p>
 <span class="focal-point">
 Today, I will ask myself what I would be doing differently if I weren't trying to control. When I hear the answer, I will do it. God, help me let go of my need to control. Help me set myself and others free.
 </span>

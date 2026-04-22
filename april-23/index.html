@@ -6,6 +6,8 @@
     
       <title>Opening Ourselves to Love | The Language of Letting Go</title>
     
+    <link rel="stylesheet" href="/language-of-letting-go/vanilla-calendar-pro/styles/layout.css">
+    <link rel="stylesheet" href="/language-of-letting-go/vanilla-calendar-pro/styles/themes/light.css">
     <style>
       @font-face {
         font-family: "BBC Reith Sans";
@@ -111,32 +113,81 @@
         padding: 1.5rem;
       }
 
-      .meditation-list {
-        list-style: none;
-        padding: 0;
-        margin: 1.5rem 0 0;
-        display: grid;
-        gap: 0.75rem;
+      .calendar-section {
+        margin-top: 1.5rem;
       }
 
-      .meditation-list a {
-        display: flex;
-        justify-content: space-between;
-        gap: 1rem;
-        padding: 1rem 1.1rem;
-        text-decoration: none;
+      .vc {
         border: 1px solid var(--border);
-        border-radius: 0.9rem;
-        background: rgba(255, 255, 255, 0.72);
+        border-radius: 1rem;
       }
 
-      .meditation-list a:hover {
-        background: #fff;
+      .vc-wrapper * {
+        font-family: var(--font-sans);
       }
 
-      .meditation-list a.is-current {
-        border-color: var(--accent);
-        background: #f0f6f2;
+      .vc [data-vc="calendar"] {
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+        background: transparent;
+        color: var(--ink);
+      }
+
+      .vc [data-vc="column"] {
+        min-width: 0;
+      }
+
+      .vc [data-vc="month"],
+      .vc [data-vc="year"] {
+        font-family: var(--font-serif);
+      }
+
+      .vc [data-vc="week"] {
+        margin-bottom: 0.65rem;
+      }
+
+      .vc [data-vc-theme="light"].vc,
+      .vc [data-vc-theme="light"] .vc-month,
+      .vc [data-vc-theme="light"] .vc-year,
+      .vc [data-vc-theme="light"] .vc-header__content {
+        color: var(--ink);
+      }
+
+      .vc [data-vc-theme="light"].vc [tabindex="0"]:focus-visible,
+      .vc [data-vc-theme="light"].vc button:focus-visible,
+      .vc [data-vc-theme="light"].vc:focus-visible {
+        outline-color: rgba(35, 83, 71, 0.45);
+      }
+
+      .vc [data-vc-theme="light"] .vc-month:hover,
+      .vc [data-vc-theme="light"] .vc-year:hover,
+      .vc [data-vc-theme="light"] .vc-week__day,
+      .vc [data-vc-theme="light"] .vc-week-number,
+      .vc [data-vc-theme="light"] .vc-week-numbers__title {
+        color: var(--muted);
+      }
+
+      .vc [data-vc-theme="light"] .vc-date__btn:hover,
+      .vc [data-vc-theme="light"] .vc-date[data-vc-date-today] .vc-date__btn {
+        background: rgba(35, 83, 71, 0.08);
+        color: var(--ink);
+      }
+
+      .vc [data-vc-theme="light"] .vc-date[data-vc-date-selected] .vc-date__btn,
+      .vc [data-vc-theme="light"] .vc-date[data-vc-date-selected=middle] .vc-date__btn,
+      .vc [data-vc-theme="light"] .vc-months__month[data-vc-months-month-selected],
+      .vc [data-vc-theme="light"] .vc-years__year[data-vc-years-year-selected] {
+        background: var(--accent);
+        color: #fff;
+      }
+
+      .vc [data-vc-theme="light"] .vc-arrow:before {
+        opacity: 0.9;
+      }
+
+      .vc [data-vc-theme="light"] .vc-date[data-vc-date-disabled] .vc-date__btn {
+        color: #a3acb7;
       }
 
       .quote,
@@ -189,6 +240,13 @@
         font-style: italic;
       }
 
+      #current-meditation {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 2rem;
+      }
+
       @media screen and (max-width: 599px) {
         .prose {
           font-size: 1rem;
@@ -196,6 +254,17 @@
 
         .meditation-header {
           font-size: 1em;
+        }
+
+        .calendar-section {
+          padding: 1rem;
+        }
+      }
+
+      @media screen and (max-width: 999px) {
+        #current-meditation {
+          flex-wrap: wrap;
+          gap: unset;
         }
       }
 
@@ -281,7 +350,14 @@
   </header>
 
   <div class="prose">
-    <p>Allowing ourselves to receive love is one of the greatest challenges we face in recovery. Many of us have blocked ourselves from receiving love. We may have lived with people who used love to control us. They would be there for us, but at the high price of our freedom. Love was given, or withheld, to control us and have power over us. It was not safe for us to receive love from these people. We may have gotten accustomed to not receiving love, not acknowledging our need for love, because we lived with people who had no real love to give. At some point in recovery, we acknowledge that we, too, want and need to be loved. We may feel awkward with this need. Where do we go with it? What do we do? Who can give us love? How can we determine who is safe and who isn't? How can we let others care for us without feeling trapped, abused, frightened, and unable to care for ourselves? We will learn. The starting point is surrender—to our desire to be loved, our need to be nurtured and loved. We will grow confident in our ability to take care of ourselves with people. We will feel safe enough to let people care for us; we will grow to trust our ability to choose people who are safe and who can give us love. We may need to get angry first—angry that our needs have not been met. Later, we can become grateful to those people who have shown us what we don't want, the ones who have assisted us in the process of believing we deserve love, and the ones who come into our life to love us. We are opening up like flowers. Sometimes it hurts as the petals push open. Be glad. Our heart is opening up to the love that is and will continue to be there for us. Surrender to the love that is there for us, to the love that people, the Universe, and our Higher Power send our way. Surrender to love, without allowing people to control us or keep us from caring for ourselves. Start by surrendering to love for yourself.</p>
+    <p>Allowing ourselves to receive love is one of the greatest challenges we face in recovery.</p>
+<p>Many of us have blocked ourselves from receiving love. We may have lived with people who used love to control us. They would be there for us, but at the high price of our freedom. Love was given, or withheld, to control us and have power over us. It was not safe for us to receive love from these people. We may have gotten accustomed to not receiving love, not acknowledging our need for love, because we lived with people who had no real love to give.</p>
+<p>At some point in recovery, we acknowledge that we, too, want and need to be loved. We may feel awkward with this need. Where do we go with it? What do we do? Who can give us love? How can we determine who is safe and who isn't? How can we let others care for us without feeling trapped, abused, frightened, and unable to care for ourselves?</p>
+<p>We will learn. The starting point is surrender—to our desire to be loved, our need to be nurtured and loved. We will grow confident in our ability to take care of ourselves with people. We will feel safe enough to let people care for us; we will grow to trust our ability to choose people who are safe and who can give us love.</p>
+<p>We may need to get angry first—angry that our needs have not been met. Later, we can become grateful to those people who have shown us what we don't want, the ones who have assisted us in the process of believing we deserve love, and the ones who come into our life to love us.</p>
+<p>We are opening up like flowers. Sometimes it hurts as the petals push open. Be glad. Our heart is opening up to the love that is and will continue to be there for us.</p>
+<p>Surrender to the love that is there for us, to the love that people, the Universe, and our Higher Power send our way.</p>
+<p>Surrender to love, without allowing people to control us or keep us from caring for ourselves. Start by surrendering to love for yourself.</p>
 <span class="focal-point">
 Today, I will open myself to the love that is here for me. I will let myself receive love that is safe, knowing I can take care of myself with people. I will be grateful to all the people from my past who have assisted me in my process of opening up to love. I claim, accept, and am grateful for the love that is coming to me.
 </span>

@@ -6,6 +6,8 @@
     
       <title>Letting Things Happen | The Language of Letting Go</title>
     
+    <link rel="stylesheet" href="/language-of-letting-go/vanilla-calendar-pro/styles/layout.css">
+    <link rel="stylesheet" href="/language-of-letting-go/vanilla-calendar-pro/styles/themes/light.css">
     <style>
       @font-face {
         font-family: "BBC Reith Sans";
@@ -111,32 +113,81 @@
         padding: 1.5rem;
       }
 
-      .meditation-list {
-        list-style: none;
-        padding: 0;
-        margin: 1.5rem 0 0;
-        display: grid;
-        gap: 0.75rem;
+      .calendar-section {
+        margin-top: 1.5rem;
       }
 
-      .meditation-list a {
-        display: flex;
-        justify-content: space-between;
-        gap: 1rem;
-        padding: 1rem 1.1rem;
-        text-decoration: none;
+      .vc {
         border: 1px solid var(--border);
-        border-radius: 0.9rem;
-        background: rgba(255, 255, 255, 0.72);
+        border-radius: 1rem;
       }
 
-      .meditation-list a:hover {
-        background: #fff;
+      .vc-wrapper * {
+        font-family: var(--font-sans);
       }
 
-      .meditation-list a.is-current {
-        border-color: var(--accent);
-        background: #f0f6f2;
+      .vc [data-vc="calendar"] {
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+        background: transparent;
+        color: var(--ink);
+      }
+
+      .vc [data-vc="column"] {
+        min-width: 0;
+      }
+
+      .vc [data-vc="month"],
+      .vc [data-vc="year"] {
+        font-family: var(--font-serif);
+      }
+
+      .vc [data-vc="week"] {
+        margin-bottom: 0.65rem;
+      }
+
+      .vc [data-vc-theme="light"].vc,
+      .vc [data-vc-theme="light"] .vc-month,
+      .vc [data-vc-theme="light"] .vc-year,
+      .vc [data-vc-theme="light"] .vc-header__content {
+        color: var(--ink);
+      }
+
+      .vc [data-vc-theme="light"].vc [tabindex="0"]:focus-visible,
+      .vc [data-vc-theme="light"].vc button:focus-visible,
+      .vc [data-vc-theme="light"].vc:focus-visible {
+        outline-color: rgba(35, 83, 71, 0.45);
+      }
+
+      .vc [data-vc-theme="light"] .vc-month:hover,
+      .vc [data-vc-theme="light"] .vc-year:hover,
+      .vc [data-vc-theme="light"] .vc-week__day,
+      .vc [data-vc-theme="light"] .vc-week-number,
+      .vc [data-vc-theme="light"] .vc-week-numbers__title {
+        color: var(--muted);
+      }
+
+      .vc [data-vc-theme="light"] .vc-date__btn:hover,
+      .vc [data-vc-theme="light"] .vc-date[data-vc-date-today] .vc-date__btn {
+        background: rgba(35, 83, 71, 0.08);
+        color: var(--ink);
+      }
+
+      .vc [data-vc-theme="light"] .vc-date[data-vc-date-selected] .vc-date__btn,
+      .vc [data-vc-theme="light"] .vc-date[data-vc-date-selected=middle] .vc-date__btn,
+      .vc [data-vc-theme="light"] .vc-months__month[data-vc-months-month-selected],
+      .vc [data-vc-theme="light"] .vc-years__year[data-vc-years-year-selected] {
+        background: var(--accent);
+        color: #fff;
+      }
+
+      .vc [data-vc-theme="light"] .vc-arrow:before {
+        opacity: 0.9;
+      }
+
+      .vc [data-vc-theme="light"] .vc-date[data-vc-date-disabled] .vc-date__btn {
+        color: #a3acb7;
       }
 
       .quote,
@@ -189,6 +240,13 @@
         font-style: italic;
       }
 
+      #current-meditation {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 2rem;
+      }
+
       @media screen and (max-width: 599px) {
         .prose {
           font-size: 1rem;
@@ -196,6 +254,17 @@
 
         .meditation-header {
           font-size: 1em;
+        }
+
+        .calendar-section {
+          padding: 1rem;
+        }
+      }
+
+      @media screen and (max-width: 999px) {
+        #current-meditation {
+          flex-wrap: wrap;
+          gap: unset;
         }
       }
 
@@ -281,7 +350,11 @@
   </header>
 
   <div class="prose">
-    <p>We do not have to work so hard at gaining our insights. Yes, we're learning that painful and disappointing things happen, often for a reason and a higher purpose. Yes, these things often work out for good. But we don't have to spend so much time and energy figuring out the purpose and plan for each detail of our life. That's hypervigilence! Sometimes, the car doesn't start. Sometimes, the dishwasher breaks. Sometimes, we catch a cold. Sometimes, we run out of hot water. Sometimes, we have a bad day. While it helps to achieve acceptance and gratitude for these irritating annoyances, we don't have to process everything and figure out if it's in the scheme of things. Solve the problem. Get the car repaired. Fix the dishwasher. Nurse yourself through the cold. Wait to take the shower until there's hot water. Nurture yourself through your bad day. Tend to your responsibilities, and don't take everything so personally! If we need to recognize a particular insight or awareness, we will be guided in that direction. Certainly, we want to watch for patterns. But often, the big insights and the significant processing happen naturally. We don't have to question every occurrence to see how it fits into the Plan. The Plan—the awareness, the insight, the potential for personal growth—will reveal itself to us. Perhaps the lesson is to learn to solve our problems without always knowing their significance. Perhaps the lesson is to trust ourselves to live, and experience, life.</p>
+    <p>We do not have to work so hard at gaining our insights. Yes, we're learning that painful and disappointing things happen, often for a reason and a higher purpose. Yes, these things often work out for good. But we don't have to spend so much time and energy figuring out the purpose and plan for each detail of our life. That's hypervigilence!</p>
+<p>Sometimes, the car doesn't start. Sometimes, the dishwasher breaks. Sometimes, we catch a cold. Sometimes, we run out of hot water. Sometimes, we have a bad day. While it helps to achieve acceptance and gratitude for these irritating annoyances, we don't have to process everything and figure out if it's in the scheme of things.</p>
+<p>Solve the problem. Get the car repaired. Fix the dishwasher. Nurse yourself through the cold. Wait to take the shower until there's hot water. Nurture yourself through your bad day. Tend to your responsibilities, and don't take everything so personally!</p>
+<p>If we need to recognize a particular insight or awareness, we will be guided in that direction. Certainly, we want to watch for patterns. But often, the big insights and the significant processing happen naturally.</p>
+<p>We don't have to question every occurrence to see how it fits into the Plan. The Plan—the awareness, the insight, the potential for personal growth—will reveal itself to us. Perhaps the lesson is to learn to solve our problems without always knowing their significance. Perhaps the lesson is to trust ourselves to live, and experience, life.</p>
 <span class="focal-point">
 Today, I will let things happen without worrying about the significance of each event. I will trust that this will bring about my growth faster than running around with a microscope. I will trust my lessons to reveal themselves in their own time.
 </span>

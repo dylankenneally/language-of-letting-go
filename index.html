@@ -6,6 +6,8 @@
     
       <title>The Language of Letting Go | Daily Meditations on Codependency</title>
     
+    <link rel="stylesheet" href="/language-of-letting-go/vanilla-calendar-pro/styles/layout.css">
+    <link rel="stylesheet" href="/language-of-letting-go/vanilla-calendar-pro/styles/themes/light.css">
     <style>
       @font-face {
         font-family: "BBC Reith Sans";
@@ -111,32 +113,81 @@
         padding: 1.5rem;
       }
 
-      .meditation-list {
-        list-style: none;
-        padding: 0;
-        margin: 1.5rem 0 0;
-        display: grid;
-        gap: 0.75rem;
+      .calendar-section {
+        margin-top: 1.5rem;
       }
 
-      .meditation-list a {
-        display: flex;
-        justify-content: space-between;
-        gap: 1rem;
-        padding: 1rem 1.1rem;
-        text-decoration: none;
+      .vc {
         border: 1px solid var(--border);
-        border-radius: 0.9rem;
-        background: rgba(255, 255, 255, 0.72);
+        border-radius: 1rem;
       }
 
-      .meditation-list a:hover {
-        background: #fff;
+      .vc-wrapper * {
+        font-family: var(--font-sans);
       }
 
-      .meditation-list a.is-current {
-        border-color: var(--accent);
-        background: #f0f6f2;
+      .vc [data-vc="calendar"] {
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+        background: transparent;
+        color: var(--ink);
+      }
+
+      .vc [data-vc="column"] {
+        min-width: 0;
+      }
+
+      .vc [data-vc="month"],
+      .vc [data-vc="year"] {
+        font-family: var(--font-serif);
+      }
+
+      .vc [data-vc="week"] {
+        margin-bottom: 0.65rem;
+      }
+
+      .vc [data-vc-theme="light"].vc,
+      .vc [data-vc-theme="light"] .vc-month,
+      .vc [data-vc-theme="light"] .vc-year,
+      .vc [data-vc-theme="light"] .vc-header__content {
+        color: var(--ink);
+      }
+
+      .vc [data-vc-theme="light"].vc [tabindex="0"]:focus-visible,
+      .vc [data-vc-theme="light"].vc button:focus-visible,
+      .vc [data-vc-theme="light"].vc:focus-visible {
+        outline-color: rgba(35, 83, 71, 0.45);
+      }
+
+      .vc [data-vc-theme="light"] .vc-month:hover,
+      .vc [data-vc-theme="light"] .vc-year:hover,
+      .vc [data-vc-theme="light"] .vc-week__day,
+      .vc [data-vc-theme="light"] .vc-week-number,
+      .vc [data-vc-theme="light"] .vc-week-numbers__title {
+        color: var(--muted);
+      }
+
+      .vc [data-vc-theme="light"] .vc-date__btn:hover,
+      .vc [data-vc-theme="light"] .vc-date[data-vc-date-today] .vc-date__btn {
+        background: rgba(35, 83, 71, 0.08);
+        color: var(--ink);
+      }
+
+      .vc [data-vc-theme="light"] .vc-date[data-vc-date-selected] .vc-date__btn,
+      .vc [data-vc-theme="light"] .vc-date[data-vc-date-selected=middle] .vc-date__btn,
+      .vc [data-vc-theme="light"] .vc-months__month[data-vc-months-month-selected],
+      .vc [data-vc-theme="light"] .vc-years__year[data-vc-years-year-selected] {
+        background: var(--accent);
+        color: #fff;
+      }
+
+      .vc [data-vc-theme="light"] .vc-arrow:before {
+        opacity: 0.9;
+      }
+
+      .vc [data-vc-theme="light"] .vc-date[data-vc-date-disabled] .vc-date__btn {
+        color: #a3acb7;
       }
 
       .quote,
@@ -189,6 +240,13 @@
         font-style: italic;
       }
 
+      #current-meditation {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 2rem;
+      }
+
       @media screen and (max-width: 599px) {
         .prose {
           font-size: 1rem;
@@ -196,6 +254,17 @@
 
         .meditation-header {
           font-size: 1em;
+        }
+
+        .calendar-section {
+          padding: 1rem;
+        }
+      }
+
+      @media screen and (max-width: 999px) {
+        #current-meditation {
+          flex-wrap: wrap;
+          gap: unset;
         }
       }
 
@@ -273,7 +342,9 @@
       <section class="content card">
         
 
-
+<div id="current-meditation">
+  
+  
 <article  aria-labelledby="today-meditation-title">
   <header class="meditation-header">
     <h2 id="today-meditation-title">The New Year</h2>
@@ -299,2571 +370,10 @@ Today, I will remember that there is a powerful force motivated by writing down 
 </article>
 
 
-<ul class="meditation-list">
-  
-    <li>
-      <a href="/language-of-letting-go/january-1/" data-meditation-id="01.01">
-        <strong>The New Year</strong>
-        <span>January 1</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/january-2/" data-meditation-id="01.02">
-        <strong>Healthy Limits</strong>
-        <span>January 2</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/january-3/" data-meditation-id="01.03">
-        <strong>Nurturing Self-Care</strong>
-        <span>January 3</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/january-4/" data-meditation-id="01.04">
-        <strong>Separating from Family Issues</strong>
-        <span>January 4</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/january-5/" data-meditation-id="01.05">
-        <strong>Accepting Help</strong>
-        <span>January 5</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/january-6/" data-meditation-id="01.06">
-        <strong>Relationships</strong>
-        <span>January 6</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/january-7/" data-meditation-id="01.07">
-        <strong>Dealing with Painful Feelings</strong>
-        <span>January 7</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/january-8/" data-meditation-id="01.08">
-        <strong>Vulnerability</strong>
-        <span>January 8</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/january-9/" data-meditation-id="01.09">
-        <strong>Responsibility for Ourselves</strong>
-        <span>January 9</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/january-10/" data-meditation-id="01.10">
-        <strong>Fear</strong>
-        <span>January 10</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/january-11/" data-meditation-id="01.11">
-        <strong>Letting Go of Guilt</strong>
-        <span>January 11</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/january-12/" data-meditation-id="01.12">
-        <strong>Finding Balance</strong>
-        <span>January 12</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/january-13/" data-meditation-id="01.13">
-        <strong>Good Feelings</strong>
-        <span>January 13</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/january-14/" data-meditation-id="01.14">
-        <strong>Accepting Anger</strong>
-        <span>January 14</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/january-15/" data-meditation-id="01.15">
-        <strong>Standing Up for Ourselves</strong>
-        <span>January 15</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/january-16/" data-meditation-id="01.16">
-        <strong>Prayer</strong>
-        <span>January 16</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/january-17/" data-meditation-id="01.17">
-        <strong>Acting As If</strong>
-        <span>January 17</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/january-18/" data-meditation-id="01.18">
-        <strong>Gratitude</strong>
-        <span>January 18</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/january-19/" data-meditation-id="01.19">
-        <strong>Owning Our Power</strong>
-        <span>January 19</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/january-20/" data-meditation-id="01.20">
-        <strong>New Beginnings</strong>
-        <span>January 20</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/january-21/" data-meditation-id="01.21">
-        <strong>Wants and Needs</strong>
-        <span>January 21</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/january-22/" data-meditation-id="01.22">
-        <strong>Appreciating Our Past</strong>
-        <span>January 22</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/january-23/" data-meditation-id="01.23">
-        <strong>New Energy Coming</strong>
-        <span>January 23</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/january-24/" data-meditation-id="01.24">
-        <strong>Clearing the Slate</strong>
-        <span>January 24</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/january-25/" data-meditation-id="01.25">
-        <strong>Step One</strong>
-        <span>January 25</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/january-26/" data-meditation-id="01.26">
-        <strong>Off The Hook</strong>
-        <span>January 26</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/january-27/" data-meditation-id="01.27">
-        <strong>Needing People</strong>
-        <span>January 27</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/january-28/" data-meditation-id="01.28">
-        <strong>Staying in the Present Moment</strong>
-        <span>January 28</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/january-29/" data-meditation-id="01.29">
-        <strong>Going to Meetings</strong>
-        <span>January 29</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/january-30/" data-meditation-id="01.30">
-        <strong>Religious Freedom</strong>
-        <span>January 30</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/january-31/" data-meditation-id="01.31">
-        <strong>Asking for What We Need</strong>
-        <span>January 31</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/february-1/" data-meditation-id="02.01">
-        <strong>Step Two</strong>
-        <span>February 1</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/february-2/" data-meditation-id="02.02">
-        <strong>Trusting Our Higher Power</strong>
-        <span>February 2</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/february-3/" data-meditation-id="02.03">
-        <strong>Rejecting Shame</strong>
-        <span>February 3</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/february-4/" data-meditation-id="02.04">
-        <strong>Enjoying Recovery</strong>
-        <span>February 4</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/february-5/" data-meditation-id="02.05">
-        <strong>Financial Responsibility</strong>
-        <span>February 5</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/february-6/" data-meditation-id="02.06">
-        <strong>Stopping Victimization</strong>
-        <span>February 6</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/february-7/" data-meditation-id="02.07">
-        <strong>Owning Our Power</strong>
-        <span>February 7</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/february-8/" data-meditation-id="02.08">
-        <strong>Letting Go of Guilt</strong>
-        <span>February 8</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/february-9/" data-meditation-id="02.09">
-        <strong>Letting Go in Love</strong>
-        <span>February 9</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/february-10/" data-meditation-id="02.10">
-        <strong>Letting Go of Sadness</strong>
-        <span>February 10</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/february-11/" data-meditation-id="02.11">
-        <strong>Divinely Led</strong>
-        <span>February 11</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/february-12/" data-meditation-id="02.12">
-        <strong>Letting Go of Those Not in Recovery</strong>
-        <span>February 12</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/february-13/" data-meditation-id="02.13">
-        <strong>Trusting Ourselves</strong>
-        <span>February 13</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/february-14/" data-meditation-id="02.14">
-        <strong>Valentines&#39;s Day</strong>
-        <span>February 14</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/february-15/" data-meditation-id="02.15">
-        <strong>Control</strong>
-        <span>February 15</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/february-16/" data-meditation-id="02.16">
-        <strong>Detachment</strong>
-        <span>February 16</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/february-17/" data-meditation-id="02.17">
-        <strong>Acceptance</strong>
-        <span>February 17</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/february-18/" data-meditation-id="02.18">
-        <strong>Being Right</strong>
-        <span>February 18</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/february-19/" data-meditation-id="02.19">
-        <strong>Our Path</strong>
-        <span>February 19</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/february-20/" data-meditation-id="02.20">
-        <strong>Setting Our Own Course</strong>
-        <span>February 20</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/february-21/" data-meditation-id="02.21">
-        <strong>Living in the Present</strong>
-        <span>February 21</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/february-22/" data-meditation-id="02.22">
-        <strong>Solving Problems</strong>
-        <span>February 22</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/february-23/" data-meditation-id="02.23">
-        <strong>Strength</strong>
-        <span>February 23</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/february-24/" data-meditation-id="02.24">
-        <strong>Recognizing Feelings</strong>
-        <span>February 24</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/february-25/" data-meditation-id="02.25">
-        <strong>Accepting Imperfection</strong>
-        <span>February 25</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/february-26/" data-meditation-id="02.26">
-        <strong>Twelve Step Programs</strong>
-        <span>February 26</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/february-27/" data-meditation-id="02.27">
-        <strong>People-Pleasers</strong>
-        <span>February 27</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/february-28/" data-meditation-id="02.28">
-        <strong>Letting Go of Denial</strong>
-        <span>February 28</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/february-29/" data-meditation-id="02.29">
-        <strong>You Are Lovable</strong>
-        <span>February 29</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/march-1/" data-meditation-id="03.01">
-        <strong>Letting Go of Anger</strong>
-        <span>March 1</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/march-2/" data-meditation-id="03.02">
-        <strong>Feelings on the Job</strong>
-        <span>March 2</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/march-3/" data-meditation-id="03.03">
-        <strong>Accepting Ourselves</strong>
-        <span>March 3</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/march-4/" data-meditation-id="03.04">
-        <strong>Higher Power as a Source</strong>
-        <span>March 4</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/march-5/" data-meditation-id="03.05">
-        <strong>Be Who You Are</strong>
-        <span>March 5</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/march-6/" data-meditation-id="03.06">
-        <strong>Peace</strong>
-        <span>March 6</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/march-7/" data-meditation-id="03.07">
-        <strong>Fulfillment</strong>
-        <span>March 7</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/march-8/" data-meditation-id="03.08">
-        <strong>Surrender</strong>
-        <span>March 8</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/march-9/" data-meditation-id="03.09">
-        <strong>Taking Care of Ourselves</strong>
-        <span>March 9</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/march-10/" data-meditation-id="03.10">
-        <strong>Living with Families</strong>
-        <span>March 10</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/march-11/" data-meditation-id="03.11">
-        <strong>Letting Go of Confusion</strong>
-        <span>March 11</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/march-12/" data-meditation-id="03.12">
-        <strong>Timing</strong>
-        <span>March 12</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/march-13/" data-meditation-id="03.13">
-        <strong>Clarity and Direction</strong>
-        <span>March 13</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/march-14/" data-meditation-id="03.14">
-        <strong>Trusting Ourselves</strong>
-        <span>March 14</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/march-15/" data-meditation-id="03.15">
-        <strong>Removing the Victim</strong>
-        <span>March 15</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/march-16/" data-meditation-id="03.16">
-        <strong>Positive Energy</strong>
-        <span>March 16</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/march-17/" data-meditation-id="03.17">
-        <strong>Empowering</strong>
-        <span>March 17</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/march-18/" data-meditation-id="03.18">
-        <strong>Safety</strong>
-        <span>March 18</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/march-19/" data-meditation-id="03.19">
-        <strong>Staying Out of the Middle</strong>
-        <span>March 19</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/march-20/" data-meditation-id="03.20">
-        <strong>Releasing</strong>
-        <span>March 20</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/march-21/" data-meditation-id="03.21">
-        <strong>Considering Commitment</strong>
-        <span>March 21</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/march-22/" data-meditation-id="03.22">
-        <strong>Letting Go of Being a Victim</strong>
-        <span>March 22</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/march-23/" data-meditation-id="03.23">
-        <strong>Flack from Setting Boundaries</strong>
-        <span>March 23</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/march-24/" data-meditation-id="03.24">
-        <strong>Appreciating Ourselves</strong>
-        <span>March 24</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/march-25/" data-meditation-id="03.25">
-        <strong>Letting Go of Worry</strong>
-        <span>March 25</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/march-26/" data-meditation-id="03.26">
-        <strong>Gifts, Not Burdens</strong>
-        <span>March 26</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/march-27/" data-meditation-id="03.27">
-        <strong>AfterBurn</strong>
-        <span>March 27</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/march-28/" data-meditation-id="03.28">
-        <strong>Balance</strong>
-        <span>March 28</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/march-29/" data-meditation-id="03.29">
-        <strong>Getting Needs Met</strong>
-        <span>March 29</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/march-30/" data-meditation-id="03.30">
-        <strong>Experiment</strong>
-        <span>March 30</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/march-31/" data-meditation-id="03.31">
-        <strong>Finances</strong>
-        <span>March 31</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/april-1/" data-meditation-id="04.01">
-        <strong>Going Easy</strong>
-        <span>April 1</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/april-2/" data-meditation-id="04.02">
-        <strong>Facing Our Darker Side</strong>
-        <span>April 2</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/april-3/" data-meditation-id="04.03">
-        <strong>Acceptance</strong>
-        <span>April 3</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/april-4/" data-meditation-id="04.04">
-        <strong>Negotiating Conflicts</strong>
-        <span>April 4</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/april-5/" data-meditation-id="04.05">
-        <strong>Detaching in Love</strong>
-        <span>April 5</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/april-6/" data-meditation-id="04.06">
-        <strong>Patience</strong>
-        <span>April 6</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/april-7/" data-meditation-id="04.07">
-        <strong>Those OldTime Feelings</strong>
-        <span>April 7</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/april-8/" data-meditation-id="04.08">
-        <strong>SelfCare</strong>
-        <span>April 8</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/april-9/" data-meditation-id="04.09">
-        <strong>Giving</strong>
-        <span>April 9</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/april-10/" data-meditation-id="04.10">
-        <strong>Using Others to Stop Our Pain</strong>
-        <span>April 10</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/april-11/" data-meditation-id="04.11">
-        <strong>Financial Goals</strong>
-        <span>April 11</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/april-12/" data-meditation-id="04.12">
-        <strong>Letting Go of Fear</strong>
-        <span>April 12</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/april-13/" data-meditation-id="04.13">
-        <strong>Enjoyment</strong>
-        <span>April 13</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/april-14/" data-meditation-id="04.14">
-        <strong>Perfectionism</strong>
-        <span>April 14</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/april-15/" data-meditation-id="04.15">
-        <strong>Communication</strong>
-        <span>April 15</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/april-16/" data-meditation-id="04.16">
-        <strong>Letting Things Happen</strong>
-        <span>April 16</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/april-17/" data-meditation-id="04.17">
-        <strong>Taking Care of Ourselves</strong>
-        <span>April 17</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/april-18/" data-meditation-id="04.18">
-        <strong>Freedom</strong>
-        <span>April 18</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/april-19/" data-meditation-id="04.19">
-        <strong>Accepting Change</strong>
-        <span>April 19</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/april-20/" data-meditation-id="04.20">
-        <strong>Deadlines</strong>
-        <span>April 20</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/april-21/" data-meditation-id="04.21">
-        <strong>Waiting</strong>
-        <span>April 21</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/april-22/" data-meditation-id="04.22">
-        <strong>Coping with Stress</strong>
-        <span>April 22</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/april-23/" data-meditation-id="04.23">
-        <strong>Opening Ourselves to Love</strong>
-        <span>April 23</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/april-24/" data-meditation-id="04.24">
-        <strong>Lessons on the Job</strong>
-        <span>April 24</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/april-25/" data-meditation-id="04.25">
-        <strong>Finding Our Own Truth</strong>
-        <span>April 25</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/april-26/" data-meditation-id="04.26">
-        <strong>Resisting Negativity</strong>
-        <span>April 26</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/april-27/" data-meditation-id="04.27">
-        <strong>Letting Go of the Need to Control</strong>
-        <span>April 27</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/april-28/" data-meditation-id="04.28">
-        <strong>Anger at Family Members</strong>
-        <span>April 28</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/april-29/" data-meditation-id="04.29">
-        <strong>Initiating Relationships</strong>
-        <span>April 29</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/april-30/" data-meditation-id="04.30">
-        <strong>Balance</strong>
-        <span>April 30</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/may-1/" data-meditation-id="05.01">
-        <strong>Recovery Prayer</strong>
-        <span>May 1</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/may-2/" data-meditation-id="05.02">
-        <strong>Our Higher Power</strong>
-        <span>May 2</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/may-3/" data-meditation-id="05.03">
-        <strong>Freedom from SelfSeeking</strong>
-        <span>May 3</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/may-4/" data-meditation-id="05.04">
-        <strong>Freedom from Compulsive Disorders</strong>
-        <span>May 4</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/may-5/" data-meditation-id="05.05">
-        <strong>Control</strong>
-        <span>May 5</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/may-6/" data-meditation-id="05.06">
-        <strong>Feeling Good</strong>
-        <span>May 6</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/may-7/" data-meditation-id="05.07">
-        <strong>Letting Go of Fear</strong>
-        <span>May 7</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/may-8/" data-meditation-id="05.08">
-        <strong>Giving Ourselves What We Deserve</strong>
-        <span>May 8</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/may-9/" data-meditation-id="05.09">
-        <strong>Learning New Behaviors</strong>
-        <span>May 9</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/may-10/" data-meditation-id="05.10">
-        <strong>Enjoying the Good Days</strong>
-        <span>May 10</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/may-11/" data-meditation-id="05.11">
-        <strong>Perfection</strong>
-        <span>May 11</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/may-12/" data-meditation-id="05.12">
-        <strong>Intimacy</strong>
-        <span>May 12</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/may-13/" data-meditation-id="05.13">
-        <strong>Property Lines</strong>
-        <span>May 13</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/may-14/" data-meditation-id="05.14">
-        <strong>Honesty</strong>
-        <span>May 14</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/may-15/" data-meditation-id="05.15">
-        <strong>Take Risks</strong>
-        <span>May 15</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/may-16/" data-meditation-id="05.16">
-        <strong>SelfLove</strong>
-        <span>May 16</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/may-17/" data-meditation-id="05.17">
-        <strong>Boundaries</strong>
-        <span>May 17</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/may-18/" data-meditation-id="05.18">
-        <strong>Living Our Lives</strong>
-        <span>May 18</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/may-19/" data-meditation-id="05.19">
-        <strong>Solving Problems</strong>
-        <span>May 19</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/may-20/" data-meditation-id="05.20">
-        <strong>Sadness</strong>
-        <span>May 20</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/may-21/" data-meditation-id="05.21">
-        <strong>Getting Needs Met</strong>
-        <span>May 21</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/may-22/" data-meditation-id="05.22">
-        <strong>Times of Reprogramming</strong>
-        <span>May 22</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/may-23/" data-meditation-id="05.23">
-        <strong>Enjoyment</strong>
-        <span>May 23</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/may-24/" data-meditation-id="05.24">
-        <strong>Letting the Cycles Flow</strong>
-        <span>May 24</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/may-25/" data-meditation-id="05.25">
-        <strong>Loving Ourselves Unconditionally</strong>
-        <span>May 25</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/may-26/" data-meditation-id="05.26">
-        <strong>Gossip</strong>
-        <span>May 26</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/may-27/" data-meditation-id="05.27">
-        <strong>Recognizing Choices</strong>
-        <span>May 27</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/may-28/" data-meditation-id="05.28">
-        <strong>Letting Go of SelfDoubt</strong>
-        <span>May 28</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/may-29/" data-meditation-id="05.29">
-        <strong>Powerlessness and Unmanageability</strong>
-        <span>May 29</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/may-30/" data-meditation-id="05.30">
-        <strong>Commitment</strong>
-        <span>May 30</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/may-31/" data-meditation-id="05.31">
-        <strong>What If?</strong>
-        <span>May 31</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/june-1/" data-meditation-id="06.01">
-        <strong>Directness</strong>
-        <span>June 1</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/june-2/" data-meditation-id="06.02">
-        <strong>Owning Our Power</strong>
-        <span>June 2</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/june-3/" data-meditation-id="06.03">
-        <strong>Charity</strong>
-        <span>June 3</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/june-4/" data-meditation-id="06.04">
-        <strong>Trusting God</strong>
-        <span>June 4</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/june-5/" data-meditation-id="06.05">
-        <strong></strong>
-        <span>June 5</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/june-6/" data-meditation-id="06.06">
-        <strong>The Gift of Readiness</strong>
-        <span>June 6</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/june-7/" data-meditation-id="06.07">
-        <strong>Into Orbit</strong>
-        <span>June 7</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/june-8/" data-meditation-id="06.08">
-        <strong>Fun</strong>
-        <span>June 8</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/june-9/" data-meditation-id="06.09">
-        <strong>Panic</strong>
-        <span>June 9</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/june-10/" data-meditation-id="06.10">
-        <strong>Responsibility</strong>
-        <span>June 10</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/june-11/" data-meditation-id="06.11">
-        <strong>Moving Forward</strong>
-        <span>June 11</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/june-12/" data-meditation-id="06.12">
-        <strong>Spontaneity and Fun</strong>
-        <span>June 12</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/june-13/" data-meditation-id="06.13">
-        <strong>Hanging on to Old Relationships</strong>
-        <span>June 13</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/june-14/" data-meditation-id="06.14">
-        <strong>Letting Go of Timing</strong>
-        <span>June 14</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/june-15/" data-meditation-id="06.15">
-        <strong>Competition Between Martyrs</strong>
-        <span>June 15</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/june-16/" data-meditation-id="06.16">
-        <strong>Feeling Good</strong>
-        <span>June 16</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/june-17/" data-meditation-id="06.17">
-        <strong>Surrender</strong>
-        <span>June 17</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/june-18/" data-meditation-id="06.18">
-        <strong>Being Vulnerable</strong>
-        <span>June 18</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/june-19/" data-meditation-id="06.19">
-        <strong>Making Life Easier</strong>
-        <span>June 19</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/june-20/" data-meditation-id="06.20">
-        <strong>Relationship Martyrs</strong>
-        <span>June 20</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/june-21/" data-meditation-id="06.21">
-        <strong>The Good Feelings</strong>
-        <span>June 21</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/june-22/" data-meditation-id="06.22">
-        <strong>Work Histories</strong>
-        <span>June 22</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/june-23/" data-meditation-id="06.23">
-        <strong>Letting Go of Old Beliefs</strong>
-        <span>June 23</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/june-24/" data-meditation-id="06.24">
-        <strong>Detachment</strong>
-        <span>June 24</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/june-25/" data-meditation-id="06.25">
-        <strong>Withholding</strong>
-        <span>June 25</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/june-26/" data-meditation-id="06.26">
-        <strong>Surviving Slumps</strong>
-        <span>June 26</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/june-27/" data-meditation-id="06.27">
-        <strong>Achieving Harmony</strong>
-        <span>June 27</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/june-28/" data-meditation-id="06.28">
-        <strong>When Things Don&#39;t Work</strong>
-        <span>June 28</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/june-29/" data-meditation-id="06.29">
-        <strong>God&#39;s Will</strong>
-        <span>June 29</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/june-30/" data-meditation-id="06.30">
-        <strong>Accepting Change</strong>
-        <span>June 30</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/july-1/" data-meditation-id="07.01">
-        <strong>Receiving</strong>
-        <span>July 1</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/july-2/" data-meditation-id="07.02">
-        <strong>Who Knows Best?</strong>
-        <span>July 2</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/july-3/" data-meditation-id="07.03">
-        <strong>Directness</strong>
-        <span>July 3</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/july-4/" data-meditation-id="07.04">
-        <strong>Celebrate</strong>
-        <span>July 4</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/july-5/" data-meditation-id="07.05">
-        <strong>Survivor Guilt</strong>
-        <span>July 5</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/july-6/" data-meditation-id="07.06">
-        <strong>Step Seven</strong>
-        <span>July 6</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/july-7/" data-meditation-id="07.07">
-        <strong>Getting It All Out</strong>
-        <span>July 7</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/july-8/" data-meditation-id="07.08">
-        <strong>Going with the Flow</strong>
-        <span>July 8</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/july-9/" data-meditation-id="07.09">
-        <strong>Overspending and Underspending</strong>
-        <span>July 9</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/july-10/" data-meditation-id="07.10">
-        <strong>Ending Relationships</strong>
-        <span>July 10</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/july-11/" data-meditation-id="07.11">
-        <strong></strong>
-        <span>July 11</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/july-12/" data-meditation-id="07.12">
-        <strong>Letting Go of Fear of Abandonment</strong>
-        <span>July 12</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/july-13/" data-meditation-id="07.13">
-        <strong>God as We Understand God</strong>
-        <span>July 13</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/july-14/" data-meditation-id="07.14">
-        <strong>We Are Lovable</strong>
-        <span>July 14</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/july-15/" data-meditation-id="07.15">
-        <strong>Family Buttons</strong>
-        <span>July 15</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/july-16/" data-meditation-id="07.16">
-        <strong>Insisting on the Best</strong>
-        <span>July 16</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/july-17/" data-meditation-id="07.17">
-        <strong>Love, in Words and Actions</strong>
-        <span>July 17</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/july-18/" data-meditation-id="07.18">
-        <strong>Time to Get Angry</strong>
-        <span>July 18</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/july-19/" data-meditation-id="07.19">
-        <strong>Proving It to Ourselves</strong>
-        <span>July 19</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/july-20/" data-meditation-id="07.20">
-        <strong>Letting Go of Resistance</strong>
-        <span>July 20</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/july-21/" data-meditation-id="07.21">
-        <strong>Being Is Enough</strong>
-        <span>July 21</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/july-22/" data-meditation-id="07.22">
-        <strong>Learning to Trust Again</strong>
-        <span>July 22</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/july-23/" data-meditation-id="07.23">
-        <strong>Making It Happen</strong>
-        <span>July 23</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/july-24/" data-meditation-id="07.24">
-        <strong>Denial</strong>
-        <span>July 24</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/july-25/" data-meditation-id="07.25">
-        <strong>Keep at It</strong>
-        <span>July 25</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/july-26/" data-meditation-id="07.26">
-        <strong>Owning Our Power</strong>
-        <span>July 26</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/july-27/" data-meditation-id="07.27">
-        <strong>Letting Go</strong>
-        <span>July 27</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/july-28/" data-meditation-id="07.28">
-        <strong>Fear</strong>
-        <span>July 28</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/july-29/" data-meditation-id="07.29">
-        <strong>Have Some Fun</strong>
-        <span>July 29</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/july-30/" data-meditation-id="07.30">
-        <strong>Accepting Powerlessness</strong>
-        <span>July 30</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/july-31/" data-meditation-id="07.31">
-        <strong>Letting Go of What We Want</strong>
-        <span>July 31</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/august-1/" data-meditation-id="08.01">
-        <strong>Gratitude</strong>
-        <span>August 1</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/august-2/" data-meditation-id="08.02">
-        <strong>InBetween</strong>
-        <span>August 2</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/august-3/" data-meditation-id="08.03">
-        <strong>Owning Our Power in Relationships</strong>
-        <span>August 3</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/august-4/" data-meditation-id="08.04">
-        <strong>Vulnerability</strong>
-        <span>August 4</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/august-5/" data-meditation-id="08.05">
-        <strong>Attitudes Toward Money</strong>
-        <span>August 5</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/august-6/" data-meditation-id="08.06">
-        <strong>Solving Problems</strong>
-        <span>August 6</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/august-7/" data-meditation-id="08.07">
-        <strong>Saying No</strong>
-        <span>August 7</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/august-8/" data-meditation-id="08.08">
-        <strong>Saying Yes</strong>
-        <span>August 8</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/august-9/" data-meditation-id="08.09">
-        <strong>Asking for What We Need</strong>
-        <span>August 9</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/august-10/" data-meditation-id="08.10">
-        <strong>Letting Go of Perfection</strong>
-        <span>August 10</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/august-11/" data-meditation-id="08.11">
-        <strong>Healing</strong>
-        <span>August 11</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/august-12/" data-meditation-id="08.12">
-        <strong>Directness</strong>
-        <span>August 12</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/august-13/" data-meditation-id="08.13">
-        <strong>Friends</strong>
-        <span>August 13</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/august-14/" data-meditation-id="08.14">
-        <strong>Owning Our Power</strong>
-        <span>August 14</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/august-15/" data-meditation-id="08.15">
-        <strong>Leaving Room for Feelings</strong>
-        <span>August 15</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/august-16/" data-meditation-id="08.16">
-        <strong>Rescuing Ourselves</strong>
-        <span>August 16</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/august-17/" data-meditation-id="08.17">
-        <strong>Healing Thoughts</strong>
-        <span>August 17</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/august-18/" data-meditation-id="08.18">
-        <strong>Valuing this Moment</strong>
-        <span>August 18</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/august-19/" data-meditation-id="08.19">
-        <strong>Letting Go of Shame</strong>
-        <span>August 19</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/august-20/" data-meditation-id="08.20">
-        <strong>Honesty in Relationships</strong>
-        <span>August 20</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/august-21/" data-meditation-id="08.21">
-        <strong>Detaching in Relationships</strong>
-        <span>August 21</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/august-22/" data-meditation-id="08.22">
-        <strong>Responsibility for Family Members</strong>
-        <span>August 22</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/august-23/" data-meditation-id="08.23">
-        <strong>SelfCare</strong>
-        <span>August 23</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/august-24/" data-meditation-id="08.24">
-        <strong>Step Eight</strong>
-        <span>August 24</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/august-25/" data-meditation-id="08.25">
-        <strong>Willing to Make Amends</strong>
-        <span>August 25</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/august-26/" data-meditation-id="08.26">
-        <strong>Making Amends</strong>
-        <span>August 26</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/august-27/" data-meditation-id="08.27">
-        <strong>Procrastination</strong>
-        <span>August 27</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/august-28/" data-meditation-id="08.28">
-        <strong>Taking Care of Ourselves on the Job</strong>
-        <span>August 28</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/august-29/" data-meditation-id="08.29">
-        <strong>Owning Our Energy</strong>
-        <span>August 29</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/august-30/" data-meditation-id="08.30">
-        <strong>Accepting Our Best</strong>
-        <span>August 30</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/august-31/" data-meditation-id="08.31">
-        <strong>Denial</strong>
-        <span>August 31</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/september-1/" data-meditation-id="09.01">
-        <strong>Patience</strong>
-        <span>September 1</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/september-2/" data-meditation-id="09.02">
-        <strong>Detaching with Love with Children</strong>
-        <span>September 2</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/september-3/" data-meditation-id="09.03">
-        <strong>Word Power</strong>
-        <span>September 3</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/september-4/" data-meditation-id="09.04">
-        <strong>Finding Direction</strong>
-        <span>September 4</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/september-5/" data-meditation-id="09.05">
-        <strong>Step Ten</strong>
-        <span>September 5</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/september-6/" data-meditation-id="09.06">
-        <strong>The Good in Step Ten</strong>
-        <span>September 6</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/september-7/" data-meditation-id="09.07">
-        <strong>Powerless over Others</strong>
-        <span>September 7</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/september-8/" data-meditation-id="09.08">
-        <strong></strong>
-        <span>September 8</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/september-9/" data-meditation-id="09.09">
-        <strong>Perspective</strong>
-        <span>September 9</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/september-10/" data-meditation-id="09.10">
-        <strong>SelfApproval</strong>
-        <span>September 10</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/september-11/" data-meditation-id="09.11">
-        <strong>Conflict and Detachment</strong>
-        <span>September 11</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/september-12/" data-meditation-id="09.12">
-        <strong>Healing</strong>
-        <span>September 12</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/september-13/" data-meditation-id="09.13">
-        <strong>Times of Reprogramming</strong>
-        <span>September 13</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/september-14/" data-meditation-id="09.14">
-        <strong>What&#39;s Good for Me?</strong>
-        <span>September 14</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/september-15/" data-meditation-id="09.15">
-        <strong>Getting Through Hard Times</strong>
-        <span>September 15</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/september-16/" data-meditation-id="09.16">
-        <strong>Revenge</strong>
-        <span>September 16</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/september-17/" data-meditation-id="09.17">
-        <strong>New Relationship Behaviors</strong>
-        <span>September 17</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/september-18/" data-meditation-id="09.18">
-        <strong>Letting the Good Stuff Happen</strong>
-        <span>September 18</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/september-19/" data-meditation-id="09.19">
-        <strong>Apologies</strong>
-        <span>September 19</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/september-20/" data-meditation-id="09.20">
-        <strong>Spontaneity</strong>
-        <span>September 20</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/september-21/" data-meditation-id="09.21">
-        <strong>Letting Go of Urgency</strong>
-        <span>September 21</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/september-22/" data-meditation-id="09.22">
-        <strong>Trusting Ourselves</strong>
-        <span>September 22</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/september-23/" data-meditation-id="09.23">
-        <strong>Tolerance</strong>
-        <span>September 23</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/september-24/" data-meditation-id="09.24">
-        <strong>Allowing Ourselves to be Needy</strong>
-        <span>September 24</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/september-25/" data-meditation-id="09.25">
-        <strong>Peace with the Past</strong>
-        <span>September 25</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/september-26/" data-meditation-id="09.26">
-        <strong>Feeling Protected</strong>
-        <span>September 26</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/september-27/" data-meditation-id="09.27">
-        <strong>Temporary Setbacks</strong>
-        <span>September 27</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/september-28/" data-meditation-id="09.28">
-        <strong>Prayer</strong>
-        <span>September 28</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/september-29/" data-meditation-id="09.29">
-        <strong>The Importance of Money</strong>
-        <span>September 29</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/september-30/" data-meditation-id="09.30">
-        <strong>Not a Victim</strong>
-        <span>September 30</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/october-1/" data-meditation-id="10.01">
-        <strong>Be Who You Are</strong>
-        <span>October 1</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/october-2/" data-meditation-id="10.02">
-        <strong>Coping with Families</strong>
-        <span>October 2</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/october-3/" data-meditation-id="10.03">
-        <strong>Getting Through the Discomfort</strong>
-        <span>October 3</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/october-4/" data-meditation-id="10.04">
-        <strong>Faith and Money</strong>
-        <span>October 4</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/october-5/" data-meditation-id="10.05">
-        <strong>Knowledge</strong>
-        <span>October 5</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/october-6/" data-meditation-id="10.06">
-        <strong>Taking Care of Ourselves</strong>
-        <span>October 6</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/october-7/" data-meditation-id="10.07">
-        <strong>Letting Go of Naiveté</strong>
-        <span>October 7</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/october-8/" data-meditation-id="10.08">
-        <strong>Learning to Wait</strong>
-        <span>October 8</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/october-9/" data-meditation-id="10.09">
-        <strong>SelfDisclosure</strong>
-        <span>October 9</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/october-10/" data-meditation-id="10.10">
-        <strong>Payoffs from Destructive Relationships</strong>
-        <span>October 10</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/october-11/" data-meditation-id="10.11">
-        <strong>Recovery</strong>
-        <span>October 11</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/october-12/" data-meditation-id="10.12">
-        <strong>Being Gentle with Ourselves During Times of Grief</strong>
-        <span>October 12</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/october-13/" data-meditation-id="10.13">
-        <strong>Substance over Form</strong>
-        <span>October 13</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/october-14/" data-meditation-id="10.14">
-        <strong>Controlling Versus Trust</strong>
-        <span>October 14</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/october-15/" data-meditation-id="10.15">
-        <strong>Letting Go of Chaos</strong>
-        <span>October 15</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/october-16/" data-meditation-id="10.16">
-        <strong>Being Honest with Ourselves</strong>
-        <span>October 16</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/october-17/" data-meditation-id="10.17">
-        <strong>Feelings and Surrender</strong>
-        <span>October 17</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/october-18/" data-meditation-id="10.18">
-        <strong>Throwing Out the Rule Book</strong>
-        <span>October 18</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/october-19/" data-meditation-id="10.19">
-        <strong>Our Good Points</strong>
-        <span>October 19</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/october-20/" data-meditation-id="10.20">
-        <strong>Detaching with Love</strong>
-        <span>October 20</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/october-21/" data-meditation-id="10.21">
-        <strong>Financial Responsibility</strong>
-        <span>October 21</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/october-22/" data-meditation-id="10.22">
-        <strong>Holding Your Own</strong>
-        <span>October 22</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/october-23/" data-meditation-id="10.23">
-        <strong>Morning Cues</strong>
-        <span>October 23</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/october-24/" data-meditation-id="10.24">
-        <strong>Opening Ourselves to Love</strong>
-        <span>October 24</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/october-25/" data-meditation-id="10.25">
-        <strong>Letting Go of the Past</strong>
-        <span>October 25</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/october-26/" data-meditation-id="10.26">
-        <strong>Clarity</strong>
-        <span>October 26</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/october-27/" data-meditation-id="10.27">
-        <strong>Step Eleven</strong>
-        <span>October 27</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/october-28/" data-meditation-id="10.28">
-        <strong>Meditation and Prayer</strong>
-        <span>October 28</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/october-29/" data-meditation-id="10.29">
-        <strong>Acceptance</strong>
-        <span>October 29</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/october-30/" data-meditation-id="10.30">
-        <strong>SelfValue</strong>
-        <span>October 30</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/october-31/" data-meditation-id="10.31">
-        <strong>All Our Needs</strong>
-        <span>October 31</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/november-1/" data-meditation-id="11.01">
-        <strong>Transformation Through Grief</strong>
-        <span>November 1</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/november-2/" data-meditation-id="11.02">
-        <strong>The Grief Process</strong>
-        <span>November 2</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/november-3/" data-meditation-id="11.03">
-        <strong>Denial</strong>
-        <span>November 3</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/november-4/" data-meditation-id="11.04">
-        <strong>Anger</strong>
-        <span>November 4</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/november-5/" data-meditation-id="11.05">
-        <strong>Let&#39;s Make a Deal</strong>
-        <span>November 5</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/november-6/" data-meditation-id="11.06">
-        <strong>Enjoying Life</strong>
-        <span>November 6</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/november-7/" data-meditation-id="11.07">
-        <strong>Relationships</strong>
-        <span>November 7</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/november-8/" data-meditation-id="11.08">
-        <strong>True to Ourselves</strong>
-        <span>November 8</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/november-9/" data-meditation-id="11.09">
-        <strong>Accepting Love</strong>
-        <span>November 9</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/november-10/" data-meditation-id="11.10">
-        <strong>Beliefs About Money</strong>
-        <span>November 10</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/november-11/" data-meditation-id="11.11">
-        <strong>Discipline</strong>
-        <span>November 11</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/november-12/" data-meditation-id="11.12">
-        <strong>Timing</strong>
-        <span>November 12</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/november-13/" data-meditation-id="11.13">
-        <strong>Taking Care of Ourselves</strong>
-        <span>November 13</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/november-14/" data-meditation-id="11.14">
-        <strong>Letting Our Anger Out</strong>
-        <span>November 14</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/november-15/" data-meditation-id="11.15">
-        <strong>Benefits of Recovery</strong>
-        <span>November 15</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/november-16/" data-meditation-id="11.16">
-        <strong>The Victim Trap</strong>
-        <span>November 16</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/november-17/" data-meditation-id="11.17">
-        <strong></strong>
-        <span>November 17</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/november-18/" data-meditation-id="11.18">
-        <strong>Allowing Ourselves to be Nurtured</strong>
-        <span>November 18</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/november-19/" data-meditation-id="11.19">
-        <strong>Accepting Our Feelings</strong>
-        <span>November 19</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/november-20/" data-meditation-id="11.20">
-        <strong>Wants and Needs</strong>
-        <span>November 20</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/november-21/" data-meditation-id="11.21">
-        <strong>Financial Fears</strong>
-        <span>November 21</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/november-22/" data-meditation-id="11.22">
-        <strong>The Magic of Gratitude and Acceptance</strong>
-        <span>November 22</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/november-23/" data-meditation-id="11.23">
-        <strong>Healthy Sexuality</strong>
-        <span>November 23</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/november-24/" data-meditation-id="11.24">
-        <strong>Surrender</strong>
-        <span>November 24</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/november-25/" data-meditation-id="11.25">
-        <strong>Awareness</strong>
-        <span>November 25</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/november-26/" data-meditation-id="11.26">
-        <strong>Letting Go of SelfCriticism</strong>
-        <span>November 26</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/november-27/" data-meditation-id="11.27">
-        <strong>We Can Trust Ourselves</strong>
-        <span>November 27</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/november-28/" data-meditation-id="11.28">
-        <strong>Back to the Steps</strong>
-        <span>November 28</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/november-29/" data-meditation-id="11.29">
-        <strong>Step Twelve</strong>
-        <span>November 29</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/november-30/" data-meditation-id="11.30">
-        <strong>Detachment</strong>
-        <span>November 30</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/december-1/" data-meditation-id="12.01">
-        <strong>Letting People Be There for Us</strong>
-        <span>December 1</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/december-2/" data-meditation-id="12.02">
-        <strong>Putting Our Life on Hold</strong>
-        <span>December 2</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/december-3/" data-meditation-id="12.03">
-        <strong>Developing Healthy Tolerance</strong>
-        <span>December 3</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/december-4/" data-meditation-id="12.04">
-        <strong>Letting Go</strong>
-        <span>December 4</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/december-5/" data-meditation-id="12.05">
-        <strong>Difficult People</strong>
-        <span>December 5</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/december-6/" data-meditation-id="12.06">
-        <strong>Letting Go of Shame</strong>
-        <span>December 6</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/december-7/" data-meditation-id="12.07">
-        <strong>When the Time Is Right</strong>
-        <span>December 7</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/december-8/" data-meditation-id="12.08">
-        <strong>Valuing Our Needs</strong>
-        <span>December 8</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/december-9/" data-meditation-id="12.09">
-        <strong>Asking for Help</strong>
-        <span>December 9</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/december-10/" data-meditation-id="12.10">
-        <strong>Empowerment</strong>
-        <span>December 10</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/december-11/" data-meditation-id="12.11">
-        <strong>Affirmations</strong>
-        <span>December 11</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/december-12/" data-meditation-id="12.12">
-        <strong>God&#39;s Will</strong>
-        <span>December 12</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/december-13/" data-meditation-id="12.13">
-        <strong>Giving</strong>
-        <span>December 13</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/december-14/" data-meditation-id="12.14">
-        <strong>Clear Thinking</strong>
-        <span>December 14</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/december-15/" data-meditation-id="12.15">
-        <strong>Feelings</strong>
-        <span>December 15</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/december-16/" data-meditation-id="12.16">
-        <strong>Taking Care Of Ourselves Emotionally</strong>
-        <span>December 16</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/december-17/" data-meditation-id="12.17">
-        <strong>Nurturing Ourselves</strong>
-        <span>December 17</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/december-18/" data-meditation-id="12.18">
-        <strong>Staying Open to Our Feelings</strong>
-        <span>December 18</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/december-19/" data-meditation-id="12.19">
-        <strong>Work Roles</strong>
-        <span>December 19</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/december-20/" data-meditation-id="12.20">
-        <strong>Expectations of Others</strong>
-        <span>December 20</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/december-21/" data-meditation-id="12.21">
-        <strong>Balance</strong>
-        <span>December 21</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/december-22/" data-meditation-id="12.22">
-        <strong>Good Things Coming</strong>
-        <span>December 22</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/december-23/" data-meditation-id="12.23">
-        <strong>Holiday Triggers</strong>
-        <span>December 23</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/december-24/" data-meditation-id="12.24">
-        <strong>Getting Through the Holidays</strong>
-        <span>December 24</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/december-25/" data-meditation-id="12.25">
-        <strong>The Holidays</strong>
-        <span>December 25</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/december-26/" data-meditation-id="12.26">
-        <strong>Growth</strong>
-        <span>December 26</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/december-27/" data-meditation-id="12.27">
-        <strong>Near the Top</strong>
-        <span>December 27</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/december-28/" data-meditation-id="12.28">
-        <strong>Panic</strong>
-        <span>December 28</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/december-29/" data-meditation-id="12.29">
-        <strong>Moving On</strong>
-        <span>December 29</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/december-30/" data-meditation-id="12.30">
-        <strong>Laying the Foundation</strong>
-        <span>December 30</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="/language-of-letting-go/december-31/" data-meditation-id="12.31">
-        <strong>Affirming the Good</strong>
-        <span>December 31</span>
-      </a>
-    </li>
-  
-</ul>
+  <section class="calendar-section" aria-label="Pick a Date">
+    <div id="meditation-calendar" class="meditation-calendar"></div>
+  </section>
+</div>
 
 <script id="meditations-data" type="application/json">
 [
@@ -3654,10 +1164,10 @@ Today, I will remember that there is a powerful force motivated by writing down 
   
     {
       "id": "04.08",
-      "title": "SelfCare",
+      "title": "Self-Care",
       "displayDate": "April 8",
       "url": "/language-of-letting-go/april-8/",
-      "content": "<span class=\"quote\">\nI don't precisely know what you need to do to take care of yourself. But I know you can figure it out.\n<span class=\"quote-attribution\">\nBeyond Codependency\n</span>\n</span>\n<p>Rest when you're tired. Take a drink of cold water when you're thirsty. Call a friend when you're lonely. Ask God to help when you feel overwhelmed. Many of us have learned how to deprive and neglect ourselves. Many of us have learned to push ourselves hard, when the problem is that we're already pushed too hard. Many of us are afraid the work won't get done if we rest when we're tired. The work will get done; it will be done better than work that emerges from tiredness of soul and spirit. Nurtured, nourished people, who love themselves and care for themselves, are the delight of the Universe. They are welltimed, efficient, and Divinely led.</p>\n<span class=\"focal-point\">\nToday, I will practice loving selfcare.\n</span>\n"
+      "content": "<span class=\"quote\">\nI don't precisely know what you need to do to take care of yourself. But I know you can figure it out.\n<span class=\"quote-attribution\">\nBeyond Codependency\n</span>\n</span>\n<p>Rest when you're tired.</p>\n<p>Take a drink of cold water when you're thirsty.</p>\n<p>Call a friend when you're lonely.</p>\n<p>Ask God to help when you feel overwhelmed.</p>\n<p>Many of us have learned how to deprive and neglect ourselves. Many of us have learned to push ourselves hard, when the problem is that we're already pushed too hard. Many of us are afraid the work won't get done if we rest when we're tired. The work will get done; it will be done better than work that emerges from tiredness of soul and spirit. Nurtured, nourished people, who love themselves and care for themselves, are the delight of the Universe.</p>\n<p>They are well-timed, efficient, and Divinely led.</p>\n<span class=\"focal-point\">\nToday, I will practice loving self-care.\n</span>\n"
     },
   
     {
@@ -3665,7 +1175,7 @@ Today, I will remember that there is a powerful force motivated by writing down 
       "title": "Giving",
       "displayDate": "April 9",
       "url": "/language-of-letting-go/april-9/",
-      "content": "<p>Learning to be a healthy giver can be a challenge. Many of us got caught up in compulsive giving—charitable acts motivated by uncharitable feelings of guilt, shame, obligation, pity, and moral superiority. We now understand that caretaking and compulsive giving don't work. They backfire. Caretaking keeps us feeling victimized. Many of us gave too much, thinking we were doing things right; then we became confused because our life and relationships weren't working. Many of us gave so much for so long, thinking we were doing God's will; then in recovery, we refused to give, care, or love for a time. That's okay. Perhaps we needed a rest. But healthy giving is part of healthy living. The goal in recovery is balance caring that is motivated by a true desire to give, with an underlying attitude of respect for ourselves and others. The goal in recovery is to choose what we want to give, to whom, when, and how much. The goal in recovery is to give, and not feel victimized by our giving. Are we giving because we want to, because it's our responsibility? Or are we giving because we feel obligated, guilty, ashamed, or superior? Are we giving because we feel afraid to say no? Are the ways we try to assist people helpful, or do they prevent others from facing their true responsibilities? Are we giving so that people will like us or feel obligated to us? Are we giving to prove we're worthy? Or are we giving because we want to give and it feels right? Recovery includes a cycle of giving and receiving. It keeps healthy energy flowing among us, our Higher Power, and others. It takes time to learn how to give in healthy ways. It takes time to learn to receive. Be patient. Balance will come.</p>\n<span class=\"focal-point\">\nGod, please guide my giving and my motives today.\n</span>\n"
+      "content": "<p>Learning to be a healthy giver can be a challenge. Many of us got caught up in compulsive giving—charitable acts motivated by uncharitable feelings of guilt, shame, obligation, pity, and moral superiority.</p>\n<p>We now understand that care-taking and compulsive giving don't work. They backfire.</p>\n<p>Care-taking keeps us feeling victimized.</p>\n<p>Many of us gave too much, thinking we were doing things right; then we became confused because our life and relationships weren't working. Many of us gave so much for so long, thinking we were doing God's will; then in recovery, we refused to give, care, or love for a time.</p>\n<p>That's okay. Perhaps we needed a rest. But healthy giving is part of healthy living. The goal in recovery is balance caring that is motivated by a true desire to give, with an underlying attitude of respect for ourselves and others.</p>\n<p>The goal in recovery is to choose what we want to give, to whom, when, and how much. The goal in recovery is to give, and not feel victimized by our giving.</p>\n<p>Are we giving because we want to, because it's our responsibility? Or are we giving because we feel obligated, guilty, ashamed, or superior? Are we giving because we feel afraid to say no?</p>\n<p>Are the ways we try to assist people helpful, or do they prevent others from facing their true responsibilities?</p>\n<p>Are we giving so that people will like us or feel obligated to us? Are we giving to prove we're worthy? Or are we giving because we want to give and it feels right?</p>\n<p>Recovery includes a cycle of giving and receiving. It keeps healthy energy flowing among us, our Higher Power, and others. It takes time to learn how to give in healthy ways. It takes time to learn to receive. Be patient. Balance will come.</p>\n<span class=\"focal-point\">\nGod, please guide my giving and my motives today.\n</span>\n"
     },
   
     {
@@ -3673,7 +1183,7 @@ Today, I will remember that there is a powerful force motivated by writing down 
       "title": "Using Others to Stop Our Pain",
       "displayDate": "April 10",
       "url": "/language-of-letting-go/april-10/",
-      "content": "<p>Our happiness is not a present someone else holds in his or her hands. Our wellbeing is not held by another to be given or withheld at whim. If we reach out and try to force someone to give us what we believe he or she holds, we will be disappointed. We will discover that it is an illusion. The person didn't hold it. He or she never shall. That beautifully wrapped box with the ribbon on it that we believed contained our happiness that someone was holding—it's an illusion! In those moments when we are trying to reach out and force someone to stop our pain and create our joy, if we can find the courage to stop flailing about and instead stand still and deal with our issues, we will find our happiness. Yes, it is true that if someone steps on our foot, he or she is hurting us and therefore holds the power to stop our pain by removing his or her foot. But the pain is still ours. And so is the responsibility to tell someone to stop stepping on our feet. Healing will come when we're aware of how we attempt to use others to stop our pain and create our happiness. We will heal from the past. We will receive insights that can change the course of our relationships. We will see that, all along, our happiness and our wellbeing have been in our hands. We have held that box. The contents are ours for the opening.</p>\n<span class=\"focal-point\">\nGod, help me remember that I hold the key to my own happiness. Give me the courage to stand still and deal with my own feelings. Give me the insights I need to improve my relationships. Help me stop doing the codependent dance and start doing the dance of recovery.\n</span>\n"
+      "content": "<p>Our happiness is not a present someone else holds in his or her hands. Our well-being is not held by another to be given or withheld at whim. If we reach out and try to force someone to give us what we believe he or she holds, we will be disappointed. We will discover that it is an illusion. The person didn't hold it. He or she never shall. That beautifully wrapped box with the ribbon on it that we believed contained our happiness that someone was holding—it's an illusion!</p>\n<p>In those moments when we are trying to reach out and force someone to stop our pain and create our joy, if we can find the courage to stop flailing about and instead stand still and deal with our issues, we will find our happiness.</p>\n<p>Yes, it is true that if someone steps on our foot, he or she is hurting us and therefore holds the power to stop our pain by removing his or her foot. But the pain is still ours. And so is the responsibility to tell someone to stop stepping on our feet.</p>\n<p>Healing will come when we're aware of how we attempt to use others to stop our pain and create our happiness. We will heal from the past. We will receive insights that can change the course of our relationships.</p>\n<p>We will see that, all along, our happiness and our well-being have been in our hands. We have held that box. The contents are ours for the opening.</p>\n<span class=\"focal-point\">\nGod, help me remember that I hold the key to my own happiness. Give me the courage to stand still and deal with my own feelings. Give me the insights I need to improve my relationships. Help me stop doing the codependent dance and start doing the dance of recovery.\n</span>\n"
     },
   
     {
@@ -3681,7 +1191,7 @@ Today, I will remember that there is a powerful force motivated by writing down 
       "title": "Financial Goals",
       "displayDate": "April 11",
       "url": "/language-of-letting-go/april-11/",
-      "content": "<p>Taking responsibility for our financial affairs will improve our selfesteem and lessen anxiety.</p>\n<p><em>Each of us, today, has a present set of financial circumstances. We have a</em></p>\n<p>certain amount of money in hand, and money due to us. We have a pile of bills that we owe. We have taxes to pay. Those are our present financial circumstances. No matter what the details are, acceptance, gratitude, and selfresponsibility will lessen the stress. Each of us, today, has a financial future. There are few future aspects of our life we can control, but one part we can play to assist our future is setting goals. We don't have to obsess about our goals. We don't have to constantly watch and mark our progress toward them. But it is beneficial to think about our goals and write them down. What do we want to happen in our financial future? What financial problems would we like to solve? What bills would we like to be rid of? What would we like to be earning at the end of this year? The end of next year? Five years from now? Are we willing to work for our goals and trust our Higher Power to guide us? Pay bills on time. Contact creditors. Make arrangements. Do your best, today, to take responsibility for your finances. Set goals for the future. Then, let go of money and concentrate on living. Taking responsibility for our financial affairs does not mean making money our focus. Taking responsibility for our finances enables us to take our focus off money. It frees us to do our work and live the life we want. We deserve to have the selfesteem and peace that accompanies financial responsibility.</p>\n<span class=\"focal-point\">\nToday, I will take the time necessary to be responsible for myself financially. If it is time to pay bills or talk to creditors, I will do that. If it is time to set goals, I will do that. Once I have done my part, I will let the rest go.\n</span>\n"
+      "content": "<p>Taking responsibility for our financial affairs will improve our self-esteem and lessen anxiety.</p>\n<p>Each of us, today, has a <em>present set of financial circumstances</em>. We have a certain amount of money in hand, and money due to us. We have a pile of bills that we owe. We have taxes to pay. Those are our present financial circumstances. No matter what the details are, acceptance, gratitude, and self-responsibility will lessen the stress.</p>\n<p>Each of us, today, has a <em>financial future</em>. There are few future aspects of our life we can control, but one part we can play to assist our future is setting goals.</p>\n<p>We don't have to obsess about our goals. We don't have to constantly watch and mark our progress toward them. But it is beneficial to think about our goals and write them down. What do we want to happen in our financial future? What financial problems would we like to solve? What bills would we like to be rid of? What would we like to be earning at the end of this year? The end of next year? Five years from now?</p>\n<p>Are we willing to work for our goals and trust our Higher Power to guide us?</p>\n<p>Pay bills on time. Contact creditors. Make arrangements. Do your best, today, to take responsibility for your finances. Set goals for the future. Then, let go of money and concentrate on living. Taking responsibility for our financial affairs does not mean making money our focus. Taking responsibility for our finances enables us to take our focus off money. It frees us to do our work and live the life we want.</p>\n<p>We deserve to have the self-esteem and peace that accompanies financial responsibility.</p>\n<span class=\"focal-point\">\nToday, I will take the time necessary to be responsible for myself financially. If it is time to pay bills or talk to creditors, I will do that. If it is time to set goals, I will do that. Once I have done my part, I will let the rest go.\n</span>\n"
     },
   
     {
@@ -3689,7 +1199,7 @@ Today, I will remember that there is a powerful force motivated by writing down 
       "title": "Letting Go of Fear",
       "displayDate": "April 12",
       "url": "/language-of-letting-go/april-12/",
-      "content": "<p>Picture yourself swimming—floating—peacefully down a gentle stream. All you need to do is breathe, relax, and go with the flow. Suddenly, you become conscious of your situation. Frightened, overwhelmed with &quot;what if's?&quot; your body tenses. You begin to thrash around, frantically looking for something to grab on to. You panic so hard you start to go under. Then you remember—you're working too hard at this. You don't need to panic. All you need to do is breathe, relax, and go with the flow. You won't drown. Panic is our great enemy. We don't need to become desperate. If overwhelming problems appear in our life, we need to stop struggling. We can tread water for a bit, until our equilibrium returns. Then we can go back to floating peacefully down the gentle stream. It is our stream. It is a safe stream. Our course has been charted. All is well.</p>\n<span class=\"focal-point\">\nToday, I will relax, breathe, and go with the flow.\n</span>\n"
+      "content": "<p>Picture yourself swimming—floating—peacefully down a gentle stream. All you need to do is breathe, relax, and go with the flow.</p>\n<p>Suddenly, you become conscious of your situation. Frightened, overwhelmed with &quot;what if's?&quot; your body tenses. You begin to thrash around, frantically looking for something to grab on to.</p>\n<p>You panic so hard you start to go under. Then you remember—you're working too hard at this. You don't need to panic. All you need to do is breathe, relax, and go with the flow. You won't drown.</p>\n<p>Panic is our great enemy.</p>\n<p>We don't need to become desperate. If overwhelming problems appear in our life, we need to stop struggling. We can tread water for a bit, until our equilibrium returns. Then we can go back to floating peacefully down the gentle stream. It is our stream. It is a safe stream. Our course has been charted. All is well.</p>\n<span class=\"focal-point\">\nToday, I will relax, breathe, and go with the flow.\n</span>\n"
     },
   
     {
@@ -3697,7 +1207,7 @@ Today, I will remember that there is a powerful force motivated by writing down 
       "title": "Enjoyment",
       "displayDate": "April 13",
       "url": "/language-of-letting-go/april-13/",
-      "content": "<p>One of the prohibitions many of us learned in childhood is the unspoken rule</p>\n<p>*Don't have fun and enjoy life. This rule *</p>\n<p>creates martyrs—people who will not let themselves embrace the pleasures of daytoday living. Many of us associated suffering with some sort of sainthood. Now, we associate it with codependency. We can go through the day making ourselves feel anxious, guilty, miserable, and deprived. Or we can allow ourselves to go through that same day feeling good. In recovery, we eventually learn the choice is ours. There is much to be enjoyed each day, and it is okay to feel good. We can let ourselves enjoy our tasks. We can learn to relax without guilt. We can even learn to have fun. Work at learning to have fun. Apply yourself with dedication to learning enjoyment. Work as hard at learning to have fun as you did at feeling miserable. Our work will pay off. Fun will become fun. Life will become worth living. And each day, well find many pleasures to be enjoyed.</p>\n<span class=\"focal-point\">\nToday, I will let myself enjoy life as I go through my day.\n</span>\n"
+      "content": "<p>One of the prohibitions many of us learned in childhood is the unspoken rule <em>Don't have fun and enjoy life</em>. This rule creates martyrs—people who will not let themselves embrace the pleasures of day-to-day living.</p>\n<p>Many of us associated suffering with some sort of sainthood. Now, we associate it with codependency. We can go through the day making ourselves feel anxious, guilty, miserable, and deprived. Or we can allow ourselves to go through that same day feeling good. In recovery, we eventually learn the choice is ours.</p>\n<p>There is much to be enjoyed each day, and it is okay to feel good. We can let ourselves enjoy our tasks. We can learn to relax without guilt. We can even learn to have fun.</p>\n<p>Work at learning to have fun. Apply yourself with dedication to learning enjoyment. Work as hard at learning to have fun as you did at feeling miserable.</p>\n<p>Our work will pay off. Fun will become fun. Life will become worth living. And each day, well find many pleasures to be enjoyed.</p>\n<span class=\"focal-point\">\nToday, I will let myself enjoy life as I go through my day.\n</span>\n"
     },
   
     {
@@ -3705,7 +1215,7 @@ Today, I will remember that there is a powerful force motivated by writing down 
       "title": "Perfectionism",
       "displayDate": "April 14",
       "url": "/language-of-letting-go/april-14/",
-      "content": "<p>Recovery from codependency is an individual process that necessitates making mistakes, struggling through problems, and facing tough issues. Expecting ourselves to be perfect slows this process; it puts us in a guilty and anxious state. Expecting others to be perfect is equally destructive; it makes others feel ashamed and may interfere with their growth. People are human and vulnerable, and that is wonderful. We can accept and cherish that idea. Expecting others to be perfect puts us in that codependent state of moral superiority. Expecting ourselves to be perfect makes us feel rigid and inferior. We can let go of both ideas. We do not need to go to the other extreme, tolerating anything people throw our way. We can still expect appropriate, responsible behavior from ourselves. But most of us can afford to loosen up a bit. And when we stop expecting others to be perfect, we may discover that they're doing much better than we thought. When we stop expecting ourselves to be perfect, well discover the beauty in ourselves.</p>\n<span class=\"focal-point\">\nToday, I will practice tolerance, acceptance, and love of others as they are, and myself as I am. I will strive for that balance between expecting too much and expecting too little from others and myself.\n</span>\n"
+      "content": "<p>Recovery from codependency is an individual process that necessitates making mistakes, struggling through problems, and facing tough issues.</p>\n<p>Expecting ourselves to be perfect slows this process; it puts us in a guilty and anxious state. Expecting others to be perfect is equally destructive; it makes others feel ashamed and may interfere with their growth.</p>\n<p>People are human and vulnerable, and that is wonderful. We can accept and cherish that idea. Expecting others to be perfect puts us in that codependent state of moral superiority. Expecting ourselves to be perfect makes us feel rigid and inferior.</p>\n<p>We can let go of both ideas.</p>\n<p>We do not need to go to the other extreme, tolerating anything people throw our way. We can still expect appropriate, responsible behavior from ourselves. But most of us can afford to loosen up a bit. And when we stop expecting others to be perfect, we may discover that they're doing much better than we thought. When we stop expecting ourselves to be perfect, well discover the beauty in ourselves.</p>\n<span class=\"focal-point\">\nToday, I will practice tolerance, acceptance, and love of others as they are, and myself as I am. I will strive for that balance between expecting too much and expecting too little from others and myself.\n</span>\n"
     },
   
     {
@@ -3713,7 +1223,7 @@ Today, I will remember that there is a powerful force motivated by writing down 
       "title": "Communication",
       "displayDate": "April 15",
       "url": "/language-of-letting-go/april-15/",
-      "content": "<p>Part of owning our power is learning to communicate clearly, directly, and assertively. We don't have to beat around the bush in our conversations to control the reactions of others. Guiltproducing comments only produce guilt. We don't have to fix or take care of people with our words; we can't expect others to take care of us with words either. We can settle for being heard and accepted. And we can respectfully listen to what others have to say. Hinting at what we need doesn't work. Others can't read our mind, and they're likely to resent our indirectness. The best way to take responsibility for what we want is to ask for it directly. And, we can insist on directness from others. If we need to say no to a particular request, we can. If someone is trying to control us through a conversation, we can refuse to participate. Acknowledging feelings such as disappointment or anger directly, instead of making others guess at our feelings or having our feelings come out in other ways, is part of responsible communication. If we don't know what we want to say, we can say that too. We can ask for information and use words to forge a closer connection, but we don't have to take people around the block with our conversations. We don't have to listen to, or participate in, nonsense. We can say what we want and stop when we're done.</p>\n<span class=\"focal-point\">\nToday, I will communicate clearly and directly in my conversations with others. I will strive to avoid manipulative, indirect, or guiltproducing statements. I can be tactful and gentle whenever possible. And I can be assertive if necessary.\n</span>\n"
+      "content": "<p>Part of owning our power is learning to communicate clearly, directly, and assertively. We don't have to beat around the bush in our conversations to control the reactions of others. Guilt-producing comments only produce guilt. We don't have to fix or take care of people with our words; we can't expect others to take care of us with words either. We can settle for being heard and accepted. And we can respectfully listen to what others have to say.</p>\n<p>Hinting at what we need doesn't work. Others can't read our mind, and they're likely to resent our indirectness. The best way to take responsibility for what we want is to ask for it directly. And, we can insist on directness from others. If we need to say no to a particular request, we can. If someone is trying to control us through a conversation, we can refuse to participate.</p>\n<p>Acknowledging feelings such as disappointment or anger directly, instead of making others guess at our feelings or having our feelings come out in other ways, is part of responsible communication. If we don't know what we want to say, we can say that too.</p>\n<p>We can ask for information and use words to forge a closer connection, but we don't have to take people around the block with our conversations. We don't have to listen to, or participate in, nonsense. We can say what we want and stop when we're done.</p>\n<span class=\"focal-point\">\nToday, I will communicate clearly and directly in my conversations with others. I will strive to avoid manipulative, indirect, or guilt-producing statements. I can be tactful and gentle whenever possible. And I can be assertive if necessary.\n</span>\n"
     },
   
     {
@@ -3721,7 +1231,7 @@ Today, I will remember that there is a powerful force motivated by writing down 
       "title": "Letting Things Happen",
       "displayDate": "April 16",
       "url": "/language-of-letting-go/april-16/",
-      "content": "<p>We do not have to work so hard at gaining our insights. Yes, we're learning that painful and disappointing things happen, often for a reason and a higher purpose. Yes, these things often work out for good. But we don't have to spend so much time and energy figuring out the purpose and plan for each detail of our life. That's hypervigilence! Sometimes, the car doesn't start. Sometimes, the dishwasher breaks. Sometimes, we catch a cold. Sometimes, we run out of hot water. Sometimes, we have a bad day. While it helps to achieve acceptance and gratitude for these irritating annoyances, we don't have to process everything and figure out if it's in the scheme of things. Solve the problem. Get the car repaired. Fix the dishwasher. Nurse yourself through the cold. Wait to take the shower until there's hot water. Nurture yourself through your bad day. Tend to your responsibilities, and don't take everything so personally! If we need to recognize a particular insight or awareness, we will be guided in that direction. Certainly, we want to watch for patterns. But often, the big insights and the significant processing happen naturally. We don't have to question every occurrence to see how it fits into the Plan. The Plan—the awareness, the insight, the potential for personal growth—will reveal itself to us. Perhaps the lesson is to learn to solve our problems without always knowing their significance. Perhaps the lesson is to trust ourselves to live, and experience, life.</p>\n<span class=\"focal-point\">\nToday, I will let things happen without worrying about the significance of each event. I will trust that this will bring about my growth faster than running around with a microscope. I will trust my lessons to reveal themselves in their own time.\n</span>\n"
+      "content": "<p>We do not have to work so hard at gaining our insights. Yes, we're learning that painful and disappointing things happen, often for a reason and a higher purpose. Yes, these things often work out for good. But we don't have to spend so much time and energy figuring out the purpose and plan for each detail of our life. That's hypervigilence!</p>\n<p>Sometimes, the car doesn't start. Sometimes, the dishwasher breaks. Sometimes, we catch a cold. Sometimes, we run out of hot water. Sometimes, we have a bad day. While it helps to achieve acceptance and gratitude for these irritating annoyances, we don't have to process everything and figure out if it's in the scheme of things.</p>\n<p>Solve the problem. Get the car repaired. Fix the dishwasher. Nurse yourself through the cold. Wait to take the shower until there's hot water. Nurture yourself through your bad day. Tend to your responsibilities, and don't take everything so personally!</p>\n<p>If we need to recognize a particular insight or awareness, we will be guided in that direction. Certainly, we want to watch for patterns. But often, the big insights and the significant processing happen naturally.</p>\n<p>We don't have to question every occurrence to see how it fits into the Plan. The Plan—the awareness, the insight, the potential for personal growth—will reveal itself to us. Perhaps the lesson is to learn to solve our problems without always knowing their significance. Perhaps the lesson is to trust ourselves to live, and experience, life.</p>\n<span class=\"focal-point\">\nToday, I will let things happen without worrying about the significance of each event. I will trust that this will bring about my growth faster than running around with a microscope. I will trust my lessons to reveal themselves in their own time.\n</span>\n"
     },
   
     {
@@ -3729,7 +1239,7 @@ Today, I will remember that there is a powerful force motivated by writing down 
       "title": "Taking Care of Ourselves",
       "displayDate": "April 17",
       "url": "/language-of-letting-go/april-17/",
-      "content": "<p>We often refer to recovery from codependency and adult child issues as ''selfcare.'' Selfcare is not, as some may think, a spinoff of the &quot;me generation.&quot; It isn't selfindulgence. It isn't selfishness—in the negative interpretation of that word. We're learning to take care of ourselves, instead of obsessively focusing on another person. We're learning selfresponsibility, instead of feeling excessively responsible for others. Selfcare also means tending to our true responsibilities to others; we do this better when we're not feeling overly responsible. Selfcare sometimes means, &quot;me first,&quot; but usually, &quot;me too.&quot; It means we are responsible for ourselves and can choose to no longer be victims. Selfcare means learning to love the person we're responsible for taking care of— ourselves. We do not do this to hibernate in a cocoon of isolation and selfindulgence; we do it so we can better love others, and learn to let them love us. Selfcare isn't selfish; it's selfesteem.</p>\n<span class=\"focal-point\">\nToday, God, help me love myself. Help me let go of feeling excessively responsible for those around me. Show me what I need to do to take care of myself and be appropriately responsible to others.\n</span>\n"
+      "content": "<p>We often refer to recovery from codependency and adult child issues as ''self-care.'' Self-care is not, as some may think, a spin-off of the &quot;me generation.&quot; It isn't self-indulgence. It isn't selfishness—in the negative interpretation of that word.</p>\n<p>We're learning to take care of ourselves, instead of obsessively focusing on another person. We're learning self-responsibility, instead of feeling excessively responsible for others. Self-care also means tending to our true responsibilities to others; we do this better when we're not feeling overly responsible.</p>\n<p>Self-care sometimes means, &quot;me first,&quot; but usually, &quot;me too.&quot; It means we are responsible for ourselves and can choose to no longer be victims.</p>\n<p>Self-care means learning to love the person we're responsible for taking care of— ourselves. We do not do this to hibernate in a cocoon of isolation and self-indulgence; we do it so we can better love others, and learn to let them love us.</p>\n<p>Self-care isn't selfish; it's self-esteem.</p>\n<span class=\"focal-point\">\nToday, God, help me love myself. Help me let go of feeling excessively responsible for those around me. Show me what I need to do to take care of myself and be appropriately responsible to others.\n</span>\n"
     },
   
     {
@@ -3737,7 +1247,7 @@ Today, I will remember that there is a powerful force motivated by writing down 
       "title": "Freedom",
       "displayDate": "April 18",
       "url": "/language-of-letting-go/april-18/",
-      "content": "<p>Many of us were oppressed and victimized as children. As adults, we may continue to keep ourselves oppressed.</p>\n<p>Some of us don't recognize that caretaking and not setting boundaries will leave us feeling victimized.</p>\n<p>Some of us don't understand that thinking of ourselves as victims will leave us feeling oppressed.</p>\n<p>Some of us don't know that we hold the key to our own freedom. That key is honoring ourselves, and taking care of ourselves.</p>\n<p>We can say what we mean, and mean what we say.</p>\n<p>We can stop waiting for others to give us what we need and take responsibility for ourselves. When we do, the gates to freedom will swing wide.</p>\n<p>Walk through.</p>\n<span class=\"focal-point\">\nToday, I will understand that I hold the key to my freedom. I will stop participating in my oppression and victimization. I will take responsibility for myself, and let others do as they may.\n</span>\n"
+      "content": "<p>Many of us were oppressed and victimized as children. As adults, we may continue to keep ourselves oppressed.</p>\n<p>Some of us don't recognize that care-taking and not setting boundaries will leave us feeling victimized.</p>\n<p>Some of us don't understand that thinking of ourselves as victims will leave us feeling oppressed.</p>\n<p>Some of us don't know that we hold the key to our own freedom. That key is honoring ourselves, and taking care of ourselves.</p>\n<p>We can say what we mean, and mean what we say.</p>\n<p>We can stop waiting for others to give us what we need and take responsibility for ourselves. When we do, the gates to freedom will swing wide.</p>\n<p>Walk through.</p>\n<span class=\"focal-point\">\nToday, I will understand that I hold the key to my freedom. I will stop participating in my oppression and victimization. I will take responsibility for myself, and let others do as they may.\n</span>\n"
     },
   
     {
@@ -3769,7 +1279,7 @@ Today, I will remember that there is a powerful force motivated by writing down 
       "title": "Coping with Stress",
       "displayDate": "April 22",
       "url": "/language-of-letting-go/april-22/",
-      "content": "<p>Inevitably, there are times of stress in our lives, no matter how long we've been in recovery. Sometimes, the stress is outside or around us. We're feeling balanced, but our circumstances are stressful. Sometimes, the stress is within; we feel out of balance. When the stress is external and internal, we experience our most difficult times. During stressful times, we can rely more heavily on our support systems. Our friends and groups can help us feel more balanced and peaceful in spite of our stressful conditions. Affirming that the events taking place are a temporarily uncomfortable part of a good, solid plan can help. We can assure ourselves that we will get through. We won't be destroyed. We won't crumple or go under. It helps to go back to the basics—to focus on detachment, dealing with feelings, and taking life one day at a time. Our most important focus during times of stress is taking care of ourselves. We are better able to cope with the most irregular circumstances, we are better able to be there for others, if we're caring for ourselves. We can ask ourselves regularly: What do we need to do to take care of ourselves? What might help us feel better or more comfortable? Selfcare may not come as easily during times of stress. Selfneglect may feel more comfortable. But taking care of ourselves always works.</p>\n<span class=\"focal-point\">\nToday, I will remember that there is no situation that can't be benefited by taking care of myself.\n</span>\n"
+      "content": "<p>Inevitably, there are times of stress in our lives, no matter how long we've been in recovery.</p>\n<p>Sometimes, the stress is outside or around us. We're feeling balanced, but our circumstances are stressful. Sometimes, the stress is within; we feel out of balance.</p>\n<p>When the stress is external and internal, we experience our most difficult times.</p>\n<p>During stressful times, we can rely more heavily on our support systems. Our friends and groups can help us feel more balanced and peaceful in spite of our stressful conditions.</p>\n<p>Affirming that the events taking place are a temporarily uncomfortable part of a good, solid plan can help. We can assure ourselves that we will get through. We won't be destroyed. We won't crumple or go under.</p>\n<p>It helps to go back to the basics—to focus on detachment, dealing with feelings, and taking life one day at a time.</p>\n<p>Our most important focus during times of stress is taking care of ourselves. We are better able to cope with the most irregular circumstances, we are better able to be there for others, if we're caring for ourselves. We can ask ourselves regularly: What do we need to do to take care of ourselves? What might help us feel better or more comfortable?</p>\n<p>Self-care may not come as easily during times of stress. Self-neglect may feel more comfortable. But taking care of ourselves always works.</p>\n<span class=\"focal-point\">\nToday, I will remember that there is no situation that can't be benefited by taking care of myself.\n</span>\n"
     },
   
     {
@@ -3777,7 +1287,7 @@ Today, I will remember that there is a powerful force motivated by writing down 
       "title": "Opening Ourselves to Love",
       "displayDate": "April 23",
       "url": "/language-of-letting-go/april-23/",
-      "content": "<p>Allowing ourselves to receive love is one of the greatest challenges we face in recovery. Many of us have blocked ourselves from receiving love. We may have lived with people who used love to control us. They would be there for us, but at the high price of our freedom. Love was given, or withheld, to control us and have power over us. It was not safe for us to receive love from these people. We may have gotten accustomed to not receiving love, not acknowledging our need for love, because we lived with people who had no real love to give. At some point in recovery, we acknowledge that we, too, want and need to be loved. We may feel awkward with this need. Where do we go with it? What do we do? Who can give us love? How can we determine who is safe and who isn't? How can we let others care for us without feeling trapped, abused, frightened, and unable to care for ourselves? We will learn. The starting point is surrender—to our desire to be loved, our need to be nurtured and loved. We will grow confident in our ability to take care of ourselves with people. We will feel safe enough to let people care for us; we will grow to trust our ability to choose people who are safe and who can give us love. We may need to get angry first—angry that our needs have not been met. Later, we can become grateful to those people who have shown us what we don't want, the ones who have assisted us in the process of believing we deserve love, and the ones who come into our life to love us. We are opening up like flowers. Sometimes it hurts as the petals push open. Be glad. Our heart is opening up to the love that is and will continue to be there for us. Surrender to the love that is there for us, to the love that people, the Universe, and our Higher Power send our way. Surrender to love, without allowing people to control us or keep us from caring for ourselves. Start by surrendering to love for yourself.</p>\n<span class=\"focal-point\">\nToday, I will open myself to the love that is here for me. I will let myself receive love that is safe, knowing I can take care of myself with people. I will be grateful to all the people from my past who have assisted me in my process of opening up to love. I claim, accept, and am grateful for the love that is coming to me.\n</span>\n"
+      "content": "<p>Allowing ourselves to receive love is one of the greatest challenges we face in recovery.</p>\n<p>Many of us have blocked ourselves from receiving love. We may have lived with people who used love to control us. They would be there for us, but at the high price of our freedom. Love was given, or withheld, to control us and have power over us. It was not safe for us to receive love from these people. We may have gotten accustomed to not receiving love, not acknowledging our need for love, because we lived with people who had no real love to give.</p>\n<p>At some point in recovery, we acknowledge that we, too, want and need to be loved. We may feel awkward with this need. Where do we go with it? What do we do? Who can give us love? How can we determine who is safe and who isn't? How can we let others care for us without feeling trapped, abused, frightened, and unable to care for ourselves?</p>\n<p>We will learn. The starting point is surrender—to our desire to be loved, our need to be nurtured and loved. We will grow confident in our ability to take care of ourselves with people. We will feel safe enough to let people care for us; we will grow to trust our ability to choose people who are safe and who can give us love.</p>\n<p>We may need to get angry first—angry that our needs have not been met. Later, we can become grateful to those people who have shown us what we don't want, the ones who have assisted us in the process of believing we deserve love, and the ones who come into our life to love us.</p>\n<p>We are opening up like flowers. Sometimes it hurts as the petals push open. Be glad. Our heart is opening up to the love that is and will continue to be there for us.</p>\n<p>Surrender to the love that is there for us, to the love that people, the Universe, and our Higher Power send our way.</p>\n<p>Surrender to love, without allowing people to control us or keep us from caring for ourselves. Start by surrendering to love for yourself.</p>\n<span class=\"focal-point\">\nToday, I will open myself to the love that is here for me. I will let myself receive love that is safe, knowing I can take care of myself with people. I will be grateful to all the people from my past who have assisted me in my process of opening up to love. I claim, accept, and am grateful for the love that is coming to me.\n</span>\n"
     },
   
     {
@@ -3785,7 +1295,7 @@ Today, I will remember that there is a powerful force motivated by writing down 
       "title": "Lessons on the Job",
       "displayDate": "April 24",
       "url": "/language-of-letting-go/april-24/",
-      "content": "<p>Often, the spiritual and recovery lessons we're learning at work reflect the lessons we're learning in other areas of our life. Often, the systems we're attracted to in our working life are similar to the systems in which we find ourselves living and loving. Those are the systems that reflect our issues and can help us learn our lessons. Are we slowly learning to trust ourselves at work? How about at home? Are we slowly learning to take care of ourselves at work? How about at home? Are we slowly learning boundaries and selfesteem, overcoming fear, and dealing with feelings? If we search back over our work history, we will probably see that it is a mirror of our issues, our growth. It most likely is now too. For today, we can believe that we are right where we need to be—at home and at work.</p>\n<span class=\"focal-point\">\nToday, I will accept my present circumstances on the job. I will reflect on how what I am learning in my life applies to what I'm learning at work. If I don't know, I will surrender to the experience until that becomes clear. God, help me accept the work I have been given to do today. Help me be open to and learn what I need to be learning. Help me trust that it can and will be good.\n</span>\n"
+      "content": "<p>Often, the spiritual and recovery lessons we're learning at work reflect the lessons we're learning in other areas of our life.</p>\n<p>Often, the systems we're attracted to in our working life are similar to the systems in which we find ourselves living and loving. Those are the systems that reflect our issues and can help us learn our lessons.</p>\n<p>Are we slowly learning to trust ourselves at work? How about at home? Are we slowly learning to take care of ourselves at work? How about at home? Are we slowly learning boundaries and self-esteem, overcoming fear, and dealing with feelings?</p>\n<p>If we search back over our work history, we will probably see that it is a mirror of our issues, our growth. It most likely is now too.</p>\n<p>For today, we can believe that we are right where we need to be—at home and at work.</p>\n<span class=\"focal-point\">\nToday, I will accept my present circumstances on the job. I will reflect on how what I am learning in my life applies to what I'm learning at work. If I don't know, I will surrender to the experience until that becomes clear. God, help me accept the work I have been given to do today. Help me be open to and learn what I need to be learning. Help me trust that it can and will be good.\n</span>\n"
     },
   
     {
@@ -3793,7 +1303,7 @@ Today, I will remember that there is a powerful force motivated by writing down 
       "title": "Finding Our Own Truth",
       "displayDate": "April 25",
       "url": "/language-of-letting-go/april-25/",
-      "content": "<p>We must each discover our own truth. It does not help us if those we love find their truth. They cannot give it to us. It does not help if someone we love knows a particular truth in our life. We must discover our truth for ourselves. We must each discover and stand in our own light. We often need to struggle, fail, and be confused and frustrated. That's how we break through our struggle; that's how we learn what is true and right for ourselves. We can share information with others. Others can tell us what may predictably happen if we pursue a particular course. But it will not mean anything until we integrate the message and it becomes our truth, our discovery, our knowledge. There is no easy way to break through and find our truth. But we can and will, if we want to. We may want to make it easier. We may nervously run to friends, asking them to give us their truth or make our discovery easier. They cannot. Light will shed itself in its own time. Each of us has our own share of truth, waiting to reveal itself to us. Each of us has our own share of the light, waiting for us to stand in it, to claim it as ours. Encouragement helps. Support helps. A firm belief that each person has truth available—appropriate to each situation—is what will help. Each experience, each frustration, each situation, has its own truth waiting to be revealed. Don't give up until you find it—for yourself. We shall be guided into truth, if we are seeking it. We are not alone.</p>\n<span class=\"focal-point\">\nToday, I will search for my own truth, and I will allow others to do the same. I will place value on my vision and the vision of others. We are each on the journey, making our own discoveries—the ones that are right for us today.\n</span>\n"
+      "content": "<p>We must each discover our own truth.</p>\n<p>It does not help us if those we love find their truth. They cannot give it to us. It does not help if someone we love knows a particular truth in our life. We must discover our truth for ourselves.</p>\n<p>We must each discover and stand in our own light.</p>\n<p>We often need to struggle, fail, and be confused and frustrated. That's how we break through our struggle; that's how we learn what is true and right for ourselves.</p>\n<p>We can share information with others. Others can tell us what may predictably happen if we pursue a particular course. But it will not mean anything until we integrate the message and it becomes our truth, our discovery, our knowledge.</p>\n<p>There is no easy way to break through and find our truth.</p>\n<p>But we can and will, if we want to.</p>\n<p>We may want to make it easier. We may nervously run to friends, asking them to give us their truth or make our discovery easier. They cannot. Light will shed itself in its own time.</p>\n<p>Each of us has our own share of truth, waiting to reveal itself to us. Each of us has our own share of the light, waiting for us to stand in it, to claim it as ours.</p>\n<p>Encouragement helps. Support helps. A firm belief that each person has truth available—appropriate to each situation—is what will help.</p>\n<p>Each experience, each frustration, each situation, has its own truth waiting to be revealed. Don't give up until you find it—for yourself.</p>\n<p>We shall be guided into truth, if we are seeking it. We are not alone.</p>\n<span class=\"focal-point\">\nToday, I will search for my own truth, and I will allow others to do the same. I will place value on my vision and the vision of others. We are each on the journey, making our own discoveries—the ones that are right for us today.\n</span>\n"
     },
   
     {
@@ -3801,7 +1311,7 @@ Today, I will remember that there is a powerful force motivated by writing down 
       "title": "Resisting Negativity",
       "displayDate": "April 26",
       "url": "/language-of-letting-go/april-26/",
-      "content": "<p>Some people are carriers of negativity. They are storehouses of pentup anger and volatile emotions. Some remain trapped in the victim role and act in ways that further their victimization. And others are still caught in the cycle of addictive or compulsive patterns. Negative energy can have a powerful pull on us, especially if we're struggling to maintain positive energy and balance. It may seem that others who exude negative energy would like to pull us into the darkness with them. We do not have to go. Without judgment, we can decide it's okay to walk away, okay to protect ourselves. We cannot change other people. It does not help others for us to get off balance. We do not lead others into the Light by stepping into the darkness with them.</p>\n<span class=\"focal-point\">\nToday, God, help me to know that I don't have to allow myself to be pulled into negativity, even around those I love. Help me set boundaries. Help me know it's okay to take care of myself.\n</span>\n"
+      "content": "<p>Some people are carriers of negativity. They are storehouses of pent-up anger and volatile emotions. Some remain trapped in the victim role and act in ways that further their victimization. And others are still caught in the cycle of addictive or compulsive patterns.</p>\n<p>Negative energy can have a powerful pull on us, especially if we're struggling to maintain positive energy and balance. It may seem that others who exude negative energy would like to pull us into the darkness with them. We do not have to go. Without judgment, we can decide it's okay to walk away, okay to protect ourselves.</p>\n<p>We cannot change other people. It does not help others for us to get off balance. We do not lead others into the Light by stepping into the darkness with them.</p>\n<span class=\"focal-point\">\nToday, God, help me to know that I don't have to allow myself to be pulled into negativity, even around those I love. Help me set boundaries. Help me know it's okay to take care of myself.\n</span>\n"
     },
   
     {
@@ -3809,7 +1319,7 @@ Today, I will remember that there is a powerful force motivated by writing down 
       "title": "Letting Go of the Need to Control",
       "displayDate": "April 27",
       "url": "/language-of-letting-go/april-27/",
-      "content": "<span class=\"quote\">\nThe rewards from detachment are great: serenity; a deep sense of peace; the ability to give and receive love in selfenhancing, energizing ways; and the freedom to find real solutions to our problems.\n<span class=\"quote-attribution\">\nCodependent No More\n</span>\n</span>\n<p>Letting go of our need to control can set us and others free. It can set our Higher Power free to send the best to us. If we weren't trying to control someone or something, what would we be doing differently? What would we do that we're not letting ourselves do now? Where would we go? What would we say? What decisions would we make? What would we ask for? What boundaries would be set? When would we say no or yes? If we weren't trying to control whether a person liked us or his or her reaction to us, what would we do differently? If we weren't trying to control the course of a relationship, what would we do differently? If we weren't trying to control another person's behavior, how would we think, feel, speak, and behave differently than we do now? What haven't we been letting ourselves do while hoping that selfdenial would influence a particular situation or person? Are there some things we've been doing that we'd stop? How would we treat ourselves differently? Would we let ourselves enjoy life more and feel better right now? Would we stop feeling so bad? Would we treat ourselves better? If we weren't trying to control, what would we do differently? Make a list, then do it.</p>\n<span class=\"focal-point\">\nToday, I will ask myself what I would be doing differently if I weren't trying to control. When I hear the answer, I will do it. God, help me let go of my need to control. Help me set myself and others free.\n</span>\n"
+      "content": "<span class=\"quote\">\nThe rewards from detachment are great: serenity; a deep sense of peace; the ability to give and receive love in self-enhancing, energizing ways; and the freedom to find real solutions to our problems.\n<span class=\"quote-attribution\">\nCodependent No More\n</span>\n</span>\n<p>Letting go of our need to control can set us and others free. It can set our Higher Power free to send the best to us.</p>\n<p>If we weren't trying to control someone or something, what would we be doing differently?</p>\n<p>What would we do that we're not letting ourselves do now? Where would we go? What would we say?</p>\n<p>What decisions would we make?</p>\n<p>What would we ask for? What boundaries would be set? When would we say no or yes?</p>\n<p>If we weren't trying to control whether a person liked us or his or her reaction to us, what would we do differently? If we weren't trying to control the course of a relationship, what would we do differently? If we weren't trying to control another person's behavior, how would we think, feel, speak, and behave differently than we do now?</p>\n<p>What haven't we been letting ourselves do while hoping that self-denial would influence a particular situation or person? Are there some things we've been doing that we'd stop?</p>\n<p>How would we treat ourselves differently?</p>\n<p>Would we let ourselves enjoy life more and feel better right now? Would we stop feeling so bad? Would we treat ourselves better?</p>\n<p>If we weren't trying to control, what would we do differently? Make a list, then do it.</p>\n<span class=\"focal-point\">\nToday, I will ask myself what I would be doing differently if I weren't trying to control. When I hear the answer, I will do it. God, help me let go of my need to control. Help me set myself and others free.\n</span>\n"
     },
   
     {
@@ -3817,7 +1327,7 @@ Today, I will remember that there is a powerful force motivated by writing down 
       "title": "Anger at Family Members",
       "displayDate": "April 28",
       "url": "/language-of-letting-go/april-28/",
-      "content": "<p>Many of us have anger toward certain members of our family. Some of us have much anger and rage—anger that seems to go on year after year. For many of us, anger was the only way to break an unhealthy bondage or connection between a family member and ourselves. It was the force that kept us from being held captive—mentally, emotionally, and sometimes spiritually—by certain family members. It is important to allow ourselves to feel—to accept—our anger toward family members without casting guilt or shame on ourselves. It is also important to examine our guilty feelings concerning family members as anger and guilt are often intertwined. We can accept, even thank, our anger for protecting us. But we can also set another goal: taking our freedom. Once we do, we will not need our anger. Once we do, we can achieve forgiveness. Think loving thoughts, think healing thoughts toward family members. But let ourselves be as angry as we need to be. At some point, strive to be done with the anger. But we need to be gentle with ourselves if the feelings surface from time to time. Thank God for the feelings. Feel them. Release them. Ask God to bless and care for our families. Ask God to help us take freedom and take care of ourselves. Let the golden light of healing shine upon all we love and upon all with whom we feel anger. Let the golden light of healing shine on us. Trust that a healing is taking place, now.</p>\n<span class=\"focal-point\">\nHelp me accept the potent emotions I may feel toward family members. Help me be grateful for the lesson they are teaching me. I accept the golden light of healing that is now shining on me and my family. I thank God that healing does not always come in a neat, tidy package.\n</span>\n"
+      "content": "<p>Many of us have anger toward certain members of our family. Some of us have much anger and rage—anger that seems to go on year after year.</p>\n<p>For many of us, anger was the only way to break an unhealthy bondage or connection between a family member and ourselves. It was the force that kept us from being held captive—mentally, emotionally, and sometimes spiritually—by certain family members.</p>\n<p>It is important to allow ourselves to feel—to accept—our anger toward family members without casting guilt or shame on ourselves. It is also important to examine our guilty feelings concerning family members as anger and guilt are often intertwined.</p>\n<p>We can accept, even thank, our anger for protecting us. But we can also set another goal: taking our freedom.</p>\n<p>Once we do, we will not need our anger. Once we do, we can achieve forgiveness.</p>\n<p>Think loving thoughts, think healing thoughts toward family members. But let ourselves be as angry as we need to be.</p>\n<p>At some point, strive to be done with the anger. But we need to be gentle with ourselves if the feelings surface from time to time.</p>\n<p>Thank God for the feelings. Feel them. Release them. Ask God to bless and care for our families. Ask God to help us take freedom and take care of ourselves.</p>\n<p>Let the golden light of healing shine upon all we love and upon all with whom we feel anger. Let the golden light of healing shine on us.</p>\n<p>Trust that a healing is taking place, now.</p>\n<span class=\"focal-point\">\nHelp me accept the potent emotions I may feel toward family members. Help me be grateful for the lesson they are teaching me. I accept the golden light of healing that is now shining on me and my family. I thank God that healing does not always come in a neat, tidy package.\n</span>\n"
     },
   
     {
@@ -3825,7 +1335,7 @@ Today, I will remember that there is a powerful force motivated by writing down 
       "title": "Initiating Relationships",
       "displayDate": "April 29",
       "url": "/language-of-letting-go/april-29/",
-      "content": "<p>Often, we can learn much about ourselves from the people to whom we are attracted. As we progress through recovery, we learn we can no longer form relationships solely on the basis of attraction. We learn to be patient, to allow ourselves to take into account important facts, and to process information about that person. What we are striving for in recovery is a healthy attraction to people. We allow ourselves to be attracted to who people are, not to their potential or to what we hope they are. The more we work through our family of origin issues, the less we will find ourselves needing to work through them with the people we're attracted to. Finishing our business from the past helps us form new and healthier relationships. The more we overcome our need to be excessive caretakers, the less we will find ourselves attracted to people who need to be constantly taken care of. The more we learn to love and respect ourselves, the more we will become attracted to people who will love and respect us and who we can safely love and respect. This is a slow process. We need to be patient with ourselves. The type of people we find ourselves attracted to does not change overnight. Being attracted to dysfunctional people can linger long and well into recovery. That does not mean we need to allow it to control us. The fact is, we will initiate and maintain relationships with people we need to be with until we learn what it is we need to learn—no matter how long we've been recovering. No matter who we find ourselves relating to, and what we discover happening in the relationship, the issue is still about us, and not about the other person. That is the heart, the hope, and the power of recovery. We can learn to take care of ourselves during the process of initiating and forming relationships. We can learn to go slowly. We can learn to pay attention. We can allow ourselves to make mistakes, even when we know better. We can stop blaming our relationships on God, and begin to take responsibility for them. We can learn to enjoy the healthy relationships, and remove ourselves more quickly from the dysfunctional ones. We can learn to look for what's good for us, instead of what's good for the other person.</p>\n<span class=\"focal-point\">\nGod, help me pay attention to my behaviors during the process of initiating relationships. Help me take responsibility for myself and learn what I need to learn. I will trust that the people I want and need will come into my life. I understand that if a relationship is not good for me, I have the right and ability to refuse to enter into it—even though the other person thinks it may be good for him or her. I will be open to the lessons I need to learn about me in relationships, so I am prepared for the best possible relationships with people.\n</span>\n"
+      "content": "<p>Often, we can learn much about ourselves from the people to whom we are attracted.</p>\n<p>As we progress through recovery, we learn we can no longer form relationships <em>solely</em> on the basis of attraction. We learn to be patient, to allow ourselves to take into account important facts, and to process information about that person.</p>\n<p>What we are striving for in recovery is a healthy attraction to people. We allow ourselves to be attracted to who people <em>are</em>, not to their potential or to what we hope they are.</p>\n<p>The more we work through our family of origin issues, the less we will find ourselves needing to work through them with the people we're attracted to. Finishing our business from the past helps us form new and healthier relationships.</p>\n<p>The more we overcome our need to be excessive caretakers, the less we will find ourselves attracted to people who need to be constantly taken care of.</p>\n<p>The more we learn to love and respect ourselves, the more we will become attracted to people who will love and respect us and who we can safely love and respect.</p>\n<p>This is a slow process. We need to be patient with ourselves. The type of people we find ourselves attracted to does not change overnight. Being attracted to dysfunctional people can linger long and well into recovery. That does not mean we need to allow it to control us. The fact is, we will initiate and maintain relationships with people we need to be with until we learn what it is we need to learn—no matter how long we've been recovering.</p>\n<p>No matter who we find ourselves relating to, and what we discover happening in the relationship, the issue is still about us, and not about the other person. That is the heart, the hope, and the power of recovery.</p>\n<p>We can learn to take care of ourselves during the process of initiating and forming relationships. We can learn to go slowly. We can learn to pay attention. We can allow ourselves to make mistakes, even when we <em>know better</em>.</p>\n<p>We can stop blaming our relationships on God, and begin to take responsibility for them. We can learn to enjoy the healthy relationships, and remove ourselves more quickly from the dysfunctional ones.</p>\n<p>We can learn to look for what's good for us, instead of what's good for the other person.</p>\n<span class=\"focal-point\">\nGod, help me pay attention to my behaviors during the process of initiating relationships. Help me take responsibility for myself and learn what I need to learn. I will trust that the people I want and need will come into my life. I understand that if a relationship is not good for me, I have the right and ability to refuse to enter into it—even though the other person thinks it may be good for him or her. I will be open to the lessons I need to learn about me in relationships, so I am prepared for the best possible relationships with people.\n</span>\n"
     },
   
     {
@@ -3833,7 +1343,7 @@ Today, I will remember that there is a powerful force motivated by writing down 
       "title": "Balance",
       "displayDate": "April 30",
       "url": "/language-of-letting-go/april-30/",
-      "content": "<p>The goal is balance. We need balance between work and play. We need balance between giving and receiving. We need balance in thought and feelings. We need balance in caring for our physical self and our spiritual self. A balanced life has harmony between a professional life and a personal life. There may be times when we need to climb mountains at work. There may be times when we put extra energy into our relationships. But the overall picture needs to balance. Just as a balanced nutritional diet takes into account the realm of our nutritional needs to stay healthy, a balanced life takes into account all our needs: our need for friends, work, love, family, play, private time, recovery time, and spiritual time—time with God. If we get out of balance, our inner voice will tell us. We need to listen.</p>\n<span class=\"focal-point\">\nToday, I will examine my life to see if the scales have swung too far in any area, or not far enough in some. I will work toward achieving balance.\n</span>\n"
+      "content": "<p>The goal is balance.</p>\n<p>We need balance between work and play. We need balance between giving and receiving. We need balance in thought and feelings. We need balance in caring for our physical self and our spiritual self.</p>\n<p>A balanced life has harmony between a professional life and a personal life. There may be times when we need to climb mountains at work. There may be times when we put extra energy into our relationships. But the overall picture needs to balance.</p>\n<p>Just as a balanced nutritional diet takes into account the realm of our nutritional needs to stay healthy, a balanced life takes into account all our needs: our need for friends, work, love, family, play, private time, recovery time, and spiritual time—time with God. If we get out of balance, our inner voice will tell us. We need to listen.</p>\n<span class=\"focal-point\">\nToday, I will examine my life to see if the scales have swung too far in any area, or not far enough in some. I will work toward achieving balance.\n</span>\n"
     },
   
     {
@@ -5799,26 +3309,134 @@ Today, I will remember that there is a powerful force motivated by writing down 
 ]
 </script>
 
+<script src="/language-of-letting-go/vanilla-calendar-pro/index.js"></script>
 <script>
   const meditationDataNode = document.getElementById("meditations-data");
 
   if (meditationDataNode) {
     const meditations = JSON.parse(meditationDataNode.textContent);
+    const meditationsById = new Map(meditations.map((meditation) => [meditation.id, meditation]));
+    const calendarRoot = document.getElementById("meditation-calendar");
+    const titleNode = document.getElementById("today-meditation-title");
+    const dateNode = document.getElementById("today-meditation-date");
+    const contentNode = document.getElementById("today-meditation-content");
     const now = new Date();
     const month = String(now.getMonth() + 1).padStart(2, "0");
     const day = String(now.getDate()).padStart(2, "0");
+    const year = now.getFullYear();
     const todayId = `${month}.${day}`;
-    const todaysMeditation = meditations.find((meditation) => meditation.id === todayId);
+    const todaysMeditation = meditationsById.get(todayId);
+    const defaultMeditation = todaysMeditation || meditations[0];
+    const initialUrl = new URL(window.location.href);
 
-    if (todaysMeditation) {
-      document.getElementById("today-meditation-date").textContent = todaysMeditation.displayDate;
-      document.getElementById("today-meditation-title").textContent = todaysMeditation.title;
-      document.getElementById("today-meditation-content").innerHTML = todaysMeditation.content;
+    function getMeditationIdFromCalendarDate(dateString) {
+      const [, selectedMonth, selectedDay] = dateString.split("-");
+      return `${selectedMonth}.${selectedDay}`;
+    }
 
-      const currentLink = document.querySelector(`[data-meditation-id="${todaysMeditation.id}"]`);
-      if (currentLink) {
-        currentLink.classList.add("is-current");
+    function getCalendarDateFromMeditationId(meditationId) {
+      if (!meditationId) {
+        return null;
       }
+
+      const [selectedMonth, selectedDay] = meditationId.split(".");
+      return `${year}-${selectedMonth}-${selectedDay}`;
+    }
+
+    function getMeditationFromLocation() {
+      const meditationId = new URL(window.location.href).searchParams.get("date");
+      return meditationsById.get(meditationId) || null;
+    }
+
+    const initialMeditation = getMeditationFromLocation() || defaultMeditation;
+
+    function setFeaturedMeditation(meditation) {
+      if (!meditation || !titleNode || !dateNode || !contentNode) {
+        return;
+      }
+
+      dateNode.textContent = meditation.displayDate;
+      titleNode.textContent = meditation.title;
+      contentNode.innerHTML = meditation.content;
+    }
+
+    function getUrlForMeditation(meditationId) {
+      const nextUrl = new URL(window.location.href);
+
+      if (meditationId === todayId) {
+        nextUrl.searchParams.delete("date");
+      } else {
+        nextUrl.searchParams.set("date", meditationId);
+      }
+
+      return nextUrl;
+    }
+
+    function updateHistoryForMeditation(meditation) {
+      const nextUrl = getUrlForMeditation(meditation.id);
+      const nextPath = `${nextUrl.pathname}${nextUrl.search}${nextUrl.hash}`;
+      window.history.pushState({ meditationId: meditation.id }, "", nextPath);
+    }
+
+    function syncCalendarSelection(calendar, meditationId) {
+      if (!calendar) {
+        return;
+      }
+
+      const selectedDate = getCalendarDateFromMeditationId(meditationId);
+      if (!selectedDate) {
+        return;
+      }
+
+      calendar.set({
+        selectedDates: [selectedDate]
+      });
+    }
+
+    setFeaturedMeditation(initialMeditation);
+
+    if (calendarRoot && window.VanillaCalendarPro) {
+      const initialDate = getCalendarDateFromMeditationId(initialMeditation.id) || `${year}-${month}-${day}`;
+      const calendar = new window.VanillaCalendarPro.Calendar("#meditation-calendar", {
+        firstWeekday: 1,
+        locale: document.documentElement.lang || "en",
+        selectedTheme: "light",
+        selectedWeekends: [],
+        selectedDates: [initialDate],
+        enableJumpToSelectedDate: true,
+        onClickDate(self, event) {
+          const dateElement = event.target.closest("[data-vc-date]");
+          if (!dateElement || !dateElement.dataset.vcDate) {
+            return;
+          }
+
+          const meditationId = getMeditationIdFromCalendarDate(dateElement.dataset.vcDate);
+          const selectedMeditation = meditationsById.get(meditationId);
+          if (!selectedMeditation) {
+            return;
+          }
+
+          setFeaturedMeditation(selectedMeditation);
+          updateHistoryForMeditation(selectedMeditation);
+        }
+      });
+
+      calendar.init();
+
+      window.addEventListener("popstate", () => {
+        const meditation = getMeditationFromLocation() || defaultMeditation;
+        setFeaturedMeditation(meditation);
+        syncCalendarSelection(calendar, meditation.id);
+      });
+    }
+
+    if (!initialUrl.searchParams.get("date") && initialMeditation.id !== todayId) {
+      const nextUrl = getUrlForMeditation(initialMeditation.id);
+      window.history.replaceState(
+        { meditationId: initialMeditation.id },
+        "",
+        `${nextUrl.pathname}${nextUrl.search}${nextUrl.hash}`
+      );
     }
   }
 </script>

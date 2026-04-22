@@ -6,6 +6,8 @@
     
       <title>Anger at Family Members | The Language of Letting Go</title>
     
+    <link rel="stylesheet" href="/language-of-letting-go/vanilla-calendar-pro/styles/layout.css">
+    <link rel="stylesheet" href="/language-of-letting-go/vanilla-calendar-pro/styles/themes/light.css">
     <style>
       @font-face {
         font-family: "BBC Reith Sans";
@@ -111,32 +113,81 @@
         padding: 1.5rem;
       }
 
-      .meditation-list {
-        list-style: none;
-        padding: 0;
-        margin: 1.5rem 0 0;
-        display: grid;
-        gap: 0.75rem;
+      .calendar-section {
+        margin-top: 1.5rem;
       }
 
-      .meditation-list a {
-        display: flex;
-        justify-content: space-between;
-        gap: 1rem;
-        padding: 1rem 1.1rem;
-        text-decoration: none;
+      .vc {
         border: 1px solid var(--border);
-        border-radius: 0.9rem;
-        background: rgba(255, 255, 255, 0.72);
+        border-radius: 1rem;
       }
 
-      .meditation-list a:hover {
-        background: #fff;
+      .vc-wrapper * {
+        font-family: var(--font-sans);
       }
 
-      .meditation-list a.is-current {
-        border-color: var(--accent);
-        background: #f0f6f2;
+      .vc [data-vc="calendar"] {
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+        background: transparent;
+        color: var(--ink);
+      }
+
+      .vc [data-vc="column"] {
+        min-width: 0;
+      }
+
+      .vc [data-vc="month"],
+      .vc [data-vc="year"] {
+        font-family: var(--font-serif);
+      }
+
+      .vc [data-vc="week"] {
+        margin-bottom: 0.65rem;
+      }
+
+      .vc [data-vc-theme="light"].vc,
+      .vc [data-vc-theme="light"] .vc-month,
+      .vc [data-vc-theme="light"] .vc-year,
+      .vc [data-vc-theme="light"] .vc-header__content {
+        color: var(--ink);
+      }
+
+      .vc [data-vc-theme="light"].vc [tabindex="0"]:focus-visible,
+      .vc [data-vc-theme="light"].vc button:focus-visible,
+      .vc [data-vc-theme="light"].vc:focus-visible {
+        outline-color: rgba(35, 83, 71, 0.45);
+      }
+
+      .vc [data-vc-theme="light"] .vc-month:hover,
+      .vc [data-vc-theme="light"] .vc-year:hover,
+      .vc [data-vc-theme="light"] .vc-week__day,
+      .vc [data-vc-theme="light"] .vc-week-number,
+      .vc [data-vc-theme="light"] .vc-week-numbers__title {
+        color: var(--muted);
+      }
+
+      .vc [data-vc-theme="light"] .vc-date__btn:hover,
+      .vc [data-vc-theme="light"] .vc-date[data-vc-date-today] .vc-date__btn {
+        background: rgba(35, 83, 71, 0.08);
+        color: var(--ink);
+      }
+
+      .vc [data-vc-theme="light"] .vc-date[data-vc-date-selected] .vc-date__btn,
+      .vc [data-vc-theme="light"] .vc-date[data-vc-date-selected=middle] .vc-date__btn,
+      .vc [data-vc-theme="light"] .vc-months__month[data-vc-months-month-selected],
+      .vc [data-vc-theme="light"] .vc-years__year[data-vc-years-year-selected] {
+        background: var(--accent);
+        color: #fff;
+      }
+
+      .vc [data-vc-theme="light"] .vc-arrow:before {
+        opacity: 0.9;
+      }
+
+      .vc [data-vc-theme="light"] .vc-date[data-vc-date-disabled] .vc-date__btn {
+        color: #a3acb7;
       }
 
       .quote,
@@ -189,6 +240,13 @@
         font-style: italic;
       }
 
+      #current-meditation {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 2rem;
+      }
+
       @media screen and (max-width: 599px) {
         .prose {
           font-size: 1rem;
@@ -196,6 +254,17 @@
 
         .meditation-header {
           font-size: 1em;
+        }
+
+        .calendar-section {
+          padding: 1rem;
+        }
+      }
+
+      @media screen and (max-width: 999px) {
+        #current-meditation {
+          flex-wrap: wrap;
+          gap: unset;
         }
       }
 
@@ -281,7 +350,16 @@
   </header>
 
   <div class="prose">
-    <p>Many of us have anger toward certain members of our family. Some of us have much anger and rage—anger that seems to go on year after year. For many of us, anger was the only way to break an unhealthy bondage or connection between a family member and ourselves. It was the force that kept us from being held captive—mentally, emotionally, and sometimes spiritually—by certain family members. It is important to allow ourselves to feel—to accept—our anger toward family members without casting guilt or shame on ourselves. It is also important to examine our guilty feelings concerning family members as anger and guilt are often intertwined. We can accept, even thank, our anger for protecting us. But we can also set another goal: taking our freedom. Once we do, we will not need our anger. Once we do, we can achieve forgiveness. Think loving thoughts, think healing thoughts toward family members. But let ourselves be as angry as we need to be. At some point, strive to be done with the anger. But we need to be gentle with ourselves if the feelings surface from time to time. Thank God for the feelings. Feel them. Release them. Ask God to bless and care for our families. Ask God to help us take freedom and take care of ourselves. Let the golden light of healing shine upon all we love and upon all with whom we feel anger. Let the golden light of healing shine on us. Trust that a healing is taking place, now.</p>
+    <p>Many of us have anger toward certain members of our family. Some of us have much anger and rage—anger that seems to go on year after year.</p>
+<p>For many of us, anger was the only way to break an unhealthy bondage or connection between a family member and ourselves. It was the force that kept us from being held captive—mentally, emotionally, and sometimes spiritually—by certain family members.</p>
+<p>It is important to allow ourselves to feel—to accept—our anger toward family members without casting guilt or shame on ourselves. It is also important to examine our guilty feelings concerning family members as anger and guilt are often intertwined.</p>
+<p>We can accept, even thank, our anger for protecting us. But we can also set another goal: taking our freedom.</p>
+<p>Once we do, we will not need our anger. Once we do, we can achieve forgiveness.</p>
+<p>Think loving thoughts, think healing thoughts toward family members. But let ourselves be as angry as we need to be.</p>
+<p>At some point, strive to be done with the anger. But we need to be gentle with ourselves if the feelings surface from time to time.</p>
+<p>Thank God for the feelings. Feel them. Release them. Ask God to bless and care for our families. Ask God to help us take freedom and take care of ourselves.</p>
+<p>Let the golden light of healing shine upon all we love and upon all with whom we feel anger. Let the golden light of healing shine on us.</p>
+<p>Trust that a healing is taking place, now.</p>
 <span class="focal-point">
 Help me accept the potent emotions I may feel toward family members. Help me be grateful for the lesson they are teaching me. I accept the golden light of healing that is now shining on me and my family. I thank God that healing does not always come in a neat, tidy package.
 </span>

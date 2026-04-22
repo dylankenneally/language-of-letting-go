@@ -6,6 +6,8 @@
     
       <title>Using Others to Stop Our Pain | The Language of Letting Go</title>
     
+    <link rel="stylesheet" href="/language-of-letting-go/vanilla-calendar-pro/styles/layout.css">
+    <link rel="stylesheet" href="/language-of-letting-go/vanilla-calendar-pro/styles/themes/light.css">
     <style>
       @font-face {
         font-family: "BBC Reith Sans";
@@ -111,32 +113,81 @@
         padding: 1.5rem;
       }
 
-      .meditation-list {
-        list-style: none;
-        padding: 0;
-        margin: 1.5rem 0 0;
-        display: grid;
-        gap: 0.75rem;
+      .calendar-section {
+        margin-top: 1.5rem;
       }
 
-      .meditation-list a {
-        display: flex;
-        justify-content: space-between;
-        gap: 1rem;
-        padding: 1rem 1.1rem;
-        text-decoration: none;
+      .vc {
         border: 1px solid var(--border);
-        border-radius: 0.9rem;
-        background: rgba(255, 255, 255, 0.72);
+        border-radius: 1rem;
       }
 
-      .meditation-list a:hover {
-        background: #fff;
+      .vc-wrapper * {
+        font-family: var(--font-sans);
       }
 
-      .meditation-list a.is-current {
-        border-color: var(--accent);
-        background: #f0f6f2;
+      .vc [data-vc="calendar"] {
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+        background: transparent;
+        color: var(--ink);
+      }
+
+      .vc [data-vc="column"] {
+        min-width: 0;
+      }
+
+      .vc [data-vc="month"],
+      .vc [data-vc="year"] {
+        font-family: var(--font-serif);
+      }
+
+      .vc [data-vc="week"] {
+        margin-bottom: 0.65rem;
+      }
+
+      .vc [data-vc-theme="light"].vc,
+      .vc [data-vc-theme="light"] .vc-month,
+      .vc [data-vc-theme="light"] .vc-year,
+      .vc [data-vc-theme="light"] .vc-header__content {
+        color: var(--ink);
+      }
+
+      .vc [data-vc-theme="light"].vc [tabindex="0"]:focus-visible,
+      .vc [data-vc-theme="light"].vc button:focus-visible,
+      .vc [data-vc-theme="light"].vc:focus-visible {
+        outline-color: rgba(35, 83, 71, 0.45);
+      }
+
+      .vc [data-vc-theme="light"] .vc-month:hover,
+      .vc [data-vc-theme="light"] .vc-year:hover,
+      .vc [data-vc-theme="light"] .vc-week__day,
+      .vc [data-vc-theme="light"] .vc-week-number,
+      .vc [data-vc-theme="light"] .vc-week-numbers__title {
+        color: var(--muted);
+      }
+
+      .vc [data-vc-theme="light"] .vc-date__btn:hover,
+      .vc [data-vc-theme="light"] .vc-date[data-vc-date-today] .vc-date__btn {
+        background: rgba(35, 83, 71, 0.08);
+        color: var(--ink);
+      }
+
+      .vc [data-vc-theme="light"] .vc-date[data-vc-date-selected] .vc-date__btn,
+      .vc [data-vc-theme="light"] .vc-date[data-vc-date-selected=middle] .vc-date__btn,
+      .vc [data-vc-theme="light"] .vc-months__month[data-vc-months-month-selected],
+      .vc [data-vc-theme="light"] .vc-years__year[data-vc-years-year-selected] {
+        background: var(--accent);
+        color: #fff;
+      }
+
+      .vc [data-vc-theme="light"] .vc-arrow:before {
+        opacity: 0.9;
+      }
+
+      .vc [data-vc-theme="light"] .vc-date[data-vc-date-disabled] .vc-date__btn {
+        color: #a3acb7;
       }
 
       .quote,
@@ -189,6 +240,13 @@
         font-style: italic;
       }
 
+      #current-meditation {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 2rem;
+      }
+
       @media screen and (max-width: 599px) {
         .prose {
           font-size: 1rem;
@@ -196,6 +254,17 @@
 
         .meditation-header {
           font-size: 1em;
+        }
+
+        .calendar-section {
+          padding: 1rem;
+        }
+      }
+
+      @media screen and (max-width: 999px) {
+        #current-meditation {
+          flex-wrap: wrap;
+          gap: unset;
         }
       }
 
@@ -281,7 +350,11 @@
   </header>
 
   <div class="prose">
-    <p>Our happiness is not a present someone else holds in his or her hands. Our wellbeing is not held by another to be given or withheld at whim. If we reach out and try to force someone to give us what we believe he or she holds, we will be disappointed. We will discover that it is an illusion. The person didn't hold it. He or she never shall. That beautifully wrapped box with the ribbon on it that we believed contained our happiness that someone was holding—it's an illusion! In those moments when we are trying to reach out and force someone to stop our pain and create our joy, if we can find the courage to stop flailing about and instead stand still and deal with our issues, we will find our happiness. Yes, it is true that if someone steps on our foot, he or she is hurting us and therefore holds the power to stop our pain by removing his or her foot. But the pain is still ours. And so is the responsibility to tell someone to stop stepping on our feet. Healing will come when we're aware of how we attempt to use others to stop our pain and create our happiness. We will heal from the past. We will receive insights that can change the course of our relationships. We will see that, all along, our happiness and our wellbeing have been in our hands. We have held that box. The contents are ours for the opening.</p>
+    <p>Our happiness is not a present someone else holds in his or her hands. Our well-being is not held by another to be given or withheld at whim. If we reach out and try to force someone to give us what we believe he or she holds, we will be disappointed. We will discover that it is an illusion. The person didn't hold it. He or she never shall. That beautifully wrapped box with the ribbon on it that we believed contained our happiness that someone was holding—it's an illusion!</p>
+<p>In those moments when we are trying to reach out and force someone to stop our pain and create our joy, if we can find the courage to stop flailing about and instead stand still and deal with our issues, we will find our happiness.</p>
+<p>Yes, it is true that if someone steps on our foot, he or she is hurting us and therefore holds the power to stop our pain by removing his or her foot. But the pain is still ours. And so is the responsibility to tell someone to stop stepping on our feet.</p>
+<p>Healing will come when we're aware of how we attempt to use others to stop our pain and create our happiness. We will heal from the past. We will receive insights that can change the course of our relationships.</p>
+<p>We will see that, all along, our happiness and our well-being have been in our hands. We have held that box. The contents are ours for the opening.</p>
 <span class="focal-point">
 God, help me remember that I hold the key to my own happiness. Give me the courage to stand still and deal with my own feelings. Give me the insights I need to improve my relationships. Help me stop doing the codependent dance and start doing the dance of recovery.
 </span>
