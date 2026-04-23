@@ -20,6 +20,15 @@ layout: base.njk
   </section>
 </div>
 
+<nav class="meditation-nav" aria-label="Adjacent meditations" data-current-meditation="">
+  <div class="meditation-nav-group">
+    <div class="meditation-nav-links" id="previous-meditation-links"></div>
+  </div>
+  <div class="meditation-nav-group">
+    <div class="meditation-nav-links" id="next-meditation-links"></div>
+  </div>
+</nav>
+
 <script id="meditations-data" type="application/json">
 [
   {% for meditation in collections.meditations %}
@@ -46,6 +55,7 @@ layout: base.njk
     const titleNode = document.getElementById("today-meditation-title");
     const dateNode = document.getElementById("today-meditation-date");
     const contentNode = document.getElementById("today-meditation-content");
+    const navRoot = document.querySelector("[data-current-meditation]");
     const missingMeditationTemplate = document.getElementById("missing-meditation-template");
     const now = new Date();
     const month = String(now.getMonth() + 1).padStart(2, "0");
@@ -57,6 +67,7 @@ layout: base.njk
       currentMeditationId: todayId,
       onSelectMeditation(selectedMeditation) {
         setFeaturedMeditation(selectedMeditation);
+        updatePrevNextLinks(selectedMeditation);
         updateHistoryForMeditation(selectedMeditation);
       }
     });
@@ -105,10 +116,68 @@ layout: base.njk
           return;
         }
 
+        if (navRoot) {
+          navRoot.dataset.currentMeditation = meditation.id || "";
+          navRoot.hidden = !meditation.id;
+        }
+
         dateNode.textContent = meditation.displayDate;
         dateNode.hidden = !meditation.displayDate;
         titleNode.textContent = meditation.title;
         contentNode.innerHTML = meditation.content;
+      }
+
+      function updatePrevNextLinks(meditation) {
+        const previousContainer = document.getElementById("previous-meditation-links");
+        const nextContainer = document.getElementById("next-meditation-links");
+        if (!previousContainer || !nextContainer) {
+          return;
+        }
+
+        previousContainer.innerHTML = "";
+        nextContainer.innerHTML = "";
+
+        if (!meditation || !meditation.id) {
+          return;
+        }
+
+        const currentIndex = meditations.findIndex((entry) => entry.id === meditation.id);
+        if (currentIndex === -1) {
+          return;
+        }
+
+        const year = new Date().getFullYear();
+        const isLeapYear = (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
+        const byId = new Map(meditations.map((entry) => [entry.id, entry]));
+        const previousMeditations = [];
+        const nextMeditations = [];
+        const defaultPrevious = meditations[(currentIndex - 1 + meditations.length) % meditations.length];
+        const defaultNext = meditations[(currentIndex + 1) % meditations.length];
+
+        if (meditation.id === "03.01") {
+          previousMeditations.push(byId.get(isLeapYear ? "02.29" : "02.28"));
+        } else {
+          previousMeditations.push(defaultPrevious);
+        }
+
+        if (meditation.id === "02.28") {
+          nextMeditations.push(byId.get(isLeapYear ? "02.29" : "03.01"));
+        } else {
+          nextMeditations.push(defaultNext);
+        }
+
+        const renderLinks = (container, previous, items) => {
+          items.filter(Boolean).forEach((entry, index) => {
+            const link = document.createElement("a");
+            link.href = getUrlForMeditation(entry.id);
+            link.textContent = `${previous ? '← ' : ''}${entry.displayDate}${previous ? '' : ' →'}`;
+            link.className = `meditation-nav-link${index > 0 ? " secondary" : ""}`;
+            container.appendChild(link);
+          });
+        };
+
+        renderLinks(previousContainer, true, previousMeditations);
+        renderLinks(nextContainer, false, nextMeditations);
       }
 
       function getUrlForMeditation(meditationId) {
@@ -130,11 +199,13 @@ layout: base.njk
       }
 
       setFeaturedMeditation(initialMeditation);
+      updatePrevNextLinks(initialMeditation);
       syncSelection(initialMeditation.id);
 
       window.addEventListener("popstate", () => {
         const meditation = getCurrentMeditationView();
         setFeaturedMeditation(meditation);
+        updatePrevNextLinks(meditation);
         syncSelection(meditation.id);
       });
 
