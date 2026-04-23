@@ -3,7 +3,13 @@ layout: base.njk
 ---
 {% from "meditation-content.njk" import meditationContent %}
 
-{{ meditationContent(title, displayDate, content) }}
+<div id="current-meditation">
+  {{ meditationContent(title, displayDate, content) }}
+
+  <section class="calendar-section" aria-label="Pick a Date">
+    <div id="meditation-calendar" class="meditation-calendar"></div>
+  </section>
+</div>
 
 <nav class="meditation-nav" aria-label="Adjacent meditations" data-current-meditation="{{ page.fileSlug }}">
   <div class="meditation-nav-group">
@@ -28,7 +34,23 @@ layout: base.njk
 ]
 </script>
 
+{% include "meditation-calendar-script.njk" %}
 <script>
+  function initMeditationCalendar() {
+    const navRoot = document.querySelector("[data-current-meditation]");
+    if (!navRoot || !window.createMeditationCalendar) {
+      return;
+    }
+
+    window.createMeditationCalendar({
+      dataNodeId: "meditation-nav-data",
+      currentMeditationId: navRoot.dataset.currentMeditation,
+      onSelectMeditation(selectedMeditation) {
+        window.location.href = selectedMeditation.url;
+      }
+    });
+  }
+
   function updatePrevNextLinks() {
     const navRoot = document.querySelector("[data-current-meditation]");
     console.assert(navRoot);
@@ -90,5 +112,6 @@ layout: base.njk
     renderLinks("next-meditation-links", nextMeditations);
   }
 
+  initMeditationCalendar();
   updatePrevNextLinks();
 </script>

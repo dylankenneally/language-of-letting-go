@@ -97,10 +97,7 @@ Please place all 366 markdown files in to a single compressed zip file for me to
   - [ ] review html semantics, main, article, aside
   - [ ] images etc
   - [ ] prev/next nav styling
-  - [ ] do you need the single pages?
-    - [x] for seo?
-    - [ ] include the calendar widget if you keep it
-    - [ ] l10n?
+  - [ ] favicon
 - [ ] arial/a11y stuff
 - [ ] feats
   - [ ] like/share etc? <https://www.aa.org/daily-reflections>
