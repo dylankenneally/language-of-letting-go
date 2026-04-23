@@ -48,6 +48,7 @@ layout: base.njk
 </template>
 
 {% include "meditation-calendar-script.njk" %}
+{% include "adjacent-meditation-nav-script.njk" %}
 <script>
   const meditationDataNode = document.getElementById("meditations-data");
 
@@ -62,12 +63,15 @@ layout: base.njk
     const day = String(now.getDate()).padStart(2, "0");
     const todayId = `${month}.${day}`;
     const initialUrl = new URL(window.location.href);
+    let adjacentMeditationNav = null;
     const meditationCalendar = window.createMeditationCalendar({
       dataNodeId: "meditations-data",
       currentMeditationId: todayId,
       onSelectMeditation(selectedMeditation) {
         setFeaturedMeditation(selectedMeditation);
-        updatePrevNextLinks(selectedMeditation);
+        if (adjacentMeditationNav) {
+          adjacentMeditationNav.update(selectedMeditation);
+        }
         updateHistoryForMeditation(selectedMeditation);
       }
     });
@@ -116,68 +120,10 @@ layout: base.njk
           return;
         }
 
-        if (navRoot) {
-          navRoot.dataset.currentMeditation = meditation.id || "";
-          navRoot.hidden = !meditation.id;
-        }
-
         dateNode.textContent = meditation.displayDate;
         dateNode.hidden = !meditation.displayDate;
         titleNode.textContent = meditation.title;
         contentNode.innerHTML = meditation.content;
-      }
-
-      function updatePrevNextLinks(meditation) {
-        const previousContainer = document.getElementById("previous-meditation-links");
-        const nextContainer = document.getElementById("next-meditation-links");
-        if (!previousContainer || !nextContainer) {
-          return;
-        }
-
-        previousContainer.innerHTML = "";
-        nextContainer.innerHTML = "";
-
-        if (!meditation || !meditation.id) {
-          return;
-        }
-
-        const currentIndex = meditations.findIndex((entry) => entry.id === meditation.id);
-        if (currentIndex === -1) {
-          return;
-        }
-
-        const year = new Date().getFullYear();
-        const isLeapYear = (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
-        const byId = new Map(meditations.map((entry) => [entry.id, entry]));
-        const previousMeditations = [];
-        const nextMeditations = [];
-        const defaultPrevious = meditations[(currentIndex - 1 + meditations.length) % meditations.length];
-        const defaultNext = meditations[(currentIndex + 1) % meditations.length];
-
-        if (meditation.id === "03.01") {
-          previousMeditations.push(byId.get(isLeapYear ? "02.29" : "02.28"));
-        } else {
-          previousMeditations.push(defaultPrevious);
-        }
-
-        if (meditation.id === "02.28") {
-          nextMeditations.push(byId.get(isLeapYear ? "02.29" : "03.01"));
-        } else {
-          nextMeditations.push(defaultNext);
-        }
-
-        const renderLinks = (container, previous, items) => {
-          items.filter(Boolean).forEach((entry, index) => {
-            const link = document.createElement("a");
-            link.href = getUrlForMeditation(entry.id);
-            link.textContent = `${previous ? '← ' : ''}${entry.displayDate}${previous ? '' : ' →'}`;
-            link.className = `meditation-nav-link${index > 0 ? " secondary" : ""}`;
-            container.appendChild(link);
-          });
-        };
-
-        renderLinks(previousContainer, true, previousMeditations);
-        renderLinks(nextContainer, false, nextMeditations);
       }
 
       function getUrlForMeditation(meditationId) {
@@ -198,14 +144,28 @@ layout: base.njk
         window.history.pushState({ meditationId: meditation.id }, "", nextPath);
       }
 
+      adjacentMeditationNav = window.createAdjacentMeditationNav({
+        dataNodeId: "meditations-data",
+        getCurrentMeditationId() {
+          return navRoot ? navRoot.dataset.currentMeditation : "";
+        },
+        getMeditationUrl(meditationId) {
+          return getUrlForMeditation(meditationId);
+        }
+      });
+
       setFeaturedMeditation(initialMeditation);
-      updatePrevNextLinks(initialMeditation);
+      if (adjacentMeditationNav) {
+        adjacentMeditationNav.update(initialMeditation);
+      }
       syncSelection(initialMeditation.id);
 
       window.addEventListener("popstate", () => {
         const meditation = getCurrentMeditationView();
         setFeaturedMeditation(meditation);
-        updatePrevNextLinks(meditation);
+        if (adjacentMeditationNav) {
+          adjacentMeditationNav.update(meditation);
+        }
         syncSelection(meditation.id);
       });
 

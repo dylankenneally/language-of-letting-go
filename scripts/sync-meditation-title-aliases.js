@@ -1,5 +1,6 @@
 import { readFile, readdir, mkdir, rm, writeFile, copyFile } from "node:fs/promises";
 import path from "node:path";
+import { formatDate } from "../src/meditation-date.js";
 
 const ALIAS_MANIFEST = ".meditation-title-aliases.json";
 
@@ -11,16 +12,6 @@ function slugifyTitle(title) {
     .replace(/&/g, " and ")
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "");
-}
-
-function formatDateSlug(fileSlug) {
-  const [month, day] = fileSlug.split(".").map(Number);
-  const date = new Date(2000, month - 1, day);
-
-  return date
-    .toLocaleString("en", { month: "long", day: "numeric" })
-    .toLowerCase()
-    .replace(/\s+/g, "-");
 }
 
 function getTitleFromFrontMatter(source) {
@@ -68,12 +59,12 @@ export function assignAliasSlugs(entries) {
   return entries.map(({ fileSlug, title }) => {
     const baseSlug = slugifyTitle(title);
     const aliasSlug = counts.get(baseSlug) > 1
-      ? `${baseSlug}-${formatDateSlug(fileSlug)}`
+      ? `${baseSlug}-${formatDate(fileSlug)}`
       : baseSlug;
 
     return {
       aliasSlug,
-      dateSlug: formatDateSlug(fileSlug)
+      dateSlug: formatDate(fileSlug)
     };
   });
 }

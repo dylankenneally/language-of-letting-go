@@ -33,6 +33,7 @@ layout: base.njk
 </script>
 
 {% include "meditation-calendar-script.njk" %}
+{% include "adjacent-meditation-nav-script.njk" %}
 <script>
   function initMeditationCalendar() {
     const navRoot = document.querySelector("[data-current-meditation]");
@@ -49,67 +50,13 @@ layout: base.njk
     });
   }
 
-  function updatePrevNextLinks() {
-    const navRoot = document.querySelector("[data-current-meditation]");
-    console.assert(navRoot);
-    if (!navRoot) {
-      return;
-    }
-
-    const navDataNode = document.getElementById("meditation-nav-data");
-    console.assert(navDataNode);
-    if (!navDataNode) {
-      return;
-    }
-
-    const meditations = JSON.parse(navDataNode.textContent);
-    const currentId = navRoot.dataset.currentMeditation;
-    const currentIndex = meditations.findIndex((meditation) => meditation.id === currentId);
-    if (currentIndex === -1) {
-      return;
-    }
-
-    const byId = new Map(meditations.map((meditation) => [meditation.id, meditation]));
-    const year = new Date().getFullYear();
-    const isLeapYear = (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
-
-    const previousMeditations = [];
-    const nextMeditations = [];
-    const defaultPrevious = meditations[(currentIndex - 1 + meditations.length) % meditations.length];
-    const defaultNext = meditations[(currentIndex + 1) % meditations.length];
-
-    // deal with leap years
-    if (currentId === "03.01") {
-      previousMeditations.push(byId.get(isLeapYear ? "02.29" : "02.28"));
-    } else {
-      previousMeditations.push(defaultPrevious);
-    }
-
-    if (currentId === "02.28") {
-      nextMeditations.push(byId.get(isLeapYear ? "02.29" : "03.01"));
-    } else {
-      nextMeditations.push(defaultNext);
-    }
-
-    const renderLinks = (containerId, previous, items) => {
-      const container = document.getElementById(containerId);
-      if (!container) {
-        return;
-      }
-
-      items.filter(Boolean).forEach((meditation, index) => {
-        const link = document.createElement("a");
-        link.href = meditation.url;
-        link.textContent = `${previous ? '← ' : ''}${meditation.displayDate}${previous ? '' : ' →'}`;
-        link.className = `meditation-nav-link${index > 0 ? " secondary" : ""}`;
-        container.appendChild(link);
-      });
-    };
-
-    renderLinks("previous-meditation-links", true, previousMeditations);
-    renderLinks("next-meditation-links", false, nextMeditations);
-  }
-
   initMeditationCalendar();
-  updatePrevNextLinks();
+  const adjacentMeditationNav = window.createAdjacentMeditationNav({
+    dataNodeId: "meditation-nav-data",
+    currentMeditationId: "{{ page.fileSlug }}"
+  });
+
+  if (adjacentMeditationNav) {
+    adjacentMeditationNav.update();
+  }
 </script>

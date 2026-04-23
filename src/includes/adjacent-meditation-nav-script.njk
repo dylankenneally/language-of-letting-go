@@ -1,0 +1,112 @@
+<script>
+  if (!window.createAdjacentMeditationNav) {
+    window.createAdjacentMeditationNav = function createAdjacentMeditationNav(config) {
+      const {
+        dataNodeId,
+        navRootSelector = "[data-current-meditation]",
+        previousContainerId = "previous-meditation-links",
+        nextContainerId = "next-meditation-links",
+        currentMeditationId,
+        getCurrentMeditationId,
+        getMeditationUrl
+      } = config;
+
+      const navRoot = document.querySelector(navRootSelector);
+      const previousContainer = document.getElementById(previousContainerId);
+      const nextContainer = document.getElementById(nextContainerId);
+      const dataNode = document.getElementById(dataNodeId);
+
+      if (!previousContainer || !nextContainer || !dataNode) {
+        return null;
+      }
+
+      const meditations = JSON.parse(dataNode.textContent);
+      const meditationsById = new Map(meditations.map((meditation) => [meditation.id, meditation]));
+
+      function getAdjacentMeditations(meditationId) {
+        if (!meditationId) {
+          return {
+            previousMeditations: [],
+            nextMeditations: []
+          };
+        }
+
+        const currentIndex = meditations.findIndex((meditation) => meditation.id === meditationId);
+        if (currentIndex === -1) {
+          return {
+            previousMeditations: [],
+            nextMeditations: []
+          };
+        }
+
+        const year = new Date().getFullYear();
+        const isLeapYear = (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
+        const defaultPrevious = meditations[(currentIndex - 1 + meditations.length) % meditations.length];
+        const defaultNext = meditations[(currentIndex + 1) % meditations.length];
+        const previousMeditations = [];
+        const nextMeditations = [];
+
+        // deal with leap years
+        if (meditationId === "03.01") {
+          previousMeditations.push(meditationsById.get(isLeapYear ? "02.29" : "02.28"));
+        } else {
+          previousMeditations.push(defaultPrevious);
+        }
+
+        if (meditationId === "02.28") {
+          nextMeditations.push(meditationsById.get(isLeapYear ? "02.29" : "03.01"));
+        } else {
+          nextMeditations.push(defaultNext);
+        }
+
+        return {
+          previousMeditations,
+          nextMeditations
+        };
+      }
+
+      function renderLinks(container, previous, items) {
+        container.innerHTML = "";
+
+        items.filter(Boolean).forEach((meditation, index) => {
+          const link = document.createElement("a");
+          link.href = typeof getMeditationUrl === "function"
+            ? getMeditationUrl(meditation.id, meditation)
+            : meditation.url;
+          link.textContent = `${previous ? "← " : ""}${meditation.displayDate}${previous ? "" : " →"}`;
+          link.className = `meditation-nav-link${index > 0 ? " secondary" : ""}`;
+          container.appendChild(link);
+        });
+      }
+
+      function update(meditationOrId) {
+        const hasExplicitMeditation = arguments.length > 0;
+        const resolvedMeditationId = typeof meditationOrId === "string"
+          ? meditationOrId
+          : meditationOrId && meditationOrId.id;
+        const meditationId = hasExplicitMeditation
+          ? (resolvedMeditationId || "")
+          : (
+              currentMeditationId
+              || (typeof getCurrentMeditationId === "function" ? getCurrentMeditationId() : "")
+              || (navRoot ? navRoot.dataset.currentMeditation : "")
+            );
+
+        if (navRoot) {
+          navRoot.dataset.currentMeditation = meditationId || "";
+          navRoot.hidden = !meditationId;
+        }
+
+        const { previousMeditations, nextMeditations } = getAdjacentMeditations(meditationId);
+        renderLinks(previousContainer, true, previousMeditations);
+        renderLinks(nextContainer, false, nextMeditations);
+      }
+
+      return {
+        meditations,
+        meditationsById,
+        update
+      };
+    };
+  }
+</script>
