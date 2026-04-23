@@ -1,6 +1,7 @@
 import { readFileSync } from "node:fs";
 import "dotenv/config";
 import markdownIt from "markdown-it";
+import { syncMeditationTitleAliases } from "./scripts/sync-meditation-title-aliases.js";
 
 function getPathPrefix() {
   const configuredPrefix = process.env.ELEVENTY_PATH_PREFIX;
@@ -27,6 +28,10 @@ export default function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "node_modules/vanilla-calendar-pro/index.js": "vanilla-calendar-pro/index.js" });
   eleventyConfig.addPassthroughCopy({ "node_modules/vanilla-calendar-pro/styles": "vanilla-calendar-pro/styles" });
   // eleventyConfig.addPassthroughCopy("CNAME");
+
+  eleventyConfig.on("eleventy.after", async ({ dir }) => {
+    await syncMeditationTitleAliases(`${dir.input}/meditations`, dir.output);
+  });
 
   eleventyConfig.addCollection("meditations", (collectionApi) => {
     return collectionApi
