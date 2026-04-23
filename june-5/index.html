@@ -4,6 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
+    <meta name="robots" content="index, follow">
+    
+      <link rel="canonical" href="https://kenneally.dev/language-of-letting-go/language-of-letting-go/june-5/">
+      <meta property="og:url" content="https://kenneally.dev/language-of-letting-go/language-of-letting-go/june-5/">
+    
+    
       <title>The Language of Letting Go | Daily Meditations on Codependency</title>
     
     <link rel="stylesheet" href="/language-of-letting-go/vanilla-calendar-pro/styles/layout.css">
@@ -197,6 +203,11 @@
         font-style: italic;
       }
 
+      .quote em,
+      .focal-point em {
+        font-style: normal;
+      }
+
       .quote {
         padding: 1rem 2.5rem;
       }
@@ -286,22 +297,14 @@
         margin-top: 2rem;
         padding-top: 1.5rem;
         border-top: 1px solid var(--border);
-        display: grid;
         gap: 1rem;
+        display: flex;
+        justify-content: space-between;
       }
 
       .meditation-nav-group {
         display: grid;
         gap: 0.5rem;
-      }
-
-      .meditation-nav-label {
-        margin: 0;
-        color: var(--muted);
-        font-size: 0.85rem;
-        font-weight: 700;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
       }
 
       .meditation-nav-links {
@@ -342,7 +345,8 @@
       <section class="content card">
         
 
-
+<div id="current-meditation">
+  
 <article >
   <header class="meditation-header">
     <h2></h2>
@@ -350,28 +354,24 @@
   </header>
 
   <div class="prose">
-    <span class="quote">
-Shame can hold us back, hold us down, and keep us staring at our feet.
-<span class="quote-attribution">
-Beyond Codependency
-</span>
-</span>
-<p>Watch out for shame. Many systems and people reek of shame. They are controlled by shame and may want us to play their game with them. They may be hoping to hook us and control us through shame. We don't have to fall into their shame. Instead, we'll take the good feelings— selfacceptance, love, and nurturing. Compulsive behaviors, sexually addictive behaviors, overeating, chemical abuse, and addictive gambling are shamebased behaviors. If we participate in them, we will feel ashamed. It's inevitable. We need to watch out for addictive and other compulsive behaviors because those will immerse us in shame. Our past, and the brainwashing we may have had that imposed &quot;original shame&quot; upon us, may try to put shame on us. This can happen when we're all alone, walking through the grocery store or just quietly going about living our life. Don't think. . . . Don't feel. . . . Don't grow or change. . . . Don't be alive. . . . Don't live life. . . . Be ashamed! Be done with shame. Attack shame. Go to war with it. Learn to recognize it and avoid it like the plague.</p>
-<span class="focal-point">
-Today, I will deliberately refuse to get caught up in the shame floating around in the world. If I cannot resist it, I will feel it, accept it, then be done with it as quickly as possible. God, help me know that it's okay to love myself and help me to refuse to submit to shame. If I get off course, help me learn to change shame into guilt, correct the behavior, and move forward with my life in immediate selflove.
-</span>
+    <div class="quote">Shame can hold us back, hold us down, and keep us staring at our feet.<span class="quote-attribution">Beyond Codependency</span></div>
+<p>Watch out for shame. Many systems and people reek of shame. They are controlled by shame and may want us to play their game with them. They may be hoping to hook us and control us through shame. We don't have to fall into their shame. Instead, we'll take the good feelings— selfacceptance, love, and nurturing. Compulsive behaviors, sexually addictive behaviors, overeating, chemical abuse, and addictive gambling are shamebased behaviors. If we participate in them, we will feel ashamed. It's inevitable. We need to watch out for addictive and other compulsive behaviors because those will immerse us in shame. Our past, and the brainwashing we may have had that imposed &quot;original shame&quot; upon us, may try to put shame on us. This can happen when we're all alone, walking through the grocery store or just quietly going about living our life. Don't think. ... Don't feel. ... Don't grow or change .... Don't be alive .... Don't live life .... Be ashamed! Be done with shame. Attack shame. Go to war with it. Learn to recognize it and avoid it like the plague.</p>
+<div class="focal-point">Today, I will deliberately refuse to get caught up in the shame floating around in the world. If I cannot resist it, I will feel it, accept it, then be done with it as quickly as possible. God, help me know that it's okay to love myself and help me to refuse to submit to shame. If I get off course, help me learn to change shame into guilt, correct the behavior, and move forward with my life in immediate selflove.</div>
 
   </div>
 </article>
 
 
+  <section class="calendar-section" aria-label="Pick a Date">
+    <div id="meditation-calendar" class="meditation-calendar"></div>
+  </section>
+</div>
+
 <nav class="meditation-nav" aria-label="Adjacent meditations" data-current-meditation="06.05">
   <div class="meditation-nav-group">
-    <p class="meditation-nav-label">Previous</p>
     <div class="meditation-nav-links" id="previous-meditation-links"></div>
   </div>
   <div class="meditation-nav-group">
-    <p class="meditation-nav-label">Next</p>
     <div class="meditation-nav-links" id="next-meditation-links"></div>
   </div>
 </nav>
@@ -2578,7 +2578,106 @@ Today, I will deliberately refuse to get caught up in the shame floating around 
 ]
 </script>
 
+<script src="/language-of-letting-go/vanilla-calendar-pro/index.js"></script>
 <script>
+  if (!window.createMeditationCalendar) {
+    window.createMeditationCalendar = function createMeditationCalendar(config) {
+      const {
+        dataNodeId,
+        rootSelector = "#meditation-calendar",
+        currentMeditationId,
+        onSelectMeditation
+      } = config;
+
+      const calendarRoot = document.querySelector(rootSelector);
+      const dataNode = document.getElementById(dataNodeId);
+
+      if (!calendarRoot || !dataNode || !window.VanillaCalendarPro) {
+        return null;
+      }
+
+      const meditations = JSON.parse(dataNode.textContent);
+      const meditationsById = new Map(meditations.map((meditation) => [meditation.id, meditation]));
+      const calendarYear = new Date().getFullYear();
+
+      function getMeditationIdFromCalendarDate(dateString) {
+        const [, selectedMonth, selectedDay] = dateString.split("-");
+        return `${selectedMonth}.${selectedDay}`;
+      }
+
+      function getCalendarDateFromMeditationId(meditationId) {
+        if (!meditationId) {
+          return null;
+        }
+
+        const [selectedMonth, selectedDay] = meditationId.split(".");
+        return `${calendarYear}-${selectedMonth}-${selectedDay}`;
+      }
+
+      const now = new Date();
+      const todayMonth = String(now.getMonth() + 1).padStart(2, "0");
+      const todayDay = String(now.getDate()).padStart(2, "0");
+      const initialDate = getCalendarDateFromMeditationId(currentMeditationId) || `${calendarYear}-${todayMonth}-${todayDay}`;
+
+      const calendar = new window.VanillaCalendarPro.Calendar(rootSelector, {
+        firstWeekday: 1,
+        locale: document.documentElement.lang || "en",
+        selectedTheme: "light",
+        selectedWeekends: [],
+        selectedDates: [initialDate],
+        enableJumpToSelectedDate: true,
+        onClickDate(self, event) {
+          const dateElement = event.target.closest("[data-vc-date]");
+          if (!dateElement || !dateElement.dataset.vcDate) {
+            return;
+          }
+
+          const meditationId = getMeditationIdFromCalendarDate(dateElement.dataset.vcDate);
+          const selectedMeditation = meditationsById.get(meditationId);
+          if (!selectedMeditation || typeof onSelectMeditation !== "function") {
+            return;
+          }
+
+          onSelectMeditation(selectedMeditation);
+        }
+      });
+
+      calendar.init();
+
+      return {
+        meditations,
+        meditationsById,
+        syncSelection(meditationId) {
+          const selectedDate = getCalendarDateFromMeditationId(meditationId);
+          if (!selectedDate) {
+            return;
+          }
+
+          calendar.set({
+            selectedDates: [selectedDate]
+          });
+        }
+      };
+    };
+  }
+</script>
+
+<script>
+  function initMeditationCalendar() {
+    const navRoot = document.querySelector("[data-current-meditation]");
+    if (!navRoot || !window.createMeditationCalendar) {
+      return;
+    }
+
+    window.createMeditationCalendar({
+      dataNodeId: "meditation-nav-data",
+      currentMeditationId: navRoot.dataset.currentMeditation,
+      onSelectMeditation(selectedMeditation) {
+        window.location.href = selectedMeditation.url;
+      }
+    });
+  }
+
   function updatePrevNextLinks() {
     const navRoot = document.querySelector("[data-current-meditation]");
     console.assert(navRoot);
@@ -2621,7 +2720,7 @@ Today, I will deliberately refuse to get caught up in the shame floating around 
       nextMeditations.push(defaultNext);
     }
 
-    const renderLinks = (containerId, items) => {
+    const renderLinks = (containerId, previous, items) => {
       const container = document.getElementById(containerId);
       if (!container) {
         return;
@@ -2630,16 +2729,17 @@ Today, I will deliberately refuse to get caught up in the shame floating around 
       items.filter(Boolean).forEach((meditation, index) => {
         const link = document.createElement("a");
         link.href = meditation.url;
-        link.textContent = meditation.displayDate;
+        link.textContent = `${previous ? '← ' : ''}${meditation.displayDate}${previous ? '' : ' →'}`;
         link.className = `meditation-nav-link${index > 0 ? " secondary" : ""}`;
         container.appendChild(link);
       });
     };
 
-    renderLinks("previous-meditation-links", previousMeditations);
-    renderLinks("next-meditation-links", nextMeditations);
+    renderLinks("previous-meditation-links", true, previousMeditations);
+    renderLinks("next-meditation-links", false, nextMeditations);
   }
 
+  initMeditationCalendar();
   updatePrevNextLinks();
 </script>
 

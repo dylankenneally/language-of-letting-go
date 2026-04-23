@@ -4,6 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
+    <meta name="robots" content="index, follow">
+    
+      <link rel="canonical" href="https://kenneally.dev/language-of-letting-go/language-of-letting-go/november-17/">
+      <meta property="og:url" content="https://kenneally.dev/language-of-letting-go/language-of-letting-go/november-17/">
+    
+    
       <title>The Language of Letting Go | Daily Meditations on Codependency</title>
     
     <link rel="stylesheet" href="/language-of-letting-go/vanilla-calendar-pro/styles/layout.css">
@@ -197,6 +203,11 @@
         font-style: italic;
       }
 
+      .quote em,
+      .focal-point em {
+        font-style: normal;
+      }
+
       .quote {
         padding: 1rem 2.5rem;
       }
@@ -286,22 +297,14 @@
         margin-top: 2rem;
         padding-top: 1.5rem;
         border-top: 1px solid var(--border);
-        display: grid;
         gap: 1rem;
+        display: flex;
+        justify-content: space-between;
       }
 
       .meditation-nav-group {
         display: grid;
         gap: 0.5rem;
-      }
-
-      .meditation-nav-label {
-        margin: 0;
-        color: var(--muted);
-        font-size: 0.85rem;
-        font-weight: 700;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
       }
 
       .meditation-nav-links {
@@ -342,7 +345,8 @@
       <section class="content card">
         
 
-
+<div id="current-meditation">
+  
 <article >
   <header class="meditation-header">
     <h2></h2>
@@ -350,28 +354,24 @@
   </header>
 
   <div class="prose">
-    <span class="quote">
-Trust in God and do something.
-<span class="quote-attribution">
-Mary Lyon
-</span>
-</span>
-<p>It's important to let ourselves grieve as a passage between yesterday and tomorrow. But we do not have to be controlled unduly by our grief, or our pain. There are times when we have grieved, surrendered to the heaviness, tiredness, and weariness of a circumstance long enough. It becomes time to break out. It comes time to take action. We will know when it's time to break the routine of grieving. There will be signs within and around us. We will become tired of the heaviness. An idea will occur; an opportunity will present itself. We may think: No. Too much effort. . . . Do it anyway. Try something. Reach out. Stretch. Do something unusual, something different, something special. A new activity may help trigger the transformation process. Stay up two hours later than usual! Make an appointment to do something for yourself that is different from what you usually do. Visit someone you haven't seen in years. Do something to encourage and help the new energy coming your way. We may not feel like breaking out of grief. It may feel safer, easier, to remain in our cocoon. Begin pushing out anyway. Test the walls of your cocoon. Push. Push a little harder. It may be time to emerge.</p>
-<span class="focal-point">
-Today, I will trust God and the process, but I will also take action to help myself feel better.
-</span>
+    <div class="quote">Trust in God and do something.<span class="quote-attribution">Mary Lyon</span></div>
+<p>It's important to let ourselves grieve as a passage between yesterday and tomorrow. But we do not have to be controlled unduly by our grief, or our pain. There are times when we have grieved, surrendered to the heaviness, tiredness, and weariness of a circumstance long enough. It becomes time to break out. It comes time to take action. We will know when it's time to break the routine of grieving. There will be signs within and around us. We will become tired of the heaviness. An idea will occur; an opportunity will present itself. We may think: No. Too much effort. ... Do it anyway. Try something. Reach out. Stretch. Do something unusual, something different, something special. A new activity may help trigger the transformation process. Stay up two hours later than usual! Make an appointment to do something for yourself that is different from what you usually do. Visit someone you haven't seen in years. Do something to encourage and help the new energy coming your way. We may not feel like breaking out of grief. It may feel safer, easier, to remain in our cocoon. Begin pushing out anyway. Test the walls of your cocoon. Push. Push a little harder. It may be time to emerge.</p>
+<div class="focal-point">Today, I will trust God and the process, but I will also take action to help myself feel better.</div>
 
   </div>
 </article>
 
 
+  <section class="calendar-section" aria-label="Pick a Date">
+    <div id="meditation-calendar" class="meditation-calendar"></div>
+  </section>
+</div>
+
 <nav class="meditation-nav" aria-label="Adjacent meditations" data-current-meditation="11.17">
   <div class="meditation-nav-group">
-    <p class="meditation-nav-label">Previous</p>
     <div class="meditation-nav-links" id="previous-meditation-links"></div>
   </div>
   <div class="meditation-nav-group">
-    <p class="meditation-nav-label">Next</p>
     <div class="meditation-nav-links" id="next-meditation-links"></div>
   </div>
 </nav>
@@ -2578,7 +2578,106 @@ Today, I will trust God and the process, but I will also take action to help mys
 ]
 </script>
 
+<script src="/language-of-letting-go/vanilla-calendar-pro/index.js"></script>
 <script>
+  if (!window.createMeditationCalendar) {
+    window.createMeditationCalendar = function createMeditationCalendar(config) {
+      const {
+        dataNodeId,
+        rootSelector = "#meditation-calendar",
+        currentMeditationId,
+        onSelectMeditation
+      } = config;
+
+      const calendarRoot = document.querySelector(rootSelector);
+      const dataNode = document.getElementById(dataNodeId);
+
+      if (!calendarRoot || !dataNode || !window.VanillaCalendarPro) {
+        return null;
+      }
+
+      const meditations = JSON.parse(dataNode.textContent);
+      const meditationsById = new Map(meditations.map((meditation) => [meditation.id, meditation]));
+      const calendarYear = new Date().getFullYear();
+
+      function getMeditationIdFromCalendarDate(dateString) {
+        const [, selectedMonth, selectedDay] = dateString.split("-");
+        return `${selectedMonth}.${selectedDay}`;
+      }
+
+      function getCalendarDateFromMeditationId(meditationId) {
+        if (!meditationId) {
+          return null;
+        }
+
+        const [selectedMonth, selectedDay] = meditationId.split(".");
+        return `${calendarYear}-${selectedMonth}-${selectedDay}`;
+      }
+
+      const now = new Date();
+      const todayMonth = String(now.getMonth() + 1).padStart(2, "0");
+      const todayDay = String(now.getDate()).padStart(2, "0");
+      const initialDate = getCalendarDateFromMeditationId(currentMeditationId) || `${calendarYear}-${todayMonth}-${todayDay}`;
+
+      const calendar = new window.VanillaCalendarPro.Calendar(rootSelector, {
+        firstWeekday: 1,
+        locale: document.documentElement.lang || "en",
+        selectedTheme: "light",
+        selectedWeekends: [],
+        selectedDates: [initialDate],
+        enableJumpToSelectedDate: true,
+        onClickDate(self, event) {
+          const dateElement = event.target.closest("[data-vc-date]");
+          if (!dateElement || !dateElement.dataset.vcDate) {
+            return;
+          }
+
+          const meditationId = getMeditationIdFromCalendarDate(dateElement.dataset.vcDate);
+          const selectedMeditation = meditationsById.get(meditationId);
+          if (!selectedMeditation || typeof onSelectMeditation !== "function") {
+            return;
+          }
+
+          onSelectMeditation(selectedMeditation);
+        }
+      });
+
+      calendar.init();
+
+      return {
+        meditations,
+        meditationsById,
+        syncSelection(meditationId) {
+          const selectedDate = getCalendarDateFromMeditationId(meditationId);
+          if (!selectedDate) {
+            return;
+          }
+
+          calendar.set({
+            selectedDates: [selectedDate]
+          });
+        }
+      };
+    };
+  }
+</script>
+
+<script>
+  function initMeditationCalendar() {
+    const navRoot = document.querySelector("[data-current-meditation]");
+    if (!navRoot || !window.createMeditationCalendar) {
+      return;
+    }
+
+    window.createMeditationCalendar({
+      dataNodeId: "meditation-nav-data",
+      currentMeditationId: navRoot.dataset.currentMeditation,
+      onSelectMeditation(selectedMeditation) {
+        window.location.href = selectedMeditation.url;
+      }
+    });
+  }
+
   function updatePrevNextLinks() {
     const navRoot = document.querySelector("[data-current-meditation]");
     console.assert(navRoot);
@@ -2621,7 +2720,7 @@ Today, I will trust God and the process, but I will also take action to help mys
       nextMeditations.push(defaultNext);
     }
 
-    const renderLinks = (containerId, items) => {
+    const renderLinks = (containerId, previous, items) => {
       const container = document.getElementById(containerId);
       if (!container) {
         return;
@@ -2630,16 +2729,17 @@ Today, I will trust God and the process, but I will also take action to help mys
       items.filter(Boolean).forEach((meditation, index) => {
         const link = document.createElement("a");
         link.href = meditation.url;
-        link.textContent = meditation.displayDate;
+        link.textContent = `${previous ? '← ' : ''}${meditation.displayDate}${previous ? '' : ' →'}`;
         link.className = `meditation-nav-link${index > 0 ? " secondary" : ""}`;
         container.appendChild(link);
       });
     };
 
-    renderLinks("previous-meditation-links", previousMeditations);
-    renderLinks("next-meditation-links", nextMeditations);
+    renderLinks("previous-meditation-links", true, previousMeditations);
+    renderLinks("next-meditation-links", false, nextMeditations);
   }
 
+  initMeditationCalendar();
   updatePrevNextLinks();
 </script>
 

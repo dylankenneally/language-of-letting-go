@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kenneally.dev/language-of-letting-go/sitemap.xml
