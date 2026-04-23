@@ -96,7 +96,6 @@ Please place all 366 markdown files in to a single compressed zip file for me to
 - [ ] ux
   - [ ] review html semantics, main, article, aside
   - [ ] images etc
-  - [ ] prev/next nav styling
   - [ ] favicon
 - [ ] arial/a11y stuff
 - [ ] feats

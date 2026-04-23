@@ -13,11 +13,9 @@ layout: base.njk
 
 <nav class="meditation-nav" aria-label="Adjacent meditations" data-current-meditation="{{ page.fileSlug }}">
   <div class="meditation-nav-group">
-    <p class="meditation-nav-label">Previous</p>
     <div class="meditation-nav-links" id="previous-meditation-links"></div>
   </div>
   <div class="meditation-nav-group">
-    <p class="meditation-nav-label">Next</p>
     <div class="meditation-nav-links" id="next-meditation-links"></div>
   </div>
 </nav>
@@ -93,7 +91,7 @@ layout: base.njk
       nextMeditations.push(defaultNext);
     }
 
-    const renderLinks = (containerId, items) => {
+    const renderLinks = (containerId, previous, items) => {
       const container = document.getElementById(containerId);
       if (!container) {
         return;
@@ -102,14 +100,14 @@ layout: base.njk
       items.filter(Boolean).forEach((meditation, index) => {
         const link = document.createElement("a");
         link.href = meditation.url;
-        link.textContent = meditation.displayDate;
+        link.textContent = `${previous ? '← ' : ''}${meditation.displayDate}${previous ? '' : ' →'}`;
         link.className = `meditation-nav-link${index > 0 ? " secondary" : ""}`;
         container.appendChild(link);
       });
     };
 
-    renderLinks("previous-meditation-links", previousMeditations);
-    renderLinks("next-meditation-links", nextMeditations);
+    renderLinks("previous-meditation-links", true, previousMeditations);
+    renderLinks("next-meditation-links", false, nextMeditations);
   }
 
   initMeditationCalendar();
