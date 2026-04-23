@@ -85,9 +85,9 @@ Please place all 366 markdown files in to a single compressed zip file for me to
   - [ ] landing page details
   - [x] licence
     - [ ] beattie
-  - [ ] minify etc
+  - [x] minify etc
   - [ ] add to digital scrapbook
-  - [ ] seeing new `Benchmark    886ms  62% 135056× (Configuration) "url" Nunjucks Filter` line in build process - investigate
+  - [x] seeing new `Benchmark    886ms  62% 135056× (Configuration) "url" Nunjucks Filter` line in build process - investigate
 - [ ] ux
   - [ ] review html semantics, main, article, aside
   - [ ] images etc
