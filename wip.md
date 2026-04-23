@@ -67,10 +67,10 @@ Please place all 366 markdown files in to a single compressed zip file for me to
     - [x] `AlAnon` to `Al-Anon` - ai removed
     - [ ] ~~`well` vs `we'll` - ai removed~~
     - [ ] `-` ai does not put spaces before and/or after these - use regex to find and review them
-- [ ] markdown formatting is not being respected in nested elements
-  - [ ] spans for focal point and quote
-  - [ ] is using spans the write approach here?
-  - [ ] nb: when resolved, watch out for ux style below - may want to invert italics/non italics, example 0202.md
+- [x] markdown formatting is not being respected in nested elements
+  - [x] spans for focal point and quote
+  - [x] is using spans the write approach here?
+  - [x] nb: when resolved, watch out for ux style below - may want to invert italics/non italics, example 0202.md
 - [x] next/prev navigation
   - [ ] this is only on dated pages - do you want it on the main page?
 - [ ] 404 page - with gh pages? - surely it has that feature?

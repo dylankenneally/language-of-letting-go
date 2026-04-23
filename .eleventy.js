@@ -1,5 +1,6 @@
 import { readFileSync } from "node:fs";
 import "dotenv/config";
+import markdownIt from "markdown-it";
 
 function getPathPrefix() {
   const configuredPrefix = process.env.ELEVENTY_PATH_PREFIX;
@@ -32,6 +33,18 @@ export default function(eleventyConfig) {
       .getFilteredByGlob("src/meditations/*.md")
       .sort((a, b) => a.fileSlug.localeCompare(b.fileSlug, undefined, { numeric: true }));
   });
+
+  const inlineMarkdown = markdownIt({ html: true });
+  eleventyConfig.addPairedShortcode("quote", (content, attribution = "")=> {
+    const quoteContent = inlineMarkdown.renderInline(content.trim());
+    const quoteAttribution = attribution.trim()
+      ? `<span class="quote-attribution">${inlineMarkdown.renderInline(attribution.trim())}</span>`
+      : "";
+
+    return `<div class="quote">${quoteContent}${quoteAttribution}</div>`;
+  });
+
+  eleventyConfig.addPairedShortcode("focal", (content)  => `<div class="focal-point">${inlineMarkdown.renderInline(content.trim())}</div>`);
 
   return {
     pathPrefix: getPathPrefix(),
