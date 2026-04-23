@@ -1,0 +1,83 @@
+<script src="{{ '/vanilla-calendar-pro/index.js' | url }}"></script>
+<script>
+  if (!window.createMeditationCalendar) {
+    window.createMeditationCalendar = function createMeditationCalendar(config) {
+      const {
+        dataNodeId,
+        rootSelector = "#meditation-calendar",
+        currentMeditationId,
+        onSelectMeditation
+      } = config;
+
+      const calendarRoot = document.querySelector(rootSelector);
+      const dataNode = document.getElementById(dataNodeId);
+
+      if (!calendarRoot || !dataNode || !window.VanillaCalendarPro) {
+        return null;
+      }
+
+      const meditations = JSON.parse(dataNode.textContent);
+      const meditationsById = new Map(meditations.map((meditation) => [meditation.id, meditation]));
+      const calendarYear = new Date().getFullYear();
+
+      function getMeditationIdFromCalendarDate(dateString) {
+        const [, selectedMonth, selectedDay] = dateString.split("-");
+        return `${selectedMonth}.${selectedDay}`;
+      }
+
+      function getCalendarDateFromMeditationId(meditationId) {
+        if (!meditationId) {
+          return null;
+        }
+
+        const [selectedMonth, selectedDay] = meditationId.split(".");
+        return `${calendarYear}-${selectedMonth}-${selectedDay}`;
+      }
+
+      const now = new Date();
+      const todayMonth = String(now.getMonth() + 1).padStart(2, "0");
+      const todayDay = String(now.getDate()).padStart(2, "0");
+      const initialDate = getCalendarDateFromMeditationId(currentMeditationId) || `${calendarYear}-${todayMonth}-${todayDay}`;
+
+      const calendar = new window.VanillaCalendarPro.Calendar(rootSelector, {
+        firstWeekday: 1,
+        locale: document.documentElement.lang || "en",
+        selectedTheme: "light",
+        selectedWeekends: [],
+        selectedDates: [initialDate],
+        enableJumpToSelectedDate: true,
+        onClickDate(self, event) {
+          const dateElement = event.target.closest("[data-vc-date]");
+          if (!dateElement || !dateElement.dataset.vcDate) {
+            return;
+          }
+
+          const meditationId = getMeditationIdFromCalendarDate(dateElement.dataset.vcDate);
+          const selectedMeditation = meditationsById.get(meditationId);
+          if (!selectedMeditation || typeof onSelectMeditation !== "function") {
+            return;
+          }
+
+          onSelectMeditation(selectedMeditation);
+        }
+      });
+
+      calendar.init();
+
+      return {
+        meditations,
+        meditationsById,
+        syncSelection(meditationId) {
+          const selectedDate = getCalendarDateFromMeditationId(meditationId);
+          if (!selectedDate) {
+            return;
+          }
+
+          calendar.set({
+            selectedDates: [selectedDate]
+          });
+        }
+      };
+    };
+  }
+</script>
