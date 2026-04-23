@@ -13,7 +13,7 @@
     "build": "eleventy",
     "start": "eleventy --serve --quiet"
   },
-  "homepage": "https://dylankenneally.github.io/language-of-letting-go",
+  "homepage": "https://kenneally.dev/language-of-letting-go",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dylankenneally/language-of-letting-go"

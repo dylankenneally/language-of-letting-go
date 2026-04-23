@@ -1,27 +1,8 @@
-import { readFileSync } from "node:fs";
 import "dotenv/config";
 import markdownIt from "markdown-it";
+import { generateRobotsTxt, generateSitemap } from "./scripts/generate-sitemap.js";
 import { syncMeditationTitleAliases } from "./scripts/sync-meditation-title-aliases.js";
-
-function getPathPrefix() {
-  const configuredPrefix = process.env.ELEVENTY_PATH_PREFIX;
-  if (configuredPrefix) {
-    return configuredPrefix;
-  }
-
-  try {
-    const packageJson = JSON.parse(readFileSync(new URL("./package.json", import.meta.url), "utf8"));
-    const homepage = packageJson.homepage;
-    if (!homepage) {
-      return "/";
-    }
-
-    const pathname = new URL(homepage).pathname.replace(/\/+$/, "");
-    return pathname || "/";
-  } catch {
-    return "/";
-  }
-}
+import { getPathPrefix, getSiteUrl } from "./site-config.js";
 
 export default function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/fonts/*.woff2": "fonts" });
@@ -30,7 +11,15 @@ export default function(eleventyConfig) {
   // eleventyConfig.addPassthroughCopy("CNAME");
 
   eleventyConfig.on("eleventy.after", async ({ dir }) => {
+    const siteUrl = getSiteUrl();
+
     await syncMeditationTitleAliases(`${dir.input}/meditations`, dir.output);
+    await generateSitemap({
+      inputDir: `${dir.input}/meditations`,
+      outputDir: dir.output,
+      siteUrl
+    });
+    await generateRobotsTxt({ outputDir: dir.output, siteUrl });
   });
 
   eleventyConfig.addCollection("meditations", (collectionApi) => {

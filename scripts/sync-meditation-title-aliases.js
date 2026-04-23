@@ -33,7 +33,7 @@ function getTitleFromFrontMatter(source) {
   return titleMatch ? titleMatch[1].trim() : null;
 }
 
-async function getMeditationEntries(inputDir) {
+export async function getMeditationEntries(inputDir) {
   const filenames = (await readdir(inputDir))
     .filter((filename) => filename.endsWith(".md"))
     .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
@@ -57,7 +57,7 @@ async function getMeditationEntries(inputDir) {
   return entries;
 }
 
-function assignAliasSlugs(entries) {
+export function assignAliasSlugs(entries) {
   const counts = new Map();
 
   entries.forEach(({ title }) => {
