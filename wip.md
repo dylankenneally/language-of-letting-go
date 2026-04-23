@@ -59,13 +59,14 @@ Please place all 366 markdown files in to a single compressed zip file for me to
   - [ ] oct
   - [ ] nov
   - [ ] dec
-  - [x] search 'Page '
-  - [ ] search `''` - replace with `"`
-  - [ ] search `*` - the ai's way of italics
-  - [ ] `. . .` ?
-  - [ ] `AlAnon` to `Al-Anon` - ai removed
-  - [ ] `well` vs `we'll` - ai removed
-  - [ ] `-` ai does not put spaces before and/or after these - use regex to find and review them
+  - [ ] correct AI generated content mistakes
+    - [x] search 'Page '
+    - [x] search `''` - replace with `"`
+    - [ ] search `*` - the ai's way of italics
+    - [x] `...` ?
+    - [x] `AlAnon` to `Al-Anon` - ai removed
+    - [ ] ~~`well` vs `we'll` - ai removed~~
+    - [ ] `-` ai does not put spaces before and/or after these - use regex to find and review them
 - [ ] markdown formatting is not being respected in nested elements
   - [ ] spans for focal point and quote
   - [ ] is using spans the write approach here?
@@ -88,6 +89,8 @@ Please place all 366 markdown files in to a single compressed zip file for me to
 - [ ] make it look more like the book?
 - [ ] i18n/l10n
   - [ ] see also: src/meditations/meditations.11tydata.js
+  - [ ] spell check (en-US to start)
+    - [ ] grammar check? but not to change content - for things like `well` vs `we'll` (as ai removed some)
   - [ ] translations
   - [ ] aria-label
 - [ ] github stuff
