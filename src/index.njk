@@ -34,6 +34,10 @@ layout: base.njk
 ]
 </script>
 
+<template id="missing-meditation-template">
+  {% include "not-found-content.njk" %}
+</template>
+
 <script src="{{ '/vanilla-calendar-pro/index.js' | url }}"></script>
 <script>
   const meditationDataNode = document.getElementById("meditations-data");
@@ -45,6 +49,7 @@ layout: base.njk
     const titleNode = document.getElementById("today-meditation-title");
     const dateNode = document.getElementById("today-meditation-date");
     const contentNode = document.getElementById("today-meditation-content");
+    const missingMeditationTemplate = document.getElementById("missing-meditation-template");
     const now = new Date();
     const month = String(now.getMonth() + 1).padStart(2, "0");
     const day = String(now.getDate()).padStart(2, "0");
@@ -68,12 +73,39 @@ layout: base.njk
       return `${year}-${selectedMonth}-${selectedDay}`;
     }
 
-    function getMeditationFromLocation() {
+    function getRequestedMeditationState() {
       const meditationId = new URL(window.location.href).searchParams.get("date");
-      return meditationsById.get(meditationId) || null;
+      if (!meditationId) {
+        return { meditation: null, invalidDateParam: false };
+      }
+
+      const meditation = meditationsById.get(meditationId) || null;
+
+      return {
+        meditation,
+        invalidDateParam: !meditation
+      };
     }
 
-    const initialMeditation = getMeditationFromLocation() || defaultMeditation;
+    function getNotFoundMeditationView() {
+      return {
+        id: null,
+        title: "{{ site.notFound }}",
+        displayDate: "",
+        content: missingMeditationTemplate ? missingMeditationTemplate.innerHTML : ""
+      };
+    }
+
+    function getCurrentMeditationView() {
+      const requestedState = getRequestedMeditationState();
+      if (requestedState.invalidDateParam) {
+        return getNotFoundMeditationView();
+      }
+
+      return requestedState.meditation || defaultMeditation;
+    }
+
+    const initialMeditation = getCurrentMeditationView();
 
     function setFeaturedMeditation(meditation) {
       if (!meditation || !titleNode || !dateNode || !contentNode) {
@@ -81,6 +113,7 @@ layout: base.njk
       }
 
       dateNode.textContent = meditation.displayDate;
+      dateNode.hidden = !meditation.displayDate;
       titleNode.textContent = meditation.title;
       contentNode.innerHTML = meditation.content;
     }
@@ -149,7 +182,7 @@ layout: base.njk
       calendar.init();
 
       window.addEventListener("popstate", () => {
-        const meditation = getMeditationFromLocation() || defaultMeditation;
+        const meditation = getCurrentMeditationView();
         setFeaturedMeditation(meditation);
         syncCalendarSelection(calendar, meditation.id);
       });

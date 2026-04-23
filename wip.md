@@ -73,7 +73,8 @@ Please place all 366 markdown files in to a single compressed zip file for me to
   - [x] nb: when resolved, watch out for ux style below - may want to invert italics/non italics, example 0202.md
 - [x] next/prev navigation
   - [ ] this is only on dated pages - do you want it on the main page?
-- [ ] 404 page - with gh pages? - surely it has that feature?
+- [x] 404 page - with gh pages? - surely it has that feature?
+  - [x] ?date=unknown - basically a 404
 - [ ] sitemap
 - [x] auto show today
 - [ ] slugs are shit
