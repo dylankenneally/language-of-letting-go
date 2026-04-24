@@ -11,7 +11,9 @@
   ],
   "scripts": {
     "build": "eleventy",
+    "prebuild": "npm run lint",
     "postbuild": "node scripts/minify.js",
+    "lint": "eslint . --max-warnings 10",
     "start": "eleventy --serve --quiet"
   },
   "homepage": "https://kenneally.dev/language-of-letting-go",
@@ -24,8 +26,13 @@
   "type": "module",
   "devDependencies": {
     "@11ty/eleventy": "^3.1.5",
+    "@eslint/css": "^1.1.0",
+    "@eslint/js": "^10.0.1",
+    "@eslint/markdown": "^8.0.1",
     "clean-css": "^5.3.3",
     "dotenv": "^17.4.2",
+    "eslint": "^10.2.1",
+    "globals": "^17.5.0",
     "html-minifier-terser": "^7.2.0"
   },
   "dependencies": {
