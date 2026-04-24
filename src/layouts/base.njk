@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {% set isNotFoundPage = page and page.url == "/404.html" %}
+    {% set isHomePage = page and page.url == "/" %}
     <meta name="robots" content="{% if isNotFoundPage %}noindex, follow{% else %}index, follow{% endif %}">
     {% if site.url and page and page.url and not isNotFoundPage %}
       <link rel="canonical" href="{{ site.url }}{{ page.url | url }}">
@@ -102,13 +103,16 @@
       }
 
       .site-header h1,
+      .site-header .site-title,
       .site-header p {
         margin: 0;
       }
 
-      .site-header h1 {
+      .site-header h1,
+      .site-header .site-title {
         font-family: var(--font-serif);
         font-weight: 700;
+        font-size: 2rem;
       }
 
       .site-header p {
@@ -201,11 +205,17 @@
       .quote,
       .focal-point {
         display: block;
+        margin: 0;
         font-family: var(--font-serif);
         font-style: italic;
       }
 
-      .quote em,
+      .quote blockquote {
+        margin: 0;
+        padding: 0;
+      }
+
+      .quote blockquote em,
       .focal-point em {
         font-style: normal;
       }
@@ -247,6 +257,13 @@
         font-size: 1.1em;
         font-family: var(--font-serif);
         font-weight: 700;
+      }
+
+      .meditation-header h1,
+      .meditation-header h2,
+      .meditation-header .date {
+        margin: 0;
+        margin-bottom: 1rem;
       }
 
       .meditation-header .date {
@@ -341,7 +358,11 @@
   <body>
     <main class="shell">
       <header class="site-header card">
-        <h1><a href="{{ '/' | url }}" style="text-decoration: none; color: inherit;">{{ site.title }}</a></h1>
+        {% if isHomePage %}
+          <h1><a href="{{ '/' | url }}" style="text-decoration: none; color: inherit;">{{ site.title }}</a></h1>
+        {% else %}
+          <div class="site-title"><a href="{{ '/' | url }}" style="text-decoration: none; color: inherit;">{{ site.title }}</a></div>
+        {% endif %}
         <p>{{ site.description }}</p>
       </header>
       <section class="content card">

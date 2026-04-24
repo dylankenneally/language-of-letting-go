@@ -2,9 +2,9 @@
 layout: base.njk
 ---
 {% set firstMeditation = collections.meditations[0] %}
+{% from "meditation-content.njk" import meditationContent with context %}
 
 <div id="current-meditation">
-  {% from "meditation-content.njk" import meditationContent %}
   {{ meditationContent(
       firstMeditation.data.title,
       firstMeditation.data.displayDate,
@@ -36,6 +36,7 @@ layout: base.njk
       "id": {{ meditation.fileSlug | dump | safe }},
       "title": {{ meditation.data.title | dump | safe }},
       "displayDate": {{ meditation.data.displayDate | dump | safe }},
+      "machineDate": {{ meditation.data.displayDate | monthDayToMMDD | dump | safe }},
       "url": {{ (meditation.url | url) | dump | safe }},
       "content": {{ meditation.content | dump | safe }}
     }{% if not loop.last %},{% endif %}
@@ -122,6 +123,8 @@ layout: base.njk
 
         dateNode.textContent = meditation.displayDate;
         dateNode.hidden = !meditation.displayDate;
+        dateNode.setAttribute("datetime", meditation.machineDate || "");
+
         titleNode.textContent = meditation.title;
         contentNode.innerHTML = meditation.content;
       }

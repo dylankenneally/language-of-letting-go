@@ -1,8 +1,9 @@
 {% macro meditationContent(title, displayDate, content, titleId="", dateId="", contentId="") %}
 <article {% if titleId %} aria-labelledby="{{ titleId }}"{% endif %}>
   <header class="meditation-header">
-    <h2{% if titleId %} id="{{ titleId }}"{% endif %}>{{ title }}</h2>
-    <p class="date"{% if dateId %} id="{{ dateId }}"{% endif %}>{{ displayDate }}</p>
+    {% set headingTag = "h2" if page.url == "/" else "h1" %}
+    <{{ headingTag }}{% if titleId %} id="{{ titleId }}"{% endif %}>{{ title }}</{{ headingTag }}>
+    <time class="date"{% if dateId %} id="{{ dateId }}"{% endif %} datetime="{{ displayDate | monthDayToMMDD }}">{{ displayDate }}</time>
   </header>
 
   <div class="prose"{% if contentId %} id="{{ contentId }}"{% endif %}>
