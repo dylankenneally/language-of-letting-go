@@ -77,7 +77,7 @@
             ? getMeditationUrl(meditation.id, meditation)
             : meditation.url;
           link.textContent = `${previous ? "← " : ""}${meditation.displayDate}${previous ? "" : " →"}`;
-          link.className = `meditation-nav-link ${previous ? "meditation-nav-link-previous" : "meditation-nav-link-next"}${index > 0 ? " secondary" : ""}`;
+          link.className = `meditation-nav-link ${previous ? "meditation-nav-link-previous" : "meditation-nav-link-next"}`;
           listItem.appendChild(link);
           linksContainer.appendChild(listItem);
         });

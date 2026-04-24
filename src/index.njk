@@ -128,7 +128,7 @@ layout: base.njk
 
         dateNode.textContent = meditation.displayDate;
         dateNode.hidden = !meditation.displayDate;
-        dateNode.setAttribute("datetime", meditation.machineDate || "");
+        dateNode.setAttribute("datetime", meditation.machineDate ? `--${meditation.machineDate}` : "");
 
         titleNode.textContent = meditation.title;
         contentNode.innerHTML = meditation.content;

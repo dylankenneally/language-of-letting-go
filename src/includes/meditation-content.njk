@@ -3,7 +3,7 @@
   <header class="meditation-header">
     {% set headingTag = "h2" if page.url == "/" else "h1" %}
     <{{ headingTag }}{% if titleId %} id="{{ titleId }}"{% endif %}>{{ title }}</{{ headingTag }}>
-    <time class="date"{% if dateId %} id="{{ dateId }}"{% endif %} datetime="{{ displayDate | monthDayToMMDD }}">{{ displayDate }}</time>
+    <time class="date"{% if dateId %} id="{{ dateId }}"{% endif %} datetime="--{{ displayDate | monthDayToMMDD }}">{{ displayDate }}</time>
   </header>
 
   <div class="prose"{% if contentId %} id="{{ contentId }}"{% endif %}>
