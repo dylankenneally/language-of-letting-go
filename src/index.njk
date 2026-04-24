@@ -2,6 +2,9 @@
 layout: base.njk
 ---
 {% set firstMeditation = collections.meditations[0] %}
+{% set totalMeditations = collections.meditations.length %}
+{% set previousMeditation = collections.meditations[totalMeditations - 1] %}
+{% set nextMeditation = collections.meditations[1] %}
 {% from "meditation-content.njk" import meditationContent with context %}
 
 <div id="current-meditation">
@@ -21,12 +24,14 @@ layout: base.njk
 </div>
 
 <nav class="meditation-nav" aria-label="Adjacent meditations" data-current-meditation="">
-  <div class="meditation-nav-group">
-    <div class="meditation-nav-links" id="previous-meditation-links"></div>
-  </div>
-  <div class="meditation-nav-group">
-    <div class="meditation-nav-links" id="next-meditation-links"></div>
-  </div>
+  <ul class="meditation-nav-links" id="adjacent-meditation-links">
+    <li>
+      <a class="meditation-nav-link meditation-nav-link-previous" href="{{ previousMeditation.url | url }}">← {{ previousMeditation.data.displayDate }}</a>
+    </li>
+    <li>
+      <a class="meditation-nav-link meditation-nav-link-next" href="{{ nextMeditation.url | url }}">{{ nextMeditation.data.displayDate }} →</a>
+    </li>
+  </ul>
 </nav>
 
 <script id="meditations-data" type="application/json">

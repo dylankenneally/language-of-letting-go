@@ -4,19 +4,17 @@
       const {
         dataNodeId,
         navRootSelector = "[data-current-meditation]",
-        previousContainerId = "previous-meditation-links",
-        nextContainerId = "next-meditation-links",
+        linksContainerId = "adjacent-meditation-links",
         currentMeditationId,
         getCurrentMeditationId,
         getMeditationUrl
       } = config;
 
       const navRoot = document.querySelector(navRootSelector);
-      const previousContainer = document.getElementById(previousContainerId);
-      const nextContainer = document.getElementById(nextContainerId);
+      const linksContainer = document.getElementById(linksContainerId);
       const dataNode = document.getElementById(dataNodeId);
 
-      if (!previousContainer || !nextContainer || !dataNode) {
+      if (!linksContainer || !dataNode) {
         return null;
       }
 
@@ -65,17 +63,23 @@
         };
       }
 
-      function renderLinks(container, previous, items) {
-        container.innerHTML = "";
+      function renderLinks(previousMeditations, nextMeditations) {
+        linksContainer.innerHTML = "";
+        const adjacentMeditations = [
+          ...previousMeditations.filter(Boolean).map((meditation) => ({ meditation, previous: true })),
+          ...nextMeditations.filter(Boolean).map((meditation) => ({ meditation, previous: false }))
+        ];
 
-        items.filter(Boolean).forEach((meditation, index) => {
+        adjacentMeditations.forEach(({ meditation, previous }, index) => {
+          const listItem = document.createElement("li");
           const link = document.createElement("a");
           link.href = typeof getMeditationUrl === "function"
             ? getMeditationUrl(meditation.id, meditation)
             : meditation.url;
           link.textContent = `${previous ? "← " : ""}${meditation.displayDate}${previous ? "" : " →"}`;
-          link.className = `meditation-nav-link${index > 0 ? " secondary" : ""}`;
-          container.appendChild(link);
+          link.className = `meditation-nav-link ${previous ? "meditation-nav-link-previous" : "meditation-nav-link-next"}${index > 0 ? " secondary" : ""}`;
+          listItem.appendChild(link);
+          linksContainer.appendChild(listItem);
         });
       }
 
@@ -98,8 +102,7 @@
         }
 
         const { previousMeditations, nextMeditations } = getAdjacentMeditations(meditationId);
-        renderLinks(previousContainer, true, previousMeditations);
-        renderLinks(nextContainer, false, nextMeditations);
+        renderLinks(previousMeditations, nextMeditations);
       }
 
       return {

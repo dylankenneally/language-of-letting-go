@@ -2,6 +2,17 @@
 layout: base.njk
 ---
 {% from "meditation-content.njk" import meditationContent %}
+{% set totalMeditations = collections.meditations.length %}
+{% set currentIndex = 0 %}
+{% for meditation in collections.meditations %}
+  {% if meditation.fileSlug == page.fileSlug %}
+    {% set currentIndex = loop.index0 %}
+  {% endif %}
+{% endfor %}
+{% set previousIndex = (currentIndex - 1 + totalMeditations) % totalMeditations %}
+{% set nextIndex = (currentIndex + 1) % totalMeditations %}
+{% set previousMeditation = collections.meditations[previousIndex] %}
+{% set nextMeditation = collections.meditations[nextIndex] %}
 
 <div id="current-meditation">
   {{ meditationContent(title, displayDate, content) }}
@@ -12,12 +23,14 @@ layout: base.njk
 </div>
 
 <nav class="meditation-nav" aria-label="Adjacent meditations" data-current-meditation="{{ page.fileSlug }}">
-  <div class="meditation-nav-group">
-    <div class="meditation-nav-links" id="previous-meditation-links"></div>
-  </div>
-  <div class="meditation-nav-group">
-    <div class="meditation-nav-links" id="next-meditation-links"></div>
-  </div>
+  <ul class="meditation-nav-links" id="adjacent-meditation-links">
+    <li>
+      <a class="meditation-nav-link meditation-nav-link-previous" href="{{ previousMeditation.url | url }}">← {{ previousMeditation.data.displayDate }}</a>
+    </li>
+    <li>
+      <a class="meditation-nav-link meditation-nav-link-next" href="{{ nextMeditation.url | url }}">{{ nextMeditation.data.displayDate }} →</a>
+    </li>
+  </ul>
 </nav>
 
 <script id="meditation-nav-data" type="application/json">
