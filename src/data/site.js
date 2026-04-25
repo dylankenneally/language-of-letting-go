@@ -1,4 +1,4 @@
-import { getPathPrefix, getSiteUrl } from "../../site-config.js";
+import { getSiteUrl } from "../../site-config.js";
 
 export default {
   // todo: translate these strings (en / en-US here)
@@ -7,6 +7,5 @@ export default {
   notFound: "Meditation not found",
   skipToMain: "Skip to main content",
 
-  pathPrefix: getPathPrefix(),
   url: getSiteUrl(),
 };

@@ -17,14 +17,10 @@
     - [ ] search `*` - the ai's way of italics
     - [ ] ~~`well` vs `we'll` - ai removed~~
     - [ ] `-` ai does not put spaces before and/or after these - use regex to find and review them
-- [x] sitemap
-- [x] robots
 - [ ] Per-meditation custom descriptions for richer SERP snippets in the below. Tune description generation to prefer the first non-quote paragraph only (often cleaner for snippet quality).
   - [ ] `<meta name="description" content="…">`
   - [ ] `<meta name="og:description" content="…">`
   - [ ] `<meta name="twitter:description" content="…">`
-- [ ] about, etc
-- [ ] make it look more like the book?
 - [ ] i18n/l10n
   - [ ] see also: src/meditations/meditations.11tydata.js
   - [ ] spell check (en-US to start)
@@ -34,15 +30,9 @@
   - [ ] page slugs (en: getting-needs-met-march-29, es: ??, de: ??)
   - [ ] src/data/site.js
 - [ ] github stuff
-  - [ ] readme
-    - [ ] include details of `.env` for local dev vs deployed
-  - [ ] landing page details
-  - [x] licence
-    - [ ] beattie
-  - [x] minify etc
   - [ ] add to digital scrapbook
-  - [x] seeing new `Benchmark    886ms  62% 135056× (Configuration) "url" Nunjucks Filter` line in build process - investigate
 - [ ] ux
+  - [ ] make it look more like the book?
   - [ ] review html semantics, main, article, aside
     - [ ] should the adjacent nav also be <time> elements? YES
   - [ ] images etc
@@ -51,6 +41,7 @@
   - [ ] spacing - why have the header and content as bordered boxes?
 - [ ] aria/a11y stuff
 - [ ] feats
+  - [ ] about, etc
   - [ ] like/share etc? <https://www.aa.org/daily-reflections>
   - [ ] search
   - [ ] index, like the book, but also with dates
