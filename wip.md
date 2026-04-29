@@ -5,8 +5,8 @@
   - [x] feb
   - [x] mar
   - [x] apr
-  - [ ] may
-  - [ ] jun
+  - [x] may
+  - [x] jun
   - [ ] jul
   - [ ] aug
   - [ ] sep
@@ -35,10 +35,11 @@
   - [ ] make it look more like the book?
   - [ ] review html semantics, main, article, aside
     - [ ] should the adjacent nav also be <time> elements? YES
-  - [ ] images etc
+  - [ ] images etc?
   - [ ] favicon
   - [ ] colour pallet feels off
   - [ ] spacing - why have the header and content as bordered boxes?
+  - [ ] home vs single pages - heading sizes
 - [ ] aria/a11y stuff
 - [ ] feats
   - [ ] about, etc
@@ -46,5 +47,6 @@
   - [ ] search
   - [ ] index, like the book, but also with dates
     - [ ] bibliography - quotes
+  - [ ] hit counter - that josh c article? (internal only, not displayed)
 - [ ] Minified 730 HTML file(s) and 5 CSS file(s) in /Users/dylankenneally/git/language-of-letting-go/build/
   - [ ] why? should be 366*2 + index + 404 = 734
