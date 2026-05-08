@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {% set isNotFoundPage = page and page.url == "/404.html" %}
     {% set isHomePage = page and page.url == "/" %}
+    {% set isIndexPage = page and page.url == "/index/" %}
     {% set pageTitle = (title ~ " | " ~ site.title) if title else (site.title ~ " | " ~ site.description) %}
     {% set pageDescription = description if description else site.description %}
     {% set escapedPageTitle = pageTitle | replace("&", "&amp;") | replace("\"", "&quot;") | replace("<", "&lt;") | replace(">", "&gt;") %}
@@ -144,10 +145,32 @@
         font-size: 2rem;
       }
 
+      .site-header-nav a,
       .site-header p {
         margin-top: 0.75rem;
         color: var(--muted);
         font-family: var(--font-sans);
+      }
+
+      .site-description {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+      }
+
+      .site-header-nav {
+        text-align: end;
+      }
+
+      .site-header-nav a {
+        text-decoration: none;
+      }
+
+      .site-header-nav a:hover,
+      .site-header-nav a:focus-visible {
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 0.16em;
       }
 
       .content {
@@ -283,6 +306,10 @@
         display: flex;
         align-items: baseline;
         justify-content: space-between;
+      }
+
+      .meditation-header,
+      .meditation-index-header {
         font-size: 1.1em;
         font-family: var(--font-serif);
         font-weight: 700;
@@ -290,7 +317,9 @@
 
       .meditation-header h1,
       .meditation-header h2,
-      .meditation-header .date {
+      .meditation-header .date,
+      .meditation-index-header h1,
+      .meditation-index-header h2 {
         margin: 0;
         margin-bottom: 1rem;
       }
@@ -311,7 +340,8 @@
           font-size: 1rem;
         }
 
-        .meditation-header {
+        .meditation-header,
+        .meditation-index-header {
           font-size: 1em;
         }
 
@@ -386,7 +416,14 @@
         {% else %}
           <div class="site-title"><a href="{{ '/' | url }}" style="text-decoration: none; color: inherit;">{{ site.title }}</a></div>
         {% endif %}
-        <p>{{ site.description }}</p>
+        <span class="site-description">
+          <p>{{ site.description }}</p>
+          {% if not isIndexPage %}
+          <nav class="site-header-nav" aria-label="{{ site.primaryNav }}">
+            <a href="{{ '/index/' | url }}">{{ site.meditationsIndex }}</a>
+          </nav>
+          {% endif %}
+        </span>
       </header>
       <div class="content card">
         {{ content | safe }}

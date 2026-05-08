@@ -1,4 +1,4 @@
-import { formatDate } from "../meditation-date.js";
+import { formatDate } from "../../scripts/meditation-date.js";
 
 function stripFrontMatter(input) {
   return input.replace(/^---[\s\S]*?---\s*/, "");

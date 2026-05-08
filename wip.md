@@ -29,6 +29,9 @@
   - [ ] aria-label
   - [ ] page slugs (en: getting-needs-met-march-29, es: ??, de: ??)
   - [ ] src/data/site.js
+  - [ ] src/includes/not-found-content.njk
+  - [ ] src/404.njk
+  - [ ] src/meditation-date.js
 - [ ] github stuff
   - [ ] add to digital scrapbook
 - [ ] ux
@@ -40,13 +43,18 @@
   - [ ] colour pallet feels off
   - [ ] spacing - why have the header and content as bordered boxes?
   - [ ] home vs single pages - heading sizes
+  - [ ] colors css should be vars
+  - [ ] navigation for index - the header (a to z), is hard coded as a to z - will not work for an international market
 - [ ] aria/a11y stuff
 - [ ] feats
   - [ ] about, etc
   - [ ] like/share etc? <https://www.aa.org/daily-reflections>
   - [ ] search
-  - [ ] index, like the book, but also with dates
-    - [ ] bibliography - quotes
+  - [x] index, like the book, but also with dates
+    - [ ] started to add `indices` for meditations (0507, 0605, 0711, 0908, 1117) - for secondary index items - finish these and use them in the index
+    - [ ] bibliography - quotes - in the index?
   - [ ] hit counter - that josh c article? (internal only, not displayed)
+  - [ ] do you want a 'see also' type feature - maybe based on the index? or search data?
 - [ ] Minified 730 HTML file(s) and 5 CSS file(s) in /Users/dylankenneally/git/language-of-letting-go/build/
   - [ ] why? should be 366*2 + index + 404 = 734
+- [ ] why is site-config in the root?

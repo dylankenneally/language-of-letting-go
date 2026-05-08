@@ -1,0 +1,191 @@
+---
+layout: base.njk
+permalink: /index/index.html
+eleventyExcludeFromCollections: true
+eleventyImport:
+    collections: ['meditations']
+---
+{% set meditationIndexData = collections.meditations | meditationIndex %}
+{% set alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"] %}
+
+<style>
+  .meditation-index-header {
+    margin-bottom: 2rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .meditation-index-alphabet {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin: 1.5rem 0 0;
+    list-style: none;
+  }
+
+  .meditation-index-alphabet a,
+  .meditation-index-alphabet .is-disabled {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2.25rem;
+    min-height: 2.25rem;
+    padding: 0.35rem 0.65rem;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    font-family: var(--font-sans);
+  }
+
+  .meditation-index-alphabet a {
+    border: 1px solid var(--border);
+    background: rgba(35, 83, 71, 0.05);
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  .meditation-index-alphabet .is-disabled {
+    border: 1px solid rgba(222, 214, 200, 0.9);
+    background: rgba(31, 41, 51, 0.035);
+    color: rgba(107, 114, 128, 0.7);
+    cursor: not-allowed;
+  }
+
+  .meditation-index-groups {
+    column-gap: 2.5rem;
+  }
+
+  .meditation-index-group {
+    break-inside: avoid;
+    margin: 0 0 2rem;
+  }
+
+  .meditation-index-letter {
+    margin: 0 0 0.75rem;
+    padding-top: 0.35rem;
+    color: var(--accent);
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  .meditation-index-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .meditation-index-entry + .meditation-index-entry {
+    margin-top: 0.5rem;
+  }
+
+  .meditation-index-link {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    color: inherit;
+  }
+
+  a .meditation-index-link:hover .meditation-index-title,
+  a .meditation-index-link:focus-visible .meditation-index-title {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.16em;
+  }
+
+  .meditation-index-title {
+    font-family: var(--font-serif);
+    line-height: 1.45;
+  }
+
+  .meditation-index-dots {
+    flex: 1;
+    min-width: 1.25rem;
+    border-bottom: 1px dotted rgba(31, 41, 51, 0.3);
+    transform: translateY(-0.2rem);
+  }
+
+  .meditation-index-date {
+    color: var(--muted);
+    font-size: 0.92rem;
+    white-space: nowrap;
+  }
+
+  .meditation-index-date-list {
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 0.35rem;
+  }
+
+  .meditation-index-date-list a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .meditation-index-date-list a:hover,
+  .meditation-index-date-list a:focus-visible {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.16em;
+  }
+
+  .meditation-index-date-separator {
+    color: var(--muted);
+  }
+
+  @media (min-width: 52rem) {
+    .meditation-index-groups {
+      columns: 2;
+    }
+  }
+</style>
+
+<section aria-labelledby="meditation-index-title">
+  <nav class="meditation-index-header" aria-label="{{ site.indexNav }}" data-current-meditation="">
+    <h1 id="meditation-index-title">{{ site.meditationsIndex }}</h1>
+    <ul class="meditation-index-alphabet" aria-label="{{ site.navJump }}">
+      {% for letter in alphabet %}
+        {% set matchingGroup = "" %}
+        {% for group in meditationIndexData %}
+          {% if group.letter == letter %}
+            {% set matchingGroup = group %}
+          {% endif %}
+        {% endfor %}
+        <li>
+          {% if matchingGroup %}
+            <a href="#index-{{ letter | lower }}">{{ letter }}</a>
+          {% else %}
+            <span class="is-disabled" aria-disabled="true" title="{{ site.navNoIndexEntry(letter) }}">{{ letter }}</span>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  </nav>
+
+  <div class="meditation-index-groups">
+    {% for group in meditationIndexData %}
+      <section class="meditation-index-group" id="index-{{ group.letter | lower }}" aria-labelledby="index-heading-{{ group.letter | lower }}">
+        <h2 class="meditation-index-letter" id="index-heading-{{ group.letter | lower }}">{{ group.letter }}</h2>
+        <ul class="meditation-index-list">
+          {% for entry in group.entries %}
+            <li class="meditation-index-entry">
+              <div class="meditation-index-link">
+                <span class="meditation-index-title">{{ entry.title }}</span>
+                <span class="meditation-index-dots" aria-hidden="true"></span>
+                <span class="meditation-index-date meditation-index-date-list">
+                  {% for date in entry.dates %}
+                    <span>
+                      <a href="{{ date.url | url }}">{{ date.displayDate }}</a>{% if not loop.last %}<span class="meditation-index-date-separator" aria-hidden="true">{{ site.listSeparator }}</span>{% endif %}
+                    </span>
+                  {% endfor %}
+                </span>
+              </div>
+            </li>
+          {% endfor %}
+        </ul>
+      </section>
+    {% endfor %}
+  </div>
+</section>

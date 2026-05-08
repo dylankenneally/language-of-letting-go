@@ -1,5 +1,5 @@
 node_modules/
 build/
+wip/
 .DS_Store
 .env
-meditations.zip

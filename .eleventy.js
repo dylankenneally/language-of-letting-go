@@ -3,6 +3,10 @@ import markdownIt from "markdown-it";
 import { generateRobotsTxt, generateSitemap } from "./scripts/generate-sitemap.js";
 import { syncMeditationTitleAliases } from "./scripts/sync-meditation-title-aliases.js";
 import { getPathPrefix, getSiteUrl } from "./site-config.js";
+import {
+  meditationIndex,
+  // searchIndex
+} from "./scripts/indices.js";
 
 export default function(eleventyConfig) {
   console.log(`Build started at ${new Date().toLocaleString()}`);
@@ -44,6 +48,9 @@ export default function(eleventyConfig) {
     const day = date.getDate().toString().padStart(2, '0');
     return `${month}-${day}`;
   });
+
+  // eleventyConfig.addFilter("searchIndex", searchIndex);
+  eleventyConfig.addFilter("meditationIndex", meditationIndex);
 
   const inlineMarkdown = markdownIt({ html: true });
   eleventyConfig.addPairedShortcode("quote", (content, attribution = "")=> {

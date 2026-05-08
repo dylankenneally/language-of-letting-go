@@ -1,6 +1,6 @@
 import { readFile, readdir, mkdir, rm, writeFile, copyFile } from "node:fs/promises";
 import path from "node:path";
-import { formatDate } from "../src/meditation-date.js";
+import { formatDate } from "./meditation-date.js";
 
 const ALIAS_MANIFEST = ".meditation-title-aliases.json";
 
