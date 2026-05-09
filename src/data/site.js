@@ -10,6 +10,7 @@ export default {
   skipToMain: "Skip to main content",
   primaryNav: "Primary navigation",
 
+  seeAll: "See all",
   meditationsIndex: "Meditations index",
   meditationsIndexDescription: `Alphabetical index of meditations from ${title}`,
   indexNav: "Index navigation",

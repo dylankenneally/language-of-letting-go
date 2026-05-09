@@ -117,7 +117,7 @@
       .shell {
         width: min(100%, 72rem);
         margin: 0 auto;
-        padding: 2rem 1rem 4rem;
+        padding: .5rem;
       }
 
       .card {
@@ -128,7 +128,7 @@
       }
 
       .site-header {
-        margin-bottom: 2rem;
+        margin-bottom: .5rem;
         padding: 1.5rem;
       }
 
@@ -142,20 +142,22 @@
       .site-header .site-title {
         font-family: var(--font-serif);
         font-weight: 700;
-        font-size: 2rem;
+        font-size: clamp(1rem, 2.5vw, 2rem);
       }
 
-      .site-header-nav a,
-      .site-header p {
+      .site-description a,
+      .site-description p {
         margin-top: 0.75rem;
         color: var(--muted);
         font-family: var(--font-sans);
+        font-size: clamp(.75rem, 1.875vw, 1rem);
       }
 
       .site-description {
         display: flex;
         align-items: baseline;
         justify-content: space-between;
+        gap: 1rem;
       }
 
       .site-header-nav {
@@ -306,6 +308,7 @@
         display: flex;
         align-items: baseline;
         justify-content: space-between;
+        gap: 1rem;
       }
 
       .meditation-header,
@@ -326,6 +329,11 @@
 
       .meditation-header .date {
         font-style: italic;
+        color: var(--muted);
+      }
+
+      .meditation-header-title {
+        font-size: 2em;
       }
 
       #current-meditation {
@@ -338,6 +346,10 @@
       @media screen and (max-width: 599px) {
         .prose {
           font-size: 1rem;
+        }
+
+        .meditation-header-title {
+          font-size: 1.25em;
         }
 
         .meditation-header,
@@ -412,7 +424,7 @@
     <main class="shell" id="main-content">
       <header class="site-header card">
         {% if isHomePage %}
-          <h1><a href="{{ '/' | url }}" style="text-decoration: none; color: inherit;">{{ site.title }}</a></h1>
+          <h1 class="site-title"><a href="{{ '/' | url }}" style="text-decoration: none; color: inherit;">{{ site.title }}</a></h1>
         {% else %}
           <div class="site-title"><a href="{{ '/' | url }}" style="text-decoration: none; color: inherit;">{{ site.title }}</a></div>
         {% endif %}
@@ -420,7 +432,7 @@
           <p>{{ site.description }}</p>
           {% if not isIndexPage %}
           <nav class="site-header-nav" aria-label="{{ site.primaryNav }}">
-            <a href="{{ '/index/' | url }}">{{ site.meditationsIndex }}</a>
+            <a href="{{ '/index/' | url }}">{{ site.seeAll }}</a>
           </nav>
           {% endif %}
         </span>

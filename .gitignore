@@ -3,3 +3,4 @@ build/
 wip/
 .DS_Store
 .env
+.vscode/settings.json

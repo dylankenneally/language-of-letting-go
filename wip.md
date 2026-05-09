@@ -41,16 +41,16 @@
   - [ ] images etc?
   - [ ] favicon
   - [ ] colour pallet feels off
-  - [ ] spacing - why have the header and content as bordered boxes?
-  - [ ] home vs single pages - heading sizes
   - [ ] colors css should be vars
   - [ ] navigation for index - the header (a to z), is hard coded as a to z - will not work for an international market
 - [ ] aria/a11y stuff
 - [ ] feats
-  - [ ] about, etc
+  - [ ] about, contact, privacy, etc (if you add this, consider moving 'see all'/index to the footer with it)
+    - [ ] or... rework the nav section to icons, a hamburger, etc
   - [ ] like/share etc? <https://www.aa.org/daily-reflections>
   - [ ] search
   - [x] index, like the book, but also with dates
+    - [ ] add a link to it to the 404 page
     - [ ] started to add `indices` for meditations (0507, 0605, 0711, 0908, 1117) - for secondary index items - finish these and use them in the index
     - [ ] bibliography - quotes - in the index?
   - [ ] hit counter - that josh c article? (internal only, not displayed)
@@ -58,3 +58,9 @@
 - [ ] Minified 730 HTML file(s) and 5 CSS file(s) in /Users/dylankenneally/git/language-of-letting-go/build/
   - [ ] why? should be 366*2 + index + 404 = 734
 - [ ] why is site-config in the root?
+
+---
+chrome dev tools ai:
+- Modern CSS Features: Suggesting ways to use newer platform features like View Transitions, Container Queries, or Flexbox/Grid to improve your UI.
+- Accessibility (a11y): Checking if your elements have sufficient color contrast or proper ARIA roles for screen readers.
+---
