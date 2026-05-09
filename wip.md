@@ -50,7 +50,6 @@
   - [ ] like/share etc? <https://www.aa.org/daily-reflections>
   - [ ] search
   - [x] index, like the book, but also with dates
-    - [ ] add a link to it to the 404 page
     - [ ] started to add `indices` for meditations (0507, 0605, 0711, 0908, 1117) - for secondary index items - finish these and use them in the index
     - [ ] bibliography - quotes - in the index?
   - [ ] hit counter - that josh c article? (internal only, not displayed)
