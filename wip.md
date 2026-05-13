@@ -32,6 +32,7 @@
   - [ ] src/includes/not-found-content.njk
   - [ ] src/404.njk
   - [ ] src/meditation-date.js
+  - [ ] navigation for index - the header (a to z), is hard coded as a to z - will not work for an international market
 - [ ] github stuff
   - [ ] add to digital scrapbook
 - [ ] ux
@@ -42,7 +43,7 @@
   - [ ] favicon
   - [ ] colour pallet feels off
   - [ ] colors css should be vars
-  - [ ] navigation for index - the header (a to z), is hard coded as a to z - will not work for an international market
+  - [ ] look at the guardian for ux styled
 - [ ] aria/a11y stuff
 - [ ] feats
   - [ ] about, contact, privacy, etc (if you add this, consider moving 'see all'/index to the footer with it)
@@ -50,8 +51,8 @@
   - [ ] like/share etc? <https://www.aa.org/daily-reflections>
   - [ ] search
   - [x] index, like the book, but also with dates
-    - [ ] started to add `indices` for meditations (0507, 0605, 0711, 0908, 1117) - for secondary index items - finish these and use them in the index
     - [ ] bibliography - quotes - in the index?
+    - [ ] `meditation-index-dots` does not always cover the full line - because of the flex layout
   - [ ] hit counter - that josh c article? (internal only, not displayed)
   - [ ] do you want a 'see also' type feature - maybe based on the index? or search data?
 - [ ] Minified 730 HTML file(s) and 5 CSS file(s) in /Users/dylankenneally/git/language-of-letting-go/build/

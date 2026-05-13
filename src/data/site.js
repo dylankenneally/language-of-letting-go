@@ -17,6 +17,11 @@ export default {
   navJump: "Jump to a letter section",
   navNoIndexEntry: (letter) => `No meditations indexed under ${letter}`,
 
+  // used in index generation
+  excludedTitlePrefixes: [
+    'The',
+  ],
+
   listSeparator: ",",
 
   url: getSiteUrl(),

@@ -1,4 +1,4 @@
-# Language of Letting Go
+# The Language of Letting Go
 
 [![Deploy to GitHub Pages](https://github.com/dylankenneally/language-of-letting-go/actions/workflows/deploy-to-ghpages.yml/badge.svg)](https://github.com/dylankenneally/language-of-letting-go/actions/workflows/deploy-to-ghpages.yml)
 

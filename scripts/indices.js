@@ -1,3 +1,5 @@
+import site from "../src/data/site.js";
+
 // /*!
 //  * Creates an index of searchable keywords.
 //  *
@@ -75,8 +77,8 @@
 
 // returns an array of meditations grouped and sorted alphabetically
 export function meditationIndex(collection) {
-  // get a sorted list of meditation entries
   const entries = collection
+    // get a list of meditation entries
     .filter((page) => !page.data.excludeFromMeditation)
     .map(({ fileSlug, url, data }) => {
       console.assert(typeof data.title === "string" && data.title.length > 0 && typeof data.displayDate === "string" && data.displayDate.length > 0, `Meditation ${fileSlug} is missing a title and/or display date`);
@@ -84,15 +86,32 @@ export function meditationIndex(collection) {
         throw new Error(`Meditation ${fileSlug} is missing a title and/or display date`);
       }
 
+      let title = data.title.trim();
+      for (const prefix of site.excludedTitlePrefixes) {
+        if (title.startsWith(prefix)) {
+          title = title.slice(prefix.length).trim();
+          break;
+        }
+      }
+
+
       return {
         url,
-        title: data.title.trim(),
+        title,
+        indices: Array.isArray(data.indices) ? data.indices.map((index) => index.trim()).filter(Boolean) : [],
         displayDate: data.displayDate.trim(),
         fileSlug,
       };
     })
+    // merge (flatten) the secondary indices (`indices`) in to the array
+    .flatMap((entry) => [entry.title, ...entry.indices].map((title) => ({
+      url: entry.url,
+      title,
+      displayDate: entry.displayDate,
+      fileSlug: entry.fileSlug,
+    })))
+    // sort by title, then by the date of the meditation (if there are multiple entries with the same title)
     .sort((a, b) => {
-      // sort by title, then by the date of the meditation (if there are multiple entries with the same title)
       const titleComparison = a.title.localeCompare(b.title, undefined, { sensitivity: "base" });
       if (titleComparison !== 0) {
         return titleComparison;
