@@ -9,8 +9,13 @@ export default {
   notFound: "Meditation not found",
   skipToMain: "Skip to main content",
   primaryNav: "Primary navigation",
+  meditationNav: "Meditation navigation",
 
   seeAll: "See all",
+  about: "About",
+  aboutTitle: `About ${title}`,
+  aboutDescription: `About this digital companion to ${title} by Melody Beattie`,
+
   meditationsIndex: "Meditations index",
   meditationsIndexDescription: `Alphabetical index of meditations from ${title}`,
   indexNav: "Index navigation",

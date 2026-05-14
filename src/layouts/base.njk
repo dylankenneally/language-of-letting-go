@@ -6,6 +6,7 @@
     {% set isNotFoundPage = page and page.url == "/404.html" %}
     {% set isHomePage = page and page.url == "/" %}
     {% set isIndexPage = page and page.url == "/index/" %}
+    {% set isAboutPage = page and page.url == "/about/" %}
     {% set pageTitle = (title ~ " | " ~ site.title) if title else (site.title ~ " | " ~ site.description) %}
     {% set pageDescription = description if description else site.description %}
     {% set escapedPageTitle = pageTitle | replace("&", "&amp;") | replace("\"", "&quot;") | replace("<", "&lt;") | replace(">", "&gt;") %}
@@ -161,6 +162,10 @@
       }
 
       .site-header-nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 0.75rem;
         text-align: end;
       }
 
@@ -430,11 +435,14 @@
         {% endif %}
         <span class="site-description">
           <p>{{ site.description }}</p>
-          {% if not isIndexPage %}
           <nav class="site-header-nav" aria-label="{{ site.primaryNav }}">
-            <a href="{{ '/index/' | url }}">{{ site.seeAll }}</a>
+            {% if not isIndexPage %}
+              <a href="{{ '/index/' | url }}">{{ site.seeAll }}</a>
+            {% endif %}
+            {% if not isAboutPage %}
+              <a href="{{ '/about/' | url }}">{{ site.about }}</a>
+            {% endif %}
           </nav>
-          {% endif %}
         </span>
       </header>
       <div class="content card">

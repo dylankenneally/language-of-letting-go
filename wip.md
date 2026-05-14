@@ -22,6 +22,7 @@
   - [ ] `<meta name="og:description" content="…">`
   - [ ] `<meta name="twitter:description" content="…">`
 - [ ] i18n/l10n
+  - [ ] !! consider dropping i18n/l10n - will it really be used?. if going this way, add an issue to the repo for it for others to do it?
   - [ ] see also: src/meditations/meditations.11tydata.js
   - [ ] spell check (en-US to start)
     - [ ] grammar check? but not to change content - for things like `well` vs `we'll` (as ai removed some)
@@ -32,6 +33,7 @@
   - [ ] src/includes/not-found-content.njk
   - [ ] src/404.njk
   - [ ] src/meditation-date.js
+  - [ ] src/about.njk
   - [ ] navigation for index - the header (a to z), is hard coded as a to z - will not work for an international market
 - [ ] github stuff
   - [ ] add to digital scrapbook
@@ -44,15 +46,15 @@
   - [ ] colour pallet feels off
   - [ ] colors css should be vars
   - [ ] look at the guardian for ux styled
+  - [ ] about page - bottom nav - hover has underline; meditation - bottom nav has no underline. prefer the about page. make utility css classes.
+  - [ ] about page - text links are underlined - clear; nav (top, about, index) - no underline - not as clear. make utility css classes.
+  - [ ] nav - about/index at top - rework the nav section to icons, a hamburger, etc, or a footer
 - [ ] aria/a11y stuff
 - [ ] feats
-  - [ ] about, contact, privacy, etc (if you add this, consider moving 'see all'/index to the footer with it)
-    - [ ] or... rework the nav section to icons, a hamburger, etc
-  - [ ] like/share etc? <https://www.aa.org/daily-reflections>
   - [ ] search
   - [x] index, like the book, but also with dates
     - [ ] bibliography - quotes - in the index?
-    - [ ] `meditation-index-dots` does not always cover the full line - because of the flex layout
+    - [ ] 'step one', 'step two', etc... in the index
   - [ ] hit counter - that josh c article? (internal only, not displayed)
   - [ ] do you want a 'see also' type feature - maybe based on the index? or search data?
 - [ ] Minified 730 HTML file(s) and 5 CSS file(s) in /Users/dylankenneally/git/language-of-letting-go/build/
