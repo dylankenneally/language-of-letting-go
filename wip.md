@@ -21,6 +21,7 @@
   - [ ] `<meta name="description" content="…">`
   - [ ] `<meta name="og:description" content="…">`
   - [ ] `<meta name="twitter:description" content="…">`
+  - [ ] <https://github.com/dylankenneally/language-of-letting-go/commit/fe737e4d8d5b7ca81da817974576a0ae0a8c6e65>
 - [ ] i18n/l10n
   - [ ] !! consider dropping i18n/l10n - will it really be used?. if going this way, add an issue to the repo for it for others to do it?
   - [ ] see also: src/meditations/meditations.11tydata.js
@@ -44,17 +45,15 @@
   - [ ] images etc?
   - [ ] favicon
   - [ ] colour pallet feels off
-  - [ ] colors css should be vars
+  - [ ] colors css should be var's
   - [ ] look at the guardian for ux styled
   - [ ] about page - bottom nav - hover has underline; meditation - bottom nav has no underline. prefer the about page. make utility css classes.
   - [ ] about page - text links are underlined - clear; nav (top, about, index) - no underline - not as clear. make utility css classes.
   - [ ] nav - about/index at top - rework the nav section to icons, a hamburger, etc, or a footer
+  - [ ] about page nav - today's meditation and index. both of which are linked to at the top anyway.
 - [ ] aria/a11y stuff
 - [ ] feats
   - [ ] search
-  - [x] index, like the book, but also with dates
-    - [ ] bibliography - quotes - in the index?
-    - [ ] 'step one', 'step two', etc... in the index
   - [ ] hit counter - that josh c article? (internal only, not displayed)
   - [ ] do you want a 'see also' type feature - maybe based on the index? or search data?
 - [ ] Minified 730 HTML file(s) and 5 CSS file(s) in /Users/dylankenneally/git/language-of-letting-go/build/
@@ -63,6 +62,8 @@
 
 ---
 chrome dev tools ai:
+
 - Modern CSS Features: Suggesting ways to use newer platform features like View Transitions, Container Queries, or Flexbox/Grid to improve your UI.
 - Accessibility (a11y): Checking if your elements have sufficient color contrast or proper ARIA roles for screen readers.
+
 ---
