@@ -7,7 +7,7 @@
   - [x] apr
   - [x] may
   - [x] jun
-  - [ ] jul
+  - [x] jul
   - [ ] aug
   - [ ] sep
   - [ ] oct
@@ -54,8 +54,12 @@
 - [ ] aria/a11y stuff
 - [ ] feats
   - [ ] search
+  - [ ] back to top - esp on the index
   - [ ] hit counter - that josh c article? (internal only, not displayed)
   - [ ] do you want a 'see also' type feature - maybe based on the index? or search data?
+    - [ ] this feels like a feature for a features sake?
+  - [ ] the URL's - something smells funny
+  - [ ] do you have multiple paths for the render - duplicate? `?date=` vs single render pages
 - [ ] Minified 730 HTML file(s) and 5 CSS file(s) in /Users/dylankenneally/git/language-of-letting-go/build/
   - [ ] why? should be 366*2 + index + 404 = 734
 - [ ] why is site-config in the root?
