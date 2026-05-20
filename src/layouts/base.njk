@@ -32,12 +32,16 @@
     {# favicons #}
     {# Classic favicon #}
     <link rel="icon" type="image/x-icon"   href="{{ '/favicon.ico' | url }}">
+    <link rel="shortcut icon" href="{{ '/favicon.ico' | url }}" />
     <link rel="icon" type="image/svg+xml"  href="{{ '/favicon.svg' | url }}">
+    <link rel="icon" type="image/png" sizes="96x96"  href="{{ '/favicon-96x96.png' | url }}">
+    <link rel="icon" type="image/png" sizes="64x64"  href="{{ '/favicon-64x64.png' | url }}">
     <link rel="icon" type="image/png" sizes="32x32"  href="{{ '/favicon-32x32.png' | url }}">
     <link rel="icon" type="image/png" sizes="16x16"  href="{{ '/favicon-16x16.png' | url }}">
 
     {# Apple Touch Icons #}
     <link rel="apple-touch-icon" sizes="180x180" href="{{ '/apple-touch-icon.png' | url }}">
+    <meta name="apple-mobile-web-app-title" content="{{ site.shortTitle }}" />
 
     {# Android / PWA #}
     <link rel="manifest" href="{{ '/site.webmanifest' | url }}">
@@ -49,7 +53,6 @@
 
     {# Theme colour (Chrome on Android address bar, Safari pinned tabs) #}
     {# todo: color from css #}
-    {# todo: review this meta #}
     <meta name="theme-color" content="#2d5248">
 
     <style>

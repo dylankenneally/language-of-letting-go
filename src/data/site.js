@@ -5,6 +5,7 @@ const title = "The Language of Letting Go";
 
 export default {
   title,
+  shortTitle: "Language of Letting Go",
   description: "Daily Meditations on Codependency",
   notFound: "Meditation not found",
   skipToMain: "Skip to main content",
