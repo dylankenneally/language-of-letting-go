@@ -43,7 +43,6 @@
   - [ ] review html semantics, main, article, aside
     - [ ] should the adjacent nav also be <time> elements? YES
   - [ ] images etc?
-  - [ ] favicon
   - [ ] colour pallet feels off
   - [ ] colors css should be var's
   - [ ] look at the guardian for ux styled
@@ -62,7 +61,6 @@
   - [ ] do you have multiple paths for the render - duplicate? `?date=` vs single render pages
 - [ ] Minified 730 HTML file(s) and 5 CSS file(s) in /Users/dylankenneally/git/language-of-letting-go/build/
   - [ ] why? should be 366*2 + index + 404 = 734
-- [ ] why is site-config in the root?
 
 ---
 chrome dev tools ai:

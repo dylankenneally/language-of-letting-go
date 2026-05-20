@@ -13,6 +13,7 @@ export default function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/fonts/*.woff2": "fonts" });
   eleventyConfig.addPassthroughCopy({ "node_modules/vanilla-calendar-pro/index.js": "vanilla-calendar-pro/index.js" });
   eleventyConfig.addPassthroughCopy({ "node_modules/vanilla-calendar-pro/styles": "vanilla-calendar-pro/styles" });
+  eleventyConfig.addPassthroughCopy({ "src/favicon": "/" });
   // eleventyConfig.addPassthroughCopy("CNAME");
 
   eleventyConfig.on("eleventy.after", async ({ dir }) => {
