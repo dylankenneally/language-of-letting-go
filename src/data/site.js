@@ -12,6 +12,11 @@ export default {
   primaryNav: "Primary navigation",
   meditationNav: "Meditation navigation",
   indexNav: "Index navigation",
+  calendarNav: "Pick a Date",
+  adjacentNav: "Adjacent meditations",
+
+  nextDate: (date) => `Next meditation: ${date}`,
+  prevDate: (date) => `Previous meditation: ${date}`,
 
   seeAll: "See all",
   about: "About",

@@ -51,7 +51,7 @@
   - [ ] nav - about/index at top - rework the nav section to icons, a hamburger, etc, or a footer
   - [ ] about page nav - today's meditation and index. both of which are linked to at the top anyway. but you do want CTA's, so keep?
   - [ ] not found page - has the links in the prose - but want consistent footer with about and cta's. fragment?
-- [ ] aria/a11y stuff
+- [ ] perform a aria/a11y review
 - [ ] feats
   - [ ] search
   - [ ] back to top - esp on the index

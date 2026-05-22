@@ -18,20 +18,20 @@ layout: base.njk
     )
   }}
 
-  <nav class="calendar-section" aria-label="Pick a Date">
+  <nav class="calendar-section" aria-label="{{ site.calendarNav }}">
     <div id="meditation-calendar" class="meditation-calendar"></div>
   </nav>
 </div>
 
 <footer>
-  <nav class="meditation-nav" aria-label="Adjacent meditations" data-current-meditation="">
+  <nav class="meditation-nav" aria-label="{{ site.adjacentNav }}" data-current-meditation="">
     <ul class="meditation-nav-links" id="adjacent-meditation-links">
       <li>
         <time class="date" datetime="--{{ previousMeditation.data.displayDate  | monthDayToMMDD }}">
           <a
             class="meditation-nav-link meditation-nav-link-previous"
             href="{{ previousMeditation.url | url }}"
-            aria-label="Previous meditation: {{ previousMeditation.data.displayDate }}"
+            aria-label="{{ site.prevDate(previousMeditation.data.displayDate) }}"
             rel="prev"
           >
             ← {{ previousMeditation.data.displayDate }}
@@ -43,7 +43,7 @@ layout: base.njk
           <a
             class="meditation-nav-link meditation-nav-link-next"
             href="{{ nextMeditation.url | url }}"
-            aria-label="Next meditation: {{ nextMeditation.data.displayDate }}"
+            aria-label="{{ site.nextDate(nextMeditation.data.displayDate) }}"
             rel="next"
           >
             {{ nextMeditation.data.displayDate }} →
