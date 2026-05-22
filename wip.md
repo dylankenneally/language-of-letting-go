@@ -28,7 +28,6 @@
   - [ ] spell check (en-US to start)
     - [ ] grammar check? but not to change content - for things like `well` vs `we'll` (as ai removed some)
   - [ ] translations
-  - [ ] aria-label
   - [ ] page slugs (en: getting-needs-met-march-29, es: ??, de: ??)
   - [ ] src/data/site.js
   - [ ] src/includes/not-found-content.njk
