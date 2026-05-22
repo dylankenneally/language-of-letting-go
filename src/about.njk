@@ -57,7 +57,10 @@ permalink: /about/index.html
   }
 
   .about-footer {
-    border-top: 1px solid var(--border);
+    border-top: 1px dashed var(--border);
+  }
+
+  .about-footer ol {
     color: var(--muted);
     font-size: smaller;
   }
@@ -113,10 +116,10 @@ permalink: /about/index.html
         <sup><a href="#ref2" title="Jump back to reference">↩</a></sup>
       </li>
     </ol>
-  </footer>
 
-  <nav class="about-actions" aria-label="{{ site.meditationNav }}">
-    <a href="{{ '/' | url }}">Today's meditation</a>
-    <a href="{{ '/index/' | url }}">{{ site.meditationsIndex }}</a>
-  </nav>
+    <nav class="about-actions" aria-label="{{ site.meditationNav }}">
+      <a href="{{ '/' | url }}">Today's meditation</a>
+      <a href="{{ '/index/' | url }}">{{ site.meditationsIndex }}</a>
+    </nav>
+  </footer>
 </article>

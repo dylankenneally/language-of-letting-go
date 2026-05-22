@@ -11,6 +11,7 @@ export default {
   skipToMain: "Skip to main content",
   primaryNav: "Primary navigation",
   meditationNav: "Meditation navigation",
+  indexNav: "Index navigation",
 
   seeAll: "See all",
   about: "About",
@@ -19,7 +20,6 @@ export default {
 
   meditationsIndex: "Meditations index",
   meditationsIndexDescription: `Alphabetical index of meditations from ${title}`,
-  indexNav: "Index navigation",
   navJump: "Jump to a letter section",
   navNoIndexEntry: (letter) => `No meditations indexed under ${letter}`,
 

@@ -7,6 +7,7 @@ import {
   meditationIndex,
   // searchIndex
 } from "./scripts/indices.js";
+import { toTimeAttribute } from "./scripts/meditation-date.js"
 
 export default function(eleventyConfig) {
   console.log(`Build started at ${new Date().toLocaleString()}`);
@@ -36,18 +37,7 @@ export default function(eleventyConfig) {
 
   // Converts "Month dd" string to "MM-DD" format for <time datetime> attribute
   eleventyConfig.addFilter("monthDayToMMDD", (monthDayString) => {
-    if (!monthDayString || typeof monthDayString !== 'string') return "";
-
-    // Handle "MM.DD" format if passed (e.g. from fileSlug)
-    if (monthDayString.includes('.')) return monthDayString.replace('.', '-');
-
-    // Use an arbitrary year (e.g., 2000) to parse the month and day correctly
-    const date = new Date(`2000 ${monthDayString}`);
-    if (isNaN(date.getTime())) return "";
-
-    const month = (date.getMonth() + 1).toString().padStart(2, '0');
-    const day = date.getDate().toString().padStart(2, '0');
-    return `${month}-${day}`;
+    return toTimeAttribute(monthDayString);
   });
 
   // eleventyConfig.addFilter("searchIndex", searchIndex);

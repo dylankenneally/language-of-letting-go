@@ -18,21 +18,41 @@ layout: base.njk
     )
   }}
 
-  <section class="calendar-section" aria-label="Pick a Date">
+  <nav class="calendar-section" aria-label="Pick a Date">
     <div id="meditation-calendar" class="meditation-calendar"></div>
-  </section>
+  </nav>
 </div>
 
-<nav class="meditation-nav" aria-label="Adjacent meditations" data-current-meditation="">
-  <ul class="meditation-nav-links" id="adjacent-meditation-links">
-    <li>
-      <a class="meditation-nav-link meditation-nav-link-previous" href="{{ previousMeditation.url | url }}">← {{ previousMeditation.data.displayDate }}</a>
-    </li>
-    <li>
-      <a class="meditation-nav-link meditation-nav-link-next" href="{{ nextMeditation.url | url }}">{{ nextMeditation.data.displayDate }} →</a>
-    </li>
-  </ul>
-</nav>
+<footer>
+  <nav class="meditation-nav" aria-label="Adjacent meditations" data-current-meditation="">
+    <ul class="meditation-nav-links" id="adjacent-meditation-links">
+      <li>
+        <time class="date" datetime="--{{ previousMeditation.data.displayDate  | monthDayToMMDD }}">
+          <a
+            class="meditation-nav-link meditation-nav-link-previous"
+            href="{{ previousMeditation.url | url }}"
+            aria-label="Previous meditation: {{ previousMeditation.data.displayDate }}"
+            rel="prev"
+          >
+            ← {{ previousMeditation.data.displayDate }}
+          </a>
+        </time>
+      </li>
+      <li>
+        <time class="date" datetime="--{{ nextMeditation.data.displayDate  | monthDayToMMDD }}">
+          <a
+            class="meditation-nav-link meditation-nav-link-next"
+            href="{{ nextMeditation.url | url }}"
+            aria-label="Next meditation: {{ nextMeditation.data.displayDate }}"
+            rel="next"
+          >
+            {{ nextMeditation.data.displayDate }} →
+          </a>
+        </time>
+      </li>
+    </ul>
+  </nav>
+</footer>
 
 <script id="meditations-data" type="application/json">
 [

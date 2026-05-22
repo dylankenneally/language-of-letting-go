@@ -49,7 +49,8 @@
   - [ ] about page - bottom nav - hover has underline; meditation - bottom nav has no underline. prefer the about page. make utility css classes.
   - [ ] about page - text links are underlined - clear; nav (top, about, index) - no underline - not as clear. make utility css classes.
   - [ ] nav - about/index at top - rework the nav section to icons, a hamburger, etc, or a footer
-  - [ ] about page nav - today's meditation and index. both of which are linked to at the top anyway.
+  - [ ] about page nav - today's meditation and index. both of which are linked to at the top anyway. but you do want CTA's, so keep?
+  - [ ] not found page - has the links in the prose - but want consistent footer with about and cta's. fragment?
 - [ ] aria/a11y stuff
 - [ ] feats
   - [ ] search
