@@ -161,16 +161,19 @@
       }
 
       .site-header h1,
-      .site-header .site-title,
       .site-header p {
         margin: 0;
       }
 
-      .site-header h1,
-      .site-header .site-title {
+      .site-header h1 {
         font-family: var(--font-serif);
         font-weight: 700;
         font-size: clamp(1rem, 2.5vw, 2rem);
+      }
+
+      .site-header h1 a {
+        text-decoration: none;
+        color: inherit;
       }
 
       .site-description a,
@@ -455,11 +458,7 @@
     <a class="skip-link" href="#main-content">{{ site.skipToMain }}</a>
     <main class="shell" id="main-content">
       <header class="site-header card">
-        {% if isHomePage %}
-          <h1 class="site-title"><a href="{{ '/' | url }}" style="text-decoration: none; color: inherit;">{{ site.title }}</a></h1>
-        {% else %}
-          <div class="site-title"><a href="{{ '/' | url }}" style="text-decoration: none; color: inherit;">{{ site.title }}</a></div>
-        {% endif %}
+        <h1><a href="{{ '/' | url }}">{{ site.title }}</a></h1>
         <span class="site-description">
           <p>{{ site.description }}</p>
           <nav class="site-header-nav" aria-label="{{ site.primaryNav }}">
