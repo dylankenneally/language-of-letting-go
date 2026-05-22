@@ -161,16 +161,19 @@
       }
 
       .site-header h1,
-      .site-header .site-title,
       .site-header p {
         margin: 0;
       }
 
-      .site-header h1,
-      .site-header .site-title {
+      .site-header h1 {
         font-family: var(--font-serif);
         font-weight: 700;
         font-size: clamp(1rem, 2.5vw, 2rem);
+      }
+
+      .site-header h1 a {
+        text-decoration: none;
+        color: inherit;
       }
 
       .site-description a,
@@ -449,32 +452,28 @@
       .meditation-nav-link-next {
         margin-left: auto;
       }
+
+      .nav-current-page {
+        {# todo: #}
+      }
     </style>
   </head>
-  <body>
+  <body class="shell">
     <a class="skip-link" href="#main-content">{{ site.skipToMain }}</a>
-    <main class="shell" id="main-content">
-      <header class="site-header card">
-        {% if isHomePage %}
-          <h1 class="site-title"><a href="{{ '/' | url }}" style="text-decoration: none; color: inherit;">{{ site.title }}</a></h1>
-        {% else %}
-          <div class="site-title"><a href="{{ '/' | url }}" style="text-decoration: none; color: inherit;">{{ site.title }}</a></div>
-        {% endif %}
-        <span class="site-description">
-          <p>{{ site.description }}</p>
-          <nav class="site-header-nav" aria-label="{{ site.primaryNav }}">
-            {% if not isIndexPage %}
-              <a href="{{ '/index/' | url }}">{{ site.seeAll }}</a>
-            {% endif %}
-            {% if not isAboutPage %}
-              <a href="{{ '/about/' | url }}">{{ site.about }}</a>
-            {% endif %}
-          </nav>
-        </span>
-      </header>
-      <div class="content card">
-        {{ content | safe }}
-      </div>
+
+    <header class="site-header card">
+      <h1><a href="{{ '/' | url }}">{{ site.title }}</a></h1>
+      <span class="site-description">
+        <p>{{ site.description }}</p>
+        <nav class="site-header-nav" aria-label="{{ site.primaryNav }}">
+          <a href="{{ '/index/' | url }}"{% if isIndexPage %} class="nav-current-page"{% endif %}>{{ site.seeAll }}</a>
+          <a href="{{ '/about/' | url }}"{% if isAboutPage %} class="nav-current-page"{% endif %}>{{ site.about }}</a>
+        </nav>
+      </span>
+    </header>
+
+    <main class="content card" id="main-content">
+      {{ content | safe }}
     </main>
   </body>
 </html>

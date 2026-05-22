@@ -28,7 +28,6 @@
   - [ ] spell check (en-US to start)
     - [ ] grammar check? but not to change content - for things like `well` vs `we'll` (as ai removed some)
   - [ ] translations
-  - [ ] aria-label
   - [ ] page slugs (en: getting-needs-met-march-29, es: ??, de: ??)
   - [ ] src/data/site.js
   - [ ] src/includes/not-found-content.njk
@@ -49,8 +48,9 @@
   - [ ] about page - bottom nav - hover has underline; meditation - bottom nav has no underline. prefer the about page. make utility css classes.
   - [ ] about page - text links are underlined - clear; nav (top, about, index) - no underline - not as clear. make utility css classes.
   - [ ] nav - about/index at top - rework the nav section to icons, a hamburger, etc, or a footer
-  - [ ] about page nav - today's meditation and index. both of which are linked to at the top anyway.
-- [ ] aria/a11y stuff
+  - [ ] about page nav - today's meditation and index. both of which are linked to at the top anyway. but you do want CTA's, so keep?
+  - [ ] not found page - has the links in the prose - but want consistent footer with about and cta's. fragment?
+- [ ] perform a aria/a11y review
 - [ ] feats
   - [ ] search
   - [ ] back to top - esp on the index
