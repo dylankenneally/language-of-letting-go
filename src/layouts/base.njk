@@ -113,9 +113,11 @@
       }
 
       body {
-        margin: 0;
         font-family: var(--font-sans);
         color: var(--ink);
+        width: min(100%, 72rem);
+        margin: 0 auto;
+        padding: .25rem;
       }
 
       a {
@@ -142,12 +144,6 @@
         transform: translateY(0);
       }
 
-      .shell {
-        width: min(100%, 72rem);
-        margin: 0 auto;
-        padding: .5rem;
-      }
-
       .card {
         background: var(--paper);
         border: 1px solid var(--border);
@@ -168,7 +164,7 @@
       .site-header h1 {
         font-family: var(--font-serif);
         font-weight: 700;
-        font-size: clamp(1rem, 2.5vw, 2rem);
+        font-size: clamp(1rem, 2.5vw, 1.75rem);
       }
 
       .site-header h1 a {
@@ -176,35 +172,20 @@
         color: inherit;
       }
 
-      .site-description a,
-      .site-description p {
+      p.site-description {
         margin-top: 0.75rem;
         color: var(--muted);
         font-family: var(--font-sans);
         font-size: clamp(.75rem, 1.875vw, 1rem);
+        margin-top: .5rem;
       }
 
-      .site-description {
-        display: flex;
-        align-items: baseline;
-        justify-content: space-between;
-        gap: 1rem;
-      }
-
-      .site-header-nav {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: flex-end;
-        gap: 0.75rem;
-        text-align: end;
-      }
-
-      .site-header-nav a {
+      .site-footer a {
         text-decoration: none;
       }
 
-      .site-header-nav a:hover,
-      .site-header-nav a:focus-visible {
+      .site-footer a:hover,
+      .site-footer a:focus-visible {
         text-decoration: underline;
         text-decoration-thickness: 1px;
         text-underline-offset: 0.16em;
@@ -365,6 +346,7 @@
       .meditation-header .date {
         font-style: italic;
         color: var(--muted);
+        font-size: .9rem;
       }
 
       .meditation-header-title {
@@ -453,27 +435,66 @@
         margin-left: auto;
       }
 
-      .nav-current-page {
-        {# todo: #}
+      .site-footer {
+        margin-top: .5rem;
+        font-size: .8rem;
+      }
+
+      .site-footer * {
+        color: var(--muted);
+      }
+
+      .corp-logo {
+        height: .9rem;
+      }
+
+      .site-footer > nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: baseline;
+        flex-wrap: wrap;
+        gap: .5rem;
+      }
+
+      a.nav-current-page {
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 0.16em;
       }
     </style>
   </head>
-  <body class="shell">
+  <body>
+    {# todo: review this UX on skip link #}
     <a class="skip-link" href="#main-content">{{ site.skipToMain }}</a>
 
     <header class="site-header card">
       <h1><a href="{{ '/' | url }}">{{ site.title }}</a></h1>
-      <span class="site-description">
-        <p>{{ site.description }}</p>
-        <nav class="site-header-nav" aria-label="{{ site.primaryNav }}">
-          <a href="{{ '/index/' | url }}"{% if isIndexPage %} class="nav-current-page"{% endif %}>{{ site.seeAll }}</a>
-          <a href="{{ '/about/' | url }}"{% if isAboutPage %} class="nav-current-page"{% endif %}>{{ site.about }}</a>
-        </nav>
-      </span>
+      <p class="site-description">{{ site.description }}</p>
     </header>
 
     <main class="content card" id="main-content">
       {{ content | safe }}
     </main>
+
+    <footer class="site-footer content card">
+      <nav aria-label="{{ site.primaryNav }}">
+        <a href="{{ '/' | url }}"{% if isHomePage %} class="nav-current-page"{% endif %}>{{ site.home }}</a>
+        <a href="{{ '/about/' | url }}"{% if isAboutPage %} class="nav-current-page"{% endif %}>{{ site.about }}</a>
+        <a href="{{ '/index/' | url }}"{% if isIndexPage %} class="nav-current-page"{% endif %}>{{ site.seeAll }}</a>
+        <span>
+          <a href="{{ site.externalUrls.gitHub }}" target="_blank" rel="noopener">
+            <img class="corp-logo" src="{{ '/images/github.svg' | url }}" alt="">
+            Open Source
+          </a>
+        </span>
+        <span>
+          <a href="{{ site.externalUrls.amazon }}" target="_blank" rel="noopener">
+            <img class="corp-logo" src="{{ '/images/amazon.svg' | url }}" alt="">
+            Buy the book
+          </a>
+        </span>
+      </nav>
+    </footer>
   </body>
 </html>

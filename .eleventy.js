@@ -15,6 +15,7 @@ export default function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "node_modules/vanilla-calendar-pro/index.js": "vanilla-calendar-pro/index.js" });
   eleventyConfig.addPassthroughCopy({ "node_modules/vanilla-calendar-pro/styles": "vanilla-calendar-pro/styles" });
   eleventyConfig.addPassthroughCopy({ "src/favicon": "/" });
+  eleventyConfig.addPassthroughCopy({ "src/images": "/images" });
   // eleventyConfig.addPassthroughCopy("CNAME");
 
   eleventyConfig.on("eleventy.after", async ({ dir }) => {
