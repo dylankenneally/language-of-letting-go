@@ -3,10 +3,7 @@ import markdownIt from "markdown-it";
 import { generateRobotsTxt, generateSitemap } from "./scripts/generate-sitemap.js";
 import { syncMeditationTitleAliases } from "./scripts/sync-meditation-title-aliases.js";
 import { getPathPrefix, getSiteUrl } from "./site-config.js";
-import {
-  meditationIndex,
-  // searchIndex
-} from "./scripts/indices.js";
+import { meditationIndex } from "./scripts/indices.js";
 import { toTimeAttribute } from "./scripts/meditation-date.js"
 
 export default function(eleventyConfig) {
@@ -41,7 +38,6 @@ export default function(eleventyConfig) {
     return toTimeAttribute(monthDayString);
   });
 
-  // eleventyConfig.addFilter("searchIndex", searchIndex);
   eleventyConfig.addFilter("meditationIndex", meditationIndex);
 
   const inlineMarkdown = markdownIt({ html: true });
