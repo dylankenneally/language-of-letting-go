@@ -11,6 +11,6 @@ export default defineConfig([
   { ignores: [
     "build/",
     "node_modules/",
-    "wip.md",
+    "wip/",
   ] },
 ]);

@@ -18,8 +18,9 @@ export default {
   nextDate: (date) => `Next meditation: ${date}`,
   prevDate: (date) => `Previous meditation: ${date}`,
 
-  seeAll: "See all",
-  about: "About",
+  home: "Home",
+  seeAll: "Index",
+  about: `About`,
   aboutTitle: `About ${title}`,
   aboutDescription: `About this digital companion to ${title} by Melody Beattie`,
 
@@ -36,4 +37,9 @@ export default {
   listSeparator: ",",
 
   url: getSiteUrl(),
+
+  externalUrls: {
+    gitHub: 'https://github.com/dylankenneally/language-of-letting-go',
+    amazon: 'https://www.amazon.com.au/Language-Letting-Meditation-Meditations-Codependents/dp/0894866370',
+  },
 };
