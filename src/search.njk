@@ -1,0 +1,257 @@
+---
+layout: base.njk
+permalink: /search/index.html
+excludeFromSearch: true
+---
+<style>
+  .search-status {
+    margin-top: 1rem;
+    color: var(--muted);
+  }
+
+  .search-results {
+    margin: 1rem 0 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 1rem;
+  }
+
+  .search-result {
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.65);
+  }
+
+  .search-result h2 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-family: var(--font-serif);
+  }
+
+  .search-result-date {
+    color: var(--muted);
+    font-size: .85rem;
+  }
+
+  .search-result p {
+    margin: 0;
+  }
+
+  .search-result-fuzzy {
+    color: var(--muted);
+    font-size: 0.85rem;
+    padding-top: .5rem;
+  }
+
+  mark {
+    background: rgba(35, 83, 71, 0.15);
+    color: inherit;
+  }
+
+  #search-title {
+    font-family: var(--font-serif);
+  }
+
+  .search-result-header {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: .5rem;
+  }
+</style>
+
+<section aria-labelledby="search-title">
+  <header>
+    <h2 id="search-title">{{ site.searchTitle }}</h2>
+    {% include "search-component.njk" %}
+  </header>
+
+  <p id="search-status" class="search-status" aria-live="polite"></p>
+  <ol id="search-results" class="search-results"></ol>
+</section>
+
+<script src="{{ '/minisearch/index.js' | url }}"></script>
+<script>
+  const searchForm = document.getElementById("search-form");
+  const searchInput = document.getElementById("search-query");
+  const searchStatus = document.getElementById("search-status");
+  const searchResultsNode = document.getElementById("search-results");
+  let miniSearchIndex = null;
+
+  function escapeRegExp(value) {
+    return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  }
+
+  function normalizeWhitespace(value) {
+    return value.replace(/\s+/g, " ").trim();
+  }
+
+  function escapeHtml(value) {
+    return value
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;");
+  }
+
+  function getExcerpt(content, terms) {
+    const source = normalizeWhitespace(content);
+    if (!source) {
+      return "";
+    }
+
+    const lowered = source.toLowerCase();
+    let matchIndex = -1;
+    let matchedTerm = "";
+    for (const term of terms) {
+      const index = lowered.indexOf(term.toLowerCase());
+      if (index >= 0 && (matchIndex < 0 || index < matchIndex)) {
+        matchIndex = index;
+        matchedTerm = term;
+      }
+    }
+
+    const excerptLength = 220;
+    if (matchIndex < 0) {
+      return `${source.slice(0, excerptLength).trimEnd()}${source.length > excerptLength ? "…" : ""}`;
+    }
+
+    const contextLead = 70;
+    const matchLength = matchedTerm.length || 1;
+    const start = Math.max(0, matchIndex - contextLead);
+    const end = Math.min(source.length, start + excerptLength + matchLength);
+    const prefix = start > 0 ? "…" : "";
+    const suffix = end < source.length ? "…" : "";
+
+    return `${prefix}${source.slice(start, end).trim()}${suffix}`;
+  }
+
+  function highlightText(text, terms) {
+    let highlighted = escapeHtml(text);
+    for (const term of terms) {
+      if (!term) {
+        continue;
+      }
+      const pattern = new RegExp(`(${escapeRegExp(term)})`, "gi");
+      highlighted = highlighted.replace(pattern, "<mark>$1</mark>");
+    }
+    return highlighted;
+  }
+
+  function getFuzzyTerms(resultTerms, queryTerms) {
+    if (!Array.isArray(resultTerms) || !resultTerms.length) {
+      return [];
+    }
+
+    const normalizedQueryTerms = queryTerms.map((term) => term.toLowerCase());
+    return resultTerms.filter((matchedTerm) => {
+      const normalizedMatchedTerm = String(matchedTerm).toLowerCase();
+      if (!normalizedMatchedTerm) {
+        return false;
+      }
+
+      return !normalizedQueryTerms.some((queryTerm) => {
+        return (
+          normalizedMatchedTerm === queryTerm ||
+          normalizedMatchedTerm.startsWith(queryTerm) ||
+          queryTerm.startsWith(normalizedMatchedTerm)
+        );
+      });
+    });
+  }
+
+  function renderResults(results, queryTerms) {
+    searchResultsNode.innerHTML = "";
+
+    for (const result of results) {
+      const item = document.createElement("li");
+      item.className = "search-result";
+
+      const resultTerms = Array.isArray(result.terms) ? result.terms.filter(Boolean) : [];
+      const highlightTerms = resultTerms.length ? resultTerms : queryTerms;
+      const fuzzyTerms = getFuzzyTerms(resultTerms, queryTerms);
+      const excerpt = getExcerpt(result.content || result.description || "", highlightTerms);
+      const safeTitle = highlightText(result.title, highlightTerms);
+      const safeExcerpt = highlightText(excerpt, highlightTerms);
+      const dateMarkup = result.displayDate
+        ? `<p class="search-result-date">${escapeHtml(result.displayDate)}</p>`
+        : "";
+      const fuzzyMarkup = fuzzyTerms.length
+        ? `<p class="search-result-fuzzy">Matched via similar term${fuzzyTerms.length > 1 ? "s" : ""}: ${fuzzyTerms.map((term) => `<mark>${escapeHtml(term)}</mark>`).join(", ")}</p>`
+        : "";
+
+      item.innerHTML = `
+        <span class="search-result-header">
+          <h2><a href="${result.url}">${safeTitle}</a></h2>
+          ${dateMarkup}
+        </span>
+        <p>${safeExcerpt}</p>
+        ${fuzzyMarkup}
+      `;
+
+      searchResultsNode.appendChild(item);
+    }
+  }
+
+  async function runSearch(query) {
+    const trimmedQuery = normalizeWhitespace(query);
+    if (!trimmedQuery) {
+      searchStatus.textContent = "";
+      searchResultsNode.innerHTML = "";
+      return;
+    }
+
+    if (!miniSearchIndex) {
+      const response = await fetch("{{ '/search/search-index.json' | url }}");
+      const documents = await response.json();
+      miniSearchIndex = new MiniSearch({
+        fields: ["title", "description", "displayDate", "content"],
+        storeFields: ["url", "title", "description", "displayDate", "content"],
+        searchOptions: {
+          prefix: true,
+          fuzzy: 0.2,
+          boost: { title: 4, description: 2, displayDate: 3, content: 1 }
+        }
+      });
+      miniSearchIndex.addAll(documents);
+    }
+
+    const results = miniSearchIndex.search(trimmedQuery);
+    const queryTerms = trimmedQuery.toLowerCase().split(/\s+/).filter(Boolean);
+
+    if (!results.length) {
+      searchStatus.textContent = "{{ site.searchNoResults }}";
+      searchResultsNode.innerHTML = "";
+      return;
+    }
+
+    searchStatus.textContent = "{{ site.searchResultCount("__COUNT__") }}".replace("__COUNT__", String(results.length));
+    renderResults(results, queryTerms);
+  }
+
+  searchForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const query = searchInput.value;
+    const nextUrl = new URL(window.location.href);
+    if (query.trim()) {
+      nextUrl.searchParams.set("q", query);
+    } else {
+      nextUrl.searchParams.delete("q");
+    }
+    window.history.pushState({}, "", `${nextUrl.pathname}${nextUrl.search}${nextUrl.hash}`);
+    await runSearch(query);
+  });
+
+  window.addEventListener("popstate", async () => {
+    const params = new URL(window.location.href).searchParams;
+    const query = params.get("q") || "";
+    searchInput.value = query;
+    await runSearch(query);
+  });
+
+  const initialQuery = new URL(window.location.href).searchParams.get("q") || "";
+  if (initialQuery) {
+    searchInput.value = initialQuery;
+    runSearch(initialQuery);
+  }
+</script>

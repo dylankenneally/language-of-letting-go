@@ -1,79 +1,5 @@
 import site from "../src/data/site.js";
-
-// /*!
-//  * Creates an index of searchable keywords.
-//  *
-//  * https://arielsalminen.com
-//  * MIT License
-//  *
-//  * @param  {String} Template contents
-//  * @return {String} List of keywords
-//  */
-// function indexer(text) {
-//   if (!text) return "";
-
-//   // Convert text to all lower case
-//   text = text.toLowerCase();
-
-//   // Remove HTML elements
-//   const plain = unescape(text.replace(/<.*?>/gis, " "));
-
-//   // Remove other unnecessary characters from the index
-//   return plain
-//     .replace(/[,?\n|\\*]/g, " ") // remove punctuation, newlines, and special chars
-//     .replace(/\b(,|"|#|'|;|:|"|"|'|'|“|”|‘|’)\b/gi, " ") // remove punctuation at word boundaries
-//     .replace(/[ ]{2,}/g, " ") // remove repeated spaces
-//     .trim();
-// }
-
-// /*!
-//  * Create an excerpt from the template contents.
-//  *
-//  * https://arielsalminen.com
-//  * MIT License
-//  *
-//  * @param  {String} Template contents
-//  * @return {String} The excerpt
-//  */
-// function excerpt(text) {
-//   if (!text) return "";
-
-//   // Remove HTML elements and headings
-//   const plain = unescape(text.replace(/<h1(.*)>(.*)<\/h1>/, "").replace(/<.*?>/gis, " "));
-
-//   // Remove other unnecessary characters from the text
-//   return plain
-//     .replace(/["'#]|\n/g, " ") // remove quotes, hashtags, and newlines
-//     .replace(/&(\S*)/g, "") // remove HTML entities
-//     .replace(/[ ]{2,}/g, " ") // remove repeated spaces
-//     .replace(/[\\|]/g, "") // remove special characters
-//     .substring(0, 140) // Only 140 first chars
-//     .trim();
-// }
-
-// export function searchIndex(collection) {
-//   // console.log('search index is build built')
-//   const search = collection
-//     .filter(page => !page.data.excludeFromSearch)
-//     .map(({ templateContent, url, data }) => {
-//       const { description = "", title = "" } = data;
-//       // console.log(url, description)
-//       // console.log(url, title)
-
-//       const text = `${excerpt(description)} ${excerpt(templateContent)}`.trim();
-//       const keywords = `${indexer(`${title} ${templateContent}`)} ${indexer(description)}`.trim();
-
-//       return {
-//         url,
-//         title: title ? title : "Ariel Salminen", // todo: error:
-//         text,
-//         readabletitle: indexer(title),
-//         keywords
-//       };
-//     });
-
-//   return { search };
-// };
+import { stripFrontMatter, toPlainText } from "./utils.js";
 
 // returns an array of meditations grouped and sorted alphabetically
 export function meditationIndex(collection) {
@@ -161,3 +87,47 @@ export function meditationIndex(collection) {
 
   return groups;
 };
+
+function getItemSource(item) {
+  const rawInput = typeof item.data?.page?.rawInput === "string" ? item.data.page.rawInput : "";
+  return stripFrontMatter(rawInput);
+}
+
+function shouldIncludeInSearch(item) {
+  const pageUrl = item.url || "";
+  const { data = {} } = item;
+
+  if (!pageUrl || !pageUrl.endsWith("/")) {
+    return false;
+  }
+
+  if (pageUrl === "/index/" || pageUrl === "/404.html") {
+    return false;
+  }
+
+  if (data.excludeFromSearch || data.excludeFromSitemap || data.eleventyExcludeFromCollections) {
+    return false;
+  }
+
+  return true;
+}
+
+export function buildSearchDocuments(collectionsAll = []) {
+  return collectionsAll
+    .filter(shouldIncludeInSearch)
+    .map((item) => {
+      const content = toPlainText(getItemSource(item));
+      const title = item.data?.title || "";
+      const description = item.data?.description || "";
+
+      return {
+        id: item.url,
+        url: item.url,
+        title,
+        description,
+        displayDate: item.data?.displayDate || "",
+        content
+      };
+    })
+    .filter((doc) => doc.title && doc.content);
+}

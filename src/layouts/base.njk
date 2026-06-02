@@ -7,6 +7,7 @@
     {% set isHomePage = page and page.url == "/" %}
     {% set isIndexPage = page and page.url == "/index/" %}
     {% set isAboutPage = page and page.url == "/about/" %}
+    {% set isSearchPage = page and page.url == "/search/" %}
     {% set pageTitle = (title ~ " | " ~ site.title) if title else (site.title ~ " | " ~ site.description) %}
     {% set pageDescription = description if description else site.description %}
     {% set escapedPageTitle = pageTitle | replace("&", "&amp;") | replace("\"", "&quot;") | replace("<", "&lt;") | replace(">", "&gt;") %}
@@ -471,6 +472,9 @@
     <header class="site-header card">
       <h1><a href="{{ '/' | url }}">{{ site.title }}</a></h1>
       <p class="site-description">{{ site.description }}</p>
+      {% if not isSearchPage %}
+        {% include "search-component.njk" %}
+      {% endif %}
     </header>
 
     <main class="content card" id="main-content">
@@ -482,6 +486,7 @@
         <a href="{{ '/' | url }}"{% if isHomePage %} class="nav-current-page"{% endif %}>{{ site.home }}</a>
         <a href="{{ '/about/' | url }}"{% if isAboutPage %} class="nav-current-page"{% endif %}>{{ site.about }}</a>
         <a href="{{ '/index/' | url }}"{% if isIndexPage %} class="nav-current-page"{% endif %}>{{ site.seeAll }}</a>
+        <a href="{{ '/search/' | url }}"{% if isSearchPage %} class="nav-current-page"{% endif %}>{{ site.search }}</a>
         <span>
           <a href="{{ site.externalUrls.gitHub }}" target="_blank" rel="noopener">
             <img class="corp-logo" src="{{ '/images/github.svg' | url }}" alt="">

@@ -1,0 +1,116 @@
+<style>
+  .search-form {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    margin-top: 0.5rem;
+  }
+
+  .search-form input[type="search"] {
+    width: min(16rem, 55vw);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    flex: 1 1 18rem;
+    min-height: 2.75rem;
+    padding: 0.65rem 0.9rem;
+    font: inherit;
+  }
+
+  .search-form input::placeholder {
+    text-align: right;
+  }
+
+  .search-form button {
+    min-height: 2.75rem;
+    padding: 0.65rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--accent);
+    font: inherit;
+    cursor: pointer;
+  }
+
+  .search-form button:hover,
+  .search-form button:focus-visible {
+    background: #fff;
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+</style>
+
+<form
+  id="search-form"
+  class="search-form"
+  role="search"
+  action="{{ '/search/' | url }}"
+  method="get"
+>
+  <label for="search-query" class="visually-hidden">{{ site.search }}</label>
+  <input
+    id="search-query"
+    name="q"
+    type="search"
+    required
+    placeholder="{{ site.search }}"
+    data-search-placeholder-base="{{ site.search }}"
+  >
+  <button type="submit">{{ site.search }}</button>
+</form>
+
+<script>
+  // Adds the keyboard shortcut for "⌘K" / "Ctrl+K" if appropriate
+  (function () {
+    const hasKeyboard = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+    const isMac = navigator.userAgentData?.platform === "macOS" || /Mac/i.test(navigator.platform);
+
+    function getActiveSearchInput() {
+      const pageInput = document.getElementById("search-query");
+      if (pageInput) {
+        return pageInput;
+      }
+
+      return document.getElementById("search-query");
+    }
+
+    function applySearchPlaceholder(input) {
+      if (!input || !hasKeyboard) {
+        return;
+      }
+
+      input.placeholder = isMac ? "⌘K" : "Ctrl+K";
+      input.setAttribute("aria-keyshortcuts", isMac ? "Meta+K" : "Control+K");
+    }
+
+    applySearchPlaceholder(getActiveSearchInput());
+    applySearchPlaceholder(document.getElementById("search-query"));
+
+    document.addEventListener("keydown", (event) => {
+      const usesShortcutModifier = isMac ? event.metaKey : event.ctrlKey;
+      if (!usesShortcutModifier || event.key.toLowerCase() !== "k" || event.altKey) {
+        return;
+      }
+
+      const targetInput = getActiveSearchInput();
+      if (!targetInput) {
+        return;
+      }
+
+      event.preventDefault();
+      targetInput.focus();
+      if (typeof targetInput.select === "function") {
+        targetInput.select();
+      }
+    });
+  })();
+</script>

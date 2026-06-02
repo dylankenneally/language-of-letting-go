@@ -3,10 +3,7 @@ import markdownIt from "markdown-it";
 import { generateRobotsTxt, generateSitemap } from "./scripts/generate-sitemap.js";
 import { syncMeditationTitleAliases } from "./scripts/sync-meditation-title-aliases.js";
 import { getPathPrefix, getSiteUrl } from "./site-config.js";
-import {
-  meditationIndex,
-  // searchIndex
-} from "./scripts/indices.js";
+import { buildSearchDocuments, meditationIndex } from "./scripts/indices.js";
 import { toTimeAttribute } from "./scripts/meditation-date.js"
 
 export default function(eleventyConfig) {
@@ -14,6 +11,7 @@ export default function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/fonts/*.woff2": "fonts" });
   eleventyConfig.addPassthroughCopy({ "node_modules/vanilla-calendar-pro/index.js": "vanilla-calendar-pro/index.js" });
   eleventyConfig.addPassthroughCopy({ "node_modules/vanilla-calendar-pro/styles": "vanilla-calendar-pro/styles" });
+  eleventyConfig.addPassthroughCopy({ "node_modules/minisearch/dist/umd/index.js": "minisearch/index.js" });
   eleventyConfig.addPassthroughCopy({ "src/favicon": "/" });
   eleventyConfig.addPassthroughCopy({ "src/images": "/images" });
   // eleventyConfig.addPassthroughCopy("CNAME");
@@ -36,12 +34,15 @@ export default function(eleventyConfig) {
       .sort((a, b) => a.fileSlug.localeCompare(b.fileSlug, undefined, { numeric: true }));
   });
 
+  eleventyConfig.addCollection("searchDocuments", (collectionApi) => {
+    return buildSearchDocuments(collectionApi.getAll());
+  });
+
   // Converts "Month dd" string to "MM-DD" format for <time datetime> attribute
   eleventyConfig.addFilter("monthDayToMMDD", (monthDayString) => {
     return toTimeAttribute(monthDayString);
   });
 
-  // eleventyConfig.addFilter("searchIndex", searchIndex);
   eleventyConfig.addFilter("meditationIndex", meditationIndex);
 
   const inlineMarkdown = markdownIt({ html: true });
