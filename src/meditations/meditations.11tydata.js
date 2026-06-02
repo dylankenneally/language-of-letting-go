@@ -1,24 +1,5 @@
 import { formatDate } from "../../scripts/meditation-date.js";
-
-function stripFrontMatter(input) {
-  return input.replace(/^---[\s\S]*?---\s*/, "");
-}
-
-function toPlainText(input) {
-  return input
-    // Remove Nunjucks/Liquid tags and comments from raw source.
-    .replace(/\{#[\s\S]*?#\}/g, " ")
-    .replace(/\{%[\s\S]*?%\}/g, " ")
-    .replace(/\{\{[\s\S]*?\}\}/g, " ")
-    // Remove HTML tags if content is already rendered.
-    .replace(/<[^>]*>/g, " ")
-    // Convert markdown links [text](url) to text.
-    .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
-    // Remove common markdown formatting marks.
-    .replace(/[*_`>#~-]/g, " ")
-    .replace(/\s+/g, " ")
-    .trim();
-}
+import { stripFrontMatter, toPlainText } from "../../scripts/utils.js";
 
 function truncateText(input, maxLength = 160) {
   if (input.length <= maxLength) {

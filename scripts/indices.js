@@ -1,4 +1,5 @@
 import site from "../src/data/site.js";
+import { stripFrontMatter, toPlainText } from "./utils.js";
 
 // returns an array of meditations grouped and sorted alphabetically
 export function meditationIndex(collection) {
@@ -86,3 +87,47 @@ export function meditationIndex(collection) {
 
   return groups;
 };
+
+function getItemSource(item) {
+  const rawInput = typeof item.data?.page?.rawInput === "string" ? item.data.page.rawInput : "";
+  return stripFrontMatter(rawInput);
+}
+
+function shouldIncludeInSearch(item) {
+  const pageUrl = item.url || "";
+  const { data = {} } = item;
+
+  if (!pageUrl || !pageUrl.endsWith("/")) {
+    return false;
+  }
+
+  if (pageUrl === "/index/" || pageUrl === "/404.html") {
+    return false;
+  }
+
+  if (data.excludeFromSearch || data.excludeFromSitemap || data.eleventyExcludeFromCollections) {
+    return false;
+  }
+
+  return true;
+}
+
+export function buildSearchDocuments(collectionsAll = []) {
+  return collectionsAll
+    .filter(shouldIncludeInSearch)
+    .map((item) => {
+      const content = toPlainText(getItemSource(item));
+      const title = item.data?.title || "";
+      const description = item.data?.description || "";
+
+      return {
+        id: item.url,
+        url: item.url,
+        title,
+        description,
+        displayDate: item.data?.displayDate || "",
+        content
+      };
+    })
+    .filter((doc) => doc.title && doc.content);
+}

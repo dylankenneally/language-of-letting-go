@@ -24,6 +24,12 @@ export default {
   aboutTitle: `About ${title}`,
   aboutDescription: `About this digital companion to ${title} by Melody Beattie`,
 
+  search: "Search",
+  searchTitle: `Search ${title}`,
+  searchDescription: `Search all meditations and site pages`,
+  searchNoResults: "No results found.",
+  searchResultCount: (count) => `${count} result${count === 1 ? "" : "s"}`,
+
   meditationsIndex: "Meditations index",
   meditationsIndexDescription: `Alphabetical index of meditations from ${title}`,
   navJump: "Jump to a letter section",
