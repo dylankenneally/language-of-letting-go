@@ -469,7 +469,7 @@
     {# todo: review this UX on skip link #}
     <a class="skip-link" href="#main-content">{{ site.skipToMain }}</a>
 
-    <header class="site-header card">
+    <header class="site-header card" id="top">
       <h1><a href="{{ '/' | url }}">{{ site.title }}</a></h1>
       <p class="site-description">{{ site.description }}</p>
       {% if not isSearchPage %}
@@ -501,5 +501,7 @@
         </span>
       </nav>
     </footer>
+
+    {% include "back-to-top-btn.njk" %}
   </body>
 </html>

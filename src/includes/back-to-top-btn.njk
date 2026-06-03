@@ -1,0 +1,59 @@
+<style>
+#back-to-top {
+  position: fixed;
+  bottom: .5rem;
+  right: .5rem;
+  width: 2rem;
+  height: 2rem;
+  background-color: var(--btn-colour);
+  transition: var(--btn-transition);
+  border-radius: 1rem;
+  display: none;
+  align-content: center;
+}
+
+#back-to-top.visible {
+  display: unset;
+}
+
+.hover-highlight {
+  transition: var(--btn-transition);
+}
+
+:root {
+  --btn-colour: #e0e0e0;
+  --btn-colour-2: #d0d0d0;
+  --btn-transition: all .3s cubic-bezier(.645, .045, .355, 1);
+  --hover-transform: scale(1.05);
+}
+
+.button:hover,
+#back-to-top:hover,
+.hover-highlight:hover {
+  transform: var(--hover-transform);
+  box-shadow: 0 2px 10px 1px rgba(0,0,0,.5);
+  background: var(--btn-colour-2);
+}
+
+.hover-highlight {
+  transition: var(--btn-transition);
+}
+</style>
+
+<nav>
+  <a href="#top" id="back-to-top" class="hover-highlight">
+    <span class="material-symbols-outlined">{% include "../images/up_arrow.svg" %}</span>
+  </a>
+</nav>
+
+<script>
+  // Show/hide the back to top button based on the current scroll point
+  const btn = document.getElementById('back-to-top');
+  window.onscroll = () => {
+    if (document.body.scrollTop > 250 || document.documentElement.scrollTop > 250) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  };
+</script>
