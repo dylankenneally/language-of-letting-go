@@ -74,15 +74,6 @@
     const hasKeyboard = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
     const isMac = navigator.userAgentData?.platform === "macOS" || /Mac/i.test(navigator.platform);
 
-    function getActiveSearchInput() {
-      const pageInput = document.getElementById("search-query");
-      if (pageInput) {
-        return pageInput;
-      }
-
-      return document.getElementById("search-query");
-    }
-
     function applySearchPlaceholder(input) {
       if (!input || !hasKeyboard) {
         return;
@@ -92,8 +83,8 @@
       input.setAttribute("aria-keyshortcuts", isMac ? "Meta+K" : "Control+K");
     }
 
-    applySearchPlaceholder(getActiveSearchInput());
-    applySearchPlaceholder(document.getElementById("search-query"));
+    const searchInput = document.getElementById("search-query");
+    applySearchPlaceholder(searchInput);
 
     document.addEventListener("keydown", (event) => {
       const usesShortcutModifier = isMac ? event.metaKey : event.ctrlKey;
@@ -101,15 +92,10 @@
         return;
       }
 
-      const targetInput = getActiveSearchInput();
-      if (!targetInput) {
-        return;
-      }
-
       event.preventDefault();
-      targetInput.focus();
-      if (typeof targetInput.select === "function") {
-        targetInput.select();
+      searchInput.focus();
+      if (typeof searchInput.select === "function") {
+        searchInput.select();
       }
     });
   })();
