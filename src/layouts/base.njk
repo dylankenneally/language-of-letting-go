@@ -66,14 +66,6 @@
       }
 
       @font-face {
-        font-family: "BBC Reith Sans";
-        src: url("{{ '/fonts/BBCReithSans700.woff2' | url }}") format("woff2");
-        font-weight: 700;
-        font-style: normal;
-        font-display: swap;
-      }
-
-      @font-face {
         font-family: "BBC Reith Serif";
         src: url("{{ '/fonts/BBCReithSerif400.woff2' | url }}") format("woff2");
         font-weight: 400;
@@ -121,7 +113,7 @@
       }
 
       body {
-        font-family: var(--font-sans);
+        font-family: var(--font-serif);
         width: min(100%, 72rem);
         margin: 0 auto;
         padding: .25rem;
@@ -146,6 +138,7 @@
         color: var(--muted);
         background: var(--button-bg);
         border: var(--border);
+        font-family: var(--font-sans);
       }
 
       .action-button:hover,
@@ -213,18 +206,17 @@
       }
 
       .site-header h1 {
-        font-family: var(--font-serif);
         font-weight: 700;
         font-size: clamp(1rem, 2.5vw, 1.75rem);
       }
 
       .site-description {
         color: var(--muted);
+        font-family: var(--font-sans);
       }
 
       p.site-description {
         margin-top: 0.75rem;
-        font-family: var(--font-sans);
         font-size: clamp(.75rem, 1.875vw, 1rem);
         margin-top: .5rem;
       }
@@ -323,7 +315,6 @@
       .focal-point {
         display: block;
         margin: 0;
-        font-family: var(--font-serif);
         font-style: italic;
       }
 
@@ -348,12 +339,12 @@
       .quote-attribution,
       .meditation-header .date {
         color: var(--muted);
+        font-family: var(--font-sans);
       }
 
       .quote-attribution {
         display: block;
         margin-top: 0.75rem;
-        font-family: var(--font-serif);
         text-transform: uppercase;
         font-style: normal;
         font-size: .9rem;
@@ -368,7 +359,6 @@
       .prose {
         line-height: 1.625;
         font-size: 1.1rem;
-        font-family: var(--font-serif);
       }
 
       .meditation-header {
@@ -381,7 +371,6 @@
       .meditation-header,
       .meditation-index-header {
         font-size: 1.1em;
-        font-family: var(--font-serif);
         font-weight: 700;
       }
 
@@ -482,6 +471,7 @@
       .site-footer {
         margin-top: .5rem;
         font-size: .8rem;
+        font-family: var(--font-sans);
       }
 
       .corp-logo {
