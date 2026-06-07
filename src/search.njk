@@ -4,9 +4,14 @@ permalink: /search/index.html
 excludeFromSearch: true
 ---
 <style>
+  .search-status,
+  .search-result-date,
+  .search-result-fuzzy {
+    color: var(--muted);
+  }
+
   .search-status {
     margin-top: 1rem;
-    color: var(--muted);
   }
 
   .search-results {
@@ -18,10 +23,10 @@ excludeFromSearch: true
   }
 
   .search-result {
-    border: 1px solid var(--border);
+    border: var(--border);
     border-radius: 1rem;
     padding: 1rem;
-    background: rgba(255, 255, 255, 0.65);
+    background: var(--button-bg);
   }
 
   .search-result h2 {
@@ -31,7 +36,6 @@ excludeFromSearch: true
   }
 
   .search-result-date {
-    color: var(--muted);
     font-size: .85rem;
   }
 
@@ -40,14 +44,12 @@ excludeFromSearch: true
   }
 
   .search-result-fuzzy {
-    color: var(--muted);
     font-size: 0.85rem;
     padding-top: .5rem;
   }
 
   mark {
-    background: rgba(35, 83, 71, 0.15);
-    color: inherit;
+    background: var(--secondary);
   }
 
   #search-title {

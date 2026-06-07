@@ -99,14 +99,21 @@
 
       :root {
         color-scheme: light;
-        --bg: #f6f1e8;
-        --paper: #fffdf8;
-        --ink: #1f2933;
-        --muted: #6b7280;
-        --accent: #235347;
-        --border: #ded6c8;
         --font-sans: "BBC Reith Sans", system-ui, sans-serif;
         --font-serif: "BBC Reith Serif", Georgia, "Times New Roman", serif;
+        --paper: #fffdf8;
+        --button-bg: rgba(255, 255, 255, 0.8);
+        --button-bg-a11y: rgba(255, 255, 255);
+        --muted: #6b7280;
+        --ink: #0b0b0b;
+        --border-colour: #ded6c8;
+        --button-bd-disabled: rgba(31, 41, 51, 0.035);
+        --button-text-disabled: rgba(107, 114, 128, 0.25);
+        --border-colour-disabled: rgba(222, 214, 200, 0.9);
+        --associated: rgba(31, 41, 51, 0.3);
+        --primary: #2d5248;
+        --secondary: #7fb9a9;
+        --border: 1px solid var(--border-colour);
       }
 
       * {
@@ -115,23 +122,73 @@
 
       body {
         font-family: var(--font-sans);
-        color: var(--ink);
         width: min(100%, 72rem);
         margin: 0 auto;
         padding: .25rem;
+
+        background: var(--paper);
+        color: var(--ink);
       }
 
       a {
-        color: var(--accent);
+        color: var(--ink);
+        text-decoration: none;
       }
 
+      .meditation-nav-link-next,
+      .site-footer a {
+        color: var(--muted);
+        text-decoration: none;
+      }
+
+      .action-button,
+      .action-button a {
+        color: var(--muted);
+        background: var(--button-bg);
+        border: var(--border);
+      }
+
+      .action-button:hover,
+      .action-button:focus-visible {
+        background: var(--primary);
+        color: var(--button-bg-a11y);
+      }
+
+      a:hover,
+      a:focus-visible,
+      .action-button:hover,
+      .action-button:focus-visible  {
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 0.16em;
+      }
+
+      h1 a {
+        color: inherit;
+      }
+
+      h1 a:hover,
+      h1 a:focus-visible,
+      h2 a:hover,
+      h2 a:focus-visible {
+        text-decoration-thickness: 2px;
+      }
+
+      .is-disabled {
+        border: var(--border);
+        background: var(--button-bd-disabled);
+        color: var(--button-text-disabled);
+        cursor: not-allowed;
+      }
+
+
       .skip-link {
+        background: var(--button-bg-a11y);
+
         position: absolute;
         left: 0.5rem;
         top: 0.5rem;
-        transform: translateY(-140%);
-        background: var(--accent);
-        color: #fff;
+        {# transform: translateY(-140%); #}
         padding: 0.75rem 1rem;
         border-radius: 0 0 0.5rem 0.5rem;
         border-radius: 0.5rem;
@@ -143,13 +200,6 @@
       .skip-link:focus,
       .skip-link:focus-visible {
         transform: translateY(0);
-      }
-
-      .card {
-        background: var(--paper);
-        border: 1px solid var(--border);
-        border-radius: 1.25rem;
-        box-shadow: 0 1rem 3rem rgba(31, 41, 51, 0.08);
       }
 
       .site-header {
@@ -168,32 +218,15 @@
         font-size: clamp(1rem, 2.5vw, 1.75rem);
       }
 
-      .site-header h1 a {
-        text-decoration: none;
-        color: inherit;
+      .site-description {
+        color: var(--muted);
       }
 
       p.site-description {
         margin-top: 0.75rem;
-        color: var(--muted);
         font-family: var(--font-sans);
         font-size: clamp(.75rem, 1.875vw, 1rem);
         margin-top: .5rem;
-      }
-
-      .site-footer a {
-        text-decoration: none;
-      }
-
-      .site-footer a:hover,
-      .site-footer a:focus-visible {
-        text-decoration: underline;
-        text-decoration-thickness: 1px;
-        text-underline-offset: 0.16em;
-      }
-
-      .content {
-        padding: 1.5rem;
       }
 
       .calendar-section {
@@ -201,7 +234,7 @@
       }
 
       .vc {
-        border: 1px solid var(--border);
+        border: var(--border);
         border-radius: 1rem;
       }
 
@@ -213,8 +246,6 @@
         width: 100%;
         max-width: 100%;
         padding: 0;
-        background: transparent;
-        color: var(--ink);
       }
 
       .vc [data-vc="column"] {
@@ -230,47 +261,62 @@
         margin-bottom: 0.65rem;
       }
 
-      .vc [data-vc-theme="light"].vc,
-      .vc [data-vc-theme="light"] .vc-month,
-      .vc [data-vc-theme="light"] .vc-year,
-      .vc [data-vc-theme="light"] .vc-header__content {
+      [data-vc-theme="light"].vc {
+        background: var(--button-bg);
         color: var(--ink);
       }
 
-      .vc [data-vc-theme="light"].vc [tabindex="0"]:focus-visible,
-      .vc [data-vc-theme="light"].vc button:focus-visible,
-      .vc [data-vc-theme="light"].vc:focus-visible {
-        outline-color: rgba(35, 83, 71, 0.45);
+      [data-vc-theme="light"].vc [tabindex="0"]:focus-visible,
+      [data-vc-theme="light"].vc button:focus-visible,
+      [data-vc-theme="light"].vc:focus-visible {
+        outline-color: unset;
       }
 
-      .vc [data-vc-theme="light"] .vc-month:hover,
-      .vc [data-vc-theme="light"] .vc-year:hover,
-      .vc [data-vc-theme="light"] .vc-week__day,
-      .vc [data-vc-theme="light"] .vc-week-number,
-      .vc [data-vc-theme="light"] .vc-week-numbers__title {
+      [data-vc-theme="light"] .vc-month:hover,
+      [data-vc-theme="light"] .vc-year:hover,
+      [data-vc-theme="light"] .vc-week__day,
+      [data-vc-theme="light"] .vc-week-number,
+      [data-vc-theme="light"] .vc-week-numbers__title {
         color: var(--muted);
       }
 
-      .vc [data-vc-theme="light"] .vc-date__btn:hover,
-      .vc [data-vc-theme="light"] .vc-date[data-vc-date-today] .vc-date__btn {
-        background: rgba(35, 83, 71, 0.08);
+      [data-vc-theme="light"] .vc-date__btn:hover,
+      [data-vc-theme="light"] .vc-date[data-vc-date-today] .vc-date__btn,
+      [data-vc-theme=light] .vc-years__year[data-vc-years-year-selected]:hover {
+        background: var(--primary);
+        color: var(--button-bg-a11y);
+      }
+
+      [data-vc-theme=light] .vc-date__btn {
         color: var(--ink);
       }
 
-      .vc [data-vc-theme="light"] .vc-date[data-vc-date-selected] .vc-date__btn,
-      .vc [data-vc-theme="light"] .vc-date[data-vc-date-selected=middle] .vc-date__btn,
-      .vc [data-vc-theme="light"] .vc-months__month[data-vc-months-month-selected],
-      .vc [data-vc-theme="light"] .vc-years__year[data-vc-years-year-selected] {
-        background: var(--accent);
-        color: #fff;
+      [data-vc-theme="light"] .vc-date[data-vc-date-selected] .vc-date__btn,
+      [data-vc-theme="light"] .vc-date[data-vc-date-selected=middle] .vc-date__btn,
+      [data-vc-theme="light"] .vc-months__month[data-vc-months-month-selected],
+      [data-vc-theme="light"] .vc-years__year[data-vc-years-year-selected] {
+        background: var(--secondary);
+      }
+
+      [data-vc-theme=light] .vc-date[data-vc-date-selected] .vc-date__btn:hover,
+      [data-vc-theme=light] .vc-months__month[data-vc-months-month-selected]:hover,
+      [data-vc-theme=light] .vc-months__month:hover,
+      [data-vc-theme=light] .vc-years__year:hover {
+        background: var(--primary);
+        color: var(--button-bg-a11y);
+      }
+
+      [data-vc-theme=light] .vc-date[data-vc-date-month=next] .vc-date__btn {
+        color: var(--muted);
+      }
+
+      [data-vc-theme=light] .vc-date[data-vc-date-month=next] .vc-date__btn:hover,
+      [data-vc-theme=light] .vc-months__month:hover {
+        color: var(--button-bg-a11y);
       }
 
       .vc [data-vc-theme="light"] .vc-arrow:before {
         opacity: 0.9;
-      }
-
-      .vc [data-vc-theme="light"] .vc-date[data-vc-date-disabled] .vc-date__btn {
-        color: #a3acb7;
       }
 
       .quote,
@@ -299,10 +345,14 @@
         margin-top: 1rem;
       }
 
+      .quote-attribution,
+      .meditation-header .date {
+        color: var(--muted);
+      }
+
       .quote-attribution {
         display: block;
         margin-top: 0.75rem;
-        color: var(--muted);
         font-family: var(--font-serif);
         text-transform: uppercase;
         font-style: normal;
@@ -346,7 +396,6 @@
 
       .meditation-header .date {
         font-style: italic;
-        color: var(--muted);
         font-size: .9rem;
       }
 
@@ -404,7 +453,7 @@
       .meditation-nav {
         margin-top: 2rem;
         padding-top: 1.5rem;
-        border-top: 1px solid var(--border);
+        border-top: var(--border);
       }
 
       .meditation-nav-links {
@@ -422,14 +471,8 @@
         align-items: center;
         min-height: 2.75rem;
         padding: 0.75rem 1rem;
-        border: 1px solid var(--border);
+        border: var(--border);
         border-radius: 999px;
-        background: rgba(255, 255, 255, 0.8);
-        text-decoration: none;
-      }
-
-      .meditation-nav-link:hover {
-        background: #fff;
       }
 
       .meditation-nav-link-next {
@@ -439,10 +482,6 @@
       .site-footer {
         margin-top: .5rem;
         font-size: .8rem;
-      }
-
-      .site-footer * {
-        color: var(--muted);
       }
 
       .corp-logo {
@@ -467,9 +506,9 @@
   </head>
   <body>
     {# todo: review this UX on skip link #}
-    <a class="skip-link" href="#main-content">{{ site.skipToMain }}</a>
+    <a class="action-button skip-link" href="#main-content">{{ site.skipToMain }}</a>
 
-    <header class="site-header card" id="top">
+    <header class="site-header" id="top">
       <h1><a href="{{ '/' | url }}">{{ site.title }}</a></h1>
       <p class="site-description">{{ site.description }}</p>
       {% if not isSearchPage %}
@@ -477,11 +516,11 @@
       {% endif %}
     </header>
 
-    <main class="content card" id="main-content">
+    <main id="main-content">
       {{ content | safe }}
     </main>
 
-    <footer class="site-footer content card">
+    <footer class="site-footer">
       <nav aria-label="{{ site.primaryNav }}">
         <a href="{{ '/' | url }}"{% if isHomePage %} class="nav-current-page"{% endif %}>{{ site.home }}</a>
         <a href="{{ '/about/' | url }}"{% if isAboutPage %} class="nav-current-page"{% endif %}>{{ site.about }}</a>

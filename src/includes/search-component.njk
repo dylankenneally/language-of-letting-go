@@ -8,7 +8,7 @@
 
   .search-form input[type="search"] {
     width: min(16rem, 55vw);
-    border: 1px solid var(--border);
+    border: var(--border);
     border-radius: 999px;
     flex: 1 1 18rem;
     min-height: 2.75rem;
@@ -24,17 +24,9 @@
   .search-form button {
     min-height: 2.75rem;
     padding: 0.65rem 1rem;
-    border: 1px solid var(--border);
     border-radius: 999px;
-    background: rgba(255, 255, 255, 0.9);
-    color: var(--accent);
     font: inherit;
     cursor: pointer;
-  }
-
-  .search-form button:hover,
-  .search-form button:focus-visible {
-    background: #fff;
   }
 
   .visually-hidden {
@@ -66,7 +58,7 @@
     placeholder="{{ site.search }}"
     data-search-placeholder-base="{{ site.search }}"
   >
-  <button type="submit">{{ site.search }}</button>
+  <button type="submit" class="action-button">{{ site.search }}</button>
 </form>
 
 <script>

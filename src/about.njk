@@ -10,7 +10,6 @@ permalink: /about/index.html
 
   .about-section h3 {
     margin: 0 0 0.65rem;
-    color: var(--accent);
     font-family: var(--font-serif);
     font-size: 1.35rem;
   }
@@ -22,26 +21,7 @@ permalink: /about/index.html
     gap: 0.75rem;
     margin-top: 2rem;
     padding-top: 1.5rem;
-    border-top: 1px solid var(--border);
-  }
-
-  .about-actions a {
-    display: inline-flex;
-    align-items: center;
-    min-height: 2.75rem;
-    padding: 0.75rem 1rem;
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.8);
-    text-decoration: none;
-  }
-
-  .about-actions a:hover,
-  .about-actions a:focus-visible {
-    background: #fff;
-    text-decoration: underline;
-    text-decoration-thickness: 1px;
-    text-underline-offset: 0.16em;
+    border-top: var(--border);
   }
 
   .about-section ul {
@@ -57,11 +37,11 @@ permalink: /about/index.html
   }
 
   .about-footer {
-    border-top: 1px dashed var(--border);
+    color: var(--muted);
   }
 
-  .about-footer ol {
-    color: var(--muted);
+  .about-footer {
+    border-top: var(--border);
     font-size: smaller;
   }
 </style>
@@ -118,8 +98,8 @@ permalink: /about/index.html
     </ol>
 
     <nav class="about-actions" aria-label="{{ site.meditationNav }}">
-      <a href="{{ '/' | url }}">Today's meditation</a>
-      <a href="{{ '/index/' | url }}">{{ site.meditationsIndex }}</a>
+      <a class="action-button meditation-nav-link" href="{{ '/' | url }}">Today's meditation</a>
+      <a class="action-button meditation-nav-link" href="{{ '/index/' | url }}">{{ site.meditationsIndex }}</a>
     </nav>
   </footer>
 </article>
