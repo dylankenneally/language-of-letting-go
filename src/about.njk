@@ -10,7 +10,6 @@ permalink: /about/index.html
 
   .about-section h3 {
     margin: 0 0 0.65rem;
-    font-size: 1.35rem;
   }
 
   .about-actions {
@@ -27,10 +26,6 @@ permalink: /about/index.html
     list-style: none;
   }
 
-  .about-section h3 sup {
-    font-size: small;
-  }
-
   #about-text-p1 {
     text-indent: 2rem;
   }
@@ -39,13 +34,12 @@ permalink: /about/index.html
     color: var(--muted);
     font-family: var(--font-sans);
     border-top: var(--border);
-    font-size: smaller;
   }
 </style>
 
 <article aria-labelledby="about-title">
   <header class="meditation-header">
-    <h2 id="about-title" class="meditation-header-title">{{ site.aboutTitle }}</h2>
+    <h2 id="about-title">{{ site.aboutTitle }}</h2>
   </header>
 
   <div class="prose">

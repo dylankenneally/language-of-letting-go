@@ -88,7 +88,6 @@
         adjacentMeditations.forEach(({ meditation, previous }, index) => {
           const listItem = document.createElement("li");
           const timeItem = document.createElement("time")
-          timeItem.className  = "date";
           timeItem.dateTime = `--${toTimeAttribute(meditation.displayDate)}`;
 
           const link = document.createElement("a");

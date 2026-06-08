@@ -93,6 +93,7 @@
         color-scheme: light;
         --font-sans: "BBC Reith Sans", system-ui, sans-serif;
         --font-serif: "BBC Reith Serif", Georgia, "Times New Roman", serif;
+        /* https://www.canva.com/colors/color-wheel/ */
         --paper: #fffdf8;
         --button-bg: rgba(255, 255, 255, 0.8);
         --button-bg-a11y: rgba(255, 255, 255);
@@ -112,6 +113,26 @@
         box-sizing: border-box;
       }
 
+      /* @link https://utopia.fyi/type/calculator?c=360,17,1.18,1240,20,1.25,3,2,&s=0.75,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+      :root {
+        /* Step -2: 12.2091px → 12.8px */
+        --typography--2: clamp(0.7631rem, 0.748rem + 0.0671vw, 0.8rem);
+        /* Step -1: 14.4068px → 16px */
+        --typography--1: clamp(0.9004rem, 0.8597rem + 0.181vw, 1rem);
+        /* Step 0: 17px → 20px */
+        --typography-0: clamp(1.0625rem, 0.9858rem + 0.3409vw, 1.25rem);
+        /* Step 1: 20.06px → 25px */
+        --typography-1: clamp(1.2538rem, 1.1274rem + 0.5614vw, 1.5625rem);
+        /* Step 2: 23.6708px → 31.25px */
+        --typography-2: clamp(1.4794rem, 1.2856rem + 0.8613vw, 1.9531rem);
+        /* Step 3: 27.9315px → 39.0625px */
+        --typography-3: clamp(1.7457rem, 1.4611rem + 1.2649vw, 2.4414rem);
+      }
+
+      html {
+        font-size: 16px;
+      }
+
       body {
         font-family: var(--font-serif);
         width: min(100%, 72rem);
@@ -120,6 +141,45 @@
 
         background: var(--paper);
         color: var(--ink);
+      }
+
+      h1, h2, h3 {
+        text-wrap: balance;
+      }
+
+      .prose {
+        text-wrap: pretty;
+      }
+
+      h1 {
+        font-size: var(--typography-3);
+      }
+
+      h2 {
+        font-size: var(--typography-2);
+      }
+
+      h3 {
+        font-size: var(--typography-1);
+      }
+
+      .prose,
+      .meditation-index-list {
+        font-size: var(--typography-0);
+      }
+
+      .site-description,
+      .action-button,
+      .is-disabled,
+      .quote-attribution {
+        font-size: var(--typography--1);
+      }
+
+      .search-form,
+      .meditation-header time,
+      .site-footer,
+      .about-footer {
+        font-size: var(--typography--2);
       }
 
       a {
@@ -205,11 +265,6 @@
         margin: 0;
       }
 
-      .site-header h1 {
-        font-weight: 700;
-        font-size: clamp(1rem, 2.5vw, 1.75rem);
-      }
-
       .site-description {
         color: var(--muted);
         font-family: var(--font-sans);
@@ -217,7 +272,6 @@
 
       p.site-description {
         margin-top: 0.75rem;
-        font-size: clamp(.75rem, 1.875vw, 1rem);
         margin-top: .5rem;
       }
 
@@ -337,7 +391,7 @@
       }
 
       .quote-attribution,
-      .meditation-header .date {
+      .meditation-header time {
         color: var(--muted);
         font-family: var(--font-sans);
       }
@@ -347,7 +401,6 @@
         margin-top: 0.75rem;
         text-transform: uppercase;
         font-style: normal;
-        font-size: .9rem;
         text-align: right;
       }
 
@@ -358,7 +411,6 @@
 
       .prose {
         line-height: 1.625;
-        font-size: 1.1rem;
       }
 
       .meditation-header {
@@ -368,28 +420,13 @@
         gap: 1rem;
       }
 
-      .meditation-header,
-      .meditation-index-header {
-        font-size: 1.1em;
-        font-weight: 700;
-      }
-
       .meditation-header h1,
       .meditation-header h2,
-      .meditation-header .date,
+      .meditation-header time,
       .meditation-index-header h1,
       .meditation-index-header h2 {
         margin: 0;
         margin-bottom: 1rem;
-      }
-
-      .meditation-header .date {
-        font-style: italic;
-        font-size: .9rem;
-      }
-
-      .meditation-header-title {
-        font-size: 2em;
       }
 
       #current-meditation {
@@ -400,19 +437,6 @@
       }
 
       @media screen and (max-width: 599px) {
-        .prose {
-          font-size: 1rem;
-        }
-
-        .meditation-header-title {
-          font-size: 1.25em;
-        }
-
-        .meditation-header,
-        .meditation-index-header {
-          font-size: 1em;
-        }
-
         .calendar-section {
           padding: 1rem;
         }
@@ -470,7 +494,6 @@
 
       .site-footer {
         margin-top: .5rem;
-        font-size: .8rem;
         font-family: var(--font-sans);
       }
 

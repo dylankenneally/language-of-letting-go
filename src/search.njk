@@ -13,6 +13,7 @@ excludeFromSearch: true
 
   .search-status {
     margin-top: 1rem;
+    font-size: var(--typography--1);
   }
 
   .search-results {
@@ -30,21 +31,21 @@ excludeFromSearch: true
     background: var(--button-bg);
   }
 
-  .search-result h2 {
+  .search-result h3 {
     margin: 0;
-    font-size: 1.2rem;
   }
 
-  .search-result-date {
-    font-size: .85rem;
+  .search-result-header .search-result-date,
+  .search-result .search-result-fuzzy {
+    font-size: var(--typography--1);
   }
 
   .search-result p {
     margin: 0;
+    font-size: var(--typography-0);
   }
 
   .search-result-fuzzy {
-    font-size: 0.85rem;
     padding-top: .5rem;
   }
 
@@ -180,7 +181,7 @@ excludeFromSearch: true
 
       item.innerHTML = `
         <span class="search-result-header">
-          <h2><a href="${result.url}">${safeTitle}</a></h2>
+          <h3><a href="${result.url}">${safeTitle}</a></h3>
           ${dateMarkup}
         </span>
         <p>${safeExcerpt}</p>

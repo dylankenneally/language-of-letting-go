@@ -27,7 +27,7 @@ layout: base.njk
   <nav class="meditation-nav" aria-label="{{ site.adjacentNav }}" data-current-meditation="">
     <ul class="meditation-nav-links" id="adjacent-meditation-links">
       <li>
-        <time class="date" datetime="--{{ previousMeditation.data.displayDate  | monthDayToMMDD }}">
+        <time datetime="--{{ previousMeditation.data.displayDate  | monthDayToMMDD }}">
           <a
             class="meditation-nav-link meditation-nav-link-previous"
             href="{{ previousMeditation.url | url }}"
@@ -39,7 +39,7 @@ layout: base.njk
         </time>
       </li>
       <li>
-        <time class="date" datetime="--{{ nextMeditation.data.displayDate  | monthDayToMMDD }}">
+        <time datetime="--{{ nextMeditation.data.displayDate  | monthDayToMMDD }}">
           <a
             class="meditation-nav-link meditation-nav-link-next"
             href="{{ nextMeditation.url | url }}"
