@@ -6,18 +6,28 @@
   width: 2rem;
   height: 2rem;
   border-radius: 1rem;
-  {# display: none; #}
+  display: none;
   align-content: center;
 }
 
 #back-to-top.visible {
   display: unset;
 }
+
+.branded-svg {
+  fill: var(--secondary);
+}
+
+.branded-svg:hover,
+.branded-svg:focus-visible  {
+  fill: var(--button-bg-a11y);
+}
+
 </style>
 
 <nav>
   <a href="#top" id="back-to-top" class="action-button">
-    <span class="material-symbols-outlined">{% include "../images/up_arrow.svg" %}</span>
+    <span class="branded-svg">{% include "../images/up_arrow.svg" %}</span>
   </a>
 </nav>
 
