@@ -58,6 +58,27 @@ excludeFromSearch: true
     justify-content: space-between;
     padding-bottom: .5rem;
   }
+
+  #search-state {
+    display: flex;
+    gap: .5rem;
+    padding: 1rem .5rem;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #search-state.with-results {
+    padding: unset;
+    align-items: unset;
+  }
+
+  .search-img {
+    height: 5rem;
+  }
+
+  .with-results .search-img {
+    display: none;
+  }
 </style>
 
 <section aria-labelledby="page-title">
@@ -65,7 +86,13 @@ excludeFromSearch: true
     {% include "search-component.njk" %}
   </header>
 
-  <p id="search-status" class="search-status" aria-live="polite"></p>
+  <span id="search-state">
+    <img
+      class="search-img"
+      src="{{ '/favicon.svg' | url }}" alt=""
+    >
+    <p id="search-status" class="search-status" aria-live="polite"></p>
+  </span>
   <ol id="search-results" class="search-results"></ol>
 </section>
 
@@ -74,6 +101,7 @@ excludeFromSearch: true
   const searchForm = document.getElementById("search-form");
   const searchInput = document.getElementById("search-query");
   const searchStatus = document.getElementById("search-status");
+  const searchState = document.getElementById("search-state");
   const searchResultsNode = document.getElementById("search-results");
   let miniSearchIndex = null;
 
@@ -219,11 +247,13 @@ excludeFromSearch: true
 
     if (!results.length) {
       searchStatus.textContent = "{{ site.searchNoResults }}";
+      searchState.classList.remove("with-results");
       searchResultsNode.innerHTML = "";
       return;
     }
 
     searchStatus.textContent = "{{ site.searchResultCount("__COUNT__") }}".replace("__COUNT__", String(results.length));
+    searchState.classList.add("with-results");
     renderResults(results, queryTerms);
   }
 
