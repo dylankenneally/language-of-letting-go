@@ -1,8 +1,4 @@
 <style>
-  .site-header {
-    padding: 1rem 1.5rem;
-  }
-
   .site-header-inner {
     display: grid;
     grid-template-columns: auto minmax(0, 1fr);
@@ -16,12 +12,6 @@
 
   .site-header h1 {
     line-height: 1;
-  }
-
-  @media screen and (max-width: 599px) {
-    .site-header {
-      padding: 1rem;
-    }
   }
 
   .site-logo-link {
@@ -59,7 +49,7 @@
   {% set headerTitle = site.title %}
 {% endif %}
 
-<header class="site-header" id="top">
+<header class="site-header site-segment" id="top">
   <div class="site-header-inner">
     <a class="site-logo-link" href="{{ '/' | url }}" aria-label="{{ site.home }}">
       <img class="site-logo" src="{{ '/favicon-96x96.png' | url }}" alt="">

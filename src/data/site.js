@@ -49,4 +49,7 @@ export default {
     gitHub: 'https://github.com/dylankenneally/language-of-letting-go',
     amazon: 'https://www.amazon.com.au/Language-Letting-Meditation-Meditations-Codependents/dp/0894866370',
   },
+
+  openSource: "Open Source",
+  buyTheBook: "Buy the book",
 };

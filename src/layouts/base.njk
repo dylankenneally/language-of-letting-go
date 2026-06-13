@@ -167,6 +167,16 @@
         font-size: var(--typography-1);
       }
 
+      .site-segment {
+        padding: 1rem 1.5rem;
+      }
+
+      @media screen and (max-width: 599px) {
+        .site-segment {
+          padding: 1rem;
+        }
+      }
+
       .prose,
       .meditation-index-list {
         font-size: var(--typography-0);
@@ -179,7 +189,6 @@
       }
 
       .search-form,
-      .site-footer,
       .about-footer {
         font-size: var(--typography--2);
       }
@@ -189,8 +198,7 @@
         text-decoration: none;
       }
 
-      .meditation-nav-link-next,
-      .site-footer a {
+      .meditation-nav-link-next {
         color: var(--muted);
         text-decoration: none;
       }
@@ -461,30 +469,6 @@
       .meditation-nav-link-next {
         margin-left: auto;
       }
-
-      .site-footer {
-        margin-top: .5rem;
-        font-family: var(--font-sans);
-      }
-
-      .corp-logo {
-        height: .9rem;
-      }
-
-      .site-footer > nav {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-evenly;
-        align-items: baseline;
-        flex-wrap: wrap;
-        gap: .5rem;
-      }
-
-      a.nav-current-page {
-        text-decoration: underline;
-        text-decoration-thickness: 1px;
-        text-underline-offset: 0.16em;
-      }
     </style>
   </head>
   <body>
@@ -494,26 +478,7 @@
     <main id="main-content">
       {{ content | safe }}
     </main>
-    <footer class="site-footer">
-      <nav aria-label="{{ site.primaryNav }}">
-        <a href="{{ '/' | url }}"{% if isHomePage %} class="nav-current-page"{% endif %}>{{ site.home }}</a>
-        <a href="{{ '/about/' | url }}"{% if isAboutPage %} class="nav-current-page"{% endif %}>{{ site.about }}</a>
-        <a href="{{ '/index/' | url }}"{% if isIndexPage %} class="nav-current-page"{% endif %}>{{ site.seeAll }}</a>
-        <a href="{{ '/search/' | url }}"{% if isSearchPage %} class="nav-current-page"{% endif %}>{{ site.search }}</a>
-        <span>
-          <a href="{{ site.externalUrls.gitHub }}" target="_blank" rel="noopener">
-            <img class="corp-logo" src="{{ '/images/github.svg' | url }}" alt="">
-            Open Source
-          </a>
-        </span>
-        <span>
-          <a href="{{ site.externalUrls.amazon }}" target="_blank" rel="noopener">
-            <img class="corp-logo" src="{{ '/images/amazon.svg' | url }}" alt="">
-            Buy the book
-          </a>
-        </span>
-      </nav>
-    </footer>
+    {% include "site-footer.njk" %}
     {% include "back-to-top-btn.njk" %}
   </body>
 </html>
