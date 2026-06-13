@@ -13,7 +13,7 @@ eleventyImport:
   .meditation-index-header {
     margin-bottom: 2rem;
     padding-bottom: 1.25rem;
-    border-bottom: 1px solid var(--border);
+    border-bottom: var(--border);
   }
 
   .meditation-index-alphabet {
@@ -27,8 +27,7 @@ eleventyImport:
     padding: .5em;
   }
 
-  .meditation-index-alphabet a,
-  .meditation-index-alphabet .is-disabled {
+  .meditation-index-alphabet li * {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -36,26 +35,7 @@ eleventyImport:
     min-height: 2rem;
     padding: 0.35rem 0.65rem;
     border-radius: 999px;
-    font-weight: 400;
     font-family: var(--font-sans);
-  }
-
-  .meditation-index-alphabet a {
-    border: 1px solid var(--border);
-    background: rgba(35, 83, 71, 0.05);
-    color: var(--accent);
-    text-decoration: none;
-  }
-
-  .meditation-index-alphabet li {
-    font-size: .75rem;
-  }
-
-  .meditation-index-alphabet .is-disabled {
-    border: 1px solid rgba(222, 214, 200, 0.9);
-    background: rgba(31, 41, 51, 0.035);
-    color: rgba(107, 114, 128, 0.25);
-    cursor: not-allowed;
   }
 
   .meditation-index-groups {
@@ -70,10 +50,6 @@ eleventyImport:
   .meditation-index-letter {
     margin: 0 0 0.75rem;
     padding-top: 0.35rem;
-    color: var(--accent);
-    font-family: var(--font-serif);
-    font-size: 1.5rem;
-    font-weight: 700;
   }
 
   .meditation-index-list {
@@ -90,7 +66,6 @@ eleventyImport:
     display: flex;
     align-items: baseline;
     gap: 0.75rem;
-    color: inherit;
   }
 
   a .meditation-index-link:hover .meditation-index-title,
@@ -101,24 +76,24 @@ eleventyImport:
   }
 
   .meditation-index-title {
-    font-family: var(--font-serif);
     line-height: 1.45;
   }
 
   .meditation-index-dots {
     flex: 1;
     min-width: 1.25rem;
-    border-bottom: 1px dotted rgba(31, 41, 51, 0.3);
+    border-bottom: 1px dotted var(--associated);
     transform: translateY(-0.2rem);
   }
 
   .meditation-index-date {
-    color: var(--muted);
-    font-size: 0.92rem;
     white-space: nowrap;
   }
 
   .meditation-index-date-list {
+    color: var(--muted);
+    font-family: var(--font-sans);
+
     display: inline-flex;
     flex-wrap: wrap;
     justify-content: flex-end;
@@ -127,7 +102,6 @@ eleventyImport:
 
   .meditation-index-date-list a {
     color: inherit;
-    text-decoration: none;
   }
 
   .meditation-index-date-list a:hover,
@@ -135,10 +109,6 @@ eleventyImport:
     text-decoration: underline;
     text-decoration-thickness: 1px;
     text-underline-offset: 0.16em;
-  }
-
-  .meditation-index-date-separator {
-    color: var(--muted);
   }
 
   @media (min-width: 52rem) {
@@ -154,9 +124,8 @@ eleventyImport:
   }
 </style>
 
-<section aria-labelledby="meditation-index-title">
+<section aria-labelledby="page-title">
   <nav class="meditation-index-header" aria-label="{{ site.indexNav }}" data-current-meditation="">
-    <h2 id="meditation-index-title">{{ site.meditationsIndex }}</h2>
     <ul class="meditation-index-alphabet" aria-label="{{ site.navJump }}">
       {% for letter in alphabet %}
         {% set matchingGroup = "" %}
@@ -167,7 +136,7 @@ eleventyImport:
         {% endfor %}
         <li>
           {% if matchingGroup %}
-            <a href="#index-{{ letter | lower }}">{{ letter }}</a>
+            <a class="action-button" href="#index-{{ letter | lower }}">{{ letter }}</a>
           {% else %}
             <span class="is-disabled" aria-disabled="true" title="{{ site.navNoIndexEntry(letter) }}">{{ letter }}</span>
           {% endif %}
@@ -189,7 +158,7 @@ eleventyImport:
                 <span class="meditation-index-date meditation-index-date-list">
                   {% for date in entry.dates %}
                     <span>
-                      <a href="{{ date.url | url }}">{{ date.displayDate }}</a>{% if not loop.last %}<span class="meditation-index-date-separator" aria-hidden="true">{{ site.listSeparator }}</span>{% endif %}
+                      <a href="{{ date.url | url }}">{{ date.displayDate }}</a>{% if not loop.last %}<span aria-hidden="true">{{ site.listSeparator }}</span>{% endif %}
                     </span>
                   {% endfor %}
                 </span>

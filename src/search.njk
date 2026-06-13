@@ -4,9 +4,16 @@ permalink: /search/index.html
 excludeFromSearch: true
 ---
 <style>
+  .search-status,
+  .search-result-date,
+  .search-result-fuzzy {
+    color: var(--muted);
+    font-family: var(--font-sans);
+  }
+
   .search-status {
     margin-top: 1rem;
-    color: var(--muted);
+    font-size: var(--typography--1);
   }
 
   .search-results {
@@ -18,40 +25,32 @@ excludeFromSearch: true
   }
 
   .search-result {
-    border: 1px solid var(--border);
+    border: var(--border);
     border-radius: 1rem;
     padding: 1rem;
-    background: rgba(255, 255, 255, 0.65);
+    background: var(--button-bg);
   }
 
-  .search-result h2 {
+  .search-result h3 {
     margin: 0;
-    font-size: 1.2rem;
-    font-family: var(--font-serif);
   }
 
-  .search-result-date {
-    color: var(--muted);
-    font-size: .85rem;
+  .search-result-header .search-result-date,
+  .search-result .search-result-fuzzy {
+    font-size: var(--typography--1);
   }
 
   .search-result p {
     margin: 0;
+    font-size: var(--typography-0);
   }
 
   .search-result-fuzzy {
-    color: var(--muted);
-    font-size: 0.85rem;
     padding-top: .5rem;
   }
 
   mark {
-    background: rgba(35, 83, 71, 0.15);
-    color: inherit;
-  }
-
-  #search-title {
-    font-family: var(--font-serif);
+    background: var(--secondary);
   }
 
   .search-result-header {
@@ -59,15 +58,41 @@ excludeFromSearch: true
     justify-content: space-between;
     padding-bottom: .5rem;
   }
+
+  #search-state {
+    display: flex;
+    gap: .5rem;
+    padding: 1rem .5rem;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #search-state.with-results {
+    padding: unset;
+    align-items: unset;
+  }
+
+  .search-img {
+    height: 5rem;
+  }
+
+  .with-results .search-img {
+    display: none;
+  }
 </style>
 
-<section aria-labelledby="search-title">
+<section aria-labelledby="page-title">
   <header>
-    <h2 id="search-title">{{ site.searchTitle }}</h2>
     {% include "search-component.njk" %}
   </header>
 
-  <p id="search-status" class="search-status" aria-live="polite"></p>
+  <span id="search-state">
+    <img
+      class="search-img"
+      src="{{ '/favicon.svg' | url }}" alt=""
+    >
+    <p id="search-status" class="search-status" aria-live="polite"></p>
+  </span>
   <ol id="search-results" class="search-results"></ol>
 </section>
 
@@ -76,6 +101,7 @@ excludeFromSearch: true
   const searchForm = document.getElementById("search-form");
   const searchInput = document.getElementById("search-query");
   const searchStatus = document.getElementById("search-status");
+  const searchState = document.getElementById("search-state");
   const searchResultsNode = document.getElementById("search-results");
   let miniSearchIndex = null;
 
@@ -182,7 +208,7 @@ excludeFromSearch: true
 
       item.innerHTML = `
         <span class="search-result-header">
-          <h2><a href="${result.url}">${safeTitle}</a></h2>
+          <h3><a href="${result.url}">${safeTitle}</a></h3>
           ${dateMarkup}
         </span>
         <p>${safeExcerpt}</p>
@@ -221,11 +247,13 @@ excludeFromSearch: true
 
     if (!results.length) {
       searchStatus.textContent = "{{ site.searchNoResults }}";
+      searchState.classList.remove("with-results");
       searchResultsNode.innerHTML = "";
       return;
     }
 
     searchStatus.textContent = "{{ site.searchResultCount("__COUNT__") }}".replace("__COUNT__", String(results.length));
+    searchState.classList.add("with-results");
     renderResults(results, queryTerms);
   }
 

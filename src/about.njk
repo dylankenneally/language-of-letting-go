@@ -8,11 +8,8 @@ permalink: /about/index.html
     margin-top: 1.75rem;
   }
 
-  .about-section h3 {
+  .about-section h2 {
     margin: 0 0 0.65rem;
-    color: var(--accent);
-    font-family: var(--font-serif);
-    font-size: 1.35rem;
   }
 
   .about-actions {
@@ -22,34 +19,11 @@ permalink: /about/index.html
     gap: 0.75rem;
     margin-top: 2rem;
     padding-top: 1.5rem;
-    border-top: 1px solid var(--border);
-  }
-
-  .about-actions a {
-    display: inline-flex;
-    align-items: center;
-    min-height: 2.75rem;
-    padding: 0.75rem 1rem;
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.8);
-    text-decoration: none;
-  }
-
-  .about-actions a:hover,
-  .about-actions a:focus-visible {
-    background: #fff;
-    text-decoration: underline;
-    text-decoration-thickness: 1px;
-    text-underline-offset: 0.16em;
+    border-top: var(--border);
   }
 
   .about-section ul {
     list-style: none;
-  }
-
-  .about-section h3 sup {
-    font-size: small;
   }
 
   #about-text-p1 {
@@ -57,20 +31,13 @@ permalink: /about/index.html
   }
 
   .about-footer {
-    border-top: 1px dashed var(--border);
-  }
-
-  .about-footer ol {
     color: var(--muted);
-    font-size: smaller;
+    font-family: var(--font-sans);
+    border-top: var(--border);
   }
 </style>
 
-<article aria-labelledby="about-title">
-  <header class="meditation-header">
-    <h2 id="about-title" class="meditation-header-title">{{ site.aboutTitle }}</h2>
-  </header>
-
+<article aria-labelledby="page-title">
   <div class="prose">
     <p id="about-text-p1">
       Discover inspiration &amp; daily encouragement with this accessible site, offering <cite>The Language of Letting Go</cite> — Melody Beattie's meditations on codependency, recovery, self-care, boundaries, and the steady practice of letting life unfold.
@@ -83,7 +50,7 @@ permalink: /about/index.html
     </p>
 
     <section class="about-section" aria-labelledby="about-dedication">
-      <h3 id="about-dedication">Dedication <sup><a href="#fn1" id="ref1">1</a></sup></h3>
+      <h2 id="about-dedication">Dedication <sup><a href="#fn1" id="ref1">1</a></sup></h2>
         {% quote "Melody Beattie" %}
           <p>For her help in writing this book, I acknowledge and thank Rebecca Post, my editor at Hazelden. This book is dedicated to</p>
           <ul>
@@ -95,7 +62,7 @@ permalink: /about/index.html
     </section>
 
     <section class="about-section" aria-labelledby="about-intro">
-      <h3 id="about-intro">Introduction <sup><a href="#fn2" id="ref2">2</a></sup></h3>
+      <h2 id="about-intro">Introduction <sup><a href="#fn2" id="ref2">2</a></sup></h2>
         {% quote "Melody" %}
           <p>This is a book of meditations. It is designed to help you spend a few moments each day remembering what you know.</p>
           <p>I have touched on principles from <em>Codependent No More</em> and <em>Beyond Codependency</em>. I've also included some new thoughts and ideas.</p>
@@ -118,8 +85,8 @@ permalink: /about/index.html
     </ol>
 
     <nav class="about-actions" aria-label="{{ site.meditationNav }}">
-      <a href="{{ '/' | url }}">Today's meditation</a>
-      <a href="{{ '/index/' | url }}">{{ site.meditationsIndex }}</a>
+      <a class="action-button meditation-nav-link" href="{{ '/' | url }}">Today's meditation</a>
+      <a class="action-button meditation-nav-link" href="{{ '/index/' | url }}">{{ site.meditationsIndex }}</a>
     </nav>
   </footer>
 </article>

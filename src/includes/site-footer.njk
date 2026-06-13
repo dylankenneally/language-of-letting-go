@@ -1,0 +1,52 @@
+<style>
+  .site-footer {
+    font-family: var(--font-sans);
+    font-size: var(--typography--2);
+    {# margin-top: .5rem; #}
+  }
+
+  .site-footer a {
+    color: var(--muted);
+    text-decoration: none;
+  }
+
+  .site-footer > nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: .5rem;
+  }
+
+  a.nav-current-page {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.16em;
+  }
+
+  .corp-logo {
+    height: .9rem;
+  }
+</style>
+
+<footer class="site-footer site-segment">
+  <nav aria-label="{{ site.primaryNav }}">
+    <a href="{{ '/' | url }}"{% if isHomePage %} class="nav-current-page"{% endif %}>{{ site.home }}</a>
+    <a href="{{ '/search/' | url }}"{% if isSearchPage %} class="nav-current-page"{% endif %}>{{ site.search }}</a>
+    <a href="{{ '/index/' | url }}"{% if isIndexPage %} class="nav-current-page"{% endif %}>{{ site.seeAll }}</a>
+    <a href="{{ '/about/' | url }}"{% if isAboutPage %} class="nav-current-page"{% endif %}>{{ site.about }}</a>
+    <span>
+      <a href="{{ site.externalUrls.gitHub }}" target="_blank" rel="noopener">
+        <img class="corp-logo" src="{{ '/images/github.svg' | url }}" alt="">
+        {{ site.openSource }}
+      </a>
+    </span>
+    <span>
+      <a href="{{ site.externalUrls.amazon }}" target="_blank" rel="noopener">
+        <img class="corp-logo" src="{{ '/images/amazon.svg' | url }}" alt="">
+        {{ site.buyTheBook }}
+      </a>
+    </span>
+  </nav>
+</footer>

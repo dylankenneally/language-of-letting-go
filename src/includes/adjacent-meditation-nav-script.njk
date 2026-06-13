@@ -88,7 +88,6 @@
         adjacentMeditations.forEach(({ meditation, previous }, index) => {
           const listItem = document.createElement("li");
           const timeItem = document.createElement("time")
-          timeItem.className  = "date";
           timeItem.dateTime = `--${toTimeAttribute(meditation.displayDate)}`;
 
           const link = document.createElement("a");
@@ -96,7 +95,7 @@
             ? getMeditationUrl(meditation.id, meditation)
             : meditation.url;
           link.textContent = `${previous ? "← " : ""}${meditation.displayDate}${previous ? "" : " →"}`;
-          link.className = `meditation-nav-link ${previous ? "meditation-nav-link-previous" : "meditation-nav-link-next"}`;
+          link.className = `action-button meditation-nav-link ${previous ? "meditation-nav-link-previous" : "meditation-nav-link-next"}`;
           link.ariaLabel = `${previous ? "Previous" : "Next"} meditation: ${meditation.displayDate}`;
           link.rel = previous ? "prev" : "next";
 

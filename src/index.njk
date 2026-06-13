@@ -12,7 +12,7 @@ layout: base.njk
       firstMeditation.data.title,
       firstMeditation.data.displayDate,
       firstMeditation.content,
-      "today-meditation-title",
+      "page-title",
       "today-meditation-date",
       "today-meditation-content"
     )
@@ -27,7 +27,7 @@ layout: base.njk
   <nav class="meditation-nav" aria-label="{{ site.adjacentNav }}" data-current-meditation="">
     <ul class="meditation-nav-links" id="adjacent-meditation-links">
       <li>
-        <time class="date" datetime="--{{ previousMeditation.data.displayDate  | monthDayToMMDD }}">
+        <time datetime="--{{ previousMeditation.data.displayDate  | monthDayToMMDD }}">
           <a
             class="meditation-nav-link meditation-nav-link-previous"
             href="{{ previousMeditation.url | url }}"
@@ -39,7 +39,7 @@ layout: base.njk
         </time>
       </li>
       <li>
-        <time class="date" datetime="--{{ nextMeditation.data.displayDate  | monthDayToMMDD }}">
+        <time datetime="--{{ nextMeditation.data.displayDate  | monthDayToMMDD }}">
           <a
             class="meditation-nav-link meditation-nav-link-next"
             href="{{ nextMeditation.url | url }}"
@@ -79,7 +79,7 @@ layout: base.njk
   const meditationDataNode = document.getElementById("meditations-data");
 
   if (meditationDataNode) {
-    const titleNode = document.getElementById("today-meditation-title");
+    const titleNode = document.getElementById("page-title");
     const dateNode = document.getElementById("today-meditation-date");
     const contentNode = document.getElementById("today-meditation-content");
     const navRoot = document.querySelector("[data-current-meditation]");
@@ -152,6 +152,7 @@ layout: base.njk
 
         titleNode.textContent = meditation.title;
         contentNode.innerHTML = meditation.content;
+        document.title = `${meditation.title} | {{ site.title }}`;
       }
 
       function getUrlForMeditation(meditationId) {
