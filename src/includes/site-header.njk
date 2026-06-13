@@ -1,0 +1,80 @@
+<style>
+  .site-header {
+    padding: 1rem 1.5rem;
+  }
+
+  .site-header-inner {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 0rem 1rem;
+    align-items: center;
+  }
+
+  .site-header h1 {
+    margin: 0;
+  }
+
+  .site-header h1 {
+    line-height: 1;
+  }
+
+  @media screen and (max-width: 599px) {
+    .site-header {
+      padding: 1rem;
+    }
+  }
+
+  .site-logo-link {
+    display: inline-flex;
+    grid-row: span 2;
+    align-self: start;
+    border-radius: 999px;
+  }
+
+  .site-logo {
+    display: block;
+    width: clamp(3rem, 2.5rem + 1.75vw, 4rem);
+    height: clamp(3rem, 2.5rem + 1.75vw, 4rem);
+  }
+
+  .site-description {
+    font-family: var(--font-sans);
+    font-size: var(--typography--1);
+    color: var(--muted);
+    margin: .5rem 0;
+  }
+
+  @media screen and (max-width: 560px){
+    #site-description-extra {
+      display: none;
+    }
+  }
+</style>
+
+{% set headerTitle = title %}
+{% if isHomePage and collections and collections.meditations and collections.meditations.length %}
+  {% set headerTitle = collections.meditations[0].data.title %}
+{% endif %}
+{% if not headerTitle %}
+  {% set headerTitle = site.title %}
+{% endif %}
+
+<header class="site-header" id="top">
+  <div class="site-header-inner">
+    <a class="site-logo-link" href="{{ '/' | url }}" aria-label="{{ site.home }}">
+      <img class="site-logo" src="{{ '/favicon-96x96.png' | url }}" alt="">
+    </a>
+    <h1 id="page-title">{{ headerTitle }}</h1>
+    <p class="site-description">
+      <a href="{{ '/' | url }}">{{ site.title }}</a>
+      {% if not isAboutPage %}
+      <span id="site-description-extra">
+        | {{ site.description }}
+      </span>
+      {% endif %}
+    </p>
+  </div>
+  {% if not isSearchPage %}
+    {% include "search-component.njk" %}
+  {% endif %}
+</header>

@@ -1,7 +1,19 @@
-{% macro meditationContent(title, displayDate, content, titleId="", dateId="", contentId="") %}
-<article {% if titleId %} aria-labelledby="{{ titleId }}"{% endif %}>
+{% macro meditationContent(title, displayDate, content, titleId="page-title", dateId="", contentId="") %}
+
+<style>
+  .meditation-header {
+    text-align: end;
+  }
+
+  .meditation-header time {
+    font-family: var(--font-sans);
+    font-size: var(--typography--1);
+    color: var(--muted);
+  }
+</style>
+
+<article aria-labelledby="{{ titleId }}">
   <header class="meditation-header">
-    <h2{% if titleId %} id="{{ titleId }}"{% endif %}>{{ title }}</h2>
     <time {% if dateId %} id="{{ dateId }}"{% endif %} datetime="--{{ displayDate | monthDayToMMDD }}">{{ displayDate }}</time>
   </header>
 
@@ -9,4 +21,5 @@
     {{ content | safe }}
   </div>
 </article>
+
 {% endmacro %}

@@ -143,6 +143,10 @@
         color: var(--ink);
       }
 
+      main {
+        padding: .75rem;
+      }
+
       h1, h2, h3 {
         text-wrap: balance;
       }
@@ -168,7 +172,6 @@
         font-size: var(--typography-0);
       }
 
-      .site-description,
       .action-button,
       .is-disabled,
       .quote-attribution {
@@ -176,7 +179,6 @@
       }
 
       .search-form,
-      .meditation-header time,
       .site-footer,
       .about-footer {
         font-size: var(--typography--2);
@@ -234,7 +236,6 @@
         cursor: not-allowed;
       }
 
-
       .skip-link {
         background: var(--button-bg-a11y);
 
@@ -253,26 +254,6 @@
       .skip-link:focus,
       .skip-link:focus-visible {
         transform: translateY(0);
-      }
-
-      .site-header {
-        margin-bottom: .5rem;
-        padding: 1.5rem;
-      }
-
-      .site-header h1,
-      .site-header p {
-        margin: 0;
-      }
-
-      .site-description {
-        color: var(--muted);
-        font-family: var(--font-sans);
-      }
-
-      p.site-description {
-        margin-top: 0.75rem;
-        margin-top: .5rem;
       }
 
       .calendar-section {
@@ -390,8 +371,7 @@
         margin-top: 1rem;
       }
 
-      .quote-attribution,
-      .meditation-header time {
+      .quote-attribution {
         color: var(--muted);
         font-family: var(--font-sans);
       }
@@ -413,16 +393,6 @@
         line-height: 1.625;
       }
 
-      .meditation-header {
-        display: flex;
-        align-items: baseline;
-        justify-content: space-between;
-        gap: 1rem;
-      }
-
-      .meditation-header h1,
-      .meditation-header h2,
-      .meditation-header time,
       .meditation-index-header h1,
       .meditation-index-header h2 {
         margin: 0;
@@ -520,19 +490,10 @@
   <body>
     {# todo: review this UX on skip link #}
     <a class="action-button skip-link" href="#main-content">{{ site.skipToMain }}</a>
-
-    <header class="site-header" id="top">
-      <h1><a href="{{ '/' | url }}">{{ site.title }}</a></h1>
-      <p class="site-description">{{ site.description }}</p>
-      {% if not isSearchPage %}
-        {% include "search-component.njk" %}
-      {% endif %}
-    </header>
-
+    {% include "site-header.njk" %}
     <main id="main-content">
       {{ content | safe }}
     </main>
-
     <footer class="site-footer">
       <nav aria-label="{{ site.primaryNav }}">
         <a href="{{ '/' | url }}"{% if isHomePage %} class="nav-current-page"{% endif %}>{{ site.home }}</a>
@@ -553,7 +514,6 @@
         </span>
       </nav>
     </footer>
-
     {% include "back-to-top-btn.njk" %}
   </body>
 </html>
