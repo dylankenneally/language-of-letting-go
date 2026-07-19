@@ -28,7 +28,7 @@
     "@11ty/eleventy": "^3.1.6",
     "@eslint/css": "^1.4.0",
     "@eslint/js": "^10.0.1",
-    "@eslint/markdown": "^8.0.2",
+    "@eslint/markdown": "^8.0.3",
     "clean-css": "^5.3.3",
     "dotenv": "^17.4.2",
     "eslint": "^10.7.0",
